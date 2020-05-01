@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on </title>
+    <link>https://zecoo.github.io/hugo/posts/</link>
+    <description>Recent content in Posts on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 30 Apr 2020 10:37:07 +0800</lastBuildDate>
+    
+	<atom:link href="https://zecoo.github.io/hugo/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>K8s &#43; Istio 概念</title>
+      <link>https://zecoo.github.io/hugo/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Thu, 30 Apr 2020 10:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</guid>
+      <description>K8s + Istio 概念 环境都搭好了，不知道里面的原理那可不行。
+我也不会系统写，想到哪里就写到哪里吧。
+istio是如何做到无侵入就能控制流量转发？ Sidecar还有Envoy是这里的核心。
+这个图就很好得说明了sidecar中流量的走向。这部分在华为的书《云原声服务网格istio》中关于sidecar的介绍写得很清楚。也就是说Envoy通过iptables拦截了进来的流量，然后强迫流量走自己的通道，相当于一个收保护费的。
+那么iptables为什么这么屌，能把流量给拦截下来？其实iptables改名叫netfilter更形象一些。先不深究iptables是如何做转发的，形象理解iptables为何这么屌，其实是它作为一个内核设置的功能，可以把网卡接受到的流量先通过自己过滤，然后再发送给web应用。
+那么也就是，我从Safari发起对http://serverip:port/productpage访问，首先流量通过我的网卡，经过计算机网络传到server的网卡，然后server的网卡把这条流量先交给iptables过滤一下，然后再发给productpage代表的微服务。
+iptables我好像把它关了，但是我的istio依然能够工作？这又是为什么呢…
+k8s如何调度微服务节点的 搞清楚这样几个概念：pod、deployment、service、node
+ 一个pod上跑k个容器，这k个容器组成一个app（微服务） deployment，其实叫replica controller更合适。顾名思义，就是扩缩pod service就是app对外的一个访问入口。一个svc中可能有n个replica node就是部署service的节点  那么到这里我有一个小问题，有如果有n个replica，那么流量进来了会被分配到哪个pod里呢？
+kubelet是什么 kubelet是node的proxy。
+k8s的DNS是什么 给每个svc可用地址。
+（以上两个百度结果都不太好，姑且这么理解吧）
+参考 http://www.zsythink.net/archives/1199/ （讲iptables的好文）</description>
+    </item>
+    
+    <item>
+      <title>Istio 可视化插件概览</title>
+      <link>https://zecoo.github.io/hugo/posts/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
+      <pubDate>Thu, 30 Apr 2020 10:35:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
+      <description>Istio 可视化插件概览 Prometheus 基本的metrics监测插件。
+通过query查询不同的信息，例如以下信息就是istio_requests_total这条query查询到的n条数据中的一条。（不全，删除了部分我不关注的信息）
+istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;,destination_principal=&amp;quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&amp;quot;,destination_service=&amp;quot;productpage.default.svc.cluster.local&amp;quot;,destination_service_name=&amp;quot;productpage&amp;quot;,destination_service_namespace=&amp;quot;default&amp;quot;,destination_version=&amp;quot;v1&amp;quot;,destination_workload=&amp;quot;productpage-v1&amp;quot;,instance=&amp;quot;10.244.0.24:15090&amp;quot;,job=&amp;quot;envoy-stats&amp;quot;,namespace=&amp;quot;istio-system&amp;quot;,pod_name=&amp;quot;istio-ingressgateway-6489d9556d-bc48z&amp;quot;,response_code=&amp;quot;503&amp;quot;,source_workload=&amp;quot;istio-ingressgateway&amp;quot;,source_workload_namespace=&amp;quot;istio-system&amp;quot;}  Grafana Metrics可视化插件。
+Request Volume代表什么？
+Request Duration中的P50、P90分别代表什么？
+Jaegar 主要显示调用了哪些微服务，调用顺序是什么样的，响应时间是多少。
+Kiali 链路追踪可视化插件。可以看出有几个微服务，调用关系是什么样的。
+里面也有P50、P90。说明这个很关键啊。
+P90=100ms，就是说90%的请求其响应时间在100ms以内，剩余10%的响应时间大于100ms。
+Siege 压测工具。来看看压测结果
+$ siege -d 10 -c 200 -t 2 http://121.37.159.247:32753/productpage Lifting the server siege... Transactions:	519 hits Availability:	99.24 % Elapsed time:	119.34 secs Data transferred:	20.14 MB Response time:	9.01 secs Transaction rate:	4.35 trans/sec Throughput:	0.17 MB/sec Concurrency:	39.17 Successful transactions: 519 Failed transactions:	4 Longest transaction:	110.</description>
+    </item>
+    
+    <item>
+      <title>Istio 安装回顾</title>
+      <link>https://zecoo.github.io/hugo/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</link>
+      <pubDate>Wed, 29 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
+      <description>Istio 安装回顾 如果是Microk8s安装，很简单就一步：
+microk8s.enable istio  好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。
+然后转战华为云15天4g服务器试用。
+用Kubeadm安装k8s，过程呢，在另一篇博客中。
+这里主要回顾Kubeadm安装istio以及各种可视化插件的过程。
+全程请把精力集中在istio的官网上。每个教程都很详细。
+下载tar包，然后解压得到istio-15.2目录。这个目录里包含需要部署的yaml文件以及bookinfo的实例。
+然后按照istio官方的教程去安装就OK了。
+重点呢，是各种可视化插件的部署。如果istio部署顺利的话，各种插件的svc已经启动了，可以get svc查看一下。但是到目前为止还是只能在集群内访问。访问的入口是istio-ingressgateway。然后按照istio官方给出的远程访问方式去部署就好了。这里唯一一个和官方给出的教程不同的地方是，以Prometheus为例，官方给出的访问地址是：
+ Prometheus: http://&amp;lt;IP ADDRESS OF CLUSTER INGRESS&amp;gt;:15030/  这里的ingressip要改为
+[服务器地址] + [svc istioingressgateway对于15030暴露的端口]
+然后就可以用上面的地址访问到Prometheus了。
+当然我还搜到了另外一种方式访问，把Prometheus用另一个svc包裹起来，相当于多了一个nodeport svc的中介。输入这个命令即可：
+kubectl expose service prometheus --type=NodePort \ --name=prometheus-svc --namespace istio-system  然后就会多出来一个名为prometheus-svc的nodeport形式的服务。调用这个服务暴露出来的地址就可以访问Prometheus，只是我觉得这个方法可能不太安全，就没有用。
+参考 https://www.jianshu.com/p/b72c1e06b140 （安装指南）
+https://www.cnblogs.com/assion/p/11326088.html （修改istiogateway的LB为nodeport）
+https://www.jianshu.com/p/b72c1e06b140 （用hello-node做示例）
+https://www.cnblogs.com/davidwang456/articles/9311470.html （SLA和SLO的关系）
+https://www.jianshu.com/p/fd90d4914505 （istio的良好实践）
+https://www.jianshu.com/p/bed143a1c886 （估计也是个研究生大神，给王老师演示这个就可以了）
+https://www.cnblogs.com/CCE-SWR/p/10286404.html （也是演示之用）
+https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.3/manage_cluster/istio.html （另一种暴露Prometheus的方式）</description>
+    </item>
+    
+    <item>
+      <title>Kubeadm 安装记录</title>
+      <link>https://zecoo.github.io/hugo/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Tue, 28 Apr 2020 16:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
+      <description>Kubeadm 安装记录 装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。
+安装K8s有这几种方法
+ minikube mircok8s kubeadm  这三种方法我都用过。minikube在win上以虚拟机的形式运行，挺麻烦的讲道理。microk8s是最友好的方式，解决一个拉镜像的问题，也就不成问题了。kubeadm应该是最麻烦的了。
+回归正题，记录整个安装以及填坑的过程。
+第一步，kubelet、kubeadm、kubectl、kubernetes-cni一套安装下来。
+我现在才看到参考1中的一句话：
+# 指定版本否则都会默认安装库中最新版本，会因为彼此依赖的版本不同安装失败 $ yum install -y kubelet-1.13.1 kubeadm-1.13.1 kubectl-1.13.1 kubernetes-cni-0.6.0 # 设置开机启动并启动kubelet $ systemctl enable kubelet &amp;amp;&amp;amp; systemctl start kubelet  看到第一句话了吗？给我大声读几遍！！我就是因为这个，吃了多少亏，搜索多少资料😭。
+第二步，kubeadm config images list列出所有需要的image，因为国内网络问题嘛，一样的。然后用参考1里的bash脚本安装好，docke images检查一下。
+第三步，kube init --pod-network-cidr=10.244.0.0/16初始化kubeadm。这一步最重要的是/etc/kubernetes/admin.conf这个文件。还有后面那个参数，如果不加上，就会遇到新的坑哦～
+init结束之后，不要忘了提示的三行命令
+mkdir -p $HOME/.kube sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config sudo chown $(id -u):$(id -g) $HOME/.kube/config  第四步，到了这里，我们发现所有的pod都运行挺好的，除了coredns。但是镜像也都下载好了，为什么宁就比较特殊呢？然后我describe了一下，发现和flannel有关。
+所以啦，就是要先把flannel给部署好，这里还有一个坑，flannel是quay.io库的镜像，国内也是访问不到的，还是要换个镜像哈。还有刚才提到的init后面的参数，如果没有添加这个参数的话，flannel部署也会出问题的😊。好的，flannel解决掉，coredns也就马上部署好了。
+最后一套检查一下
+kubectl get node kubectl get sc kubectl get pod --all-namespaces  参考 https://blog.</description>
+    </item>
+    
+    <item>
+      <title>Kubectl client 和 server version 差距错误</title>
+      <link>https://zecoo.github.io/hugo/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
+      <pubDate>Tue, 28 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
+      <description>Kubectl client 和 server version 差距错误 每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说
+ 遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。
+ 说得真好。爆炸的心态慢慢也就平复了。
+回归正题，坑长这个样子：
+kubectl -f apply any.yaml  都会报错：
+Error from server (NotFound): the server could not find the requested resource  一开始我以为是apiserver的问题，但是apiserver是正常运行的。搜索了很长时间，还是在yandex上搜索到可能是Kubectl cli和server的版本差距过大造成的问题。
+看一下我的两个版本：kubectl version
+Client Version: version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;9&amp;quot;, GitVersion:&amp;quot;v1.9.3&amp;quot;, GitCommit:&amp;quot;5fa2db2bd46ac79e5e00a4e6ed24191080aa463b&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2018-01-18T21:12:46Z&amp;quot;, GoVersion:&amp;quot;go1.9.2&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;darwin/amd64&amp;quot;} Server Version: version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;16&amp;quot;, GitVersion:&amp;quot;v1.17.5&amp;quot;, GitCommit:&amp;quot;72c30166b2105cd7d3350f2c28a219e6abcd79eb&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2020-01-18T23:23:21Z&amp;quot;, GoVersion:&amp;quot;go1.13.5&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;linux/amd64&amp;quot;}  可以看到cli的版本是v1.9.3，而server的版本是1.17.5。差的太多了。
+继续搜索如何升级kubectl cli之，百度就别想能找到答案了。在k8s官网找到了安装kubectl的方法，重新安装了一下，kubectl cli的版本就升级到最新v1.18.5了。
+这下再试一下
+kubectl apply -f anyfile.yaml  终于可以运行yaml文件了。</description>
+    </item>
+    
+    <item>
+      <title>IFE task0002_5 回顾</title>
+      <link>https://zecoo.github.io/hugo/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</link>
+      <pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid>
+      <description>IFE task0002_5 回顾 做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基础。
+我也百度了一下，发现写task0002_5的博客少之又少，说明ife的任务2到这里，基本上已经没有很多人在做了。
+瞎总结 首先要了解事件是个什么东西。在这个任务里面，要监听的是
+ 滑块被拖动时的位置 dragStart(e) 滑块处于拖动状态 dragging(e) 滑块最后放置的位置 drop(e)  而在js里，有专门针对拖动的监听事件*dragStart*和*drop*方法。
+让滑块动起来 首先要给滑块设置draggable=true，然后就会神奇得发现滑块真的可以拖动了。留下一个残影在原来的位置。但是也会神奇得发现鼠标一松开还是要打回原形。
+先做第一个动画，拖动一个滑块A的时候，首先A要在wrap中消失。可以用css添加一个class dragging，设置display=none。监听滑块处在拖动的状态时，就是不可见的。而一旦落了脚，要移除这个class。重新回到可见状态。
+第一个动画做完，可以发现，拖动A，A下面的滑块会自动补上A的位置。松开鼠标依旧打回原形。
+单个容器拖动效果 然后尝试做单个容器内滑块的拖动效果。第二个动画该考虑把要移动的滑块A插到合适的地方。这里面有这样几步
+ 获取当前滑块A的中心相对容器的坐标。得出插入第k格 将A插入指定位置 A下面的滑块均向下移动一格  我在这里偷了个懒，仅根据drop事件当前的鼠标位置来判断插入哪一格。具体细节先不追究，毕竟还要抓紧学vue的知识。2、3步也比较简单，让每个滑块position=absolute，然后设置一个top值，就可以控制滑块的移动了。
+多容器拖动效果 最后将单容器拓展到双容器甚至多容器，其实仅比单容器多了一步，就是根据滑块drop的中心位置判断落在哪个容器。
+踩坑记 我写回顾主要是想记一下自己踩的坑。
+$.on(document.body, &#39;dragover&#39;, dragOver);  没错，全在这一行代码里了。
+$.on是util.js里addEvent(element, event, listener)的封装。
+ element，就是监听对象。我在做drop效果的时候，打死都出不来。随便一拖动，滑块就没了。最后定位到是element的问题，我打开html检查器，发现自己没有定义container的高度，结果就是整个body只有一丢丢高，并没有把容器包括进去。所以我拖动的滑块，其实在监听对象body之外。那肯定是没得效果咯。 event，这…我本来以为没啥实际意义的参数，又给我栽一大跟头，让我不好好看文档先学习用法。event要和listener方法名一致，并且全部小写。 dragOver别看就一行代码，e.preventDefault();，这是为了防止浏览器拖动结束没来得及drop就结束监听。不然又会遇到一拖动滑块就消失了的情况。  以上。
+参考 https://www.runoob.com/jsref/event-ondrag.html （菜鸟onDrag事件）
+https://www.jianshu.com/p/2dfb870e0b88 （本任务类型）</description>
+    </item>
+    
+    <item>
+      <title>Bayesian Optimization 直观理解</title>
+      <link>https://zecoo.github.io/hugo/posts/bayesian-optimization/</link>
+      <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/bayesian-optimization/</guid>
+      <description>Bayesian Optimization 直观理解 目标 最小(大)化一个没有具体表达式的函数。
+举个例子 给定一个函数 $$ f(x,y) = -x^2 - (y-1)^2 +1 $$
+BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。
+吐槽一下 中文的科普环境能不能再差一点？都尼玛是秀智商的。
+一个简单的东西讲得巨鸡儿复杂，还觉得自己抖机灵挺可爱的。说得就是这篇博客。
+幸好让我遇到了还算可以的另一篇博客。
+当然都不及老外的blog。
+我真的不是崇洋媚外。就是在讲一个事实。科学的范畴，中文优秀博客少得可怜。至少百度出来的是这样。</description>
+    </item>
+    
+    <item>
+      <title>K8S Proxy</title>
+      <link>https://zecoo.github.io/hugo/posts/k8s/k8s-proxy/</link>
+      <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/k8s/k8s-proxy/</guid>
+      <description>K8S Proxy 上一节讲到现在可以在vps上访问到hello-world了。
+然而我想把访问操作放在我的电脑上。我没有想到NodePort这么容易就能做到了。修改一下service.yaml里面port的type，从ClusterIP改为NodePort就可以了。
+到这里我已经很满足了，但是手痒痒想要看看dashboard的情况。首先嘛，得先把dashboard服务给启动起来对不对？不幸的是，在之前装microk8s的时候，我使用了这样一行命令添加了dns和dashboard这两个add-on
+kubectl enable dns dashboard  结果就是，dashboard其实已经启动了，只是我一直使用的命令
+kubectl get svc  只能显示namespace为default的service，就看不到dashboard也已经启动了。
+如果想要查看所有的svc还是添加--all-namespaces选项。
+ubuntu@VM-0-12-ubuntu:~$ sudo kubectl get svc --all-namespaces NAMESPACE NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE container-registry registry NodePort 10.152.183.11 &amp;lt;none&amp;gt; 5000:32000/TCP 13d default hello-node NodePort 10.152.183.14 &amp;lt;none&amp;gt; 8080:31908/TCP 4d4h default kubernetes ClusterIP 10.152.183.1 &amp;lt;none&amp;gt; 443/TCP 13d kube-system dashboard-metrics-scraper ClusterIP 10.152.183.247 &amp;lt;none&amp;gt; 8000/TCP 13d kube-system heapster ClusterIP 10.152.183.227 &amp;lt;none&amp;gt; 80/TCP 13d kube-system kube-dns ClusterIP 10.152.183.10 &amp;lt;none&amp;gt; 53/UDP,53/TCP,9153/TCP 13d kube-system kubernetes-dashboard NodePort 10.</description>
+    </item>
+    
+    <item>
+      <title>K8S hello-world 回顾</title>
+      <link>https://zecoo.github.io/hugo/posts/k8s/k8s-hello-world/</link>
+      <pubDate>Fri, 17 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/k8s/k8s-hello-world/</guid>
+      <description>K8S hello-world 回顾 没错这部分也花了我很长时间，而且把我心态还搞崩了。
+k8s安装主要是镜像是国外私有库，pull下来比较麻烦。
+而k8s第一个hello-world难在理解pod、deployment、service之间的关系，以及各种奇奇怪怪的端口映射。我想这是计算机网络基础没有打好埋的坑吧。
+镜像&amp;amp;Pod 首先是创建pod，这里也需要把本地docker创建的image给注射到microk8s.ctr里面。我根据参考1给出的方法构建了hello-node:v1镜像。然后注入到k8s里面。
+image创建成功之后，就可以构建pod了。用以下命令
+kubectl run hello-node --image=hello-node:v1 --port=8080 --image-pull-policy=Never  创建了一个pod，可以用命令
+kubectl get pods  查看pod的创建。如果创建不成功，可以具体查看pod的详细情况。
+kubectl describe pod hello-node  创建Deployment pod创建成功了，考虑构建deployment，dep是pod的无状态体现。deployment可以控制pod的replica数量。创建方法我没有找到命令行的方式，k8s官网给出的也是推荐使用yaml构建。以下是deployment.yaml文件：
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 kind: Deployment metadata: name: hello-node spec: selector: matchLabels: name: hello-node replicas: 1 # tells deployment to run 2 pods matching the template template: metadata: labels: name: hello-node spec: containers: - name: hello-node image: hello-node:v1 ports: - containerPort: 8080  有了yaml文件，然后用以下命令可以创建deployment</description>
+    </item>
+    
+    <item>
+      <title>ife 轮播图回顾</title>
+      <link>https://zecoo.github.io/hugo/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</link>
+      <pubDate>Wed, 15 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</guid>
+      <description>ife 轮播图回顾 写在前面 做到ife task002_3，轮播图花了我最长的时间来写，甚至让我开始反思自己是不是真的…不适合当一个程序员。我要成了程序员，有种侮辱了这个群体的感jio。最后看了一下，虽然也就125行的代码，断断续续我大概做了一周。😓
+html&amp;amp;CSS也遇到问题：  怎么把6张图片都塞到frame里面去不漏出来。简单一个overflow：hidden我就是想不到。 6个按钮小圆点怎么放到frame里面。其实还是position的问题，我总是自以为了解position，然而到了真正实践的时候就出问题。小圆点div相对于frame的position要absolute。 如何让图片有一个滑动的效果？我是看了DIYgod的代码之后，才知道要让图片float left，让图片div的宽度仅可能宽，让图片相对于左上角每次移动一部分距离，就能实现移动的效果了。  最要命的是JS部分 一开始我百度了一个轮播图的代码，是通过调整其他图片display：none，指定index的图片display：block。这样就简单实现了图片的切换。这样做也没有什么问题，但就是没有滑动的动画效果，看起来很low。
+干脆继续参考DIYgod的代码。就有了上面提到的，让图片横向展开在页面中。每次切换让图片向左或向右移动一定的距离offset。也就是图片div的left增加或减少offset。如果移动一张图片距离，那么就是offset=img.width。
+Next &amp;amp; Prev button 于是我先把next、prev点击切换的功能做出来，还算简单，主要注意的是next移动到第六张图片的时候，要跳回到第一张图片，要用if做个判断。prev移动到第一张照片的时候同理。
+移动动画效果 到这里可以发现，到目前为止，功能做出来和display：none的那一版没有任何区别。因为移动在一瞬间就完成了，没有形成动画效果。
+如果想要动画效果，要在一定时间time内逐步完成移动。做法是设置每个时间间隔interval移动一小段距离，那么每个时间间隔移动的距离就是offset / (time / interval)。然后设置一个setTimeout函数执行移动过程。
+好，动手操作一下。然后就会惊奇的发现：操，我的轮播图怎么停不下来了？是因为setTimeout之后，每个时间间隔就会执行一次，不设置停止条件的话就会一直执行下去。那么停止条件是什么呢？图片移动了offset的距离，这个动画过程就应该结束。所以停止条件就是initialLeft + offset = newLeft的时候。
+再来看看轮播图效果怎么样？next和prev按钮都可以使用了，而且也有了动画效果。小阶段目标完成，先给自己小小鼓励一下。
+小圆点 接下来考虑实现小圆点和图片的index的同步。这中间也有一些trick，我随便想想发现悟不到就又看了Dg的代码。
+首先考虑怎么做到让某个index的小圆点（下面用O表示）亮起来呢？Dg给出的方法是，给index的O添加一个class比如light，CSS中设置该class light的bgc=white，就相当于让index的O亮起来了，挺巧妙的。同时要注意，亮起来了，还要让他灭掉，也很简单，把所有O的light class都给remove掉。
+好的，现在任意index的O都可以控制其亮或者不亮了。直接把这个方法封装成showBtn()。在next、prev的点击操作中，添加showBtn方法，就可以成功看到指定index的O亮起来了，和图片实现了同步。
+小圆点这里还没完。通常在轮播图中点击某个位置的O，应该能跳转到该index的图片。这里Dg在html中给每个O设置了一个index=0~6属性，通过this.getAttribute()方法获取当前index。有了当前的index，和要移动到的index，相减乘以图片的width，就是要移动的offset。那么到这里这个功能也就实现了。
+所以到最后的顺时针、逆时针播放就更简单了，setInterval()，每隔1000ms执行一次next或者prev，就OK了。但是要注意，如果先后点击playASC和playDESC，会发生鬼畜。解决方法是在这两个方法执行前先判断一下，如果setInterval的timer还在的话，就stop掉。这样鬼畜的问题也就解决了。
+最后 别看我回顾就写了1.3k字，写代码花费的时间真的比我想象中的多多了。感觉那些程序员坐一下午能搞出各种各样的功能，我这……真的菜啊。</description>
+    </item>
+    
+    <item>
+      <title>Microk8s 国内安装总结</title>
+      <link>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</link>
+      <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</guid>
+      <description>Microk8s 国内安装总结 Ubuntu18本身自带snap，可以在microk8s的官网找到安装方法。
+注意k8s的运行条件只要满足以下
+ Linux kernel在3.1以上，很多小的openZV的服务器，都是2.6的核儿 Memory要在2G或以上。  我在国外买的xs vps就emmm。再附自己检查kernel的过程
+$ uname -r (check linux kernel) $ dpkg --print-architecture (check linux architecture amd64/arm64)  按照官网的方法，安装成功的话输入sudo kubectl version应该能看到client和server信息。
+但是现在的microk8s还需要安装一些add-on，装这些add-on的时候就会有问题了。
+sudo mircok8s enable dns dashboard
+这里开启microk8s的dns和dashboard服务，但是尝试一下会发现dashboard并不能使用。如果server装了ss可以翻wall，应该不会有这个问题。如果没有ss，用这个命令检查一下namespace为kube-system的pod的情况。
+sudo microk8s.kubectl get pods --all-namespaces
+你会看到以下信息：
+NAMESPACE NAME READY STATUS RESTARTS AGE container-registry registry-7cf58dcdcc-rlfdq 1/1 Running 1 18h default hello-node 0/1 ImagePullBackOff 0 16h kube-system coredns-588fd544bf-nmnnl 1/1 Creating 1 19h kube-system dashboard-metrics-scraper-db65b9c6f-46lrb 1/1 Creating 1 19h kube-system heapster-v1.</description>
+    </item>
+    
+    <item>
+      <title>SS on Ubuntu</title>
+      <link>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</link>
+      <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</guid>
+      <description>SS on Ubuntu 弄起来挺快的，其实就三点
+ 安装ss。apt install就可以 配置ss。就一个json文件 启动ss。一行命令  参考：
+https://viencoding.com/article/90</description>
+    </item>
+    
+    <item>
+      <title>初试Nginx部署静态网页</title>
+      <link>https://zecoo.github.io/hugo/posts/static-web/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</link>
+      <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/static-web/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</guid>
+      <description>初试Nginx部署静态网页 在ife上也写了几个网页了，但是如果一直用github-pages的话，感觉有点麻烦，自己有一个服务器干嘛不直接用呢？
+安装Nginx及其简单：
+apt install nginx
+这个时候如果发现终端不动了，没啥反应，其实是Nginx已经启动了，浏览器输入地址看看是不是能看到nginx欢迎页。
+下一步给nginx设置自己的主页
+按照参考博客给出的思路，先建立一个文件夹作为nginx访问目录。比如/www/static-web
+然后给自己的目的设置一个nginx配置文件，配置文件地址
+cd /etc/nginx/conf.d/
+然后新建一个static-hello.conf
+写进以下内容：
+server { server_name = 89.33.194.100; // 你自己的地址或者域名 root /root/www/static-web; // nginx访问目录 index index.html; location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|js|pdf|txt){ root /root/www/static-web/; } }  然后重启nginx
+nginx -s reload
+我在浏览器访问了一下自己的地址，发现403 Forbidden。故排查之。
+查看nginx错误信息
+cat /var/log/nginx/error.log
+得到这样的信息
+2020/04/08 23:43:58 [notice] 1390#1390: signal process started 2020/04/08 23:44:10 [error] 1391#1391: *4 &amp;quot;/root/www/static-web/index.html&amp;quot; is forbidden (13: Permission denied), client: 171.41.91.51, server: =, request: &amp;quot;GET / HTTP/1.</description>
+    </item>
+    
+    <item>
+      <title>IFE js.util</title>
+      <link>https://zecoo.github.io/hugo/posts/static-web/ife-js-util/</link>
+      <pubDate>Tue, 31 Mar 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/static-web/ife-js-util/</guid>
+      <description>IFE js.util task1的时候我还能勉强用自己的想法写，html的展示效果达到了就好。
+但是到了task2的时候，js基础还是不牢啊，基本上每道题都要看下别人的博客。虽然有点low，但是还是秉着一股劲往前冲，后面再来捡技术细节的思路，不丢人的。
+一趟捣鼓下来，JS部分一共就5个板块：
+ js基础：数据结构、对象等 dom（html树形结构操作） ajax（和服务器交互，部分刷新页面） jQuery（更方便操作dom和ajax） nodejs（暂时不学习）  接下来总结一下自己的捣鼓过程吧（不包含技术细节）
+任务2 JS基础 判断数据类型。 用Objexct.prototype来判断
+深克隆。 如果直接var copy = src就是浅复制，所以要用递归的形式。
+数组相关操作 1 simpleTrim。这种问题以前从来没接触过，不会写正常2333。for循环判断分别从前和从后面判断时候有空字符
+2 trim。正则表达式直接把空字符给替换掉
+正则表达式 这是我第几次学习正则表达式啦？？
+任务3 Dom 到这里最好还是结合html页面来学习，直接上来写老夫实在是无处下手。
+任务4 Event 同dom
+任务5 Bom cookie的设置和获取。
+以前只知道cookie是什么，现在知道cookie长什么样了怎么搞一个。
+任务6 Ajax emmm自己写一个简单的，讲道理，其实是xmlhttp的使用，和ajax没有什么关系。</description>
+    </item>
+    
+    <item>
+      <title>IFE Task0001 Log</title>
+      <link>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</link>
+      <pubDate>Sun, 01 Mar 2020 17:39:45 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</guid>
+      <description>IFE Task0001 总结 我记录一下ife其他几个页面。一共这么几个页面
+ index.html post.html archive.html about.html  如果自己写的话，除了index.html，其他几个页面都有或多多少的问题我写不出来。 一个一个说吧。
+Index.html  banner有三个部分，一个是logo，一个是站内其他链接，最后一个是git的logo。这三个部分要显示在水平的一行，这里其实是运用到了float，只要把三个部分都设置为float，就可以变成一行了。感觉有点像把div改成了块内元素一样，也就是变成了span。 一般banner的链接都是用list改成水平，改成水平的方法有两个，一个是float，另一个是display inline-block 我想让这三部分，随着页面的改变，位置不要定死，原来margin-left之类的也可以用百分比来表示，就很舒服了。 center是一个大的bg，bg上面有一个透明度的方形显示文字，放bg的时候遇到了以前就遇到的问题，比如默认是重复的，而且不能充满div。这两个问题代码很好解决。 至于透明度的方形，彻底让我对position这个元素有了一定的理解。absolute、fixed、relative分别代表什么。 box部分是三个卡片，卡片里有图片和文字。三个卡片并列其实也挺好写，好像用inline-block就可以实现，水平垂直居中什么的也都是现成的，不过写好了之后再看要求里面有一个是卡片的高度随文字内容自适应。 遂百度之，发现用display table可以解决这个问题，但是table是占满整个div的，不过也好解决，用一大一小div就解决了。 圆形的头像，这个做起来也好简单啊，图片的radius改一下就可以了。 intro部分其实不用display来写，比较常规。如果需要居中之类的工作，用display明显是要方便很多的。 最后一点，如果用flex来布局，flex里面的每个元素的宽度都是以最宽的那个为标准。这时候想要居中的话可以考虑用text-align center解决。这是最后那个小logo的居中问题。  Post.html 在开始写post.html之前我在GitHub上down了几个其他人的ife作业，然后发现我这个代码真的是稀烂…最基本的有这么几个问题：
+ 文件的结构，ife里强调了，但是我没有遵守。 div的命名方式。navbar，navbar-menu、profile之类的 class和id的区别 nav和footer是html的元素，可以不用div写 html的基本框架应该是navbar、banner、content、footer  然后我找到了一个极佳的对比例子。就是DIYgod，当我看到他就是RSSHub的发起者的时候，我懵逼了。他也就大我三届而已，而且还是武理的，我简直太菜了。。酸归酸，看DIYgod大神的前端页面。能学到很多东西：
+ html的其他默认元素：header、section、article、nav的使用 日历写起来其实就是一个table view tag-graph就更简单了，字体设几个不同的大小就可以 一个简单的单词，换一个字体就能变成logo一般的存在  然后记录一下写 blog.html的时候遇到的坑
+ blog应该是一个简单的双列布局。双列布局的形式有哪些来着？我是用百分比的形式来布局的。要求用980px，我不太喜欢 table设置了宽高之后，cell变大，那么cell里面字的间距自然就大了 有时候会遇到给div里面子元素加padding之后，div的宽度哪怕设好了，还是会超出来。这个时候要设置一下box-sizing=border-content a写在div外面，就把整个div变成了链接。 我现在使用自适应的方法太简陋了，@media (maxwidth=980) {.div { display=none} }  Archive.html 这个页面我被卡住了。本来一个瀑布流我可以百度，用flex或者用column来解决，但是ife的作业的瀑布流里偏偏有一个比较大的块，是一个这样的结构
+[ + ][ ][ ]
+[ ][ ][ ][ ]</description>
+    </item>
+    
+  </channel>
+</rss>

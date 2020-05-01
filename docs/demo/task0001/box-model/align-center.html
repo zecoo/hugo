@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>align center</title>
+	<style type="text/css">
+		div {
+			padding: 10px;
+		}
+		.container {
+			position: relative;
+		}
+		.box1 {
+			width: 480px;
+			height: 200px;
+			background-color: bisque;
+			margin: auto;
+			margin-bottom: 10px;
+		}
+		.box2 {
+			width: 480px;
+			height: 200px;
+			position: absolute;
+			left: 50%;
+			margin-left: -250px;
+			background-color: teal;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box1">margin auto</div>
+		<div class="box2">
+			absoulte postion: left 50% then move half the width <br><br>
+			i wanna make some space for text in div but error happened <br>
+			then the movement should be padding+half_width = 240+10 = 250. <br>
+			but i don't know why
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<title>K8S Proxy | </title>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.58.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://zecoo.github.io/hugo/css/index.css">
+<link rel="stylesheet" href="https://zecoo.github.io/hugo/css/classes.css">
+<link rel="canonical" href="https://zecoo.github.io/hugo/posts/k8s/k8s-proxy/">
+<link rel="alternate" type="application/rss+xml" href="" title="">
+
+<body>
+
+<header class="icons">
+  
+  
+    <nav>
+    
+      <a href="/hugo/" >
+        
+          
+          
+          <span class="hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/></svg></span>
+          <span >Archive</span>
+        
+      </a>
+    
+      <a href="/hugo/about/" >
+        
+          About
+        
+      </a>
+    
+      <a href="/hugo/demo/" >
+        
+          Home
+        
+      </a>
+    
+    </nav>
+  
+    <nav>
+    
+      <a href="mailto:" >
+        
+          
+          
+          <span ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M407 177.6c7.6-24-13.4-46.8-37.4-41.7-22 4.8-28.8-28.1-7.1-32.8 50.1-10.9 92.3 37.1 76.5 84.8-6.8 21.2-38.8 10.8-32-10.3zM214.8 446.7C108.5 446.7 0 395.3 0 310.4c0-44.3 28-95.4 76.3-143.7C176 67 279.5 65.8 249.9 161c-4 13.1 12.3 5.7 12.3 6 79.5-33.6 140.5-16.8 114 51.4-3.7 9.4 1.1 10.9 8.3 13.1 135.7 42.3 34.8 215.2-169.7 215.2zm143.7-146.3c-5.4-55.7-78.5-94-163.4-85.7-84.8 8.6-148.8 60.3-143.4 116s78.5 94 163.4 85.7c84.8-8.6 148.8-60.3 143.4-116zM347.9 35.1c-25.9 5.6-16.8 43.7 8.3 38.3 72.3-15.2 134.8 52.8 111.7 124-7.4 24.2 29.1 37 37.4 12 31.9-99.8-55.1-195.9-157.4-174.3zm-78.5 311c-17.1 38.8-66.8 60-109.1 46.3-40.8-13.1-58-53.4-40.3-89.7 17.7-35.4 63.1-55.4 103.4-45.1 42 10.8 63.1 50.2 46 88.5zm-86.3-30c-12.9-5.4-30 .3-38 12.9-8.3 12.9-4.3 28 8.6 34 13.1 6 30.8.3 39.1-12.9 8-13.1 3.7-28.3-9.7-34zm32.6-13.4c-5.1-1.7-11.4.6-14.3 5.4-2.9 5.1-1.4 10.6 3.7 12.9 5.1 2 11.7-.3 14.6-5.4 2.8-5.2 1.1-10.9-4-12.9z"/></svg></span>
+          <span class="hidden">Douban</span>
+        
+      </a>
+    
+      <a href="https://github.com/zecoo" >
+        
+          
+          
+          <span ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+          <span class="hidden">Github</span>
+        
+      </a>
+    
+      <a href="/hugo/index.xml" >
+        
+          
+          
+          <span ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"/></svg></span>
+          <span class="hidden">Subscribe</span>
+        
+      </a>
+    
+    </nav>
+  
+  
+</header>
+
+<article>
+  <header>
+    <h1>K8S Proxy</h1>
+    <time datetime="2020-04-21T11:37:07&#43;08:00">April 21, 2020</time>
+  </header>
+  
+
+<h1 id="k8s-proxy">K8S Proxy</h1>
+
+<p>上一节讲到现在可以在vps上访问到hello-world了。</p>
+
+<p>然而我想把访问操作放在我的电脑上。我没有想到NodePort这么容易就能做到了。修改一下service.yaml里面port的type，从ClusterIP改为NodePort就可以了。</p>
+
+<p>到这里我已经很满足了，但是手痒痒想要看看dashboard的情况。首先嘛，得先把dashboard服务给启动起来对不对？不幸的是，在之前装microk8s的时候，我使用了这样一行命令添加了dns和dashboard这两个add-on</p>
+
+<pre><code class="language-shell">kubectl enable dns dashboard
+</code></pre>
+
+<p>结果就是，dashboard其实已经启动了，只是我一直使用的命令</p>
+
+<pre><code class="language-shell">kubectl get svc
+</code></pre>
+
+<p>只能显示namespace为default的service，就看不到dashboard也已经启动了。</p>
+
+<p>如果想要查看所有的svc还是添加<code>--all-namespaces</code>选项。</p>
+
+<pre><code class="language-shell">ubuntu@VM-0-12-ubuntu:~$ sudo kubectl get svc --all-namespaces
+NAMESPACE            NAME                        TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                  AGE
+container-registry   registry                    NodePort    10.152.183.11    &lt;none&gt;        5000:32000/TCP           13d
+default              hello-node                  NodePort    10.152.183.14    &lt;none&gt;        8080:31908/TCP           4d4h
+default              kubernetes                  ClusterIP   10.152.183.1     &lt;none&gt;        443/TCP                  13d
+kube-system          dashboard-metrics-scraper   ClusterIP   10.152.183.247   &lt;none&gt;        8000/TCP                 13d
+kube-system          heapster                    ClusterIP   10.152.183.227   &lt;none&gt;        80/TCP                   13d
+kube-system          kube-dns                    ClusterIP   10.152.183.10    &lt;none&gt;        53/UDP,53/TCP,9153/TCP   13d
+kube-system          kubernetes-dashboard        NodePort    10.152.183.31    &lt;none&gt;        443:32570/TCP            13d
+kube-system          monitoring-grafana          ClusterIP   10.152.183.21    &lt;none&gt;        80/TCP                   13d
+kube-system          monitoring-influxdb         ClusterIP   10.152.183.102   &lt;none&gt;        8083/TCP,8086/TCP        13d
+</code></pre>
+
+<p>但是我发现一个bug，如果我想要删除非default命名空间下的svc，会返回没有这个svc，就很迷幻。估计是不希望用户随便删除系统的svc。所以如果想删除某个非default命名空间下的svc，请用这个命令。以dashboard为例：</p>
+
+<pre><code class="language-shell">kubectl delete svc -n kube-system kubernetes-dashboard
+</code></pre>
+
+<p>用NodePort暴露出来之后，发现并不能像hello-world那样，通过<code>vas-ip:NodePort</code>访问到dashboard。会返回错误。</p>
+
+<blockquote>
+<p>This connection is Not Private</p>
+
+<p>This website maybe impersionating &lsquo;vps-ip&rsquo; to steal your personcal or financial information. You should go back to the previous page.</p>
+</blockquote>
+
+<p>后面知道这是关于身份验证的问题。那我又搜索了一番，NodePort的方法行不通，试试github k8s官网给的proxy的方法</p>
+
+<pre><code class="language-shell">kubectl proxy --address=0.0.0.0 --disable-filter=true
+</code></pre>
+
+<p>使用proxy之后，会在localhost:8001端口监听dashboard请求。这个时候当前的bash就不能使用了：</p>
+
+<pre><code class="language-shell">ubuntu@VM-0-12-ubuntu:~$ sudo kubectl proxy --address=0.0.0.0 --disable-filter=true
+W0421 16:42:30.534218   23241 proxy.go:167] Request filter disabled, your proxy is vulnerable to XSRF attacks, please be cautious
+Starting to serve on [::]:8001
+</code></pre>
+
+<p>然后访问以下网址：</p>
+
+<p><a href="http://148.70.35.123:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#/login">http://148.70.35.123:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#/login</a></p>
+
+<p>就可以看到久违一抹dashboard蓝色。到这里我是很兴奋的。然而……这时候login dashboard需要身份验证。UI上也提示了两种验证方式，一种是local file，另一种是Token。我想Token方便一些吧，然后搜索了一下获取Token的方法：</p>
+
+<pre><code class="language-shell">sudo microk8s.kubectl -n kube-system get secret
+NAME                                             TYPE                                  DATA   AGE
+kubernetes-dashboard-certs                       Opaque                                0      13d
+kubernetes-dashboard-csrf                        Opaque                                1      13d
+kubernetes-dashboard-key-holder                  Opaque                                2      13d
+kubernetes-dashboard-token-42mpd                 kubernetes.io/service-account-token   3      13d
+</code></pre>
+
+<p>Microk8s给出的参考，指向到GitHub k8s的官网对Access Control的介绍，用最下面的kubernetes-dashboard-token-42mpd的Token作为login的密钥。</p>
+
+<p>查看Token的具体内容用命令</p>
+
+<pre><code class="language-shell">sudo microk8s.kubectl -n kube-system describe secret kubernetes-dashboard-token-42mpd
+</code></pre>
+
+<p>就可以看到Token的内容如下：</p>
+
+<pre><code class="language-shell">ubuntu@VM-0-12-ubuntu:~/zecoo$ sudo kubectl -n kube-system describe secret $token
+Name:         default-token-nwqdh
+Namespace:    kube-system
+Labels:       &lt;none&gt;
+Annotations:  kubernetes.io/service-account.name: default
+              kubernetes.io/service-account.uid: 20eca024-76ea-4ca7-8fdb-c36594100de8
+
+Type:  kubernetes.io/service-account-token
+
+Data
+====
+namespace:  11 bytes
+token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IkdlQmtINEEwWmtSVXhsUDA0U000ckJ1alBzZndiNDl5TTNiRml3SWRxeHMifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJkZWZhdWx0LXRva2VuLW53cWRoIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImRlZmF1bHQiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiIyMGVjYTAyNC03NmVhLTRjYTctOGZkYi1jMzY1OTQxMDBkZTgiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06ZGVmYXVsdCJ9.rhSKv7FnCZMXOJrAJie6xNVnQHDxiCdEC1fVLcdEBfPALhvg7vhnNXuyWJjxE_GaLsK3KoUle5cJCXkpbvcAyOeG14b1pRw_V3LoQsdTwEOrpxZ2VIEI9AC09HL4pEX2b9XSERJMUd1Oua-CJu9rScy1yzKJvdp93MfFDQG0WB6RjuDR_o2imsgfWuERgWX1kkLef1hIIXPtLpA5YrFEhTl40NVS9LBaOlNez49hRq1cd2I6Elc9EY3VuQ5GlVgNAtLht_MAPrrpNuzkxpnLvFYJLCbcqYFpexLF0XarQT5JuCD9F8JNWZanZKPv_hd9uk4pfuZ9XVYU5W2yy7GMvg
+ca.crt:     1103 bytes
+</code></pre>
+
+<p>然鹅，我在dashboard UI输入了这串Token，点击login没有任何反应。也不告诉我这串Token是不是出问题了，就是一点反应没有。vps终端倒是有点反应：</p>
+
+<pre><code class="language-shell">2020/04/21 19:03:42 http: proxy error: context canceled
+</code></pre>
+
+<p>搜索了一下午，果然用Yandex之后搜索效率高了好多。结果就是：目前为止没有方法可以远程访问k8s的dashboard：[][]<a href="https://github.com/ubuntu/microk8s/issues/292">讨论1</a>、<a href="https://www.edureka.co/community/31115/kubernetes-dashboard-token-login-issue">讨论2</a>、<a href="https://www.edureka.co/community/31282/is-accessing-kubernetes-dashboard-remotely-possible">讨论3</a></p>
+
+<p>但是好像还有另一种方法：&ndash;enable-skip-login选项可以在dashboard UI中增加一个Skip按钮，跳过login环节。不过这个环节有可能遭到中间人MITM攻击。我担心把力的vps给搞崩了，先不折腾这个了。<a href="https://www.jianshu.com/p/2903966c7693">详情1</a>、<a href="https://www.cnblogs.com/itzgr/p/11106364.html">详情2</a></p>
+
+<h2 id="参考">参考</h2>
+
+<hr />
+
+<p><a href="https://www.jianshu.com/p/6f42ac331d8a">https://www.jianshu.com/p/6f42ac331d8a</a>  （RBAC介绍）</p>
+
+<p><a href="https://github.com/kubernetes/dashboard/blob/master/docs/user/accessing-dashboard/1.7.x-and-above.md">https://github.com/kubernetes/dashboard/blob/master/docs/user/accessing-dashboard/1.7.x-and-above.md</a> （k8s官方dashboard介绍）</p>
+
+<p><a href="https://microk8s.io/docs/addon-dashboard">https://microk8s.io/docs/addon-dashboard</a> （microk8s的dashboard介绍）</p>
+
+<p><a href="https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/README.md#admin-privileges">https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/README.md#admin-privileges</a> （microk8s指向的k8s access官网）</p>
+
+</article>
+
+
+
+</body>
+
+</html>

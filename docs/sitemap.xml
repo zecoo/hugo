@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/</loc>
+    <lastmod>2020-05-01T14:19:05+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/about/</loc>
+    <lastmod>2020-05-01T14:19:05+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</loc>
+    <lastmod>2020-04-30T10:37:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/</loc>
+    <lastmod>2020-04-30T10:37:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</loc>
+    <lastmod>2020-04-30T10:35:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</loc>
+    <lastmod>2020-04-29T11:37:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2020-04-28T16:37:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</loc>
+    <lastmod>2020-04-28T11:37:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</loc>
+    <lastmod>2020-04-23T11:37:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/bayesian-optimization/</loc>
+    <lastmod>2020-04-21T11:37:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/k8s/k8s-proxy/</loc>
+    <lastmod>2020-04-21T11:37:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/k8s/k8s-hello-world/</loc>
+    <lastmod>2020-04-17T11:37:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</loc>
+    <lastmod>2020-04-15T11:37:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</loc>
+    <lastmod>2020-04-09T11:37:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</loc>
+    <lastmod>2020-04-09T11:37:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/static-web/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</loc>
+    <lastmod>2020-04-09T11:37:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/static-web/ife-js-util/</loc>
+    <lastmod>2020-03-31T11:37:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</loc>
+    <lastmod>2020-03-01T17:39:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/</loc>
+  </url>
+  
+</urlset>
