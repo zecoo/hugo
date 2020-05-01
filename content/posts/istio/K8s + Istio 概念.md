@@ -4,8 +4,6 @@ date: 2020-04-30T10:37:07+08:00
 draft: true
 ---
 
-# K8s + Istio 概念
-
 环境都搭好了，不知道里面的原理那可不行。
 
 我也不会系统写，想到哪里就写到哪里吧。
@@ -14,7 +12,7 @@ draft: true
 
 Sidecar还有Envoy是这里的核心。
 
-![image-20200430104639542](/Users/22kon/Library/Application Support/typora-user-images/image-20200430104639542.png)
+![image-20200430104639542](../../../../posts/docs/imgs/image-20200430104639542.png)
 
 这个图就很好得说明了sidecar中流量的走向。这部分在华为的书《云原声服务网格istio》中关于sidecar的介绍写得很清楚。也就是说Envoy通过iptables拦截了进来的流量，然后强迫流量走自己的通道，相当于一个收保护费的。
 

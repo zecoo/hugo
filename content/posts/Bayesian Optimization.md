@@ -4,8 +4,6 @@ date: 2020-04-21T11:37:07+08:00
 draft: true
 ---
 
-# Bayesian Optimization 直观理解
-
 ## 目标
 
 最小(大)化一个没有具体表达式的函数。

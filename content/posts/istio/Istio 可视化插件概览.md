@@ -4,8 +4,6 @@ date: 2020-04-30T10:35:07+08:00
 draft: true
 ---
 
-# Istio 可视化插件概览
-
 ## Prometheus
 
 基本的metrics监测插件。

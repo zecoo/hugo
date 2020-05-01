@@ -4,7 +4,7 @@ date: 2020-04-28T11:37:07+08:00
 draft: true
 ---
 
-# Kubectl client 和 server version 差距错误
+
 
 每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说
 

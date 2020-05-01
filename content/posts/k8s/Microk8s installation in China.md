@@ -4,7 +4,7 @@ date: 2020-04-09T11:37:07+08:00
 draft: true
 ---
 
-# Microk8s 国内安装总结
+
 
 Ubuntu18本身自带snap，可以在microk8s的[官网](https://microk8s.io/docs/)找到安装方法。
 

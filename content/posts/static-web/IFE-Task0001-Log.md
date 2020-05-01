@@ -5,10 +5,9 @@ draft: true
 ---
 
 
-# IFE Task0001 总结
 
 我记录一下ife其他几个页面。一共这么几个页面 
- 
+
 * [index.html](../task0001/index.html)
 * [post.html](../task0001/post.html)
 * [archive.html](../task0001/gallery.html)

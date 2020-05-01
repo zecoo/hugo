@@ -4,7 +4,7 @@ date: 2020-04-09T11:37:07+08:00
 draft: true
 ---
 
-# SS on Ubuntu
+
 
 弄起来挺快的，其实就三点
 
@@ -14,6 +14,6 @@ draft: true
 
 ---
 
-参考：
+## 参考：
 
 https://viencoding.com/article/90

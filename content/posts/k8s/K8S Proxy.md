@@ -4,8 +4,6 @@ date: 2020-04-21T11:37:07+08:00
 draft: true
 ---
 
-# K8S Proxy
-
 上一节讲到现在可以在vps上访问到hello-world了。
 
 然而我想把访问操作放在我的电脑上。我没有想到NodePort这么容易就能做到了。修改一下service.yaml里面port的type，从ClusterIP改为NodePort就可以了。
