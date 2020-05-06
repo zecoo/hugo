@@ -10,6 +10,6 @@ menu:
   - {name: "About", url: "/about/", identifier: "about", weight: 2}
   - {name: "Home", url: "/demo/", identifier: "demo", weight: 6}
   remote:
-  - {name: "Douban", url: "mailto:", identifier: "weibo", weight: 3}
+  - {name: "Douban", url: "", identifier: "weibo", weight: 3}
   - {name: "Github", url: "https://github.com/zecoo", identifier: "github", weight: 4}
   - {name: "Subscribe", url: "/index.xml", identifier: "rss", weight: 5}

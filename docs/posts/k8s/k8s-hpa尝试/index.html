@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<title>Categories | </title>
+<title>“k8s HPA尝试” | </title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.58.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/index.css">
 <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/classes.css">
-<link rel="canonical" href="https://zecoo.github.io/hugo/categories/">
-<link rel="alternate" type="application/rss+xml" href="/hugo/categories/index.xml" title="">
+<link rel="canonical" href="https://zecoo.github.io/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/">
+<link rel="alternate" type="application/rss+xml" href="" title="">
 
 <body>
 
@@ -73,20 +73,47 @@
   
 </header>
 
-
-
-
-
-
-
 <article>
-  <header><h1>Categories</h1></header>
-  <ul class="archive">
-  </ul>
+  <header>
+    <h1>“k8s HPA尝试”</h1>
+    <time datetime="2020-05-04T00:00:00&#43;08:00">May 04, 2020</time>
+  </header>
   
+
+<p>先提一个题外话：如何销毁已经创建的部署？答：</p>
+
+<p>有<code>kubectl create -f ./metrics-server</code>就有<code>kubectl delete -f ./metrics-server</code></p>
+
+<p>按照主要参考，大部分都可以实现。但是有几个坑需要注意</p>
+
+<ul>
+<li>autoscaling的版本分为v1beta1、v2beta1、v2beta2。用法不同</li>
+<li><code>deployment: extension/v1beta1</code>这样的用法我改为<code>apps/v1beta1</code>创建HPA才能成功</li>
+</ul>
+
+<p>HPA的重点是hpa.yaml里面的cpu和mem的指定。</p>
+
+<p>Prometheus + HPA的重点是如何将Prom的数据改为metrics server可以使用的数据。这里的方法应该是config-map中构建的一系列rule。先拿来用，暂时不去深究。</p>
+
+<h2 id="参考">参考</h2>
+
+<hr />
+
+<p><a href="https://blog.csdn.net/yevvzi/article/details/79561150">https://blog.csdn.net/yevvzi/article/details/79561150</a> （本文主要参考）</p>
+
+<p><a href="https://blog.csdn.net/xktxoo/article/details/87909432">https://blog.csdn.net/xktxoo/article/details/87909432</a> （jq介绍）</p>
+
+<p><a href="https://cloud.tencent.com/developer/article/1394657">https://cloud.tencent.com/developer/article/1394657</a> （selector问题）</p>
+
+<p><a href="https://q.cnblogs.com/q/125354/">https://q.cnblogs.com/q/125354/</a> （target问题）</p>
+
+<p><a href="https://blog.51cto.com/13740724/2368066">https://blog.51cto.com/13740724/2368066</a> （新版本该这么用）</p>
+
+<p><a href="https://www.cnblogs.com/yunqishequ/p/10006896.html">https://www.cnblogs.com/yunqishequ/p/10006896.html</a> （不同版本autoscaling）</p>
+
+<p><a href="https://stackoverflow.com/questions/43163625/when-i-use-deployment-in-kubernetes-whats-the-differences-between-apps-v1beta1">https://stackoverflow.com/questions/43163625/when-i-use-deployment-in-kubernetes-whats-the-differences-between-apps-v1beta1</a> （deployment version）</p>
+
 </article>
-
-
 
 
 

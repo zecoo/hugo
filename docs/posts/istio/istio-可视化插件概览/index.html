@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<title>Categories | </title>
+<title>Istio 可视化插件概览 | </title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.58.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/index.css">
 <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/classes.css">
-<link rel="canonical" href="https://zecoo.github.io/hugo/categories/">
-<link rel="alternate" type="application/rss+xml" href="/hugo/categories/index.xml" title="">
+<link rel="canonical" href="https://zecoo.github.io/hugo/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/">
+<link rel="alternate" type="application/rss+xml" href="" title="">
 
 <body>
 
@@ -73,20 +73,71 @@
   
 </header>
 
-
-
-
-
-
-
 <article>
-  <header><h1>Categories</h1></header>
-  <ul class="archive">
-  </ul>
+  <header>
+    <h1>Istio 可视化插件概览</h1>
+    <time datetime="2020-04-30T10:35:07&#43;08:00">April 30, 2020</time>
+  </header>
   
+
+<h2 id="prometheus">Prometheus</h2>
+
+<p>基本的metrics监测插件。</p>
+
+<p>通过query查询不同的信息，例如以下信息就是<code>istio_requests_total</code>这条query查询到的n条数据中的一条。（不全，删除了部分我不关注的信息）</p>
+
+<pre><code class="language-shell">istio_requests_total{destination_app=&quot;productpage&quot;,destination_principal=&quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&quot;,destination_service=&quot;productpage.default.svc.cluster.local&quot;,destination_service_name=&quot;productpage&quot;,destination_service_namespace=&quot;default&quot;,destination_version=&quot;v1&quot;,destination_workload=&quot;productpage-v1&quot;,instance=&quot;10.244.0.24:15090&quot;,job=&quot;envoy-stats&quot;,namespace=&quot;istio-system&quot;,pod_name=&quot;istio-ingressgateway-6489d9556d-bc48z&quot;,response_code=&quot;503&quot;,source_workload=&quot;istio-ingressgateway&quot;,source_workload_namespace=&quot;istio-system&quot;}
+</code></pre>
+
+<h2 id="grafana">Grafana</h2>
+
+<p>Metrics可视化插件。</p>
+
+<p>Request Volume代表什么？</p>
+
+<p>Request Duration中的P50、P90分别代表什么？</p>
+
+<h2 id="jaegar">Jaegar</h2>
+
+<p>主要显示调用了哪些微服务，调用顺序是什么样的，响应时间是多少。</p>
+
+<h2 id="kiali">Kiali</h2>
+
+<p>链路追踪可视化插件。可以看出有几个微服务，调用关系是什么样的。</p>
+
+<p>里面也有P50、P90。说明这个很关键啊。</p>
+
+<p>P90=100ms，就是说90%的请求其响应时间在100ms以内，剩余10%的响应时间大于100ms。</p>
+
+<h2 id="siege">Siege</h2>
+
+<p>压测工具。来看看压测结果</p>
+
+<pre><code class="language-shell">$ siege -d 10 -c 200 -t 2 http://121.37.159.247:32753/productpage
+Lifting the server siege...
+Transactions:		         519 hits
+Availability:		       99.24 %
+Elapsed time:		      119.34 secs
+Data transferred:	       20.14 MB
+Response time:		        9.01 secs
+Transaction rate:	        4.35 trans/sec
+Throughput:		        0.17 MB/sec
+Concurrency:		       39.17
+Successful transactions:         519
+Failed transactions:	           4
+Longest transaction:	      110.01
+Shortest transaction:	        0.08
+</code></pre>
+
+<p>模拟200个用户，每间隔10ms发送一次请求，持续2分钟。</p>
+
+<h2 id="参考">参考</h2>
+
+<hr />
+
+<p><a href="https://blog.dianduidian.com/post/percentile-百分位数/（p50、p90讲解）">https://blog.dianduidian.com/post/percentile-百分位数/（p50、p90讲解）</a></p>
+
 </article>
-
-
 
 
 

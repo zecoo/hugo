@@ -4,7 +4,17 @@
   
   <url>
     <loc>https://zecoo.github.io/hugo/</loc>
-    <lastmod>2020-05-01T14:19:05+08:00</lastmod>
+    <lastmod>2020-05-04T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/</loc>
+    <lastmod>2020-05-04T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</loc>
+    <lastmod>2020-05-04T00:00:00+08:00</lastmod>
   </url>
   
   <url>
@@ -18,12 +28,7 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/</loc>
-    <lastmod>2020-04-30T10:37:07+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/posts/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</loc>
+    <loc>https://zecoo.github.io/hugo/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</loc>
     <lastmod>2020-04-30T10:35:07+08:00</lastmod>
   </url>
   

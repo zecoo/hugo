@@ -6,10 +6,30 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 May 2020 14:19:05 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 04 May 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>“k8s HPA尝试”</title>
+      <link>https://zecoo.github.io/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
+      <description>先提一个题外话：如何销毁已经创建的部署？答：
+有kubectl create -f ./metrics-server就有kubectl delete -f ./metrics-server
+按照主要参考，大部分都可以实现。但是有几个坑需要注意
+ autoscaling的版本分为v1beta1、v2beta1、v2beta2。用法不同 deployment: extension/v1beta1这样的用法我改为apps/v1beta1创建HPA才能成功  HPA的重点是hpa.yaml里面的cpu和mem的指定。
+Prometheus + HPA的重点是如何将Prom的数据改为metrics server可以使用的数据。这里的方法应该是config-map中构建的一系列rule。先拿来用，暂时不去深究。
+参考 https://blog.csdn.net/yevvzi/article/details/79561150 （本文主要参考）
+https://blog.csdn.net/xktxoo/article/details/87909432 （jq介绍）
+https://cloud.tencent.com/developer/article/1394657 （selector问题）
+https://q.cnblogs.com/q/125354/ （target问题）
+https://blog.51cto.com/13740724/2368066 （新版本该这么用）
+https://www.cnblogs.com/yunqishequ/p/10006896.html （不同版本autoscaling）
+https://stackoverflow.com/questions/43163625/when-i-use-deployment-in-kubernetes-whats-the-differences-between-apps-v1beta1 （deployment version）</description>
+    </item>
     
     <item>
       <title>About ZIK</title>
@@ -17,8 +37,10 @@
       <pubDate>Fri, 01 May 2020 14:19:05 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/about/</guid>
-      <description>95后运维工。
-豆瓣TOP250 CCF C  </description>
+      <description> 95后 软件工程专业
+ [x] 豆瓣TOP250
+ [ ] CCF C
+  </description>
     </item>
     
     <item>
@@ -27,7 +49,7 @@
       <pubDate>Thu, 30 Apr 2020 10:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</guid>
-      <description>K8s + Istio 概念 环境都搭好了，不知道里面的原理那可不行。
+      <description>环境都搭好了，不知道里面的原理那可不行。
 我也不会系统写，想到哪里就写到哪里吧。
 istio是如何做到无侵入就能控制流量转发？ Sidecar还有Envoy是这里的核心。
 这个图就很好得说明了sidecar中流量的走向。这部分在华为的书《云原声服务网格istio》中关于sidecar的介绍写得很清楚。也就是说Envoy通过iptables拦截了进来的流量，然后强迫流量走自己的通道，相当于一个收保护费的。
@@ -44,11 +66,11 @@ k8s的DNS是什么 给每个svc可用地址。
     
     <item>
       <title>Istio 可视化插件概览</title>
-      <link>https://zecoo.github.io/hugo/posts/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
+      <link>https://zecoo.github.io/hugo/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
       <pubDate>Thu, 30 Apr 2020 10:35:07 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/posts/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
-      <description>Istio 可视化插件概览 Prometheus 基本的metrics监测插件。
+      <guid>https://zecoo.github.io/hugo/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
+      <description>Prometheus 基本的metrics监测插件。
 通过query查询不同的信息，例如以下信息就是istio_requests_total这条query查询到的n条数据中的一条。（不全，删除了部分我不关注的信息）
 istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;,destination_principal=&amp;quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&amp;quot;,destination_service=&amp;quot;productpage.default.svc.cluster.local&amp;quot;,destination_service_name=&amp;quot;productpage&amp;quot;,destination_service_namespace=&amp;quot;default&amp;quot;,destination_version=&amp;quot;v1&amp;quot;,destination_workload=&amp;quot;productpage-v1&amp;quot;,instance=&amp;quot;10.244.0.24:15090&amp;quot;,job=&amp;quot;envoy-stats&amp;quot;,namespace=&amp;quot;istio-system&amp;quot;,pod_name=&amp;quot;istio-ingressgateway-6489d9556d-bc48z&amp;quot;,response_code=&amp;quot;503&amp;quot;,source_workload=&amp;quot;istio-ingressgateway&amp;quot;,source_workload_namespace=&amp;quot;istio-system&amp;quot;}  Grafana Metrics可视化插件。
 Request Volume代表什么？
@@ -58,7 +80,7 @@ Kiali 链路追踪可视化插件。可以看出有几个微服务，调用关�
 里面也有P50、P90。说明这个很关键啊。
 P90=100ms，就是说90%的请求其响应时间在100ms以内，剩余10%的响应时间大于100ms。
 Siege 压测工具。来看看压测结果
-$ siege -d 10 -c 200 -t 2 http://121.37.159.247:32753/productpage Lifting the server siege... Transactions:	519 hits Availability:	99.24 % Elapsed time:	119.34 secs Data transferred:	20.14 MB Response time:	9.01 secs Transaction rate:	4.35 trans/sec Throughput:	0.17 MB/sec Concurrency:	39.17 Successful transactions: 519 Failed transactions:	4 Longest transaction:	110.</description>
+$ siege -d 10 -c 200 -t 2 http://121.37.159.247:32753/productpage Lifting the server siege... Transactions:	519 hits Availability:	99.24 % Elapsed time:	119.34 secs Data transferred:	20.14 MB Response time:	9.01 secs Transaction rate:	4.35 trans/sec Throughput:	0.17 MB/sec Concurrency:	39.17 Successful transactions: 519 Failed transactions:	4 Longest transaction:	110.01 Shortest transaction:	0.</description>
     </item>
     
     <item>
@@ -67,7 +89,7 @@ $ siege -d 10 -c 200 -t 2 http://121.37.159.247:32753/productpage Lifting the se
       <pubDate>Wed, 29 Apr 2020 11:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
-      <description>Istio 安装回顾 如果是Microk8s安装，很简单就一步：
+      <description>如果是Microk8s安装，很简单就一步：
 microk8s.enable istio  好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。
 然后转战华为云15天4g服务器试用。
 用Kubeadm安装k8s，过程呢，在另一篇博客中。
@@ -97,7 +119,7 @@ https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.3/manage_cluster/ist
       <pubDate>Tue, 28 Apr 2020 16:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
-      <description>Kubeadm 安装记录 装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。
+      <description>装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。
 安装K8s有这几种方法
  minikube mircok8s kubeadm  这三种方法我都用过。minikube在win上以虚拟机的形式运行，挺麻烦的讲道理。microk8s是最友好的方式，解决一个拉镜像的问题，也就不成问题了。kubeadm应该是最麻烦的了。
 回归正题，记录整个安装以及填坑的过程。
@@ -119,7 +141,7 @@ kubectl get node kubectl get sc kubectl get pod --all-namespaces  参考 https:/
       <pubDate>Tue, 28 Apr 2020 11:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
-      <description>Kubectl client 和 server version 差距错误 每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说
+      <description>每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说
  遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。
  说得真好。爆炸的心态慢慢也就平复了。
 回归正题，坑长这个样子：
@@ -129,7 +151,9 @@ Error from server (NotFound): the server could not find the requested resource  
 Client Version: version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;9&amp;quot;, GitVersion:&amp;quot;v1.9.3&amp;quot;, GitCommit:&amp;quot;5fa2db2bd46ac79e5e00a4e6ed24191080aa463b&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2018-01-18T21:12:46Z&amp;quot;, GoVersion:&amp;quot;go1.9.2&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;darwin/amd64&amp;quot;} Server Version: version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;16&amp;quot;, GitVersion:&amp;quot;v1.17.5&amp;quot;, GitCommit:&amp;quot;72c30166b2105cd7d3350f2c28a219e6abcd79eb&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2020-01-18T23:23:21Z&amp;quot;, GoVersion:&amp;quot;go1.13.5&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;linux/amd64&amp;quot;}  可以看到cli的版本是v1.9.3，而server的版本是1.17.5。差的太多了。
 继续搜索如何升级kubectl cli之，百度就别想能找到答案了。在k8s官网找到了安装kubectl的方法，重新安装了一下，kubectl cli的版本就升级到最新v1.18.5了。
 这下再试一下
-kubectl apply -f anyfile.yaml  终于可以运行yaml文件了。</description>
+kubectl apply -f anyfile.yaml  终于可以运行yaml文件了。
+参考 https://kubernetes.io/docs/tasks/tools/install-kubectl/#before-you-begin （升级kubectl cli）
+https://devops.stackexchange.com/questions/2956/how-do-i-get-kubernetes-to-work-when-i-get-an-error-the-server-could-not-find-t （坑出现的原因1）</description>
     </item>
     
     <item>
@@ -138,7 +162,7 @@ kubectl apply -f anyfile.yaml  终于可以运行yaml文件了。</description>
       <pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid>
-      <description>IFE task0002_5 回顾 做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基础。
+      <description>做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基础。
 我也百度了一下，发现写task0002_5的博客少之又少，说明ife的任务2到这里，基本上已经没有很多人在做了。
 瞎总结 首先要了解事件是个什么东西。在这个任务里面，要监听的是
  滑块被拖动时的位置 dragStart(e) 滑块处于拖动状态 dragging(e) 滑块最后放置的位置 drop(e)  而在js里，有专门针对拖动的监听事件*dragStart*和*drop*方法。
@@ -162,7 +186,7 @@ https://www.jianshu.com/p/2dfb870e0b88 （本任务类型）</description>
       <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/bayesian-optimization/</guid>
-      <description>Bayesian Optimization 直观理解 目标 最小(大)化一个没有具体表达式的函数。
+      <description>目标 最小(大)化一个没有具体表达式的函数。
 举个例子 给定一个函数 $$ f(x,y) = -x^2 - (y-1)^2 +1 $$
 BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。
 吐槽一下 中文的科普环境能不能再差一点？都尼玛是秀智商的。
@@ -178,7 +202,7 @@ BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。
       <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/k8s/k8s-proxy/</guid>
-      <description>K8S Proxy 上一节讲到现在可以在vps上访问到hello-world了。
+      <description>上一节讲到现在可以在vps上访问到hello-world了。
 然而我想把访问操作放在我的电脑上。我没有想到NodePort这么容易就能做到了。修改一下service.yaml里面port的type，从ClusterIP改为NodePort就可以了。
 到这里我已经很满足了，但是手痒痒想要看看dashboard的情况。首先嘛，得先把dashboard服务给启动起来对不对？不幸的是，在之前装microk8s的时候，我使用了这样一行命令添加了dns和dashboard这两个add-on
 kubectl enable dns dashboard  结果就是，dashboard其实已经启动了，只是我一直使用的命令
@@ -193,7 +217,7 @@ ubuntu@VM-0-12-ubuntu:~$ sudo kubectl get svc --all-namespaces NAMESPACE NAME TY
       <pubDate>Fri, 17 Apr 2020 11:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/k8s/k8s-hello-world/</guid>
-      <description>K8S hello-world 回顾 没错这部分也花了我很长时间，而且把我心态还搞崩了。
+      <description>没错这部分也花了我很长时间，而且把我心态还搞崩了。
 k8s安装主要是镜像是国外私有库，pull下来比较麻烦。
 而k8s第一个hello-world难在理解pod、deployment、service之间的关系，以及各种奇奇怪怪的端口映射。我想这是计算机网络基础没有打好埋的坑吧。
 镜像&amp;amp;Pod 首先是创建pod，这里也需要把本地docker创建的image给注射到microk8s.ctr里面。我根据参考1给出的方法构建了hello-node:v1镜像。然后注入到k8s里面。
@@ -210,7 +234,7 @@ apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 kind: Deploymen
       <pubDate>Wed, 15 Apr 2020 11:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</guid>
-      <description>ife 轮播图回顾 写在前面 做到ife task002_3，轮播图花了我最长的时间来写，甚至让我开始反思自己是不是真的…不适合当一个程序员。我要成了程序员，有种侮辱了这个群体的感jio。最后看了一下，虽然也就125行的代码，断断续续我大概做了一周。😓
+      <description>写在前面 做到ife task002_3，轮播图花了我最长的时间来写，甚至让我开始反思自己是不是真的…不适合当一个程序员。我要成了程序员，有种侮辱了这个群体的感jio。最后看了一下，虽然也就125行的代码，断断续续我大概做了一周。😓
 html&amp;amp;CSS也遇到问题：  怎么把6张图片都塞到frame里面去不漏出来。简单一个overflow：hidden我就是想不到。 6个按钮小圆点怎么放到frame里面。其实还是position的问题，我总是自以为了解position，然而到了真正实践的时候就出问题。小圆点div相对于frame的position要absolute。 如何让图片有一个滑动的效果？我是看了DIYgod的代码之后，才知道要让图片float left，让图片div的宽度仅可能宽，让图片相对于左上角每次移动一部分距离，就能实现移动的效果了。  最要命的是JS部分 一开始我百度了一个轮播图的代码，是通过调整其他图片display：none，指定index的图片display：block。这样就简单实现了图片的切换。这样做也没有什么问题，但就是没有滑动的动画效果，看起来很low。
 干脆继续参考DIYgod的代码。就有了上面提到的，让图片横向展开在页面中。每次切换让图片向左或向右移动一定的距离offset。也就是图片div的left增加或减少offset。如果移动一张图片距离，那么就是offset=img.width。
 Next &amp;amp; Prev button 于是我先把next、prev点击切换的功能做出来，还算简单，主要注意的是next移动到第六张图片的时候，要跳回到第一张图片，要用if做个判断。prev移动到第一张照片的时候同理。
@@ -232,7 +256,7 @@ Next &amp;amp; Prev button 于是我先把next、prev点击切换的功能做出
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</guid>
-      <description>Microk8s 国内安装总结 Ubuntu18本身自带snap，可以在microk8s的官网找到安装方法。
+      <description>Ubuntu18本身自带snap，可以在microk8s的官网找到安装方法。
 注意k8s的运行条件只要满足以下
  Linux kernel在3.1以上，很多小的openZV的服务器，都是2.6的核儿 Memory要在2G或以上。  我在国外买的xs vps就emmm。再附自己检查kernel的过程
 $ uname -r (check linux kernel) $ dpkg --print-architecture (check linux architecture amd64/arm64)  按照官网的方法，安装成功的话输入sudo kubectl version应该能看到client和server信息。
@@ -250,9 +274,8 @@ NAMESPACE NAME READY STATUS RESTARTS AGE container-registry registry-7cf58dcdcc-
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</guid>
-      <description>SS on Ubuntu 弄起来挺快的，其实就三点
- 安装ss。apt install就可以 配置ss。就一个json文件 启动ss。一行命令  参考：
-https://viencoding.com/article/90</description>
+      <description>弄起来挺快的，其实就三点
+ 安装ss。apt install就可以 配置ss。就一个json文件 启动ss。一行命令  参考： https://viencoding.com/article/90</description>
     </item>
     
     <item>
@@ -261,7 +284,7 @@ https://viencoding.com/article/90</description>
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/static-web/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</guid>
-      <description>初试Nginx部署静态网页 在ife上也写了几个网页了，但是如果一直用github-pages的话，感觉有点麻烦，自己有一个服务器干嘛不直接用呢？
+      <description>在ife上也写了几个网页了，但是如果一直用github-pages的话，感觉有点麻烦，自己有一个服务器干嘛不直接用呢？
 安装Nginx及其简单：
 apt install nginx
 这个时候如果发现终端不动了，没啥反应，其实是Nginx已经启动了，浏览器输入地址看看是不是能看到nginx欢迎页。
@@ -277,7 +300,7 @@ nginx -s reload
 查看nginx错误信息
 cat /var/log/nginx/error.log
 得到这样的信息
-2020/04/08 23:43:58 [notice] 1390#1390: signal process started 2020/04/08 23:44:10 [error] 1391#1391: *4 &amp;quot;/root/www/static-web/index.html&amp;quot; is forbidden (13: Permission denied), client: 171.41.91.51, server: =, request: &amp;quot;GET / HTTP/1.</description>
+2020/04/08 23:43:58 [notice] 1390#1390: signal process started 2020/04/08 23:44:10 [error] 1391#1391: *4 &amp;quot;/root/www/static-web/index.html&amp;quot; is forbidden (13: Permission denied), client: 171.41.91.51, server: =, request: &amp;quot;GET / HTTP/1.1&amp;quot;, host: &amp;quot;89.</description>
     </item>
     
     <item>
@@ -286,7 +309,7 @@ cat /var/log/nginx/error.log
       <pubDate>Tue, 31 Mar 2020 11:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/static-web/ife-js-util/</guid>
-      <description>IFE js.util task1的时候我还能勉强用自己的想法写，html的展示效果达到了就好。
+      <description>task1的时候我还能勉强用自己的想法写，html的展示效果达到了就好。
 但是到了task2的时候，js基础还是不牢啊，基本上每道题都要看下别人的博客。虽然有点low，但是还是秉着一股劲往前冲，后面再来捡技术细节的思路，不丢人的。
 一趟捣鼓下来，JS部分一共就5个板块：
  js基础：数据结构、对象等 dom（html树形结构操作） ajax（和服务器交互，部分刷新页面） jQuery（更方便操作dom和ajax） nodejs（暂时不学习）  接下来总结一下自己的捣鼓过程吧（不包含技术细节）
@@ -308,13 +331,14 @@ cat /var/log/nginx/error.log
       <pubDate>Sun, 01 Mar 2020 17:39:45 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</guid>
-      <description>IFE Task0001 总结 我记录一下ife其他几个页面。一共这么几个页面
+      <description>我记录一下ife其他几个页面。一共这么几个页面
  index.html post.html archive.html about.html  如果自己写的话，除了index.html，其他几个页面都有或多多少的问题我写不出来。 一个一个说吧。
 Index.html  banner有三个部分，一个是logo，一个是站内其他链接，最后一个是git的logo。这三个部分要显示在水平的一行，这里其实是运用到了float，只要把三个部分都设置为float，就可以变成一行了。感觉有点像把div改成了块内元素一样，也就是变成了span。 一般banner的链接都是用list改成水平，改成水平的方法有两个，一个是float，另一个是display inline-block 我想让这三部分，随着页面的改变，位置不要定死，原来margin-left之类的也可以用百分比来表示，就很舒服了。 center是一个大的bg，bg上面有一个透明度的方形显示文字，放bg的时候遇到了以前就遇到的问题，比如默认是重复的，而且不能充满div。这两个问题代码很好解决。 至于透明度的方形，彻底让我对position这个元素有了一定的理解。absolute、fixed、relative分别代表什么。 box部分是三个卡片，卡片里有图片和文字。三个卡片并列其实也挺好写，好像用inline-block就可以实现，水平垂直居中什么的也都是现成的，不过写好了之后再看要求里面有一个是卡片的高度随文字内容自适应。 遂百度之，发现用display table可以解决这个问题，但是table是占满整个div的，不过也好解决，用一大一小div就解决了。 圆形的头像，这个做起来也好简单啊，图片的radius改一下就可以了。 intro部分其实不用display来写，比较常规。如果需要居中之类的工作，用display明显是要方便很多的。 最后一点，如果用flex来布局，flex里面的每个元素的宽度都是以最宽的那个为标准。这时候想要居中的话可以考虑用text-align center解决。这是最后那个小logo的居中问题。  Post.html 在开始写post.html之前我在GitHub上down了几个其他人的ife作业，然后发现我这个代码真的是稀烂…最基本的有这么几个问题：
  文件的结构，ife里强调了，但是我没有遵守。 div的命名方式。navbar，navbar-menu、profile之类的 class和id的区别 nav和footer是html的元素，可以不用div写 html的基本框架应该是navbar、banner、content、footer  然后我找到了一个极佳的对比例子。就是DIYgod，当我看到他就是RSSHub的发起者的时候，我懵逼了。他也就大我三届而已，而且还是武理的，我简直太菜了。。酸归酸，看DIYgod大神的前端页面。能学到很多东西：
  html的其他默认元素：header、section、article、nav的使用 日历写起来其实就是一个table view tag-graph就更简单了，字体设几个不同的大小就可以 一个简单的单词，换一个字体就能变成logo一般的存在  然后记录一下写 blog.html的时候遇到的坑
  blog应该是一个简单的双列布局。双列布局的形式有哪些来着？我是用百分比的形式来布局的。要求用980px，我不太喜欢 table设置了宽高之后，cell变大，那么cell里面字的间距自然就大了 有时候会遇到给div里面子元素加padding之后，div的宽度哪怕设好了，还是会超出来。这个时候要设置一下box-sizing=border-content a写在div外面，就把整个div变成了链接。 我现在使用自适应的方法太简陋了，@media (maxwidth=980) {.div { display=none} }  Archive.html 这个页面我被卡住了。本来一个瀑布流我可以百度，用flex或者用column来解决，但是ife的作业的瀑布流里偏偏有一个比较大的块，是一个这样的结构
 [ + ][ ][ ]
+[ ][ ][ ][ ]
 [ ][ ][ ][ ]</description>
     </item>
     
