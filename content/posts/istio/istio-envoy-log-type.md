@@ -16,3 +16,14 @@ istio bookinfo示例中给出的log是这样
 
 
 区别的重点在于 samples/bookinfo/telemetry/log-entry.yaml 这个文件。
+
+但是如果要log的话，要用到Mixer这个组件，然而Mixer已经被官方弃用了，怎么官方文档还是要这玩意儿？
+
+## 参考
+
+---
+
+https://github.com/istio/istio/tree/master/mixer （Mixer被弃用）
+
+https://istio-releases.github.io/v0.1/docs/tasks/installing-istio.html （安装Mixer）
+
