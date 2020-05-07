@@ -4,8 +4,6 @@ date: "2020-05-03T00:00:00+08:00"
 draft: false
 ---
 
-`prometheus.yml`主要是定义一些全局的抓取间隔等参数以及抓取的 job, 抓取的 job 可以指定名字、抓取间隔、抓取目标的 IP 端口号列表, 目标的路由路径, 额外的 label 等参数.
-
 ## Prom的四种基本metric类型
 
 1. counter：从0开始计数的，比如http_req_total
@@ -13,19 +11,31 @@ draft: false
 3. histogram：统计数据，比如P90
 4. summary：和histogram类似
 
-## P90的获取方法
+## 几个示例
 
-官方示例：近10分钟的请求持续时间的90%，以PromQL的形式给出：
+### P90的获取方法
 
-```bash
+> The φ-quantile is the observation value that ranks at number φ*N among the N observations. Examples for φ-quantiles: The 0.5-quantile is known as the median. The 0.95-quantile is the 95th percentile.
+
+官方示例：10分钟内请求持续时间的90%，以PromQL的形式给出：
+
+```shell
 histogram_quantile(0.9, rate(http_request_duration_seconds_bucket[10m]))
+```
+
+### le="0.3"
+
+5分钟内响应时间在300ms以下的请求（le="0.3" means requests within 300ms）
+
+```shell
+sum(rate(http_request_duration_seconds_bucket{le="0.3"}[5m])) by (job)
 ```
 
 ## key/value的metrics形式
 
 例如：
 
-```
+```shell
 process_max_fds 65535
 ```
 
@@ -59,6 +69,8 @@ if __name__ == '__main__':
 
 然后就可以在localhost:8000看到prom metrics了。
 
+最后的灵魂一问：如何知道Prom有哪些可用的metrics呢？
+
 ## 参考
 
 ---
@@ -74,3 +86,5 @@ https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_quant
 https://github.com/prometheus/client_python#histogram （python埋点方法）
 
 https://www.cnblogs.com/YaoDD/p/11391316.html （go埋点获取metrics详解）
+
+https://prometheus.io/docs/practices/histograms/ （histogram官方介绍）
