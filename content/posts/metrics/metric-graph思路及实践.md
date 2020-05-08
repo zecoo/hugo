@@ -6,7 +6,7 @@ draft: false
 
 ## 整体思路
 
-#### 01 查看Prom的metric：
+### 01 查看Prom的metric：
 
 写好PromQL获得自己想要的metric，这时候只是文本的形式。而且又臭又长。
 
@@ -46,7 +46,7 @@ draft: false
                 ]
 ```
 
-#### 02 提取metric
+### 02 提取metric
 
 用代码或者在浏览器中用Prom提供的HTTP API访问提取metrics。请不要用curl，这个坑在另一个博客里已经提到了。
 
@@ -54,6 +54,6 @@ draft: false
 http://prom_url/api/v1/query?query=req_total{destination_app="x"}
 ```
 
-#### 03 可视化metric？
+### 03 可视化metric
 
 最简单的方法：Grafana，我是瞎猫碰到死耗子找到的。版本v6.5.2点Explore，可以输入PromQL直接生成漂亮的graph，但是做论文的图的话可能还是要用plot画图。

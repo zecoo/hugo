@@ -80,6 +80,53 @@
   </header>
   
 
+<p>Prom返回的json格式没有reindent，看起来很费眼睛。</p>
+
+<pre><code class="language-json">{&quot;metric&quot;:{&quot;__name__&quot;:&quot;istio_requests_total&quot;,&quot;connection_security_policy&quot;:&quot;unknown&quot;,&quot;destination_app&quot;:&quot;productpage&quot;,&quot;destination_canonical_revision&quot;:&quot;v1&quot;,&quot;destination_canonical_service&quot;:&quot;productpage&quot;,&quot;destination_principal&quot;:&quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&quot;,&quot;destination_service&quot;:&quot;productpage.default.svc.cluster.local&quot;,&quot;destination_service_name&quot;:&quot;productpage&quot;,&quot;destination_service_namespace&quot;:&quot;default&quot;,&quot;destination_version&quot;:&quot;v1&quot;,&quot;destination_workload&quot;:&quot;productpage-v1&quot;,&quot;destination_workload_namespace&quot;:&quot;default&quot;,&quot;instance&quot;:&quot;10.244.0.61:15090&quot;,&quot;job&quot;:&quot;envoy-stats&quot;,&quot;namespace&quot;:&quot;istio-system&quot;,&quot;pod_name&quot;:&quot;istio-ingressgateway-6489d9556d-ws6cg&quot;,&quot;reporter&quot;:&quot;source&quot;,&quot;request_protocol&quot;:&quot;http&quot;,&quot;response_code&quot;:&quot;200&quot;,&quot;response_flags&quot;:&quot;-&quot;,&quot;source_app&quot;:&quot;istio-ingressgateway&quot;,&quot;source_canonical_revision&quot;:&quot;1.5&quot;,&quot;source_canonical_service&quot;:&quot;istio-ingressgateway&quot;,&quot;source_principal&quot;:&quot;spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account&quot;,&quot;source_version&quot;:&quot;unknown&quot;,&quot;source_workload&quot;:&quot;istio-ingressgateway&quot;,&quot;source_workload_namespace&quot;:&quot;istio-system&quot;},&quot;value&quot;:[1588929523.247,&quot;10523&quot;]}]}}
+</code></pre>
+
+<p>在命令行，想让其用缩进好的json展示出来，就要用到jq。</p>
+
+<pre><code class="language-shell">curl http://test.json | jq
+</code></pre>
+
+<p>只需要在后面加上jq，就可以看到漂亮的json格式数据</p>
+
+<pre><code class="language-json">&quot;metric&quot;: {
+                    &quot;__name__&quot;: &quot;istio_requests_total&quot;,
+                    &quot;connection_security_policy&quot;: &quot;unknown&quot;,
+                    &quot;destination_app&quot;: &quot;productpage&quot;,
+                    &quot;destination_canonical_revision&quot;: &quot;v1&quot;,
+                    &quot;destination_canonical_service&quot;: &quot;productpage&quot;,
+                    &quot;destination_principal&quot;: &quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&quot;,
+                    &quot;destination_service&quot;: &quot;productpage.default.svc.cluster.local&quot;,
+                    &quot;destination_service_name&quot;: &quot;productpage&quot;,
+                    &quot;destination_service_namespace&quot;: &quot;default&quot;,
+                    &quot;destination_version&quot;: &quot;v1&quot;,
+                    &quot;destination_workload&quot;: &quot;productpage-v1&quot;,
+                    &quot;destination_workload_namespace&quot;: &quot;default&quot;,
+                    &quot;instance&quot;: &quot;10.244.0.61:15090&quot;,
+                    &quot;job&quot;: &quot;envoy-stats&quot;,
+                    &quot;namespace&quot;: &quot;istio-system&quot;,
+                    &quot;pod_name&quot;: &quot;istio-ingressgateway-6489d9556d-ws6cg&quot;,
+                    &quot;reporter&quot;: &quot;source&quot;,
+                    &quot;request_protocol&quot;: &quot;http&quot;,
+                    &quot;response_code&quot;: &quot;200&quot;,
+                    &quot;response_flags&quot;: &quot;-&quot;,
+                    &quot;source_app&quot;: &quot;istio-ingressgateway&quot;,
+                    &quot;source_canonical_revision&quot;: &quot;1.5&quot;,
+                    &quot;source_canonical_service&quot;: &quot;istio-ingressgateway&quot;,
+                    &quot;source_principal&quot;: &quot;spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account&quot;,
+                    &quot;source_version&quot;: &quot;unknown&quot;,
+                    &quot;source_workload&quot;: &quot;istio-ingressgateway&quot;,
+                    &quot;source_workload_namespace&quot;: &quot;istio-system&quot;
+                },
+                &quot;value&quot;: [
+                    1588918429.726,
+                    &quot;5148&quot;
+                ]
+</code></pre>
+
 <h2 id="参考">参考</h2>
 
 <hr />
