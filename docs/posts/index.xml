@@ -13,16 +13,37 @@
     
     <item>
       <title>Hugo添加代码高亮</title>
-      <link>https://zecoo.github.io/hugo/posts/hugo-code-highlight/</link>
+      <link>https://zecoo.github.io/hugo/posts/others/hugo-code-highlight/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/posts/hugo-code-highlight/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/others/hugo-code-highlight/</guid>
       <description>方法：用hightlight.js做高亮。
 针对不同的Hugo主题，应该有不同的思路。但是基本思路还是：
  head里添加css body中添加两个“script“元素第一个是js文件，第二个是loadjs  我用的是Hugo的contrast主题，打开文件夹theme - layout，找到博文的base.html，打开在里面添加基本思路中的文件。我仿照代码里本来有的目录，简单修改一下就可以了。（第二行是我添加的highlight css文件）
 &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{{ .Site.BaseURL }}css/index.css&amp;quot;&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{{ .Site.BaseURL }}css/github.css&amp;quot;&amp;gt;  css的选择可以到GitHub上hightlight.js的src/style下面找。
 js文件，用官网上的cdn就可以。或者直接下载下来。
 参考 https://orianna-zzo.github.io/sci-tech/2018-01/blog养成记3-hugo的语法高亮配置/#使用highlight-shortcode进行高亮</description>
+    </item>
+    
+    <item>
+      <title>resume-server-leancloud</title>
+      <link>https://zecoo.github.io/hugo/posts/others/resume-server-leancloud/</link>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/others/resume-server-leancloud/</guid>
+      <description> 项目经历 k8s&amp;amp;istio监控环境搭建 部署和安装k8s和istio，在此基础上运行istio的官方微服务示例bookinfo，体验metric监控体系prometheus+grafana，了解以上工具的基本用法。并使用siege压测工具模拟高并发请求查看监控结果。
+前端： IFE task1&amp;amp;2 IFE task1使用html&amp;amp;css静态网站，实现基础的排版和瀑布流。IFE task使用JavaScript，实现轮播图、监听拖动事件等功能。
+Python：Freebase数据格式修改 Freebase是一个实体关系数据集，实体以id格式给出，（例如），不具有可读性。实体与id之间的对应关系在“entity-id”文本中。为了更直观得表示freebase数据集的内容，我将“entity-id”文本存到mysql，然后用mysql查询Freebase的对应关系。
+兴趣 </description>
+    </item>
+    
+    <item>
+      <title>我猜面试可能会问到的问题</title>
+      <link>https://zecoo.github.io/hugo/posts/others/%E6%88%91%E7%8C%9C%E9%9D%A2%E8%AF%95%E5%8F%AF%E8%83%BD%E4%BC%9A%E9%97%AE%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/others/%E6%88%91%E7%8C%9C%E9%9D%A2%E8%AF%95%E5%8F%AF%E8%83%BD%E4%BC%9A%E9%97%AE%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>serverless  docker ip和主机ip怎么通信 docker file如何编写 k8s deployment、svc的yaml如何编写 docker挂了如何获取日志？  Linux  shell的管道是什么 如何查看系统负载cpu、mem 命令：netstat、find grep awk sed 分别用于处理什么，具体怎么用 软链接和硬链接 进程间通信方式 线程和进程 并发 netstat -tlnp | grep  网络  死锁发生和解决 三次握手四次挥手 http和https的区别 tcp、udp区别 tcp如何保证安全  后台  垃圾回收机制 设计模式可以讲几个吗 rest里面put和post的区别  数据结构  冒泡、快排 编程实现栈 遍历目录以及目录中文件的方法  小Demo思路  很大的文件（1T比如），检索关键词 统计文本中某字段出现的次数 2G内存实现10G文件的排序？？？  参考 https://github.com/CyC2018/CS-Notes （star1k+ 面经）</description>
     </item>
     
     <item>
@@ -37,10 +58,10 @@ js文件，用官网上的cdn就可以。或者直接下载下来。
     
     <item>
       <title>jq in terminal for json</title>
-      <link>https://zecoo.github.io/hugo/posts/jq-in-terminal-for-json/</link>
+      <link>https://zecoo.github.io/hugo/posts/others/jq-in-terminal-for-json/</link>
       <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/posts/jq-in-terminal-for-json/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/others/jq-in-terminal-for-json/</guid>
       <description>Prom返回的json格式没有reindent，看起来很费眼睛。
 {&amp;quot;metric&amp;quot;:{&amp;quot;__name__&amp;quot;:&amp;quot;istio_requests_total&amp;quot;,&amp;quot;connection_security_policy&amp;quot;:&amp;quot;unknown&amp;quot;,&amp;quot;destination_app&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;destination_canonical_revision&amp;quot;:&amp;quot;v1&amp;quot;,&amp;quot;destination_canonical_service&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;destination_principal&amp;quot;:&amp;quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&amp;quot;,&amp;quot;destination_service&amp;quot;:&amp;quot;productpage.default.svc.cluster.local&amp;quot;,&amp;quot;destination_service_name&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;destination_service_namespace&amp;quot;:&amp;quot;default&amp;quot;,&amp;quot;destination_version&amp;quot;:&amp;quot;v1&amp;quot;,&amp;quot;destination_workload&amp;quot;:&amp;quot;productpage-v1&amp;quot;,&amp;quot;destination_workload_namespace&amp;quot;:&amp;quot;default&amp;quot;,&amp;quot;instance&amp;quot;:&amp;quot;10.244.0.61:15090&amp;quot;,&amp;quot;job&amp;quot;:&amp;quot;envoy-stats&amp;quot;,&amp;quot;namespace&amp;quot;:&amp;quot;istio-system&amp;quot;,&amp;quot;pod_name&amp;quot;:&amp;quot;istio-ingressgateway-6489d9556d-ws6cg&amp;quot;,&amp;quot;reporter&amp;quot;:&amp;quot;source&amp;quot;,&amp;quot;request_protocol&amp;quot;:&amp;quot;http&amp;quot;,&amp;quot;response_code&amp;quot;:&amp;quot;200&amp;quot;,&amp;quot;response_flags&amp;quot;:&amp;quot;-&amp;quot;,&amp;quot;source_app&amp;quot;:&amp;quot;istio-ingressgateway&amp;quot;,&amp;quot;source_canonical_revision&amp;quot;:&amp;quot;1.5&amp;quot;,&amp;quot;source_canonical_service&amp;quot;:&amp;quot;istio-ingressgateway&amp;quot;,&amp;quot;source_principal&amp;quot;:&amp;quot;spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account&amp;quot;,&amp;quot;source_version&amp;quot;:&amp;quot;unknown&amp;quot;,&amp;quot;source_workload&amp;quot;:&amp;quot;istio-ingressgateway&amp;quot;,&amp;quot;source_workload_namespace&amp;quot;:&amp;quot;istio-system&amp;quot;},&amp;quot;value&amp;quot;:[1588929523.247,&amp;quot;10523&amp;quot;]}]}}  在命令行，想让其用缩进好的json展示出来，就要用到jq。
 curl http://test.json | jq  只需要在后面加上jq，就可以看到漂亮的json格式数据
@@ -100,10 +121,10 @@ Lifting the server siege... Transactions:	439 hits Availability:	51.83 % Elapsed
     
     <item>
       <title>scss tutorial</title>
-      <link>https://zecoo.github.io/hugo/posts/scss-tutorial/</link>
+      <link>https://zecoo.github.io/hugo/posts/others/scss-tutorial/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/posts/scss-tutorial/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/others/scss-tutorial/</guid>
       <description>SCSS：Sassy CSS
 SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。
 我咋还在scss的环境上踩到坑了呢？
@@ -289,10 +310,10 @@ https://www.jianshu.com/p/2dfb870e0b88 （本任务类型）</description>
     
     <item>
       <title>Bayesian Optimization 直观理解</title>
-      <link>https://zecoo.github.io/hugo/posts/bayesian-optimization/</link>
+      <link>https://zecoo.github.io/hugo/posts/others/bayesian-optimization/</link>
       <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/posts/bayesian-optimization/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/others/bayesian-optimization/</guid>
       <description>目标 最小(大)化一个没有具体表达式的函数。
 举个例子 给定一个函数 $$ f(x,y) = -x^2 - (y-1)^2 +1 $$
 BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。

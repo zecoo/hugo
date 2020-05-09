@@ -26,7 +26,6 @@ histogram_quantile(0.9, rate(http_request_duration_seconds_bucket[10m]))
 以下数据是通过 curl http://121.37.159.247:30040/metrics 获取的，截取部分。
 
 ```shell
-
 # HELP prometheus_tsdb_wal_fsync_duration_seconds Duration of WAL fsync.
 # TYPE prometheus_tsdb_wal_fsync_duration_seconds summary
 prometheus_tsdb_wal_fsync_duration_seconds{quantile="0.5"} 0.012352463

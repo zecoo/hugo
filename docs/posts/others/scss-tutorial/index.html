@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<title>About ZIK | </title>
+<title>scss tutorial | </title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.58.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/index.css">
 <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/classes.css">
 <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/github.css">
-<link rel="canonical" href="https://zecoo.github.io/hugo/about/">
+<link rel="canonical" href="https://zecoo.github.io/hugo/posts/others/scss-tutorial/">
 
 <link rel="alternate" type="application/rss+xml" href="" title="">
 
@@ -27,7 +27,7 @@
         
       </a>
     
-      <a href="/hugo/about/" class="selected">
+      <a href="/hugo/about/" >
         
           About
         
@@ -77,10 +77,53 @@
 
 <article>
   <header>
-    <h1>About ZIK</h1>
-    <time datetime="2020-05-01T14:19:05&#43;08:00">May 01, 2020</time>
+    <h1>scss tutorial</h1>
+    <time datetime="2020-05-05T00:00:00&#43;08:00">May 05, 2020</time>
   </header>
-  <p>还没想好写什么</p>
+  
+
+<p>SCSS：Sassy CSS</p>
+
+<p>SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。</p>
+
+<p>我咋还在scss的环境上踩到坑了呢？</p>
+
+<p>先是给我报错</p>
+
+<pre><code class="language-shell">bad interpreter: /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby: no such file or directory
+</code></pre>
+
+<p>一查是sass环境没装上……我以为mac自带ruby不用管呢</p>
+
+<pre><code class="language-shell">sudo gem install -n /usr/local/bin sass --pre   
+</code></pre>
+
+<p>安装之。然后发现ruby的源用不了，原来是 <a href="https://gems.ruby-china.org">https://gems.ruby-china.org</a> 改成了 <a href="https://gems.ruby-china.com">https://gems.ruby-china.com</a> ，害。</p>
+
+<p>编译css的项目目录也需要更改，默认是编译到scss相同的目录。</p>
+
+<pre><code class="language-json">{
+	&quot;cmd&quot;: [ &quot;sass&quot;, &quot;--update&quot;, &quot;$file:${file_path}/../css/${file_base_name}.css&quot;, &quot;--stop-on-error&quot;, &quot;--no-cache&quot;],
+	&quot;osx&quot;: 
+	{
+		&quot;path&quot;: &quot;/usr/local/bin:$PATH&quot;
+	}
+}
+</code></pre>
+
+<p>最后sublime再装一个插件&rdquo;sublimeBuildOnSave&rdquo;自动编译sass，不要每次都cmd+B一下。</p>
+
+<h2 id="参考">参考</h2>
+
+<hr />
+
+<p><a href="https://www.jianshu.com/p/f8cbe91498dc">https://www.jianshu.com/p/f8cbe91498dc</a> （ruby china换源了）</p>
+
+<p><a href="https://www.sass.hk/install/">https://www.sass.hk/install/</a> （ruby 安装sass）</p>
+
+<p><a href="https://blog.logrocket.com/getting-started-with-bootstrapvue-2d8bf907ef11/">https://blog.logrocket.com/getting-started-with-bootstrapvue-2d8bf907ef11/</a> （bootVue blog）</p>
+
+<p><a href="https://bootstrap-vue.org/docs">https://bootstrap-vue.org/docs</a> （bootVue官网）</p>
 
 </article>
 
