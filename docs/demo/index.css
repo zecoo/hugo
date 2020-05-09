@@ -39,7 +39,7 @@ a {
 	color: black;
 }
 
-a:hover {
+.navbar-menu a:hover {
 	text-decoration: underline;
 }
 

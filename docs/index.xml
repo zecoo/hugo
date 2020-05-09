@@ -177,7 +177,10 @@ histogram_quantile(0.9, rate(http_request_duration_seconds_bucket[10m]))  以下
       <pubDate>Fri, 01 May 2020 14:19:05 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/about/</guid>
-      <description>还没想好写什么</description>
+      <description>目前博客大部分都是踩坑记录，没有太多干货。
+未来会加入不同的标签，踩坑和干货会分开放。
+hugo的主题用的是contrast，还是想自己写个。
+目前看的论文都是微服务相关，还需常读常新。</description>
     </item>
     
     <item>
