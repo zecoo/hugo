@@ -7,10 +7,18 @@ draft: false
 基本数据这样
 
 ```shell
-【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】"GET 【PATH】/flasgger_static/swagger-ui-bundle.js 【PROTOCOL】HTTP/1.1" 【REPONSE CODE】200 - "-" "-" 0 1048149 261 225 【FORWARD_FOR】"-" 【AGENT】"Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.5" 【REQUEST_ID】"51b45953-9ede-9390-b8b5-162247165a5b" 【AUTHORITY】"10.108.208.232:8000" 【HOST】"127.0.0.1:80" inbound|8000|http|httpbin.default.svc.cluster.local 127.0.0.1:43000 10.244.0.67:80 10.244.0.1:10504 - default
+【START_TIME】[2020-05-06T09:32:24.488Z] 
+【METHOD】"GET 【PATH】/flasgger_static/swagger-ui-bundle.js 【PROTOCOL】HTTP/1.1" 
+【REPONSE CODE】200 - "-" "-" 0 1048149 261 225 
+【FORWARD_FOR】"-" 
+【AGENT】"Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.5"
+【REQUEST_ID】"51b45953-9ede-9390-b8b5-162247165a5b"
+【AUTHORITY】"10.108.208.232:8000" 
+【HOST】"127.0.0.1:80" 
+inbound|8000|http|httpbin.default.svc.cluster.local 127.0.0.1:43000 10.244.0.67:80 10.244.0.1:10504 - default
 ```
 
-```shell
+```basic
 0 135 1 1            (/status/418)
 0 9593 73 73         (http/1.1)
 0 1428809 1 1        (swagger-ui.bundle.js)

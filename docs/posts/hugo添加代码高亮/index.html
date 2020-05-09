@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<title>PromQL理解 | </title>
+<title>Hugo添加代码高亮 | </title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.58.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/index.css">
 <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/classes.css">
 <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/github.css">
-<link rel="canonical" href="https://zecoo.github.io/hugo/posts/metrics/promql%E7%90%86%E8%A7%A3/">
+<link rel="canonical" href="https://zecoo.github.io/hugo/posts/hugo%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/">
 
 <link rel="alternate" type="application/rss+xml" href="" title="">
 
@@ -77,38 +77,35 @@
 
 <article>
   <header>
-    <h1>PromQL理解</h1>
-    <time datetime="2020-05-08T00:00:00&#43;08:00">May 08, 2020</time>
+    <h1>Hugo添加代码高亮</h1>
+    <time datetime="2020-05-09T00:00:00&#43;08:00">May 09, 2020</time>
   </header>
   
 
-<h2 id="期待数据">期待数据</h2>
+<p>方法：用hightlight.js做高亮。</p>
 
-<p>10min内的请求数（sum）</p>
+<p>针对不同的Hugo主题，应该有不同的思路。但是基本思路还是：</p>
 
-<pre><code class="language-shell">istio_requests_total{destination_service_name=&quot;productpage&quot;}
+<ol>
+<li>head里添加css</li>
+<li>body中添加两个<script>第一个是js文件，第二个是loadjs</li>
+</ol>
+
+<p>我用的是Hugo的contrast主题，打开文件夹theme - layout，找到博文的base.html，打开在里面添加基本思路中的文件。我仿照代码里本来有的目录，简单修改一下就可以了。（第二行是我添加的highlight css文件）</p>
+
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ .Site.BaseURL }}css/index.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ .Site.BaseURL }}css/github.css&quot;&gt;
 </code></pre>
 
-<p>10min内的请求数增长率（rate）</p>
+<p>css的选择可以到GitHub上hightlight.js的src/style下面找。</p>
 
-<pre><code class="language-shell">rate(istio_requests_total{destination_app=&quot;productpage&quot;}[10m])
-</code></pre>
-
-<p>10min内的响应时间P90（quantile）</p>
-
-<pre><code class="language-shell">histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&quot;productpage&quot;}[10m])) by(le))
-</code></pre>
-
-<p>10min内的响应时间增长率（rate）</p>
-
-<pre><code class="language-shell">rate(istio_request_duration_milliseconds_bucket{destination_app=&quot;productpage&quot;}[10m])
-</code></pre>
+<p>js文件，用官网上的cdn就可以。或者直接下载下来。</p>
 
 <h2 id="参考">参考</h2>
 
 <hr />
 
-<p><a href="https://www.zhihu.com/question/380615839">https://www.zhihu.com/question/380615839</a> （Prom时区UTC没法改）</p>
+<p><a href="https://orianna-zzo.github.io/sci-tech/2018-01/blog养成记3-hugo的语法高亮配置/#使用highlight-shortcode进行高亮">https://orianna-zzo.github.io/sci-tech/2018-01/blog养成记3-hugo的语法高亮配置/#使用highlight-shortcode进行高亮</a></p>
 
 </article>
 
