@@ -6,19 +6,33 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 May 2020 00:17:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 09 May 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>metric-&gt;graph思路及实践</title>
+      <title>Hugo添加代码高亮</title>
+      <link>https://zecoo.github.io/hugo/posts/metrics/hugo%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/</link>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/metrics/hugo%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/</guid>
+      <description>方法：用hightlight.js做高亮。
+针对不同的Hugo主题，应该有不同的思路。但是基本思路还是：
+ head里添加css body中添加两个第一个是js文件，第二个是loadjs  我用的是Hugo的contrast主题，打开文件夹theme - layout，找到博文的base.html，打开在里面添加基本思路中的文件。我仿照代码里本来有的目录，简单修改一下就可以了。（第二行是我添加的highlight css文件）
+&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{{ .Site.BaseURL }}css/index.css&amp;quot;&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{{ .Site.BaseURL }}css/github.css&amp;quot;&amp;gt;  css的选择可以到GitHub上hightlight.js的src/style下面找。
+js文件，用官网上的cdn就可以。或者直接下载下来。
+参考 https://orianna-zzo.github.io/sci-tech/2018-01/blog养成记3-hugo的语法高亮配置/#使用highlight-shortcode进行高亮</description>
+    </item>
+    
+    <item>
+      <title>Metric to Graph思路及实践</title>
       <link>https://zecoo.github.io/hugo/posts/metrics/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/metrics/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
       <description>整体思路 01 查看Prom的metric： 写好PromQL获得自己想要的metric，这时候只是文本的形式。而且又臭又长。
-&amp;quot;metric&amp;quot;: { &amp;quot;__name__&amp;quot;: &amp;quot;istio_requests_total&amp;quot;, &amp;quot;connection_security_policy&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;destination_app&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_canonical_revision&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_canonical_service&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_principal&amp;quot;: &amp;quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&amp;quot;, &amp;quot;destination_service&amp;quot;: &amp;quot;productpage.default.svc.cluster.local&amp;quot;, &amp;quot;destination_service_name&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_service_namespace&amp;quot;: &amp;quot;default&amp;quot;, &amp;quot;destination_version&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_workload&amp;quot;: &amp;quot;productpage-v1&amp;quot;, &amp;quot;destination_workload_namespace&amp;quot;: &amp;quot;default&amp;quot;, &amp;quot;instance&amp;quot;: &amp;quot;10.244.0.61:15090&amp;quot;, &amp;quot;job&amp;quot;: &amp;quot;envoy-stats&amp;quot;, &amp;quot;namespace&amp;quot;: &amp;quot;istio-system&amp;quot;, &amp;quot;pod_name&amp;quot;: &amp;quot;istio-ingressgateway-6489d9556d-ws6cg&amp;quot;, &amp;quot;reporter&amp;quot;: &amp;quot;source&amp;quot;, &amp;quot;request_protocol&amp;quot;: &amp;quot;http&amp;quot;, &amp;quot;response_code&amp;quot;: &amp;quot;200&amp;quot;, &amp;quot;response_flags&amp;quot;: &amp;quot;-&amp;quot;, &amp;quot;source_app&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_canonical_revision&amp;quot;: &amp;quot;1.5&amp;quot;, &amp;quot;source_canonical_service&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_principal&amp;quot;: &amp;quot;spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account&amp;quot;, &amp;quot;source_version&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;source_workload&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_workload_namespace&amp;quot;: &amp;quot;istio-system&amp;quot; }, &amp;quot;value&amp;quot;: [ 1588918429.726, &amp;quot;5148&amp;quot; ]  02 提取metric 用代码或者在浏览器中用Prom提供的HTTP API访问提取metrics。请不要用curl，这个坑在另一个博客里已经提到了。</description>
+&amp;quot;metric&amp;quot;: { &amp;quot;__name__&amp;quot;: &amp;quot;istio_requests_total&amp;quot;, &amp;quot;connection_security_policy&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;destination_app&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_canonical_revision&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_canonical_service&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_principal&amp;quot;: &amp;quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&amp;quot;, &amp;quot;destination_service&amp;quot;: &amp;quot;productpage.default.svc.cluster.local&amp;quot;, &amp;quot;destination_service_name&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_service_namespace&amp;quot;: &amp;quot;default&amp;quot;, &amp;quot;destination_version&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_workload&amp;quot;: &amp;quot;productpage-v1&amp;quot;, &amp;quot;destination_workload_namespace&amp;quot;: &amp;quot;default&amp;quot;, &amp;quot;instance&amp;quot;: &amp;quot;10.244.0.61:15090&amp;quot;, &amp;quot;job&amp;quot;: &amp;quot;envoy-stats&amp;quot;, &amp;quot;namespace&amp;quot;: &amp;quot;istio-system&amp;quot;, &amp;quot;pod_name&amp;quot;: &amp;quot;istio-ingressgateway-6489d9556d-ws6cg&amp;quot;, &amp;quot;reporter&amp;quot;: &amp;quot;source&amp;quot;, &amp;quot;request_protocol&amp;quot;: &amp;quot;http&amp;quot;, &amp;quot;response_code&amp;quot;: &amp;quot;200&amp;quot;, &amp;quot;response_flags&amp;quot;: &amp;quot;-&amp;quot;, &amp;quot;source_app&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_canonical_revision&amp;quot;: &amp;quot;1.5&amp;quot;, &amp;quot;source_canonical_service&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_principal&amp;quot;: &amp;quot;spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account&amp;quot;, &amp;quot;source_version&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;source_workload&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_workload_namespace&amp;quot;: &amp;quot;istio-system&amp;quot; }, &amp;quot;value&amp;quot;: [ 1588918429.726, &amp;quot;5148&amp;quot; ] }  02 提取metric 用代码或者在浏览器中用Prom提供的HTTP API访问提取metrics。请不要用curl，这个坑在另一个博客里已经提到了。</description>
     </item>
     
     <item>
