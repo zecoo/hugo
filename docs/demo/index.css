@@ -6,9 +6,18 @@ body{
 	text-align: center;
 }
 
+@media (max-width: 50em)  {
+	.mylogo {
+	display: none;
+	}
+	.work {
+		display: block;
+	}
+}
+
 .mylogo {
 	float: left;
-	margin-left: 120px;
+	margin-left: 10%;
 	margin-top: 20px;
 }
 
@@ -17,13 +26,12 @@ body{
 }
 
 .navbar {
-	min-width: 1080px;
 	height: 80px;
 }
 
 .navbar-menu {
 	margin-top: 20px;
-	margin-left: 140px;
+	margin-left: 10%;
 	float: left;
 }
 
@@ -54,7 +62,7 @@ header {
 	justify-content: center;
 }
 
-.work div {
+.tap {
 	width: 250px;
 	height: 400px;
 	background-color: white;
