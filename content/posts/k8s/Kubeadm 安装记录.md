@@ -31,7 +31,7 @@ $ systemctl enable kubelet && systemctl start kubelet
 
 第二步，`kubeadm config images list`列出所有需要的image，因为国内网络问题嘛，一样的。然后用参考1里的bash脚本安装好，docke images检查一下。
 
-第三步，`kube init --pod-network-cidr=10.244.0.0/16`初始化kubeadm。这一步最重要的是`/etc/kubernetes/admin.conf`这个文件。还有后面那个参数，如果不加上，就会遇到新的坑哦～
+第三步，`kubeadm init --pod-network-cidr=10.244.0.0/16`初始化kubeadm。这一步最重要的是`/etc/kubernetes/admin.conf`这个文件。还有后面那个参数，如果不加上，就会遇到新的坑哦～
 
 init结束之后，不要忘了提示的三行命令
 
@@ -52,8 +52,6 @@ kubectl get node
 kubectl get sc
 kubectl get pod --all-namespaces
 ```
-
-
 
 ## 参考
 

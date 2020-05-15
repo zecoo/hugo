@@ -1,0 +1,802 @@
+<!doctype html>
+<html style='font-size:17px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>&quot;QA&quot;</title><link href='https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit inherit; background-repeat: inherit inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) { 
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.701961); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit inherit; background-repeat: inherit inherit; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; background-repeat: initial initial; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print { 
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) { 
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; background-position: initial initial; background-repeat: initial initial; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); background-position: initial initial; background-repeat: initial initial; }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror-scroll { overflow-y: hidden; overflow-x: auto; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right-width: 1px; border-right-style: solid; border-right-color: rgb(221, 221, 221); background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; white-space: nowrap; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; border: none !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-width: 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; background-position: 0px 0px; background-repeat: initial initial; }
+.CodeMirror-wrap pre { word-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right-width: 30px; border-right-style: solid; border-right-color: transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right-style: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right-style: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background-color: rgba(255, 255, 0, 0.4); background-position: initial initial; background-repeat: initial initial; }
+@media print { 
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+
+@include-when-export url(https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
+
+/* =========== */
+
+:root {
+	--active-file-bg-color: #dadada;
+	--active-file-bg-color: rgba(32, 43, 51, 0.63);
+	--active-file-text-color: white;
+	--bg-color: #f3f2ee;
+	--text-color: #1f0909;
+	--control-text-color: #444;
+	--rawblock-edit-panel-bd: #e5e5e5;
+
+	--select-text-bg-color: rgba(32, 43, 51, 0.63);
+  --select-text-font-color: white;
+}
+
+pre {
+	--select-text-bg-color: #36284e;
+	--select-text-font-color: #fff;
+}
+
+html {
+	font-size: 16px;
+}
+
+html, body {
+	background-color: #f3f2ee;
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+	color: #1f0909;
+	line-height: 1.5em;
+}
+
+/*#write {
+	overflow-x: auto;
+    max-width: initial;
+	padding-left: calc(50% - 17em);
+    padding-right: calc(50% - 17em);
+}
+
+@media (max-width: 36em) {
+ 	#write {
+ 		padding-left: 1em;
+    	padding-right: 1em;
+ 	}
+}*/
+
+#write {
+	max-width: 40em;
+}
+
+ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* styles */
+
+/* ====== */
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+h1 {
+	font-size: 1.875em;
+	/*30 / 16*/
+	line-height: 1.6em;
+	/* 48 / 30*/
+	margin-top: 2em;
+}
+h2,
+h3 {
+	font-size: 1.3125em;
+	/*21 / 16*/
+	line-height: 1.15;
+	/*24 / 21*/
+	margin-top: 2.285714em;
+	/*48 / 21*/
+	margin-bottom: 1.15em;
+	/*24 / 21*/
+}
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-size: 1.125em;
+	/*18 / 16*/
+	margin-top: 2.67em;
+	/*48 / 18*/
+}
+h5,
+h6 {
+	font-size: 1em;
+	/*16*/
+}
+h1 {
+	border-bottom: 1px solid;
+	margin-bottom: 1.875em;
+	padding-bottom: 0.8125em;
+}
+/* links */
+
+a {
+	text-decoration: none;
+	color: #065588;
+}
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+/* block spacing */
+
+p,
+blockquote,
+.md-fences {
+	margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 1.5em;
+}
+/* blockquote */
+
+blockquote {
+	font-style: italic;
+	border-left: 5px solid;
+	margin-left: 2em;
+	padding-left: 1em;
+}
+/* lists */
+
+ul,
+ol {
+	margin: 0 0 1.5em 1.5em;
+}
+/* tables */
+.md-meta,.md-before, .md-after {
+	color:#999;
+}
+
+table {
+	margin-bottom: 1.5em;
+	/*24 / 16*/
+	font-size: 1em;
+	/* width: 100%; */
+}
+thead th,
+tfoot th {
+	padding: .25em .25em .25em .4em;
+	text-transform: uppercase;
+}
+th {
+	text-align: left;
+}
+td {
+	vertical-align: top;
+	padding: .25em .25em .25em .4em;
+}
+
+code,
+.md-fences {
+	background-color: #dadada;
+}
+
+code {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.md-fences {
+	margin-left: 2em;
+	margin-bottom: 3em;
+	padding-left: 1ch;
+	padding-right: 1ch;
+}
+
+pre,
+code,
+tt {
+	font-size: .875em;
+	line-height: 1.714285em;
+}
+/* some fixes */
+
+h1 {
+	line-height: 1.3em;
+	font-weight: normal;
+	margin-bottom: 0.5em;
+}
+
+p + ul,
+p + ol{
+	margin-top: .5em;
+}
+
+h3 + ul,
+h4 + ul,
+h5 + ul,
+h6 + ul,
+h3 + ol,
+h4 + ol,
+h5 + ol,
+h6 + ol {
+	margin-top: .5em;
+}
+
+li > ul,
+li > ol {
+	margin-top: inherit;
+	margin-bottom: 0;
+}
+
+li ol>li {
+	list-style-type: lower-alpha;
+}
+
+li li ol>li{
+	list-style-type: lower-roman;
+}
+
+h2,
+h3 {
+	margin-bottom: .75em;
+}
+hr {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid;
+	border-left: none;
+}
+h1 {
+	border-color: #c5c5c5;
+}
+blockquote {
+	border-color: #bababa;
+	color: #656565;
+}
+
+blockquote ul,
+blockquote ol {
+	margin-left:0;
+}
+
+.ty-table-edit {
+	background-color: transparent;
+}
+thead {
+	background-color: #dadada;
+}
+tr:nth-child(even) {
+	background: #e8e7e7;
+}
+hr {
+	border-color: #c5c5c5;
+}
+.task-list{
+	padding-left: 1rem;
+}
+
+.md-task-list-item {
+	padding-left: 1.5rem;
+	list-style-type: none;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.25rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #F3F2EE;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+
+#write pre.md-meta-block {
+	min-height: 1.875rem;
+	color: #555;
+	border: 0px;
+	background: transparent;
+	margin-top: -4px;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.md-image>.md-meta {
+	color: #9B5146;
+}
+
+.md-image>.md-meta{
+	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
+}
+
+
+#write>h3.md-focus:before{
+	left: -1.5rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h4.md-focus:before{
+	left: -1.5rem;
+	top: .25rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h5.md-focus:before{
+	left: -1.5rem;
+	top: .0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h6.md-focus:before{
+	left: -1.5rem;
+	top: 0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+.md-toc-content:empty:before{
+	color: #065588;
+}
+.md-toc-item {
+	color: #065588;
+}
+#write div.md-toc-tooltip {
+	background-color: #f3f2ee;
+}
+
+#typora-sidebar {
+	background-color: #f3f2ee;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+}
+
+.pin-outline #typora-sidebar {
+	background: inherit;
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+	border-left:1px dashed;
+}
+
+.outline-item:hover {
+  background-color: #dadada;
+  border-left: 28px solid #dadada;
+  border-right: 18px solid #dadada;
+}
+
+.typora-node .outline-item:hover {
+  	border-right: 28px solid #dadada;
+}
+
+.outline-expander:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size:14px;
+  top: 1px;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f0d7";
+}
+
+.modal-content {
+	background-color: #f3f2ee;
+}
+
+.auto-suggest-container ul li {
+	list-style-type: none;
+}
+
+/** UI for electron */
+
+.megamenu-menu,
+#top-titlebar, #top-titlebar *,
+.megamenu-content {
+	background: #f3f2ee;
+	color: #1f0909;
+}
+
+.megamenu-menu-header {
+	border-bottom: 1px dashed #202B33;
+}
+
+.megamenu-menu {
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+header, .context-menu, .megamenu-content, footer {
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+    color: #1f0909;
+}
+
+#megamenu-back-btn {
+	color: #1f0909;
+	border-color: #1f0909;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title:before {
+	color: #1f0909;
+}
+
+.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
+	color: inherit;
+	background-color: #e8e7df;
+}
+
+.long-btn:hover {
+	background-color: #e8e7df;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+	background-color: #D2D1D1;
+}
+
+.btn-default {
+	background-color: transparent;
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+.ty-show-word-count #footer-word-count {
+	background: #c7c5c5;
+}
+
+#typora-quick-open {
+    background-color: inherit;
+}
+
+.md-diagram-panel {
+	margin-top: 8px;
+}
+
+.file-list-item-file-name {
+	font-weight: initial;
+}
+
+.file-list-item-summary {
+	opacity: 1;
+}
+
+.file-list-item {
+	color: #777;
+}
+
+.file-list-item.active {
+	background-color: inherit;
+	color: black;
+}
+
+.ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
+.file-list-item.active .file-list-item-file-name  {
+	font-weight: bold;
+}
+
+.file-list-item{
+    opacity:1 !important;
+}
+
+.file-library-node.active>.file-node-background{
+	background-color: rgba(32, 43, 51, 0.63);
+	background-color: var(--active-file-bg-color);
+}
+
+.file-tree-node.active>.file-node-content{
+	color: white;
+	color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+	margin-left: -1.7em;
+	margin-top: calc(1rem - 12px);
+}
+
+input {
+	border: 1px solid #aaa;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover, 
+.megamenu-menu-header:focus {
+	color: inherit;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+/* https://github.com/typora/typora-issues/issues/2046 */
+.os-windows-7 strong,
+.os-windows-7 strong  {
+	font-weight: 760;
+}
+
+.ty-preferences .btn-default {
+	background: transparent;
+}
+
+.ty-preferences .window-header {
+	border-bottom: 1px dashed #202B33;
+	box-shadow: none;
+}
+
+#sidebar-loading-template, #sidebar-loading-template.file-list-item {
+	color: #777;
+}
+
+
+</style>
+</head>
+<body class='typora-export' >
+<div  id='write'  class = 'is-mac'><h2><a name="serverless" class="md-header-anchor"></a><span>Serverless</span></h2><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>docker ip和主机ip怎么通信</span></p></li></ul><p><span>docker会虚拟出一个网桥，docker内所有容器的通信都需要通过该网桥。如果用户想要通过主机ip实现对docker内容器的访问，需要暴露出来一个端口，将该端口映射到指定docker容器的端口。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>docker是什么</span></p></li></ul><p><span>docker是一种容器技术，将应用打包成标准单元（镜像），该应用可以在任何装有docker的环境运行，可以非常方便得开发、交付和部署。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>docker file如何编写</span></p></li></ul><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="dockerfile"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="dockerfile"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-2">From</span> ubuntu</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-2">ENV</span> zik</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-2">RUN</span> apt install nginx</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-2">ADD</span> nginx.conf /etc/nginx/nginx.conf</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 104px;"></div><div class="CodeMirror-gutters" style="display: none; height: 104px;"></div></div></div></pre><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>k8s deployment、svc的yaml如何编写</span></p></li></ul><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="yaml"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="yaml"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">apiVersion</span><span class="cm-meta">: </span></span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">metadata</span><span class="cm-meta">:</span></span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">spec</span><span class="cm-meta">:</span></span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"><span class="cm-tab" role="presentation" cm-text="	">  </span>container</span><span class="cm-meta">:</span></span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"><span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-tab" role="presentation" cm-text="	">  </span>image</span><span class="cm-meta">:</span></span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 156px;"></div><div class="CodeMirror-gutters" style="display: none; height: 156px;"></div></div></div></pre><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>docker挂了如何获取日志？</span></p></li></ul><p><code>docker log container_id</code><span> 或者 inspect？</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>docker守护进程</span></p></li></ul><p><span>监控指定的进程，守护进程可以监控多个进程。如果目标进程发生异常，守护进程可以选择关闭或者重新启动该进程。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>docker和虚拟机的区别</span></p></li></ul><p><span>docker官网给出的docker和虚拟机的区别的图中，给出虚拟机是基于CoreOS，在此基础上运行应用。而docker是基于docker引擎。虚拟机需要单独划分内存、硬盘资源，且启动较慢。而docker在linux环境下做隔离，不需要单独的资源。启动起来很快。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>docker如何实现隔离</span></p></li></ul><p><span>docker使用的是namespace实现网络、进程的隔离，cgroup（control group）实现的是资源的隔离，比如cpu、mem等。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>如何进入docker容器</span></p></li></ul><p><span>docker attach container_id 或者 docker exec -it 775c7c9ee1e1 /bin/bash</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>docker的优势（为什么要用docker）</span></p></li></ul><ol><li><span>保证了环境的一致性，不会出现代码在另外一台机子上因为环境问题不能用的情况</span></li><li><span>可以轻松增加容器副本，弹性伸缩，缓解服务器压力</span></li><li><span>启动时间快，大大提高了软件从开发到部署的效率</span></li><li><span>适合当前云环境</span></li></ol><h2><a name="linux" class="md-header-anchor"></a><span>Linux</span></h2><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>grep awk sed 分别用于处理什么，具体怎么用</span></p></li></ul><p><span>Linux三剑客。grep是global regular expression print的缩写，就是根据正则表达式查找的命令。sed是流编辑工具，快速修改文本。awk是文档格式化工具，将信息以期待的格式展示出来。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>软链接和硬链接</span></p></li></ul><p><span>每创建一个硬链接相当于对资源添加了一个指针，对任意指针所有的更改都会影响指向的文件。删除一个硬链接不会删除资源，但是如果删除的是资源的最后一个硬链接，那么这个文件就会彻底删除。</span></p><p><span>软链接（soft link）相当于创建了一个资源的快捷方式，更像是一种方便寻找资源的方式。删除指向资源的任意软链接不会对资源造成影响，但是如果资源被删除了，软链接就失效了。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>进程间通信方式</span></p></li></ul><p><span>进程间的通信方式我了解的有：管道、FIFO、信号量、消息队列、共享内存和嵌套字。</span></p><p><span>管道是将一个进程的输出作为另一个进程的输入，这个过程是单向的。并且只能在亲子进程之间使用。FIFO即First Input First Output，也是一种管道，但是这种管道没有仅亲子进程使用的限制。管道的通病是速度比较慢。</span></p><p><span>信号量semaphore是一个计数器，可以用来控制多个进程对共享资源的访问。信号量有两个操作：P(sv)和V(sv)。举个例子：进程A通过P操作获取信号量，信号量-1后变为0，A可以使用资源。这时如果B通过P要使用资源，发现信号量为0，那么进程B就要等待A用完并使用V操作释放信号量之后才能使用。</span></p><p><code>ipcs -q</code><span> Inter-Process Communication查看消息队列。共享内存即进程间共享一部分内存，还有嵌套字socket，这三种具体的没有去了解。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>线程通信方式</span></p></li></ul><p><span>volatile变量用共享内存的方式进行通信。wait()和notify()方法进行通信。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>线程和进程</span></p></li></ul><p><span>进程是资源调度的最小单位，是程序运行的一个实例。每创建一个进程，需要给该进程分配地址空间、堆栈段、数据段等。分配好资源之后将进程送入进程调度器，等待调度器给其分配cpu时间，程序才开始执行。</span></p><p><span>线程是cpu调度的最小单元，线程本身是不带资源的。一个进程可以有很多个线程，多个线程可是实现并发操作。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>并发和并行</span></p></li></ul><p><span>并发是在一段时间中，多个线程轮流执行。并行是指线程齐头并进，比如多核cpu同时处理多个任务。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>grep能详细说说吗</span></p></li></ul><p><code>netstat tnlp ｜ grep :22</code><span>查看22端口的使用情况。</span></p><p><span>-v筛除含有xx关键字的结果，-e表示筛选包含xx关键字的结果。-c表示仅筛出包含关键字的行数，比如某行包含4个关键字，用 wc -l能找出4个结果，-c只找出一个结果。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>堆和栈的区别</span></p></li></ul><p><span>程序的内存空间分配从上到下分别是：栈、堆、静态区、文字常量区和代码执行区。</span></p><p><span>栈是存放临时变量等的内存空间，不能指定大小，栈是从上往下增长的。堆是程序员malloc手动分配的内存空间，可以指定分配的大小。堆是从下往上增长的。</span></p><p><span>堆和栈为什么一个向下一个向上？可以想象一下分配内存的过程嘛，这样的设计，互相不影响啊。</span></p><h2><a name="网络" class="md-header-anchor"></a><span>网络</span></h2><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>tcp三次握手</span></p></li></ul><p><span>tcp三次握手是客户端和服务器建立连接的过程。</span></p><p><span>第1⃣️次握手过程：客户端向服务器发送SYN=1（）、seq=x的数据包。相当于“8633呼叫塔台，客户端进入SYN_SENT状态”。第2⃣️次握手过程：服务器收到SYN包之后，回复客户端SYN=1，ACK=1，seq=y，ack=x+1数据包，相当于“塔台收到，请回答”的过程。服务器进入SYN_RCVD状态。第3⃣️次握手：最后客户端向服务器发送ACK=1，seq=x+1，ack=y+1的包，至此客户端和服务器之间的连接就建立起来了。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>为什么需要三次握手</span></p></li></ul><p><span>如果只有一次握手，那么客户端不知道服务器有没有收到数据包。如果只有两次握手，那么服务器就会持续等待客户端的数据，如果客户端一直不发送数据，服务器还处于继续等待的状态，会造成服务器的资源浪费。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>tcp四次挥手</span></p></li></ul><p><span>tcp四次挥手是客户端和服务器断开连接的过程。</span></p><p><span>第1⃣️次挥手：客户端主动关闭连接向服务器发送FIN=1，seq=x的包，此时客户端进入FIN_WAIT状态。第2⃣️次挥手：服务器收到FIN包建立连接状态，向服务发送ACK=1，seq=y，ack=x+1的包，进入CLOSE_WAIT状态。第3⃣️次挥手：服务器将剩余所有的数据都传给客户端之后，被动关闭，并向客户端发送FIN=1，seq=w，ack=x+1的FIN包。第4⃣️次挥手：客户端收到服务器的FIN包，向服务器回应ACK=1，seq=x+1，ack=w+1的ACK包，进入2MSL的TIME_WAIT状态之后变为CLOSE状态。服务器收到客户端的ACK请求，立马进入CLOSE状态。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>http和https的区别</span></p></li></ul><p><span>http（hyperlink text transfer protocol）超文本传输协议，是通过tcp/ip进行传输数据的网络协议。https是在http的基础上加了ssl安全验证的协议。</span></p><p><span>其区别是http是明文传输，有可能被不法分子抓到传输的数据。https加了ssl验证，传输的数据都通过密钥加密所以更加安全。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>tcp、udp区别</span></p></li></ul><p><span>tcp如果超时丢包了会重传更加稳定，另外数据一致性会得到保障所以更加安全。udp不考虑丢包的情况，传输的速度会更快。</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>tcp如何保证可靠</span></p></li></ul><p><span>校验和、序列号、超时重传、流量控制、拥塞控制</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>tcp如何实现流量控制</span></p></li></ul><p><span>服务器会维护一个滑动窗口，比如当前能接受的数据大小是x，服务器就会在下一个包中告诉客户端现在能接收到的数据最大是x，超过这个大小的数据就先不要传了。客户端收到之后，并不知道服务器数据的处理情况，所以会隔一段时间询问服务器当前滑动窗口的大小是多少。</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>DNS域名解析</span></p></li></ul><p><span>DNS域名解析会先在本地，以此是浏览器、主机和路由器中查找是否有域名转为ip的缓存。如果依旧没有，将该域名依次转向运营商DNS缓存、根域名服务器、顶级服务器进行查找，直到找到目标域名的ip地址。然后将找到的结果存入缓存中。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>http1和http2的区别</span></p></li></ul><p><span>举个例子：如果通过http1请求一个带有css、js资源的html页面，页面加载过程会等先发送css的请求，然后服务器返回css资源，然后发送js请求，然后服务器返回js资源，直到所有资源均被客户端接收到之后再渲染页面。如果通过http2的话，请求css、js、html的过程是并发的，也就是css、js、html的请求会同时发出，不需要等上一个资源接收到之后再发送下一个资源的请求。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>TIME_WATI状态的意义？</span></p></li></ul><p><span>防止下次打开相同的tcp连接，会发送一个SYN请求，恰好上一个结束的ACK请求还没有发给服务器，服务器接收到两个请求，不知道该怎么办。</span></p><h2><a name="后台" class="md-header-anchor"></a><span>后台</span></h2><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>垃圾回收机制</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>设计模式可以讲几个吗</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>rest里面put和post的区别</span></p></li></ul><h2><a name="数据结构" class="md-header-anchor"></a><span>数据结构</span></h2><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>冒泡</span></p></li></ul><p><span>如果有n个元素需要排序，第1⃣️次排序从第一个元素开始和其右边的元素进行比较，如果大于当前元素大于右边的元素，就和其交换位置。这样一轮排序下来就将最大的元素排到了最后面。第2⃣️次排序的时候继续从第一个元素开始和其右边的元素进行比较，这次只需要比较到n-1位，因为第一轮排序已经找到了最大的元素。继续第3、4、…、n-1次排序。</span></p><p><span>冒泡排序的平均时间复杂度是O(n^2)，最好的情况是刚好一次排序成功，时间复杂度是O(n)。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>快排</span></p></li></ul><p><span>赋值基准元素pivot为第一个元素不变，然后有：index、left、right三个指针。index指向基准元素，left和right分别指向最左和最右的元素。</span></p><p><span>首先从right指针指向的元素开始，如果该元素大于pivot元素，那么right指针向左移动；如果小于pivot，那么把该元素填到index处，并将index调整到right指针所在的位置。</span></p><p><span>接下来看left指针，将left指针上的元素和pivot进行比较，如果小于pivot，left指针向右移动。如果大于pivot元素，那么将left上的元素填到index所在的位置，并将index指针调整到left所在的位置。</span></p><p><span>接着回到right指针，left指针。如此往返，直到left和right指针重合在一起。这个位置就是pivot元素应该填入的位置。</span></p><p><span>快排的平均时间复杂度是O(nlogn)，</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>编程实现栈</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>遍历目录以及目录中文件的方法</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>数组和链表的区别</span></p></li></ul><p><span>数组的是栈分配的连续存储空间，查找起来比较方便，但是插入和删除比较复杂。</span></p><p><span>链表的元素有两个属性，一个是value，另一个是pointer指向下一个元素。链表是堆分配的，不要求存储空间的连续性。查找的复杂度是O(n)，插入和删除链表非常方便。非常适用于动态扩展。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>解决哈希冲突</span></p></li></ul><p><span>拉链法：用链表解决冲突，将后出现的元素链到前一个元素后面。</span></p><p><span>线性探测法：用数组解决冲突。通过散列函数H(key)得到的结果插入数组中，如果数组当前位置已经有元素了，就向后移一个位置插入元素。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>B树</span></p></li></ul><p><span>是一种平衡树，可用于查找。m阶B树满足以下条件：</span></p><ol><li><span>max叶子结点：m-1。</span></li><li><span>min叶子结点：m/2。</span></li><li><span>所有叶子节点具有相同的高度h。</span></li><li><span>字结点的key从小到大排列</span></li></ol><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>B+树</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>红黑树</span></p></li></ul><h2><a name="小demo思路" class="md-header-anchor"></a><span>小Demo思路</span></h2><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>很大的文件（1T比如），检索关键词</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>统计文本中某字段出现的次数</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>2G内存实现10G文件的排序？？？</span></p></li><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>递归实现1+2+3+…</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>shell:找出一个目录下最大的5个文件并排序</span></p></li></ul><h2><a name="数据库" class="md-header-anchor"></a><span>数据库</span></h2><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>乐观锁、悲观锁</span></p></li></ul><p><span>乐观锁：乐观估计一次事务不会发生错误，等该次事物提交之后验证数据的一致性。那么如何保证数据的一致性？CAS（Compare And Swap），在update之前先取没update之前的值，将update之后的值和实际值进行比较。但是也有问题，可以用version的方法避免。</span></p><p><span>悲观锁：悲观估计事务会发生错误，没有做修改之前就将记录加锁，等到修改结束之后再解除锁。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>事务ACID</span></p></li></ul><p><span>Atomicity：Consistency、Isolation（事务之间是隔离的，相互的影响）、Durability</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>索引</span></p></li></ul><p><span>索引是一个数据结构，以一个单独的文件形式存在。可以加快数据库检索素速度。给某个数据加索引的方法有B+树或者哈希表。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>视图</span></p></li></ul><p><span>视图是一种虚拟表，在不改变原数据的前提下，用不同的角度组合的方式观察数据表。创建、修改和删除视图对原数据表没有影响。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>三范式</span></p></li></ul><p><span>一范式：每一列都是不可分割的原子数据</span></p><p><span>二范式：在1NF的基础上，每一列的数据都与主键相关</span></p><p><span>三范式：在2NF的基础上，每一列的数据都与主键直接相关。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>数据库隔离级别</span></p></li></ul><p><span>read uncommitted，read committed，repeatable read，serializable</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>关系型数据库和非关系型</span></p></li></ul><p><span>菲关系型数据库仅存key-value。</span></p><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>不考虑隔离性的结果</span></p></li></ul><p><span>脏读：A查询数据，B同时修改数据。然后B回滚，A此时读到的数据就是空欢喜。</span></p><p><span>不可重复读：和脏读的区别是A做最后一次查询的时候，B已经commit了。而前几次查询都是在B没有commit的时候进行的。</span></p><p><span>幻读：A查询数据，B插入了几行数据，A查询结果会发现多出来几列。</span></p><h2><a name="操作系统" class="md-header-anchor"></a><span>操作系统</span></h2><ul><li class='md-task-list-item task-list-item task-list-done' ><input type='checkbox' disabled='disabled' checked/><p><span>死锁发生和解决</span></p></li></ul><p><span>发生条件：互斥、等待、非抢占、循环等待。解决：消除其中一个就可以解决。</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>银行家算法</span></p></li></ul><h2><a name="python" class="md-header-anchor"></a><span>Python</span></h2><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p><span>判断数据类型</span></p></li></ul><p><span>isinstance() 和 type()</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /><p>&nbsp;</p></li></ul><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' disabled='disabled' /></li></ul><h2><a name="参考" class="md-header-anchor"></a><span>参考</span></h2><hr /><p><a href='https://github.com/CyC2018/CS-Notes' target='_blank' class='url'>https://github.com/CyC2018/CS-Notes</a><span> （star1k+ 面经）</span></p><p><a href='https://blog.csdn.net/xiaoming100001/article/details/81109617?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase' target='_blank' class='url'>https://blog.csdn.net/xiaoming100001/article/details/81109617?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase</a><span>  （http全解，就是三次握手的图有问题）</span></p><p><a href='https://blog.csdn.net/qq_38950316/article/details/81087809' target='_blank' class='url'>https://blog.csdn.net/qq_38950316/article/details/81087809</a><span> （三次握手、四次挥手）</span></p><p><a href='https://zhuanlan.zhihu.com/p/32513816' target='_blank' class='url'>https://zhuanlan.zhihu.com/p/32513816</a><span> （ssl目前看最好但还是不够好的文章）</span></p><p><a href='https://github.com/CyC2018/CS-Notes/blob/master/notes/' target='_blank' class='url'>https://github.com/CyC2018/CS-Notes/blob/master/notes/</a><span>计算机操作系统%20-%20死锁.md（死锁问题）</span></p><p><a href='https://www.kancloud.cn/mutouzhang/go/598654' target='_blank' class='url'>https://www.kancloud.cn/mutouzhang/go/598654</a><span> （死锁go的例子）</span></p><p><a href='http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html' target='_blank' class='url'>http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html</a><span> （阮一峰进程线程形象解释）</span></p><p><a href='https://www.cnblogs.com/zhehan54/p/6130030.html' target='_blank' class='url'>https://www.cnblogs.com/zhehan54/p/6130030.html</a><span> （言简意赅讲线程进程）</span></p><p><a href='https://www.zhihu.com/question/33515481' target='_blank' class='url'>https://www.zhihu.com/question/33515481</a><span> （并发并行形象区分）</span></p><p><a href='https://blog.csdn.net/gatieme/article/details/50908749' target='_blank' class='url'>https://blog.csdn.net/gatieme/article/details/50908749</a><span> （进程间通信方式）</span></p><p><a href='https://blog.csdn.net/zbyzhlsp2/article/details/9046501' target='_blank' class='url'>https://blog.csdn.net/zbyzhlsp2/article/details/9046501</a><span> （堆和栈的区别）</span></p><p><a href='https://blog.csdn.net/liuchenxia8/article/details/80428157' target='_blank' class='url'>https://blog.csdn.net/liuchenxia8/article/details/80428157</a><span> （tcp如何保证可靠性）</span></p><p><a href='https://blog.csdn.net/qq544649790/article/details/84202976' target='_blank' class='url'>https://blog.csdn.net/qq544649790/article/details/84202976</a><span> （linux统计某个字符串出现的次数）</span></p><p><a href='https://blog.csdn.net/qq_36513490/article/details/97155059' target='_blank' class='url'>https://blog.csdn.net/qq_36513490/article/details/97155059</a><span> （awk基本操作）</span></p><p><a href='https://www.zhihu.com/question/23042131' target='_blank' class='url'>https://www.zhihu.com/question/23042131</a><span> （DNS域名解析过程）</span></p><p><a href='https://blog.csdn.net/weixin_42584156/article/details/84669686' target='_blank' class='url'>https://blog.csdn.net/weixin_42584156/article/details/84669686</a><span> （grep参数）</span></p><p><a href='https://www.cnblogs.com/heyanan/p/6912870.html' target='_blank' class='url'>https://www.cnblogs.com/heyanan/p/6912870.html</a><span> （解决hash冲突）</span></p><p><a href='https://www.cnblogs.com/xdp-gacl/p/3984001.html' target='_blank' class='url'>https://www.cnblogs.com/xdp-gacl/p/3984001.html</a><span> （数据库隔离）</span></p><p><a href='https://www.jianshu.com/p/b72d3ab9e54a' target='_blank' class='url'>https://www.jianshu.com/p/b72d3ab9e54a</a><span> （数据库索引）</span></p><p><a href='https://www.iteye.com/blog/lixh1986-2342636' target='_blank' class='url'>https://www.iteye.com/blog/lixh1986-2342636</a><span> （索引图解）</span></p><p><a href='http://blog.codinglabs.org/articles/theory-of-mysql-index.html' target='_blank' class='url'>http://blog.codinglabs.org/articles/theory-of-mysql-index.html</a><span> （b树和磁盘）</span></p><p><a href='https://blog.csdn.net/ThinkWon/article/details/104778621#BB_555' target='_blank' class='url'>https://blog.csdn.net/ThinkWon/article/details/104778621#BB_555</a><span> （数据库面试大部分问题）</span></p><p><a href='https://www.cnblogs.com/wsg25/p/9615100.html' target='_blank' class='url'>https://www.cnblogs.com/wsg25/p/9615100.html</a><span> （通俗理解三大范式）</span></p><p><a href='https://www.cnblogs.com/kyoner/p/11318979.html' target='_blank' class='url'>https://www.cnblogs.com/kyoner/p/11318979.html</a><span> （乐观锁和悲观锁）</span></p><p><a href='https://www.jianshu.com/p/fd7b422d5f93' target='_blank' class='url'>https://www.jianshu.com/p/fd7b422d5f93</a><span> （sql和Nosql）</span></p><p><a href='https://www.cnblogs.com/xichji/p/11286443.html' target='_blank' class='url'>https://www.cnblogs.com/xichji/p/11286443.html</a><span> （nosql缓存击穿）</span></p><p><a href='https://www.cnblogs.com/mlan/p/7811382.html' target='_blank' class='url'>https://www.cnblogs.com/mlan/p/7811382.html</a><span> （java统计字符串在文本中出现的次数）</span></p><p><a href='https://www.cnblogs.com/kubidemanong/p/9987810.html' target='_blank' class='url'>https://www.cnblogs.com/kubidemanong/p/9987810.html</a><span> （tcp流量控制）</span></p><p><a href='http://dockone.io/article/6051' target='_blank' class='url'>http://dockone.io/article/6051</a><span> （docker基础概念好文）</span></p><p><a href='https://blog.csdn.net/jisuanji12306/article/details/86363390' target='_blank' class='url'>https://blog.csdn.net/jisuanji12306/article/details/86363390</a><span> （线程通信）</span></p><p><a href='https://www.cnblogs.com/lcy0515/p/10807820.html' target='_blank' class='url'>https://www.cnblogs.com/lcy0515/p/10807820.html</a><span> （程序员小灰算法图解全）</span></p><p><a href='https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&amp;mid=2653195042&amp;idx=1&amp;sn=2b0915cd2298be9f2163cc90a3d464da&amp;chksm=8c99f9f8bbee70eef627d0f5e5b80a604221abb3a1b5617b397fa178582dcb063c9fb6f904b3&amp;scene=21#wechat_redirect' target='_blank' class='url'>https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=2653195042&idx=1&sn=2b0915cd2298be9f2163cc90a3d464da&chksm=8c99f9f8bbee70eef627d0f5e5b80a604221abb3a1b5617b397fa178582dcb063c9fb6f904b3&scene=21#wechat_redirect</a><span> （小灰：什么是快速排序）</span></p><p><a href='https://blog.csdn.net/Jasminexjf/article/details/88847127' target='_blank' class='url'>https://blog.csdn.net/Jasminexjf/article/details/88847127</a><span> （链表和数组的区别）</span></p><p><a href='https://www.cnblogs.com/Py00/archive/2018/03/19/8601616.html' target='_blank' class='url'>https://www.cnblogs.com/Py00/archive/2018/03/19/8601616.html</a><span> （python判断变量的类型）</span></p><p><a href='https://blog.csdn.net/cuierdan/article/details/71725934' target='_blank' class='url'>https://blog.csdn.net/cuierdan/article/details/71725934</a><span> （docker守护进程）</span></p></div>
+</body>
+</html>
