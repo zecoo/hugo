@@ -2,6 +2,8 @@
 title: "Istio 安装回顾"
 date: 2020-04-29T11:37:07+08:00
 draft: true
+tags: ["istio", "hello-world"]
+categories: ["istio"]
 ---
 
 如果是Microk8s安装，很简单就一步：

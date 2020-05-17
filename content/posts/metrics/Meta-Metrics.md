@@ -2,6 +2,8 @@
 title: "Meta Metrics"
 date: "2020-05-07T00:00:00+08:00"
 draft: false
+tags: ["istio", "prom"]
+categories: ["istio"]
 
 ---
 

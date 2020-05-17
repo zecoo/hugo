@@ -2,6 +2,8 @@
 title: "K8s + Istio 概念"
 date: 2020-04-30T10:37:07+08:00
 draft: true
+tags: ["istio"]
+categories: ["istio"]
 ---
 
 环境都搭好了，不知道里面的原理那可不行。

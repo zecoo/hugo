@@ -2,6 +2,8 @@
 title: "Prometheus Metric形式"
 date: "2020-05-03T00:00:00+08:00"
 draft: false
+tags: ["prom"]
+categories: ["prom"]
 ---
 
 ## Prom的四种基本metric类型

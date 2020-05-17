@@ -2,6 +2,8 @@
 title: "Metric to Graph思路及实践"
 date: "2020-05-08T00:17:00+08:00"
 draft: false
+tags: ["istio", "prom"]
+categories: ["prom"]
 ---
 
 ## 整体思路

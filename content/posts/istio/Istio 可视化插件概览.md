@@ -2,6 +2,8 @@
 title: "Istio 可视化插件概览"
 date: 2020-04-30T10:35:07+08:00
 draft: true
+tags: ["istio", "prom"]
+categories: ["istio"]
 ---
 
 ## Prometheus

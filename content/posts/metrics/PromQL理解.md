@@ -2,6 +2,8 @@
 title: "PromQL理解"
 date: "2020-05-08T00:00:00+08:00"
 draft: false
+tags: ["prom"]
+categories: ["prom"]
 
 ---
 

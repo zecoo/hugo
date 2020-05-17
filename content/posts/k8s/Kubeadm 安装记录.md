@@ -2,6 +2,8 @@
 title: "Kubeadm 安装记录"
 date: 2020-04-28T16:37:07+08:00
 draft: true
+tags: ["k8s", "kubeadm"]
+categories: ["k8s"]
 ---
 
 装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。
@@ -68,3 +70,5 @@ https://www.kubernetes.org.cn/5462.html （带dashboard的教程）
 https://www.cnblogs.com/caibao666/p/11664726.html （flannel的那个坑）
 
 https://blog.csdn.net/u012547633/article/details/103846564 （另一个也喜欢记录的小伙伴）
+
+https://www.cnblogs.com/qq952693358/p/6537846.html （E: Unable to lock directory /var/lib/apt/lists/ 错误）

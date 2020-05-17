@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>
+        Prometheus Metric形式 - Pure theme for Hugo
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="Prom的四种基本metric类型 counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、me" />
+    <meta name="generator" content="Hugo 0.58.3 with theme pure" />
+    <title>Prometheus Metric形式 - Pure theme for Hugo</title>
+    
+    
+    <link rel="stylesheet" href="https://example.com/css/style.min.fb6e6d5d9e5fa539e3d084f012b971c4f0ceb69ee16f354c1e4f9a99fb6b46b7.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="Prometheus Metric形式" />
+<meta property="og:description" content="Prom的四种基本metric类型 counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、me" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/" />
+<meta property="article:published_time" content="2020-05-03T00:00:00+08:00" />
+<meta property="article:modified_time" content="2020-05-03T00:00:00+08:00" />
+<meta itemprop="name" content="Prometheus Metric形式">
+<meta itemprop="description" content="Prom的四种基本metric类型 counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、me">
+
+
+<meta itemprop="datePublished" content="2020-05-03T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-03T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="1128">
+
+
+
+<meta itemprop="keywords" content="prom," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Prometheus Metric形式"/>
+<meta name="twitter:description" content="Prom的四种基本metric类型 counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、me"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-white" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/zecoo" target="_blank">
+            <img class="img-circle img-rotate" src="https://example.com/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">ZIK</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">就普通一人</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>Board～</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://example.com/categories/css/" class="category-list-link">css</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/devops/" class="category-list-link">devops</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/hello-world/" class="category-list-link">hello-world</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/hogo/" class="category-list-link">hogo</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/hpa/" class="category-list-link">hpa</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/istio/" class="category-list-link">istio</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/js/" class="category-list-link">js</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/k8s/" class="category-list-link">k8s</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/prom/" class="category-list-link">prom</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/ss/" class="category-list-link">ss</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/css/" class="tag-list-link">css</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/hello-world/" class="tag-list-link">hello-world</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/hugo/" class="tag-list-link">hugo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/ife/" class="tag-list-link">ife</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/istio/" class="tag-list-link">istio</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/js/" class="tag-list-link">js</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/k8s/" class="tag-list-link">k8s</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/kubeadm/" class="tag-list-link">kubeadm</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/kubectl/" class="tag-list-link">kubectl</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/mirok8s/" class="tag-list-link">mirok8s</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/nginx/" class="tag-list-link">nginx</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/prom/" class="tag-list-link">prom</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/ss/" class="tag-list-link">ss</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/hugo-tutorial/" class="title">hugo tutorial</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-17 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-17</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/kubeadm-init-node-not-found/" class="title">Kubeadm init node not found</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-16 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-16</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/hugo-code-highlight/" class="title">Hugo添加代码高亮</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-09 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/" class="title">Metric to Graph思路及实践</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-08 00:17:00 &#43;0800 CST" itemprop="datePublished">2020-05-08</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/jq-in-terminal-for-json/" class="title">jq in terminal for json</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-08 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-08</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/"
+    >Prometheus Metric形式</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://example.com/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/" class="article-date">
+  <time datetime="2020-05-03 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-03</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/prom/"> prom </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/prom/"> prom </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1128字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      
+
+<h2 id="prom的四种基本metric类型">Prom的四种基本metric类型</h2>
+
+<ol>
+<li>counter：从0开始计数的，比如http_req_total</li>
+<li>gauge：有浮动的指标，比如cpu、mem</li>
+<li>histogram：统计数据，比如P90</li>
+<li>summary：和histogram类似</li>
+</ol>
+
+<h2 id="几个示例">几个示例</h2>
+
+<h3 id="p90">P90</h3>
+
+<blockquote>
+<p>The φ-quantile is the observation value that ranks at number φ*N among the N observations. Examples for φ-quantiles: The 0.5-quantile is known as the median. The 0.95-quantile is the 95th percentile.</p>
+</blockquote>
+
+<p>分位点的概念。官方示例：10分钟内请求持续时间的90%，以PromQL的形式给出：</p>
+
+<pre><code class="language-shell">histogram_quantile(0.9, rate(http_request_duration_seconds_bucket[10m]))
+</code></pre>
+
+<p>以下数据是通过 curl <a href="http://121.37.159.247:30040/metrics">http://121.37.159.247:30040/metrics</a> 获取的，截取部分。</p>
+
+<pre><code class="language-shell"># HELP prometheus_tsdb_wal_fsync_duration_seconds Duration of WAL fsync.
+# TYPE prometheus_tsdb_wal_fsync_duration_seconds summary
+prometheus_tsdb_wal_fsync_duration_seconds{quantile=&quot;0.5&quot;} 0.012352463
+prometheus_tsdb_wal_fsync_duration_seconds{quantile=&quot;0.9&quot;} 0.014458005
+prometheus_tsdb_wal_fsync_duration_seconds{quantile=&quot;0.99&quot;} 0.017316173
+prometheus_tsdb_wal_fsync_duration_seconds_sum 2.888716127000002
+prometheus_tsdb_wal_fsync_duration_seconds_count 216
+</code></pre>
+
+<p>“从上面的样本中可以得知当前Prometheus Server进行wal_fsync操作的总次数为216次，耗时2.888716127000002s。其中中位数（quantile=0.5）的耗时为0.012352463，9分位数（quantile=0.9）的耗时为0.014458005s，90%的数据都小于等于0.014458005s。”</p>
+
+<h3 id="le-0-3">le=&ldquo;0.3&rdquo;</h3>
+
+<p>le即level，我现在只有在官网看到对le的简单解释，而且理解起来就是duration&lt;level。</p>
+
+<p>5分钟内响应时间在300ms以下的请求（le=&ldquo;0.3&rdquo; means requests within 300ms）</p>
+
+<pre><code class="language-shell">sum(rate(http_request_duration_seconds_bucket{le=&quot;0.3&quot;}[5m])) by (job)
+</code></pre>
+
+<p>请详细介绍<code>request_duration_seconds_bucket</code>所代表的含义：</p>
+
+<p>request durations in seconds（请求响应时间用单位秒表示），bucket表示所有采样点的数量。结合<code>le=&quot;0.3&quot;</code>表示&rdquo;响应时间小于300ms的采样点的数量。</p>
+
+<p>更直观理解桶？可以看参考中的博客。</p>
+
+<h3 id="rate">rate</h3>
+
+<p>增长率。1分钟内的cpu使用率：</p>
+
+<pre><code>rate(process_cpu_seconds_total[1m])* 100
+</code></pre>
+
+<h2 id="key-value的metrics形式">key/value的metrics形式</h2>
+
+<p>例如：</p>
+
+<pre><code class="language-shell">process_max_fds 65535
+</code></pre>
+
+<p>表示当前采集的最大文件句柄数是65535。</p>
+
+<h2 id="埋点prom">埋点Prom</h2>
+
+<p>看着真的很简单啊，参考python的埋点方法：</p>
+
+<pre><code class="language-python">from prometheus_client import start_http_server, Summary
+import random
+import time
+
+# Create a metric to track time spent and requests made.
+REQUEST_TIME = Summary('request_processing_seconds', 'Time spent processing request')
+
+# Decorate function with metric.
+@REQUEST_TIME.time()
+def process_request(t):
+    &quot;&quot;&quot;A dummy function that takes some time.&quot;&quot;&quot;
+    time.sleep(t)
+
+if __name__ == '__main__':
+    # Start up the server to expose the metrics.
+    start_http_server(8000)
+    # Generate some requests.
+    while True:
+        process_request(random.random())
+</code></pre>
+
+<p>然后就可以在localhost:8000看到prom metrics了。</p>
+
+<p>自定义的metric，别人能做成这样：</p>
+
+<p><img src="http://dockone.io/uploads/article/20190904/70439c252c34c63ae504f17c852863e6.png" alt="img" /></p>
+
+<p>最后的灵魂一问：如何知道Prom有哪些可用的metrics呢？</p>
+
+<h2 id="参考">参考</h2>
+
+<hr />
+
+<p><a href="https://www.v2ex.com/t/606786">https://www.v2ex.com/t/606786</a> （中文讲Prom metrics最详细的文章了吧）</p>
+
+<p><a href="https://www.jianshu.com/p/15f929160f38">https://www.jianshu.com/p/15f929160f38</a> （四种metric类型介绍得很棒）</p>
+
+<p><a href="https://prometheus.io/docs/concepts/metric_types/">https://prometheus.io/docs/concepts/metric_types/</a> （官方解释metrics type）</p>
+
+<p><a href="https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_quantile">https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_quantile</a> （P90官方说明）</p>
+
+<p><a href="https://github.com/prometheus/client_python#histogram">https://github.com/prometheus/client_python#histogram</a> （python埋点方法）</p>
+
+<p><a href="https://www.cnblogs.com/YaoDD/p/11391316.html">https://www.cnblogs.com/YaoDD/p/11391316.html</a> （go埋点获取metrics详解）</p>
+
+<p><a href="https://prometheus.io/docs/practices/histograms/">https://prometheus.io/docs/practices/histograms/</a> （histogram官方介绍）</p>
+
+<p><a href="https://www.cnblogs.com/arloblog/p/12162858.html">https://www.cnblogs.com/arloblog/p/12162858.html</a> （这才是介绍Prom metric最详细的文章，其实是官网翻译哈哈，但是翻译的好～）</p>
+
+<p><a href="http://blog.itpub.net/28218939/viewspace-2658770/">http://blog.itpub.net/28218939/viewspace-2658770/</a> （埋点自定义metric并grafana化）</p>
+
+<p><a href="https://www.jianshu.com/p/8a6d3eff31e7">https://www.jianshu.com/p/8a6d3eff31e7</a> （直观理解bucket 唯一一个讲解清楚的博客）</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://example.com/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/" title="Prometheus Metric形式" target="_blank" rel="external">https://example.com/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://example.com/about/" title="About ZIK"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://example.com/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/"
+                    title="k8s HPA尝试"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat"
+                data-mobile-sites="weibo,qq,wechat"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/zecoo" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://example.com/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2020  -
+    2020
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://example.com/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="https://example.com/js/plugin.min.7c094c04e8f16e81ef83e5a741119c9694299161f3c10635176566adc7d39ad7.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/example.com\/',
+            CONTENT_URL: 'https:\/\/example.com\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://example.com/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

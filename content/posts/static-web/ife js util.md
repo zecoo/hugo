@@ -2,7 +2,8 @@
 title: "IFE js.util"
 date: 2020-03-31T11:37:07+08:00
 draft: true
-
+tags: ["js", "ife"]
+categories: ["js"]
 ---
 
 

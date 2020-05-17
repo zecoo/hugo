@@ -2,6 +2,8 @@
 title: "istio envoy log type"
 date: "2020-05-06T00:00:00+08:00"
 draft: false
+tags: ["istio"]
+categories: ["istio"]
 ---
 
 基本数据这样

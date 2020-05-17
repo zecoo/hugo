@@ -2,6 +2,8 @@
 title: "PromQL query in http API"
 date: "2020-05-08T00:00:00+08:00"
 draft: false
+tags: ["prom"]
+categories: ["prom"]
 ---
 
 Prom官网给出http API例如获取2015年7月1号某天的数据这样写：（我获得了istio_requests_total的所有metric）

@@ -2,6 +2,8 @@
 title: "K8S Proxy"
 date: 2020-04-21T11:37:07+08:00
 draft: true
+tags: ["k8s"]
+categories: ["k8s"]
 ---
 
 上一节讲到现在可以在vps上访问到hello-world了。

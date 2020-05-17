@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>
+        Istio 安装回顾 - Pure theme for Hugo
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="如果是Microk8s安装，很简单就一步： microk8s.enable istio 好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。" />
+    <meta name="generator" content="Hugo 0.58.3 with theme pure" />
+    <title>Istio 安装回顾 - Pure theme for Hugo</title>
+    
+    
+    <link rel="stylesheet" href="https://example.com/css/style.min.fb6e6d5d9e5fa539e3d084f012b971c4f0ceb69ee16f354c1e4f9a99fb6b46b7.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="Istio 安装回顾" />
+<meta property="og:description" content="如果是Microk8s安装，很简单就一步： microk8s.enable istio 好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/" />
+<meta property="article:published_time" content="2020-04-29T11:37:07+08:00" />
+<meta property="article:modified_time" content="2020-04-29T11:37:07+08:00" />
+<meta itemprop="name" content="Istio 安装回顾">
+<meta itemprop="description" content="如果是Microk8s安装，很简单就一步： microk8s.enable istio 好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。">
+
+
+<meta itemprop="datePublished" content="2020-04-29T11:37:07&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-29T11:37:07&#43;08:00" />
+<meta itemprop="wordCount" content="824">
+
+
+
+<meta itemprop="keywords" content="istio,hello-world," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Istio 安装回顾"/>
+<meta name="twitter:description" content="如果是Microk8s安装，很简单就一步： microk8s.enable istio 好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-white" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/zecoo" target="_blank">
+            <img class="img-circle img-rotate" src="https://example.com/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">ZIK</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">就普通一人</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>Board～</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://example.com/categories/css/" class="category-list-link">css</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/devops/" class="category-list-link">devops</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/hello-world/" class="category-list-link">hello-world</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/hogo/" class="category-list-link">hogo</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/hpa/" class="category-list-link">hpa</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/istio/" class="category-list-link">istio</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/js/" class="category-list-link">js</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/k8s/" class="category-list-link">k8s</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/prom/" class="category-list-link">prom</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/ss/" class="category-list-link">ss</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/css/" class="tag-list-link">css</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/hello-world/" class="tag-list-link">hello-world</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/hugo/" class="tag-list-link">hugo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/ife/" class="tag-list-link">ife</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/istio/" class="tag-list-link">istio</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/js/" class="tag-list-link">js</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/k8s/" class="tag-list-link">k8s</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/kubeadm/" class="tag-list-link">kubeadm</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/kubectl/" class="tag-list-link">kubectl</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/mirok8s/" class="tag-list-link">mirok8s</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/nginx/" class="tag-list-link">nginx</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/prom/" class="tag-list-link">prom</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/ss/" class="tag-list-link">ss</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/hugo-tutorial/" class="title">hugo tutorial</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-17 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-17</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/kubeadm-init-node-not-found/" class="title">Kubeadm init node not found</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-16 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-16</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/hugo-code-highlight/" class="title">Hugo添加代码高亮</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-09 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/" class="title">Metric to Graph思路及实践</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-08 00:17:00 &#43;0800 CST" itemprop="datePublished">2020-05-08</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/jq-in-terminal-for-json/" class="title">jq in terminal for json</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-08 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-08</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/"
+    >Istio 安装回顾</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://example.com/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/" class="article-date">
+  <time datetime="2020-04-29 11:37:07 &#43;0800 CST" itemprop="datePublished">2020-04-29</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/istio/"> istio </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/istio/"> istio </a>
+    <a class="article-tag-link" href="/tags/hello-world/"> hello-world </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 824字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      
+
+<p>如果是Microk8s安装，很简单就一步：</p>
+
+<pre><code>microk8s.enable istio
+</code></pre>
+
+<p>好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。</p>
+
+<p>然后转战华为云15天4g服务器试用。</p>
+
+<p>用Kubeadm安装k8s，过程呢，在另一篇博客中。</p>
+
+<p>这里主要回顾Kubeadm安装istio以及各种可视化插件的过程。</p>
+
+<p>全程请把精力集中在istio的官网上。每个教程都很详细。</p>
+
+<p>下载tar包，然后解压得到istio-15.2目录。这个目录里包含需要部署的yaml文件以及bookinfo的实例。</p>
+
+<p>然后按照istio官方的教程去安装就OK了。</p>
+
+<p>重点呢，是各种可视化插件的部署。如果istio部署顺利的话，各种插件的svc已经启动了，可以get svc查看一下。但是到目前为止还是只能在集群内访问。访问的入口是istio-ingressgateway。然后按照istio官方给出的远程访问方式去部署就好了。这里唯一一个和官方给出的教程不同的地方是，以Prometheus为例，官方给出的访问地址是：</p>
+
+<ul>
+<li>Prometheus: <code>http://&lt;IP ADDRESS OF CLUSTER INGRESS&gt;:15030/</code></li>
+</ul>
+
+<p>这里的ingressip要改为</p>
+
+<p>[服务器地址] + [svc istioingressgateway对于15030暴露的端口]</p>
+
+<p>然后就可以用上面的地址访问到Prometheus了。</p>
+
+<p>当然我还搜到了另外一种方式访问，把Prometheus用另一个svc包裹起来，相当于多了一个nodeport svc的中介。输入这个命令即可：</p>
+
+<pre><code class="language-shell">kubectl expose service prometheus --type=NodePort \
+    --name=prometheus-svc --namespace istio-system
+</code></pre>
+
+<p>然后就会多出来一个名为prometheus-svc的nodeport形式的服务。调用这个服务暴露出来的地址就可以访问Prometheus，只是我觉得这个方法可能不太安全，就没有用。</p>
+
+<h2 id="参考">参考</h2>
+
+<hr />
+
+<p><a href="https://www.jianshu.com/p/b72c1e06b140">https://www.jianshu.com/p/b72c1e06b140</a> （安装指南）</p>
+
+<p><a href="https://www.cnblogs.com/assion/p/11326088.html">https://www.cnblogs.com/assion/p/11326088.html</a> （修改istiogateway的LB为nodeport）</p>
+
+<p><a href="https://www.jianshu.com/p/b72c1e06b140">https://www.jianshu.com/p/b72c1e06b140</a> （用hello-node做示例）</p>
+
+<p><a href="https://www.cnblogs.com/davidwang456/articles/9311470.html">https://www.cnblogs.com/davidwang456/articles/9311470.html</a> （SLA和SLO的关系）</p>
+
+<p><a href="https://www.jianshu.com/p/fd90d4914505">https://www.jianshu.com/p/fd90d4914505</a> （istio的良好实践）</p>
+
+<p><a href="https://www.jianshu.com/p/bed143a1c886">https://www.jianshu.com/p/bed143a1c886</a> （估计也是个研究生大神，给王老师演示这个就可以了）</p>
+
+<p><a href="https://www.cnblogs.com/CCE-SWR/p/10286404.html">https://www.cnblogs.com/CCE-SWR/p/10286404.html</a> （也是演示之用）</p>
+
+<p><a href="https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.3/manage_cluster/istio.html">https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.3/manage_cluster/istio.html</a> （另一种暴露Prometheus的方式）</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://example.com/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/" title="Istio 安装回顾" target="_blank" rel="external">https://example.com/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://example.com/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/" title="Kubeadm 安装记录"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://example.com/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/"
+                    title="Istio 可视化插件概览"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat"
+                data-mobile-sites="weibo,qq,wechat"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/zecoo" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://example.com/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2020  -
+    2020
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://example.com/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="https://example.com/js/plugin.min.7c094c04e8f16e81ef83e5a741119c9694299161f3c10635176566adc7d39ad7.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/example.com\/',
+            CONTENT_URL: 'https:\/\/example.com\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://example.com/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

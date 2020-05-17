@@ -2,9 +2,9 @@
 title: "初试Nginx部署静态网页"
 date: 2020-04-09T11:37:07+08:00
 draft: true
+tags: ["nginx"]
+categories: ["devOps"]
 ---
-
-
 
 在ife上也写了几个网页了，但是如果一直用github-pages的话，感觉有点麻烦，自己有一个服务器干嘛不直接用呢？
 

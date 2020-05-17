@@ -2,6 +2,8 @@
 title: "K8S hello-world 回顾"
 date: 2020-04-17T11:37:07+08:00
 draft: true
+tags: ["k8s"]
+categories: ["k8s", "hello-world"]
 ---
 
 没错这部分也花了我很长时间，而且把我心态还搞崩了。

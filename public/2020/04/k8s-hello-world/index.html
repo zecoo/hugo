@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>
+        K8S hello-world 回顾 - Pure theme for Hugo
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="没错这部分也花了我很长时间，而且把我心态还搞崩了。 k8s安装主要是镜像是国外私有库，pull下来比较麻烦。 而k8s第一个hello-worl" />
+    <meta name="generator" content="Hugo 0.58.3 with theme pure" />
+    <title>K8S hello-world 回顾 - Pure theme for Hugo</title>
+    
+    
+    <link rel="stylesheet" href="https://example.com/css/style.min.fb6e6d5d9e5fa539e3d084f012b971c4f0ceb69ee16f354c1e4f9a99fb6b46b7.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="K8S hello-world 回顾" />
+<meta property="og:description" content="没错这部分也花了我很长时间，而且把我心态还搞崩了。 k8s安装主要是镜像是国外私有库，pull下来比较麻烦。 而k8s第一个hello-worl" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/2020/04/k8s-hello-world/" />
+<meta property="article:published_time" content="2020-04-17T11:37:07+08:00" />
+<meta property="article:modified_time" content="2020-04-17T11:37:07+08:00" />
+<meta itemprop="name" content="K8S hello-world 回顾">
+<meta itemprop="description" content="没错这部分也花了我很长时间，而且把我心态还搞崩了。 k8s安装主要是镜像是国外私有库，pull下来比较麻烦。 而k8s第一个hello-worl">
+
+
+<meta itemprop="datePublished" content="2020-04-17T11:37:07&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-17T11:37:07&#43;08:00" />
+<meta itemprop="wordCount" content="1332">
+
+
+
+<meta itemprop="keywords" content="k8s," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="K8S hello-world 回顾"/>
+<meta name="twitter:description" content="没错这部分也花了我很长时间，而且把我心态还搞崩了。 k8s安装主要是镜像是国外私有库，pull下来比较麻烦。 而k8s第一个hello-worl"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-white" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/zecoo" target="_blank">
+            <img class="img-circle img-rotate" src="https://example.com/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">ZIK</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">就普通一人</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>Board～</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://example.com/categories/css/" class="category-list-link">css</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/devops/" class="category-list-link">devops</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/hello-world/" class="category-list-link">hello-world</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/hogo/" class="category-list-link">hogo</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/hpa/" class="category-list-link">hpa</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/istio/" class="category-list-link">istio</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/js/" class="category-list-link">js</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/k8s/" class="category-list-link">k8s</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/prom/" class="category-list-link">prom</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://example.com/categories/ss/" class="category-list-link">ss</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/css/" class="tag-list-link">css</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/hello-world/" class="tag-list-link">hello-world</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/hugo/" class="tag-list-link">hugo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/ife/" class="tag-list-link">ife</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/istio/" class="tag-list-link">istio</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/js/" class="tag-list-link">js</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/k8s/" class="tag-list-link">k8s</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/kubeadm/" class="tag-list-link">kubeadm</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/kubectl/" class="tag-list-link">kubectl</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/mirok8s/" class="tag-list-link">mirok8s</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/nginx/" class="tag-list-link">nginx</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/prom/" class="tag-list-link">prom</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://example.com/tags/ss/" class="tag-list-link">ss</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/hugo-tutorial/" class="title">hugo tutorial</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-17 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-17</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/kubeadm-init-node-not-found/" class="title">Kubeadm init node not found</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-16 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-16</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/hugo-code-highlight/" class="title">Hugo添加代码高亮</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-09 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/" class="title">Metric to Graph思路及实践</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-08 00:17:00 &#43;0800 CST" itemprop="datePublished">2020-05-08</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://example.com/2020/05/jq-in-terminal-for-json/" class="title">jq in terminal for json</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-08 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-08</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/04/k8s-hello-world/"
+    >K8S hello-world 回顾</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://example.com/2020/04/k8s-hello-world/" class="article-date">
+  <time datetime="2020-04-17 11:37:07 &#43;0800 CST" itemprop="datePublished">2020-04-17</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/k8s/"> k8s </a>
+  <a class="article-category-link" href="/categories/hello-world/"> hello-world </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/k8s/"> k8s </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/04/k8s-hello-world/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1332字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      
+
+<p>没错这部分也花了我很长时间，而且把我心态还搞崩了。</p>
+
+<p>k8s安装主要是镜像是国外私有库，pull下来比较麻烦。</p>
+
+<p>而k8s第一个hello-world难在理解pod、deployment、service之间的关系，以及各种奇奇怪怪的端口映射。我想这是计算机网络基础没有打好埋的坑吧。</p>
+
+<h3 id="镜像-pod">镜像&amp;Pod</h3>
+
+<p>首先是创建pod，这里也需要把本地docker创建的image给注射到microk8s.ctr里面。我根据参考1给出的方法构建了hello-node:v1镜像。然后注入到k8s里面。</p>
+
+<p>image创建成功之后，就可以构建pod了。用以下命令</p>
+
+<pre><code class="language-shell">kubectl run hello-node --image=hello-node:v1 --port=8080 --image-pull-policy=Never
+</code></pre>
+
+<p>创建了一个pod，可以用命令</p>
+
+<pre><code class="language-shell">kubectl get pods
+</code></pre>
+
+<p>查看pod的创建。如果创建不成功，可以具体查看pod的详细情况。</p>
+
+<pre><code class="language-shell">kubectl describe pod hello-node
+</code></pre>
+
+<h3 id="创建deployment">创建Deployment</h3>
+
+<p>pod创建成功了，考虑构建deployment，dep是pod的无状态体现。deployment可以控制pod的replica数量。创建方法我没有找到命令行的方式，k8s官网给出的也是推荐使用yaml构建。以下是deployment.yaml文件：</p>
+
+<pre><code class="language-yaml">apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+        name: hello-node
+spec:
+        selector:
+                matchLabels:
+                        name: hello-node
+        replicas: 1 # tells deployment to run 2 pods matching the template
+        template:
+                metadata:
+                        labels:
+                                name: hello-node
+                spec:
+                        containers:
+                        - name: hello-node
+                          image: hello-node:v1
+                          ports:
+                          - containerPort: 8080
+</code></pre>
+
+<p>有了yaml文件，然后用以下命令可以创建deployment</p>
+
+<pre><code class="language-shell">kubectl apply -f deployment.yaml
+</code></pre>
+
+<p>deployment创建成功之后，类似pod，可以用get、describe命令查看指定deployment的情况。</p>
+
+<h3 id="暴露服务">暴露服务</h3>
+
+<p>到目前为止还是不能访问app。因为现在只能在k8s集群内部访问app。我们需要将app变成service才能访问。可以用命令行的方法，也可以用yaml文件的方式。参考中使用的是命令行的方式：</p>
+
+<pre><code class="language-shell">kubectl expose deployment hello-node --port=8080 --target-port=8080
+</code></pre>
+
+<p>然后查看service：<code>kubectl get svc hello-node</code>就可以看到service的情况：</p>
+
+<pre><code class="language-shell">ubuntu@VM-0-12-ubuntu:~$ sudo kubectl get svc
+NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+hello-node   NodePort    10.152.183.14   &lt;none&gt;        8080:31908/TCP   33m
+kubernetes   ClusterIP   10.152.183.1    &lt;none&gt;        443/TCP          8d
+</code></pre>
+
+<p>到这里，app就可以在vps中访问了。</p>
+
+<pre><code class="language-shell">ubuntu@VM-0-12-ubuntu:~$ curl 10.152.183.14:8080
+Hello World!
+</code></pre>
+
+<p>但是，仅仅是能在vps中访问。我如果用自己的macbook访问，还需要做其他的代理工作，可能又是一个新的坑等我去补。</p>
+
+<h3 id="网络端口请补补">网络端口请补补</h3>
+
+<p>最后还有个天坑，等我慢慢补</p>
+
+<p>本来参考教程可以轻轻松松完成一个k8s的hello-world，但是我自作聪明地把8080端口改成了8081端口。一方面是我怕力会用到这个端口，另一方面是我想8080不是tomcat默认端口嘛，可能会被占用掉。结果就是8081端口让我鼓捣了一整天，pod、deployment、service都是ready状态但就是通过<code>curl 10.152.183.14:8081</code>访问不到。气得我半死。</p>
+
+<p>也就是说，端口方面的知识还要好好补补。</p>
+
+<p>还有一个命令，查看端口信息：</p>
+
+<pre><code class="language-shell">buntu@VM-0-12-ubuntu:~$ sudo netstat -tlpn
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 127.0.0.1:44047         0.0.0.0:*               LISTEN      17662/containerd    
+tcp        0      0 127.0.0.1:10256         0.0.0.0:*               LISTEN      17538/kube-proxy        
+tcp6       0      0 :::80                   :::*                    LISTEN      1276/nginx: master   
+tcp6       0      0 :::7000                 :::*                    LISTEN      1237/frps           
+</code></pre>
+
+<p>虽然这和k8s的demo没有太大关系，还是po出来看看吧。可以看到80端口是力在用的nginx，7000端口是力在用的frps。</p>
+
+<p>然后我还有想说的：国内Blog质量真的差劲！！！！！我已经不是第一次有这样的感觉了。百度出来的基本上都是垃圾，能解决问题的极少，只会让自己心态崩上加崩。老老实实看官方文档，是效率最高的方式！！！！！</p>
+
+<h3 id="参考">参考</h3>
+
+<hr />
+
+<p><a href="https://www.cnblogs.com/bforever/p/10601169.html">https://www.cnblogs.com/bforever/p/10601169.html</a> （k8s hello-world）</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://example.com/2020/04/k8s-hello-world/" title="K8S hello-world 回顾" target="_blank" rel="external">https://example.com/2020/04/k8s-hello-world/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://example.com/2020/04/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/" title="ife 轮播图回顾"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://example.com/2020/04/k8s-proxy/"
+                    title="K8S Proxy"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat"
+                data-mobile-sites="weibo,qq,wechat"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/zecoo" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://example.com/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2020  -
+    2020
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://example.com/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="https://example.com/js/plugin.min.7c094c04e8f16e81ef83e5a741119c9694299161f3c10635176566adc7d39ad7.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/example.com\/',
+            CONTENT_URL: 'https:\/\/example.com\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://example.com/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

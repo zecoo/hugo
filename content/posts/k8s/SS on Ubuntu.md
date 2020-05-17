@@ -2,6 +2,8 @@
 title: "SS on Ubuntu"
 date: 2020-04-09T11:37:07+08:00
 draft: true
+tags: ["ss"]
+categories: ["ss"]
 ---
 
 

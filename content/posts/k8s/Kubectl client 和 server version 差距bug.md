@@ -2,6 +2,8 @@
 title: "Kubectl client 和 server version 差距错误"
 date: 2020-04-28T11:37:07+08:00
 draft: true
+tags: ["k8s", "kubectl"]
+categories: ["k8s"]
 ---
 
 

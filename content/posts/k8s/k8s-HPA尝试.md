@@ -2,6 +2,8 @@
 title: "k8s HPA尝试"
 date: "2020-05-04T00:00:00+08:00"
 draft: false
+tags: ["k8s"]
+categories: ["k8s", "HPA"]
 ---
 
 
