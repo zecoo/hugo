@@ -3,151 +3,394 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://zecoo.github.io/hugo/</loc>
-    <lastmod>2020-05-09T00:00:00+08:00</lastmod>
+    <loc>https://zecoo.github.io/hugo/categories/</loc>
+    <lastmod>2020-05-17T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/others/hugo-code-highlight/</loc>
-    <lastmod>2020-05-09T00:00:00+08:00</lastmod>
+    <loc>https://zecoo.github.io/hugo/categories/hogo/</loc>
+    <lastmod>2020-05-17T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/hugo/</loc>
+    <lastmod>2020-05-17T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/05/hugo-tutorial/</loc>
+    <lastmod>2020-05-17T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://zecoo.github.io/hugo/posts/</loc>
+    <lastmod>2020-05-17T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/</loc>
+    <lastmod>2020-05-17T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/</loc>
+    <lastmod>2020-05-17T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
+    <lastmod>2020-05-16T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
+    <lastmod>2020-05-16T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/kubeadm/</loc>
+    <lastmod>2020-05-16T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/05/kubeadm-init-node-not-found/</loc>
+    <lastmod>2020-05-16T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/05/hugo-code-highlight/</loc>
     <lastmod>2020-05-09T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/metrics/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/istio/</loc>
     <lastmod>2020-05-08T00:17:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/others/jq-in-terminal-for-json/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2020-05-08T00:17:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/categories/prom/</loc>
+    <lastmod>2020-05-08T00:17:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/prom/</loc>
+    <lastmod>2020-05-08T00:17:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/05/jq-in-terminal-for-json/</loc>
     <lastmod>2020-05-08T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/metrics/promql-query-in-http-api/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/05/promql-query-in-http-api/</loc>
     <lastmod>2020-05-08T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/metrics/promql%E7%90%86%E8%A7%A3/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/05/promql%E7%90%86%E8%A7%A3/</loc>
     <lastmod>2020-05-08T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/metrics/meta-metrics/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/istio/</loc>
     <lastmod>2020-05-07T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/istio/istio-envoy-log-type/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/05/meta-metrics/</loc>
+    <lastmod>2020-05-07T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/05/istio-envoy-log-type/</loc>
     <lastmod>2020-05-06T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/others/scss-tutorial/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/05/scss-tutorial/</loc>
     <lastmod>2020-05-05T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/hpa/</loc>
     <lastmod>2020-05-04T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/metrics/prom-metric%E5%BD%A2%E5%BC%8F/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</loc>
+    <lastmod>2020-05-04T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</loc>
     <lastmod>2020-05-03T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://zecoo.github.io/hugo/about/</loc>
     <lastmod>2020-05-01T14:19:05+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/04/k8s-istio-%E6%A6%82%E5%BF%B5/</loc>
     <lastmod>2020-04-30T10:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</loc>
     <lastmod>2020-04-30T10:35:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/hello-world/</loc>
     <lastmod>2020-04-29T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</loc>
+    <lastmod>2020-04-29T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2020-04-28T16:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/kubectl/</loc>
     <lastmod>2020-04-28T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</loc>
+    <lastmod>2020-04-28T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/ife/</loc>
     <lastmod>2020-04-23T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/others/bayesian-optimization/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</loc>
+    <lastmod>2020-04-23T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/categories/js/</loc>
+    <lastmod>2020-04-23T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/js/</loc>
+    <lastmod>2020-04-23T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/04/bayesian-optimization/</loc>
     <lastmod>2020-04-21T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/k8s/k8s-proxy/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/04/k8s-proxy/</loc>
     <lastmod>2020-04-21T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/k8s/k8s-hello-world/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/hello-world/</loc>
     <lastmod>2020-04-17T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/04/k8s-hello-world/</loc>
+    <lastmod>2020-04-17T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/04/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</loc>
     <lastmod>2020-04-15T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/devops/</loc>
     <lastmod>2020-04-09T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/04/microk8s-installation-in-china/</loc>
     <lastmod>2020-04-09T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/static-web/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/mirok8s/</loc>
     <lastmod>2020-04-09T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/static-web/ife-js-util/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/nginx/</loc>
+    <lastmod>2020-04-09T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/ss/</loc>
+    <lastmod>2020-04-09T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/categories/ss/</loc>
+    <lastmod>2020-04-09T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/04/ss-on-ubuntu/</loc>
+    <lastmod>2020-04-09T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/04/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</loc>
+    <lastmod>2020-04-09T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/03/ife-js-util/</loc>
     <lastmod>2020-03-31T11:37:07+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/css/</loc>
     <lastmod>2020-03-01T17:39:45+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/css/</loc>
+    <lastmod>2020-03-01T17:39:45+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/</loc>
+    <loc>https://zecoo.github.io/hugo/2020/03/ife-task0001-log/</loc>
+    <lastmod>2020-03-01T17:39:45+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/series/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
 </urlset>

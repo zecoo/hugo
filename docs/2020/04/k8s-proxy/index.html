@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>
+        K8S Proxy - Pure theme for Hugo
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="上一节讲到现在可以在vps上访问到hello-world了。 然而我想把访问操作放在我的电脑上。我没有想到NodePort这么容易就能做到了。" />
+    <meta name="generator" content="Hugo 0.58.3 with theme pure" />
+    <title>K8S Proxy - Pure theme for Hugo</title>
+    
+    
+    <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/style.min.fb6e6d5d9e5fa539e3d084f012b971c4f0ceb69ee16f354c1e4f9a99fb6b46b7.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="K8S Proxy" />
+<meta property="og:description" content="上一节讲到现在可以在vps上访问到hello-world了。 然而我想把访问操作放在我的电脑上。我没有想到NodePort这么容易就能做到了。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zecoo.github.io/hugo/2020/04/k8s-proxy/" />
+<meta property="article:published_time" content="2020-04-21T11:37:07+08:00" />
+<meta property="article:modified_time" content="2020-04-21T11:37:07+08:00" />
+<meta itemprop="name" content="K8S Proxy">
+<meta itemprop="description" content="上一节讲到现在可以在vps上访问到hello-world了。 然而我想把访问操作放在我的电脑上。我没有想到NodePort这么容易就能做到了。">
+
+
+<meta itemprop="datePublished" content="2020-04-21T11:37:07&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-21T11:37:07&#43;08:00" />
+<meta itemprop="wordCount" content="1514">
+
+
+
+<meta itemprop="keywords" content="k8s," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="K8S Proxy"/>
+<meta name="twitter:description" content="上一节讲到现在可以在vps上访问到hello-world了。 然而我想把访问操作放在我的电脑上。我没有想到NodePort这么容易就能做到了。"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-white" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/zecoo" target="_blank">
+            <img class="img-circle img-rotate" src="https://zecoo.github.io/hugo/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">ZIK</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">就普通一人</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/hugo/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/hugo/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/hugo/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/hugo/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/hugo/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>Board～</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/css/" class="category-list-link">css</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/devops/" class="category-list-link">devops</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/hello-world/" class="category-list-link">hello-world</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/hogo/" class="category-list-link">hogo</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/hpa/" class="category-list-link">hpa</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/istio/" class="category-list-link">istio</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/js/" class="category-list-link">js</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/k8s/" class="category-list-link">k8s</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/prom/" class="category-list-link">prom</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/ss/" class="category-list-link">ss</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/css/" class="tag-list-link">css</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/hello-world/" class="tag-list-link">hello-world</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/hugo/" class="tag-list-link">hugo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/ife/" class="tag-list-link">ife</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/istio/" class="tag-list-link">istio</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/js/" class="tag-list-link">js</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/k8s/" class="tag-list-link">k8s</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/kubeadm/" class="tag-list-link">kubeadm</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/kubectl/" class="tag-list-link">kubectl</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/mirok8s/" class="tag-list-link">mirok8s</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/nginx/" class="tag-list-link">nginx</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/prom/" class="tag-list-link">prom</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/ss/" class="tag-list-link">ss</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/hugo-tutorial/" class="title">hugo tutorial</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-17 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-17</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/kubeadm-init-node-not-found/" class="title">Kubeadm init node not found</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-16 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-16</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/hugo-code-highlight/" class="title">Hugo添加代码高亮</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-09 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/" class="title">Metric to Graph思路及实践</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-08 00:17:00 &#43;0800 CST" itemprop="datePublished">2020-05-08</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/jq-in-terminal-for-json/" class="title">jq in terminal for json</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-08 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-08</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/hugo/2020/04/k8s-proxy/"
+    >K8S Proxy</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://zecoo.github.io/hugo/2020/04/k8s-proxy/" class="article-date">
+  <time datetime="2020-04-21 11:37:07 &#43;0800 CST" itemprop="datePublished">2020-04-21</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/hugo/categories/k8s/"> k8s </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/hugo/tags/k8s/"> k8s </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/hugo/2020/04/k8s-proxy/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1514字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      
+
+<p>上一节讲到现在可以在vps上访问到hello-world了。</p>
+
+<p>然而我想把访问操作放在我的电脑上。我没有想到NodePort这么容易就能做到了。修改一下service.yaml里面port的type，从ClusterIP改为NodePort就可以了。</p>
+
+<p>到这里我已经很满足了，但是手痒痒想要看看dashboard的情况。首先嘛，得先把dashboard服务给启动起来对不对？不幸的是，在之前装microk8s的时候，我使用了这样一行命令添加了dns和dashboard这两个add-on</p>
+
+<pre><code class="language-shell">kubectl enable dns dashboard
+</code></pre>
+
+<p>结果就是，dashboard其实已经启动了，只是我一直使用的命令</p>
+
+<pre><code class="language-shell">kubectl get svc
+</code></pre>
+
+<p>只能显示namespace为default的service，就看不到dashboard也已经启动了。</p>
+
+<p>如果想要查看所有的svc还是添加<code>--all-namespaces</code>选项。</p>
+
+<pre><code class="language-shell">ubuntu@VM-0-12-ubuntu:~$ sudo kubectl get svc --all-namespaces
+NAMESPACE            NAME                        TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                  AGE
+container-registry   registry                    NodePort    10.152.183.11    &lt;none&gt;        5000:32000/TCP           13d
+default              hello-node                  NodePort    10.152.183.14    &lt;none&gt;        8080:31908/TCP           4d4h
+default              kubernetes                  ClusterIP   10.152.183.1     &lt;none&gt;        443/TCP                  13d
+kube-system          dashboard-metrics-scraper   ClusterIP   10.152.183.247   &lt;none&gt;        8000/TCP                 13d
+kube-system          heapster                    ClusterIP   10.152.183.227   &lt;none&gt;        80/TCP                   13d
+kube-system          kube-dns                    ClusterIP   10.152.183.10    &lt;none&gt;        53/UDP,53/TCP,9153/TCP   13d
+kube-system          kubernetes-dashboard        NodePort    10.152.183.31    &lt;none&gt;        443:32570/TCP            13d
+kube-system          monitoring-grafana          ClusterIP   10.152.183.21    &lt;none&gt;        80/TCP                   13d
+kube-system          monitoring-influxdb         ClusterIP   10.152.183.102   &lt;none&gt;        8083/TCP,8086/TCP        13d
+</code></pre>
+
+<p>但是我发现一个bug，如果我想要删除非default命名空间下的svc，会返回没有这个svc，就很迷幻。估计是不希望用户随便删除系统的svc。所以如果想删除某个非default命名空间下的svc，请用这个命令。以dashboard为例：</p>
+
+<pre><code class="language-shell">kubectl delete svc -n kube-system kubernetes-dashboard
+</code></pre>
+
+<p>用NodePort暴露出来之后，发现并不能像hello-world那样，通过<code>vas-ip:NodePort</code>访问到dashboard。会返回错误。</p>
+
+<blockquote>
+<p>This connection is Not Private</p>
+
+<p>This website maybe impersionating &lsquo;vps-ip&rsquo; to steal your personcal or financial information. You should go back to the previous page.</p>
+</blockquote>
+
+<p>后面知道这是关于身份验证的问题。那我又搜索了一番，NodePort的方法行不通，试试github k8s官网给的proxy的方法</p>
+
+<pre><code class="language-shell">kubectl proxy --address=0.0.0.0 --disable-filter=true
+</code></pre>
+
+<p>使用proxy之后，会在localhost:8001端口监听dashboard请求。这个时候当前的bash就不能使用了：</p>
+
+<pre><code class="language-shell">ubuntu@VM-0-12-ubuntu:~$ sudo kubectl proxy --address=0.0.0.0 --disable-filter=true
+W0421 16:42:30.534218   23241 proxy.go:167] Request filter disabled, your proxy is vulnerable to XSRF attacks, please be cautious
+Starting to serve on [::]:8001
+</code></pre>
+
+<p>然后访问以下网址：</p>
+
+<p><a href="http://148.70.35.123:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#/login">http://148.70.35.123:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#/login</a></p>
+
+<p>就可以看到久违一抹dashboard蓝色。到这里我是很兴奋的。然而……这时候login dashboard需要身份验证。UI上也提示了两种验证方式，一种是local file，另一种是Token。我想Token方便一些吧，然后搜索了一下获取Token的方法：</p>
+
+<pre><code class="language-shell">sudo microk8s.kubectl -n kube-system get secret
+NAME                                             TYPE                                  DATA   AGE
+kubernetes-dashboard-certs                       Opaque                                0      13d
+kubernetes-dashboard-csrf                        Opaque                                1      13d
+kubernetes-dashboard-key-holder                  Opaque                                2      13d
+kubernetes-dashboard-token-42mpd                 kubernetes.io/service-account-token   3      13d
+</code></pre>
+
+<p>Microk8s给出的参考，指向到GitHub k8s的官网对Access Control的介绍，用最下面的kubernetes-dashboard-token-42mpd的Token作为login的密钥。</p>
+
+<p>查看Token的具体内容用命令</p>
+
+<pre><code class="language-shell">sudo microk8s.kubectl -n kube-system describe secret kubernetes-dashboard-token-42mpd
+</code></pre>
+
+<p>就可以看到Token的内容如下：</p>
+
+<pre><code class="language-shell">ubuntu@VM-0-12-ubuntu:~/zecoo$ sudo kubectl -n kube-system describe secret $token
+Name:         default-token-nwqdh
+Namespace:    kube-system
+Labels:       &lt;none&gt;
+Annotations:  kubernetes.io/service-account.name: default
+              kubernetes.io/service-account.uid: 20eca024-76ea-4ca7-8fdb-c36594100de8
+
+Type:  kubernetes.io/service-account-token
+
+Data
+====
+namespace:  11 bytes
+token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IkdlQmtINEEwWmtSVXhsUDA0U000ckJ1alBzZndiNDl5TTNiRml3SWRxeHMifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJkZWZhdWx0LXRva2VuLW53cWRoIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImRlZmF1bHQiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiIyMGVjYTAyNC03NmVhLTRjYTctOGZkYi1jMzY1OTQxMDBkZTgiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06ZGVmYXVsdCJ9.rhSKv7FnCZMXOJrAJie6xNVnQHDxiCdEC1fVLcdEBfPALhvg7vhnNXuyWJjxE_GaLsK3KoUle5cJCXkpbvcAyOeG14b1pRw_V3LoQsdTwEOrpxZ2VIEI9AC09HL4pEX2b9XSERJMUd1Oua-CJu9rScy1yzKJvdp93MfFDQG0WB6RjuDR_o2imsgfWuERgWX1kkLef1hIIXPtLpA5YrFEhTl40NVS9LBaOlNez49hRq1cd2I6Elc9EY3VuQ5GlVgNAtLht_MAPrrpNuzkxpnLvFYJLCbcqYFpexLF0XarQT5JuCD9F8JNWZanZKPv_hd9uk4pfuZ9XVYU5W2yy7GMvg
+ca.crt:     1103 bytes
+</code></pre>
+
+<p>然鹅，我在dashboard UI输入了这串Token，点击login没有任何反应。也不告诉我这串Token是不是出问题了，就是一点反应没有。vps终端倒是有点反应：</p>
+
+<pre><code class="language-shell">2020/04/21 19:03:42 http: proxy error: context canceled
+</code></pre>
+
+<p>搜索了一下午，果然用Yandex之后搜索效率高了好多。结果就是：目前为止没有方法可以远程访问k8s的dashboard：[][]<a href="https://github.com/ubuntu/microk8s/issues/292">讨论1</a>、<a href="https://www.edureka.co/community/31115/kubernetes-dashboard-token-login-issue">讨论2</a>、<a href="https://www.edureka.co/community/31282/is-accessing-kubernetes-dashboard-remotely-possible">讨论3</a></p>
+
+<p>但是好像还有另一种方法：&ndash;enable-skip-login选项可以在dashboard UI中增加一个Skip按钮，跳过login环节。不过这个环节有可能遭到中间人MITM攻击。我担心把力的vps给搞崩了，先不折腾这个了。<a href="https://www.jianshu.com/p/2903966c7693">详情1</a>、<a href="https://www.cnblogs.com/itzgr/p/11106364.html">详情2</a></p>
+
+<h2 id="参考">参考</h2>
+
+<hr />
+
+<p><a href="https://www.jianshu.com/p/6f42ac331d8a">https://www.jianshu.com/p/6f42ac331d8a</a>  （RBAC介绍）</p>
+
+<p><a href="https://github.com/kubernetes/dashboard/blob/master/docs/user/accessing-dashboard/1.7.x-and-above.md">https://github.com/kubernetes/dashboard/blob/master/docs/user/accessing-dashboard/1.7.x-and-above.md</a> （k8s官方dashboard介绍）</p>
+
+<p><a href="https://microk8s.io/docs/addon-dashboard">https://microk8s.io/docs/addon-dashboard</a> （microk8s的dashboard介绍）</p>
+
+<p><a href="https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/README.md#admin-privileges">https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/README.md#admin-privileges</a> （microk8s指向的k8s access官网）</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://zecoo.github.io/hugo/2020/04/k8s-proxy/" title="K8S Proxy" target="_blank" rel="external">https://zecoo.github.io/hugo/2020/04/k8s-proxy/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://zecoo.github.io/hugo/2020/04/k8s-hello-world/" title="K8S hello-world 回顾"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://zecoo.github.io/hugo/2020/04/bayesian-optimization/"
+                    title="Bayesian Optimization 直观理解"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat"
+                data-mobile-sites="weibo,qq,wechat"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/zecoo" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://zecoo.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2020  -
+    2020
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://zecoo.github.io/hugo/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="https://zecoo.github.io/hugo/js/plugin.min.7c094c04e8f16e81ef83e5a741119c9694299161f3c10635176566adc7d39ad7.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/zecoo.github.io\/hugo\/',
+            CONTENT_URL: 'https:\/\/zecoo.github.io\/hugo\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://zecoo.github.io/hugo/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

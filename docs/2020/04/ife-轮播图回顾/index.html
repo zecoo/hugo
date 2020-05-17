@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>
+        ife 轮播图回顾 - Pure theme for Hugo
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="写在前面 做到ife task002_3，轮播图花了我最长的时间来写，甚至让我开始反思自己是不是真的…不适合当一个程序员。我要成了程序员，有种侮" />
+    <meta name="generator" content="Hugo 0.58.3 with theme pure" />
+    <title>ife 轮播图回顾 - Pure theme for Hugo</title>
+    
+    
+    <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/style.min.fb6e6d5d9e5fa539e3d084f012b971c4f0ceb69ee16f354c1e4f9a99fb6b46b7.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="ife 轮播图回顾" />
+<meta property="og:description" content="写在前面 做到ife task002_3，轮播图花了我最长的时间来写，甚至让我开始反思自己是不是真的…不适合当一个程序员。我要成了程序员，有种侮" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zecoo.github.io/hugo/2020/04/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/" />
+<meta property="article:published_time" content="2020-04-15T11:37:07+08:00" />
+<meta property="article:modified_time" content="2020-04-15T11:37:07+08:00" />
+<meta itemprop="name" content="ife 轮播图回顾">
+<meta itemprop="description" content="写在前面 做到ife task002_3，轮播图花了我最长的时间来写，甚至让我开始反思自己是不是真的…不适合当一个程序员。我要成了程序员，有种侮">
+
+
+<meta itemprop="datePublished" content="2020-04-15T11:37:07&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-15T11:37:07&#43;08:00" />
+<meta itemprop="wordCount" content="1827">
+
+
+
+<meta itemprop="keywords" content="js,ife," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ife 轮播图回顾"/>
+<meta name="twitter:description" content="写在前面 做到ife task002_3，轮播图花了我最长的时间来写，甚至让我开始反思自己是不是真的…不适合当一个程序员。我要成了程序员，有种侮"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-white" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/zecoo" target="_blank">
+            <img class="img-circle img-rotate" src="https://zecoo.github.io/hugo/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">ZIK</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">就普通一人</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/hugo/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/hugo/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/hugo/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/hugo/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/hugo/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>Board～</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/css/" class="category-list-link">css</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/devops/" class="category-list-link">devops</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/hello-world/" class="category-list-link">hello-world</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/hogo/" class="category-list-link">hogo</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/hpa/" class="category-list-link">hpa</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/istio/" class="category-list-link">istio</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/js/" class="category-list-link">js</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/k8s/" class="category-list-link">k8s</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/prom/" class="category-list-link">prom</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/ss/" class="category-list-link">ss</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/css/" class="tag-list-link">css</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/hello-world/" class="tag-list-link">hello-world</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/hugo/" class="tag-list-link">hugo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/ife/" class="tag-list-link">ife</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/istio/" class="tag-list-link">istio</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/js/" class="tag-list-link">js</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/k8s/" class="tag-list-link">k8s</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/kubeadm/" class="tag-list-link">kubeadm</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/kubectl/" class="tag-list-link">kubectl</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/mirok8s/" class="tag-list-link">mirok8s</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/nginx/" class="tag-list-link">nginx</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/prom/" class="tag-list-link">prom</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/ss/" class="tag-list-link">ss</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/hugo-tutorial/" class="title">hugo tutorial</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-17 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-17</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/kubeadm-init-node-not-found/" class="title">Kubeadm init node not found</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-16 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-16</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/hugo-code-highlight/" class="title">Hugo添加代码高亮</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-09 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/" class="title">Metric to Graph思路及实践</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-08 00:17:00 &#43;0800 CST" itemprop="datePublished">2020-05-08</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/jq-in-terminal-for-json/" class="title">jq in terminal for json</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-08 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-08</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/hugo/2020/04/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/"
+    >ife 轮播图回顾</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://zecoo.github.io/hugo/2020/04/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/" class="article-date">
+  <time datetime="2020-04-15 11:37:07 &#43;0800 CST" itemprop="datePublished">2020-04-15</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/hugo/categories/js/"> js </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/hugo/tags/js/"> js </a>
+    <a class="article-tag-link" href="/hugo/tags/ife/"> ife </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/hugo/2020/04/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1827字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      
+
+<h2 id="写在前面">写在前面</h2>
+
+<p>做到ife task002_3，轮播图花了我最长的时间来写，甚至让我开始反思自己是不是真的…不适合当一个程序员。我要成了程序员，有种侮辱了这个群体的感jio。最后看了一下，虽然也就125行的代码，断断续续我大概做了一周。😓</p>
+
+<h3 id="html-css也遇到问题">html&amp;CSS也遇到问题：</h3>
+
+<ol>
+<li>怎么把6张图片都塞到frame里面去不漏出来。简单一个<code>overflow：hidden</code>我就是想不到。</li>
+<li>6个按钮小圆点怎么放到frame里面。其实还是position的问题，我总是自以为了解position，然而到了真正实践的时候就出问题。小圆点div相对于frame的position要absolute。</li>
+<li>如何让图片有一个滑动的效果？我是看了DIYgod的代码之后，才知道要让图片float left，让图片div的宽度仅可能宽，让图片相对于左上角每次移动一部分距离，就能实现移动的效果了。</li>
+</ol>
+
+<h2 id="最要命的是js部分">最要命的是JS部分</h2>
+
+<p>一开始我百度了一个轮播图的代码，是通过调整其他图片<code>display：none</code>，指定index的图片<code>display：block</code>。这样就简单实现了图片的切换。这样做也没有什么问题，但就是没有滑动的动画效果，看起来很low。</p>
+
+<p>干脆继续参考DIYgod的代码。就有了上面提到的，让图片横向展开在页面中。每次切换让图片向左或向右移动一定的距离offset。也就是图片div的left增加或减少offset。如果移动一张图片距离，那么就是offset=img.width。</p>
+
+<h3 id="next-prev-button">Next &amp; Prev button</h3>
+
+<p>于是我先把next、prev点击切换的功能做出来，还算简单，主要注意的是next移动到第六张图片的时候，要跳回到第一张图片，要用if做个判断。prev移动到第一张照片的时候同理。</p>
+
+<h3 id="移动动画效果">移动动画效果</h3>
+
+<p>到这里可以发现，到目前为止，功能做出来和display：none的那一版没有任何区别。因为移动在一瞬间就完成了，没有形成动画效果。</p>
+
+<p>如果想要动画效果，要在一定时间time内逐步完成移动。做法是设置每个时间间隔interval移动一小段距离，那么每个时间间隔移动的距离就是offset / (time / interval)。然后设置一个setTimeout函数执行移动过程。</p>
+
+<p>好，动手操作一下。然后就会惊奇的发现：操，我的轮播图怎么停不下来了？是因为setTimeout之后，每个时间间隔就会执行一次，不设置停止条件的话就会一直执行下去。那么停止条件是什么呢？图片移动了offset的距离，这个动画过程就应该结束。所以停止条件就是initialLeft + offset = newLeft的时候。</p>
+
+<p>再来看看轮播图效果怎么样？next和prev按钮都可以使用了，而且也有了动画效果。小阶段目标完成，先给自己小小鼓励一下。</p>
+
+<h3 id="小圆点">小圆点</h3>
+
+<p>接下来考虑实现小圆点和图片的index的同步。这中间也有一些trick，我随便想想发现悟不到就又看了Dg的代码。</p>
+
+<p>首先考虑怎么做到让某个index的小圆点（下面用O表示）亮起来呢？Dg给出的方法是，给index的O添加一个class比如light，CSS中设置该class light的bgc=white，就相当于让index的O亮起来了，挺巧妙的。同时要注意，亮起来了，还要让他灭掉，也很简单，把所有O的light class都给remove掉。</p>
+
+<p>好的，现在任意index的O都可以控制其亮或者不亮了。直接把这个方法封装成showBtn()。在next、prev的点击操作中，添加showBtn方法，就可以成功看到指定index的O亮起来了，和图片实现了同步。</p>
+
+<p>小圆点这里还没完。通常在轮播图中点击某个位置的O，应该能跳转到该index的图片。这里Dg在html中给每个O设置了一个index=0~6属性，通过this.getAttribute()方法获取当前index。有了当前的index，和要移动到的index，相减乘以图片的width，就是要移动的offset。那么到这里这个功能也就实现了。</p>
+
+<p>所以到最后的顺时针、逆时针播放就更简单了，setInterval()，每隔1000ms执行一次next或者prev，就OK了。但是要注意，如果先后点击playASC和playDESC，会发生鬼畜。解决方法是在这两个方法执行前先判断一下，如果setInterval的timer还在的话，就stop掉。这样鬼畜的问题也就解决了。</p>
+
+<h2 id="最后">最后</h2>
+
+<p>别看我回顾就写了1.3k字，写代码花费的时间真的比我想象中的多多了。感觉那些程序员坐一下午能搞出各种各样的功能，我这……真的菜啊。</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://zecoo.github.io/hugo/2020/04/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/" title="ife 轮播图回顾" target="_blank" rel="external">https://zecoo.github.io/hugo/2020/04/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://zecoo.github.io/hugo/2020/04/microk8s-installation-in-china/" title="Microk8s 国内安装总结"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://zecoo.github.io/hugo/2020/04/k8s-hello-world/"
+                    title="K8S hello-world 回顾"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat"
+                data-mobile-sites="weibo,qq,wechat"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/zecoo" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://zecoo.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2020  -
+    2020
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://zecoo.github.io/hugo/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="https://zecoo.github.io/hugo/js/plugin.min.7c094c04e8f16e81ef83e5a741119c9694299161f3c10635176566adc7d39ad7.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/zecoo.github.io\/hugo\/',
+            CONTENT_URL: 'https:\/\/zecoo.github.io\/hugo\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://zecoo.github.io/hugo/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

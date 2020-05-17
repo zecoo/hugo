@@ -1,5 +1,6 @@
-baseURL: https://example.com/
+baseURL: https://zecoo.github.io/hugo/
 theme: pure
+publishDir: "docs"
 title: Pure theme for Hugo
 defaultContentLanguage: zh  # en/zh/...
 footnoteReturnLinkContents: ↩
