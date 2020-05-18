@@ -10,6 +10,15 @@
     
     
     <item>
+      <title>hugo上传博客脚本</title>
+      <link>https://zecoo.github.io/hugo/2020/05/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</guid>
+      <description>我很傻的，每次更新博客之后都要手动输入 hugo -D git add . git commit -m &amp;quot;xxx&amp;quot; git push origin master 又不想下载git客户端一键push，写个脚本咯 hugo -D git add . read -p &amp;quot;input commit info:\n&amp;quot; commit git commit -m &amp;quot;$commit&amp;quot;</description>
+    </item>
+    
+    <item>
       <title>服务器命令行美化</title>
       <link>https://zecoo.github.io/hugo/2020/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
@@ -178,15 +187,6 @@
       
       <guid>https://zecoo.github.io/hugo/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
       <description>每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说 遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。 说得真好。</description>
-    </item>
-    
-    <item>
-      <title>IFE task0002_5 回顾</title>
-      <link>https://zecoo.github.io/hugo/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</link>
-      <pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid>
-      <description>做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基</description>
     </item>
     
   </channel>

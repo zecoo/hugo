@@ -1,5 +1,6 @@
 hugo -D
 git add .
-read -p "input commit info:" commit 	
+echo "input commit info:"
+read commit 	
 git commit -m "$commit"
 git push origin master
