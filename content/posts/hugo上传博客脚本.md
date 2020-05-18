@@ -20,13 +20,17 @@ git push origin master
 ```bash
 hugo -D
 git add .
-read -p "input commit info:\n" commit 	
-git commit -m "$commit"
+echo "input commit info:"
+read -t 2 commit_info
+commit_info=${commit_info: "update blog"}
+git commit -m "$commit_info"
 git push origin master
 ```
 
+read提供一个默认值：
 
+记得最后把sh文件权限给足：`chmod 777 update.sh`
 
 ## 参考
 
-https://www.cnblogs.com/gossip/p/5948398.html （shell接收键盘输入）
+https://www.cnblogs.com/lottu/p/3962921.html（shell接收键盘输入）
