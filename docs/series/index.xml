@@ -15,7 +15,7 @@
       <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/2020/05/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</guid>
-      <description>我很傻的，每次更新博客之后都要手动输入 hugo -D git add . git commit -m &amp;quot;xxx&amp;quot; git push origin master 又不想下载git客户端一键push，写个脚本咯 hugo -D git add . echo &amp;quot;input commit info:&amp;quot; read -t 2 commit_info commit_info=${commit_info: &amp;quot;update</description>
+      <description>我很傻的，每次更新博客之后都要手动输入 hugo -D git add . git commit -m &amp;quot;xxx&amp;quot; git push origin master 又不想下载git客户端一键push，写个脚本咯 hugo -D git add . echo &amp;quot;input commit info:&amp;quot; read -t 5 commit_info commit_info=${commit_info:-&amp;quot;update blog&amp;quot;}</description>
     </item>
     
     <item>
