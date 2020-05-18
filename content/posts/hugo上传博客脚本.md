@@ -18,6 +18,7 @@ git push origin master
 又不想下载git客户端一键push，写个脚本咯
 
 ```bash
+#!/bin/bash
 hugo -D
 git add .
 echo "input commit info:"

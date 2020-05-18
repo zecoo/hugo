@@ -1,3 +1,4 @@
+#!/bin/bash
 hugo -D
 git add .
 echo "input commit info:"
