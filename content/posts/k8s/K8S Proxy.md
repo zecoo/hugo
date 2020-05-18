@@ -120,8 +120,6 @@ ca.crt:     1103 bytes
 
 ## 参考
 
----
-
 https://www.jianshu.com/p/6f42ac331d8a  （RBAC介绍）
 
 https://github.com/kubernetes/dashboard/blob/master/docs/user/accessing-dashboard/1.7.x-and-above.md （k8s官方dashboard介绍）

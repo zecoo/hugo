@@ -3,7 +3,7 @@ title: "hugo tutorial"
 date: "2020-05-17T00:00:00+08:00"
 draft: false
 tags: ["hugo"]
-categories: ["hogo"]
+categories: ["hugo"]
 ---
 
 ```shell

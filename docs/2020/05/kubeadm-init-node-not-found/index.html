@@ -20,7 +20,7 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="新坑哦～ 花了5天都没有解决的新坑哦～ 特别炫酷的功能把服务器终端变好看一点： # 设置环境变量, 命令行看着舒服点 export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot; # vim 显示行号 cat &amp;lt;&amp;lt;EOF &amp;gt; ~/.vimrc set nu EOF" />
+    <meta name="description" content="新坑哦～ 5天都没有解决的新坑哦～ 环境： 华为云学生机2c4g 鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB 错误 kubeadm init 后卡在： [wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &amp;quot;/etc/kubernetes/manifests&amp;quot;. This" />
     <meta name="generator" content="Hugo 0.58.3 with theme pure" />
     <title>Kubeadm init node not found - Pure theme for Hugo</title>
     
@@ -30,25 +30,25 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
     <meta property="og:title" content="Kubeadm init node not found" />
-<meta property="og:description" content="新坑哦～ 花了5天都没有解决的新坑哦～ 特别炫酷的功能把服务器终端变好看一点： # 设置环境变量, 命令行看着舒服点 export PS1=&quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &quot; # vim 显示行号 cat &lt;&lt;EOF &gt; ~/.vimrc set nu EOF" />
+<meta property="og:description" content="新坑哦～ 5天都没有解决的新坑哦～ 环境： 华为云学生机2c4g 鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB 错误 kubeadm init 后卡在： [wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &quot;/etc/kubernetes/manifests&quot;. This" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zecoo.github.io/hugo/2020/05/kubeadm-init-node-not-found/" />
 <meta property="article:published_time" content="2020-05-16T00:00:00+08:00" />
 <meta property="article:modified_time" content="2020-05-16T00:00:00+08:00" />
 <meta itemprop="name" content="Kubeadm init node not found">
-<meta itemprop="description" content="新坑哦～ 花了5天都没有解决的新坑哦～ 特别炫酷的功能把服务器终端变好看一点： # 设置环境变量, 命令行看着舒服点 export PS1=&quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &quot; # vim 显示行号 cat &lt;&lt;EOF &gt; ~/.vimrc set nu EOF">
+<meta itemprop="description" content="新坑哦～ 5天都没有解决的新坑哦～ 环境： 华为云学生机2c4g 鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB 错误 kubeadm init 后卡在： [wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &quot;/etc/kubernetes/manifests&quot;. This">
 
 
 <meta itemprop="datePublished" content="2020-05-16T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2020-05-16T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="82">
+<meta itemprop="wordCount" content="539">
 
 
 
 <meta itemprop="keywords" content="k8s,kubeadm," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kubeadm init node not found"/>
-<meta name="twitter:description" content="新坑哦～ 花了5天都没有解决的新坑哦～ 特别炫酷的功能把服务器终端变好看一点： # 设置环境变量, 命令行看着舒服点 export PS1=&quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &quot; # vim 显示行号 cat &lt;&lt;EOF &gt; ~/.vimrc set nu EOF"/>
+<meta name="twitter:description" content="新坑哦～ 5天都没有解决的新坑哦～ 环境： 华为云学生机2c4g 鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB 错误 kubeadm init 后卡在： [wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &quot;/etc/kubernetes/manifests&quot;. This"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -71,7 +71,7 @@
             <img class="img-circle img-rotate" src="https://zecoo.github.io/hugo/avatar.png" width="200" height="200">
           </a>
           <h2 id="name" class="hidden-xs hidden-sm">ZIK</h2>
-          <h3 id="title" class="hidden-xs hidden-sm hidden-md">就普通一人</h3>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">whu22kon#foxmail#com</h3>
           <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Wuhan, China</small>
         </div><div class="search" id="search-form-wrap">
     <form class="search-form sidebar-form">
@@ -149,7 +149,7 @@
     <h3 class="widget-title">公告</h3>
     <div class="widget-body">
         <div id="board">
-            <div class="content"><p>Board～</p>
+            <div class="content"><p>不会照搬别人的博客</p> <p>请详细阅读参考文章</p>
             </div>
         </div>
     </div>
@@ -159,78 +159,16 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/css/" class="category-list-link">css</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/devops/" class="category-list-link">devops</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/css/" class="category-list-link">css</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/hello-world/" class="category-list-link">hello-world</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/hogo/" class="category-list-link">hogo</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/hpa/" class="category-list-link">hpa</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/istio/" class="category-list-link">istio</a><span class="category-list-count">5</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/js/" class="category-list-link">js</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/k8s/" class="category-list-link">k8s</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/math/" class="category-list-link">math</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/prom/" class="category-list-link">prom</a><span class="category-list-count">4</span></li>
-            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/ss/" class="category-list-link">ss</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/server/" class="category-list-link">server</a><span class="category-list-count">4</span></li>
         </ul>
-    </div>
-</div>
-      <div class="widget">
-    <h3 class="widget-title"> 标签</h3>
-    <div class="widget-body">
-        <ul class="tag-list">
-            
-            
-            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/css/" class="tag-list-link">css</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/hello-world/" class="tag-list-link">hello-world</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/hugo/" class="tag-list-link">hugo</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/ife/" class="tag-list-link">ife</a><span
-                    class="tag-list-count">4</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/istio/" class="tag-list-link">istio</a><span
-                    class="tag-list-count">6</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/js/" class="tag-list-link">js</a><span
-                    class="tag-list-count">3</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/k8s/" class="tag-list-link">k8s</a><span
-                    class="tag-list-count">7</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/kubeadm/" class="tag-list-link">kubeadm</a><span
-                    class="tag-list-count">2</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/kubectl/" class="tag-list-link">kubectl</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/mirok8s/" class="tag-list-link">mirok8s</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/nginx/" class="tag-list-link">nginx</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/prom/" class="tag-list-link">prom</a><span
-                    class="tag-list-count">6</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/ss/" class="tag-list-link">ss</a><span
-                    class="tag-list-count">1</span></li>
-            
-        </ul>
-
     </div>
 </div>
       
@@ -238,6 +176,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/" class="title">服务器命令行美化</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-18 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-18</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -278,17 +226,92 @@
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://zecoo.github.io/hugo/2020/05/jq-in-terminal-for-json/" class="title">jq in terminal for json</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-05-08 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-08</time>
-                    </p>
-                </div>
-            </li>
         </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/css/" class="tag-list-link">css</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/hello-world/" class="tag-list-link">hello-world</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/highlight/" class="tag-list-link">highlight</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/hpa/" class="tag-list-link">hpa</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/hugo/" class="tag-list-link">hugo</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/ife/" class="tag-list-link">ife</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/istio/" class="tag-list-link">istio</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/jq/" class="tag-list-link">jq</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/js/" class="tag-list-link">js</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/k8s/" class="tag-list-link">k8s</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/kubeadm/" class="tag-list-link">kubeadm</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/kubectl/" class="tag-list-link">kubectl</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/math/" class="tag-list-link">math</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/mirok8s/" class="tag-list-link">mirok8s</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/nginx/" class="tag-list-link">nginx</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/prom/" class="tag-list-link">prom</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/scss/" class="tag-list-link">scss</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/server/" class="tag-list-link">server</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/ss/" class="tag-list-link">ss</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
     </div>
 </div>
   </div>
@@ -337,8 +360,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/hugo/2020/05/kubeadm-init-node-not-found/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 82字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 539字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -346,24 +369,50 @@
 
 <p>新坑哦～</p>
 
-<p>花了5天都没有解决的新坑哦～</p>
+<p>5天都没有解决的新坑哦～</p>
 
-<p>特别炫酷的功能把服务器终端变好看一点：</p>
+<h2 id="环境">环境：</h2>
 
-<pre><code class="language-shell"># 设置环境变量, 命令行看着舒服点
-export PS1=&quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &quot;
+<ul>
+<li>华为云学生机2c4g</li>
+<li>鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB</li>
+</ul>
 
-# vim 显示行号
-cat &lt;&lt;EOF &gt; ~/.vimrc
-set nu
-EOF
+<h2 id="错误">错误</h2>
+
+<p>kubeadm init 后卡在：</p>
+
+<pre><code class="language-shell">[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &quot;/etc/kubernetes/manifests&quot;. This can take up to 4m0s
+[kubelet-check] Initial timeout of 40s passed.
 </code></pre>
 
-<h2 id="参考">参考</h2>
+<p>然后按照提示查看kubelet的日志，显示“node xxx not found”</p>
 
-<hr />
+<pre><code class="language-shell">node &quot;ecs-kc1-large-2-linux-20200511105949&quot; not found
+Container &quot;408a5e9f9958dd3919cecf4a944a25ce30582bc638d657fc065fec8c56579f2a&quot; not found in pod's containers
+k8s.io/kubernetes/pkg/kubelet/kubelet.go:453: Failed to list *v1.Node: Get https://192.168.0.214:6443/api/v1/nodes?fieldSelector=metadata.name%3Decs-kc1-large-2-linux-20200511105949&amp;limit=500&amp;resourceVersion=0: dial tcp 192.168.0.214:6443: connect: connection refused
+</code></pre>
 
-<p><a href="https://learnku.com/articles/29209">https://learnku.com/articles/29209</a> （ssh炫酷UI）</p>
+<p>看到最关键的了吗？<code>dial tcp 192.168.0.214:6443: connect: connection refused</code>，这个问题很关键，但是网上没有合适的解答。connection refused，其实就是“node not found”</p>
+
+<p>再看看docker容器的运行情况，发现k8s所有组件的容器都创建失败，处于Exited状态。kubelet就这样创建失败继续创建，陷入循环当中。</p>
+
+<pre><code class="language-shell">k8s_POD_etcd	Exited (1) Less than a second ago
+k8s_POD_kube-controller-manager	Exited (1) Less than a second ago
+k8s_POD_kube-scheduler	Exited (1) Less than a second ago
+k8s_POD_etcd	Exited (1) Less than a second ago
+k8s_POD_kube-controller-manager	Exited (1) 1 second ago
+</code></pre>
+
+<h2 id="售后">售后</h2>
+
+<p>给华为售后也提了工单，最后得到的结果是华为鲲鹏服务器是arm架构，并且华为在上面做了自研，底层架构和amd差别还是挺大的。所以对于一些大型应用可能还没有适配。暗示k8s适配还要很久。</p>
+
+<p>这坑就不填了。俺换台服务器就是了。</p>
+
+<p>不过整体的体验还是挺好的，从提售后工单到售后邮件回复、电话回访都做得挺好的。打客服电话退订也很热心告诉我到哪里退订。</p>
+
+<p>我用了10天左右吧，手续费20，费用是5块。最后能退给我175块。还算OK，损失不大。</p>
 
     </div>
     <div class="article-footer">
@@ -409,14 +458,14 @@ EOF
             </li>
         </ul>
         <div class="bar-right">
-            <div class="share-component" data-sites="weibo,qq,wechat"
-                data-mobile-sites="weibo,qq,wechat"></div>
         </div>
     </div>
 </nav>
 
 </main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
 <ul class="social-links">
+    <li><a href="https://www.douban.com/people/142240861" target="_blank" title="douban" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-douban"></i></a></li>
     <li><a href="https://github.com/zecoo" target="_blank" title="github" data-toggle=tooltip data-placement=top >
             <i class="icon icon-github"></i></a></li>
     <li><a href="https://zecoo.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >

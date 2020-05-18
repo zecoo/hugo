@@ -109,8 +109,6 @@ if __name__ == '__main__':
 
 ## 参考
 
----
-
 https://www.v2ex.com/t/606786 （中文讲Prom metrics最详细的文章了吧）
 
 https://www.jianshu.com/p/15f929160f38 （四种metric类型介绍得很棒）

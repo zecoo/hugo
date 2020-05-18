@@ -5,10 +5,19 @@
     <link>https://zecoo.github.io/hugo/</link>
     <description>Recent content on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2020 00:00:00 +0800</lastBuildDate>
     
         <atom:link href="https://zecoo.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bayesian Optimization 直观理解</title>
+      <link>https://zecoo.github.io/hugo/2020/04/bayesian-optimization/</link>
+      <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/04/bayesian-optimization/</guid>
+      <description>目标 最小(大)化一个没有具体表达式的函数。 举个例子 给定一个函数 $$ f(x,y) = -x^2 - (y-1)^2 +1 $$ BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。 吐槽一下 中文的科普</description>
+    </item>
     
     <item>
       <title>K8S Proxy</title>

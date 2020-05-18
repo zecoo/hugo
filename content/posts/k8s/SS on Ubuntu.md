@@ -2,8 +2,8 @@
 title: "SS on Ubuntu"
 date: 2020-04-09T11:37:07+08:00
 draft: true
-tags: ["ss"]
-categories: ["ss"]
+tags: ["server", "ss"]
+categories: ["server"]
 ---
 
 
@@ -13,8 +13,6 @@ categories: ["ss"]
 1. 安装ss。apt install就可以
 2. 配置ss。就一个json文件
 3. 启动ss。一行命令
-
----
 
 ## 参考：
 

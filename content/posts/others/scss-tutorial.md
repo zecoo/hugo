@@ -2,6 +2,8 @@
 title: "scss tutorial"
 date: "2020-05-05T00:00:00+08:00"
 draft: false
+tags: ["css", "scss"]
+categories: ["css"]
 ---
 
 SCSS：Sassy CSS
@@ -39,8 +41,6 @@ sudo gem install -n /usr/local/bin sass --pre
 最后sublime再装一个插件"sublimeBuildOnSave"自动编译sass，不要每次都cmd+B一下。
 
 ## 参考
-
----
 
 https://www.jianshu.com/p/f8cbe91498dc （ruby china换源了）
 

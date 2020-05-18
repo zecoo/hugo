@@ -36,6 +36,4 @@ http://121.37.159.247:30040/api/v1/query?query=istio_requests_total{response_cod
 
 ## 参考
 
----
-
 https://prometheus.io/docs/prometheus/latest/querying/api/ （官方http API用法）

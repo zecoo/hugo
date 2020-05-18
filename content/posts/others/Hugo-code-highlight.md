@@ -2,6 +2,8 @@
 title: "Hugo添加代码高亮"
 date: "2020-05-09T00:00:00+08:00"
 draft: false
+tags: ["hugo", "highlight"]
+categories: ["hugo"]
 ---
 
 方法：用hightlight.js做高亮。
@@ -23,7 +25,5 @@ css的选择可以到GitHub上hightlight.js的src/style下面找。
 js文件，用官网上的cdn就可以。或者直接下载下来。
 
 ## 参考
-
----
 
 https://orianna-zzo.github.io/sci-tech/2018-01/blog养成记3-hugo的语法高亮配置/#使用highlight-shortcode进行高亮

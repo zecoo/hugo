@@ -120,6 +120,4 @@ tcp6       0      0 :::7000                 :::*                    LISTEN      
 
 ### 参考
 
----
-
 https://www.cnblogs.com/bforever/p/10601169.html （k8s hello-world）

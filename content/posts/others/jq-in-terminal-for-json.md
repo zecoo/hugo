@@ -2,6 +2,8 @@
 title: "jq in terminal for json"
 date: "2020-05-08T00:00:00+08:00"
 draft: false
+tags: ["server", "jq"]
+categories: ["server"]
 ---
 
 Prom返回的json格式没有reindent，看起来很费眼睛。
@@ -55,8 +57,6 @@ curl http://test.json | jq
 ```
 
 ## 参考
-
----
 
 https://stedolan.github.io/jq/manual/#example6 （jq官方手册）
 

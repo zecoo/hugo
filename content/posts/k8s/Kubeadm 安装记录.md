@@ -57,8 +57,6 @@ kubectl get pod --all-namespaces
 
 ## 参考
 
----
-
 https://blog.csdn.net/zjcjava/article/details/99317569 （我按照这篇来装的！）
 
 https://blog.csdn.net/woay2008/article/details/93250137 （三行命令没敲能把人愁死）

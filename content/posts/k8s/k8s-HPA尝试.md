@@ -2,8 +2,8 @@
 title: "k8s HPA尝试"
 date: "2020-05-04T00:00:00+08:00"
 draft: false
-tags: ["k8s"]
-categories: ["k8s", "HPA"]
+tags: ["k8s", "HPA"]
+categories: ["k8s"]
 ---
 
 
@@ -22,8 +22,6 @@ HPA的重点是hpa.yaml里面的cpu和mem的指定。
 Prometheus + HPA的重点是如何将Prom的数据改为metrics server可以使用的数据。这里的方法应该是config-map中构建的一系列rule。先拿来用，暂时不去深究。
 
 ## 参考
-
----
 
 https://blog.csdn.net/yevvzi/article/details/79561150 （本文主要参考）
 

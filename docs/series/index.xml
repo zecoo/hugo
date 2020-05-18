@@ -10,6 +10,15 @@
     
     
     <item>
+      <title>服务器命令行美化</title>
+      <link>https://zecoo.github.io/hugo/2020/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</guid>
+      <description>export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot; 但是有个问题，输了命令命令行前缀是变好看了，但是一旦退出就没有效果了。要把这个设置写进文件里才行。具体是$HOME/.bashrc这</description>
+    </item>
+    
+    <item>
       <title>hugo tutorial</title>
       <link>https://zecoo.github.io/hugo/2020/05/hugo-tutorial/</link>
       <pubDate>Sun, 17 May 2020 00:00:00 +0800</pubDate>
@@ -24,7 +33,7 @@
       <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/2020/05/kubeadm-init-node-not-found/</guid>
-      <description>新坑哦～ 花了5天都没有解决的新坑哦～ 特别炫酷的功能把服务器终端变好看一点： # 设置环境变量, 命令行看着舒服点 export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot; # vim 显示行号 cat &amp;lt;&amp;lt;EOF &amp;gt; ~/.vimrc set nu EOF</description>
+      <description>新坑哦～ 5天都没有解决的新坑哦～ 环境： 华为云学生机2c4g 鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB 错误 kubeadm init 后卡在： [wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &amp;quot;/etc/kubernetes/manifests&amp;quot;. This</description>
     </item>
     
     <item>
@@ -178,15 +187,6 @@
       
       <guid>https://zecoo.github.io/hugo/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid>
       <description>做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基</description>
-    </item>
-    
-    <item>
-      <title>Bayesian Optimization 直观理解</title>
-      <link>https://zecoo.github.io/hugo/2020/04/bayesian-optimization/</link>
-      <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/04/bayesian-optimization/</guid>
-      <description>目标 最小(大)化一个没有具体表达式的函数。 举个例子 给定一个函数 $$ f(x,y) = -x^2 - (y-1)^2 +1 $$ BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。 吐槽一下 中文的科普</description>
     </item>
     
   </channel>

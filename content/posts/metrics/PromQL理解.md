@@ -35,6 +35,4 @@ rate(istio_request_duration_milliseconds_bucket{destination_app="productpage"}[1
 
 ## 参考
 
----
-
 https://www.zhihu.com/question/380615839 （Prom时区UTC没法改）

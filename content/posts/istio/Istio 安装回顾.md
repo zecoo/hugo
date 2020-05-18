@@ -49,8 +49,6 @@ kubectl expose service prometheus --type=NodePort \
 
 ## 参考
 
----
-
 https://www.jianshu.com/p/b72c1e06b140 （安装指南）
 
 https://www.cnblogs.com/assion/p/11326088.html （修改istiogateway的LB为nodeport）

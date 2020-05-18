@@ -81,6 +81,4 @@ Prom关于duration的metric：
 
 ## 参考
 
----
-
 https://prometheus.io/docs/prometheus/latest/querying/api/ （curl query获取metric）

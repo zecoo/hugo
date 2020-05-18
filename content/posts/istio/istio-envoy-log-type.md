@@ -49,8 +49,6 @@ istio bookinfo示例中给出的log是这样（官方给出的，我现在不想
 
 ## 参考
 
----
-
 https://github.com/istio/istio/tree/master/mixer （Mixer被弃用）
 
 https://istio-releases.github.io/v0.1/docs/tasks/installing-istio.html （安装Mixer）

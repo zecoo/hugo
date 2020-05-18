@@ -47,6 +47,4 @@ kubelet是node的proxy。
 
 ## 参考
 
----
-
 http://www.zsythink.net/archives/1199/ （讲iptables的好文）

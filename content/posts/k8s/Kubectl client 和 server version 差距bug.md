@@ -51,8 +51,6 @@ kubectl apply -f anyfile.yaml
 
 ## 参考
 
----
-
 https://kubernetes.io/docs/tasks/tools/install-kubectl/#before-you-begin （升级kubectl cli）
 
 https://devops.stackexchange.com/questions/2956/how-do-i-get-kubernetes-to-work-when-i-get-an-error-the-server-could-not-find-t （坑出现的原因1）
