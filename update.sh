@@ -1,4 +1,5 @@
 hugo -D
 git add .
-git commit -m "update blog"
+read -p "input commit info:" commit 	
+git commit -m "$commit"
 git push origin master
