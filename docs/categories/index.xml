@@ -5,10 +5,28 @@
     <link>https://zecoo.github.io/hugo/categories/</link>
     <description>Recent content in Categories on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 18 May 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 May 2020 00:00:00 +0800</lastBuildDate>
     
         <atom:link href="https://zecoo.github.io/hugo/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MS-Rank</title>
+      <link>https://zecoo.github.io/hugo/2020/05/ms-rank/</link>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/ms-rank/</guid>
+      <description>MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications ICWS 2019 主要贡献： 根据一系列的metrics，构建一个调用图 基于随机游走算法提出了根因定位算法 为了提高定位的准确性，用一种自</description>
+    </item>
+    
+    <item>
+      <title>RCA Papers</title>
+      <link>https://zecoo.github.io/hugo/2020/05/rca-papers/</link>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/rca-papers/</guid>
+      <description>Microscope: Pinpoint Performance Issues with Causal Graphs in Micro-service Environments （ICSOC 2018） MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications （ICWS 2019） Graph-based root cause analysis for service-oriented and microservice architectures （JSS 2020） Microservices Monitoring with Event Logs and Black Box Execution Tracing （TSC 2019） Fault Analysis and Debugging of Microservice Systems: Industrial Survey, Benchmark System, and Empirical Study （TSE 2018） Root Cause Analysis of Anomalies of Multitier Services in Public Clouds （TON 2018） Ranking Causal Anomalies by Modeling Local Propagations on Networked Systems （ICDM 2017）  </description>
+    </item>
     
     <item>
       <title>hugo上传博客脚本</title>
@@ -170,24 +188,6 @@
       
       <guid>https://zecoo.github.io/hugo/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
       <description>如果是Microk8s安装，很简单就一步： microk8s.enable istio 好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。</description>
-    </item>
-    
-    <item>
-      <title>Kubeadm 安装记录</title>
-      <link>https://zecoo.github.io/hugo/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
-      <pubDate>Tue, 28 Apr 2020 16:37:07 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
-      <description>装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。 安装K8s有这几种方法 minikube mircok8s kubeadm 这三种方法我都用过。minikube在win</description>
-    </item>
-    
-    <item>
-      <title>Kubectl client 和 server version 差距错误</title>
-      <link>https://zecoo.github.io/hugo/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
-      <pubDate>Tue, 28 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
-      <description>每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说 遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。 说得真好。</description>
     </item>
     
   </channel>

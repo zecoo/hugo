@@ -5,10 +5,28 @@
     <link>https://zecoo.github.io/hugo/</link>
     <description>Recent content on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 18 May 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 May 2020 00:00:00 +0800</lastBuildDate>
     
         <atom:link href="https://zecoo.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubeadm 安装记录</title>
+      <link>https://zecoo.github.io/hugo/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Tue, 28 Apr 2020 16:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
+      <description>装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。 安装K8s有这几种方法 minikube mircok8s kubeadm 这三种方法我都用过。minikube在win</description>
+    </item>
+    
+    <item>
+      <title>Kubectl client 和 server version 差距错误</title>
+      <link>https://zecoo.github.io/hugo/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
+      <pubDate>Tue, 28 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
+      <description>每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说 遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。 说得真好。</description>
+    </item>
     
     <item>
       <title>IFE task0002_5 回顾</title>

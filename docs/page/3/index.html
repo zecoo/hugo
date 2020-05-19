@@ -34,7 +34,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://zecoo.github.io/hugo/" />
 
-<meta property="og:updated_time" content="2020-05-18T00:00:00+08:00" />
+<meta property="og:updated_time" content="2020-05-19T00:00:00+08:00" />
 <meta itemprop="name" content="Pure theme for Hugo">
 <meta itemprop="description" content="">
 
@@ -158,6 +158,7 @@
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/js/" class="category-list-link">js</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/k8s/" class="category-list-link">k8s</a><span class="category-list-count">7</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/math/" class="category-list-link">math</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/paper/" class="category-list-link">paper</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/prom/" class="category-list-link">prom</a><span class="category-list-count">4</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/server/" class="category-list-link">server</a><span class="category-list-count">4</span></li>
         </ul>
@@ -168,6 +169,26 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/ms-rank/" class="title">MS-Rank</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-19 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/rca-papers/" class="title">RCA Papers</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-19 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-19</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -195,26 +216,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2020-05-17 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-17</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://zecoo.github.io/hugo/2020/05/kubeadm-init-node-not-found/" class="title">Kubeadm init node not found</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-05-16 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-16</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://zecoo.github.io/hugo/2020/05/hugo-code-highlight/" class="title">Hugo添加代码高亮</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-05-09 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-09</time>
                     </p>
                 </div>
             </li>
@@ -249,6 +250,10 @@
             
             <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/hugo/" class="tag-list-link">hugo</a><span
                     class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/icws/" class="tag-list-link">icws</a><span
+                    class="tag-list-count">1</span></li>
             
             
             <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/ife/" class="tag-list-link">ife</a><span
@@ -295,6 +300,10 @@
                     class="tag-list-count">6</span></li>
             
             
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/rca/" class="tag-list-link">rca</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/scss/" class="tag-list-link">scss</a><span
                     class="tag-list-count">1</span></li>
             
@@ -322,6 +331,85 @@
     
     
     
+    <article
+      class="article article-type-page"
+      itemscope
+      itemtype="http://schema.org/BlogPosting"
+    >
+      <div class="article-header">
+        <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/hugo/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/"
+    >k8s HPA尝试</a
+  >
+</h1>
+
+      </div>
+      <div class="article-entry text-muted" itemprop="description">
+        先提一个题外话：如何销毁已经创建的部署？答： 有kubectl create -f ./metrics-server就有kubectl delete -f ./metrics-server 按照主要参考，大部分
+      </div>
+      <p class="article-meta">
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://zecoo.github.io/hugo/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/" class="">
+  <time datetime="2020-05-04 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-04</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/hugo/categories/k8s/"> k8s </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/hugo/tags/k8s/"> k8s </a>
+    <a class="article-tag-link" href="/hugo/tags/hpa/"> HPA </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> &nbsp;<a href="/hugo/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/#comments" class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 380字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
+      </p>
+    </article>
+    <article
+      class="article article-type-page"
+      itemscope
+      itemtype="http://schema.org/BlogPosting"
+    >
+      <div class="article-header">
+        <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/hugo/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/"
+    >Prometheus Metric形式</a
+  >
+</h1>
+
+      </div>
+      <div class="article-entry text-muted" itemprop="description">
+        Prom的四种基本metric类型 counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、me
+      </div>
+      <p class="article-meta">
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://zecoo.github.io/hugo/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/" class="">
+  <time datetime="2020-05-03 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-03</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/hugo/categories/prom/"> prom </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/hugo/tags/prom/"> prom </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> &nbsp;<a href="/hugo/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/#comments" class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1128字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
+      </p>
+    </article>
     <article
       class="article article-type-page"
       itemscope
@@ -518,85 +606,6 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> &nbsp;<a href="/hugo/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/#comments" class="article-comment-link">评论</a></span>
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 441字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/hugo/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/"
-    >IFE task0002_5 回顾</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://zecoo.github.io/hugo/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/" class="">
-  <time datetime="2020-04-23 11:37:07 &#43;0800 CST" itemprop="datePublished">2020-04-23</time>
-</a>
-</span>
-<span class="article-category">
-  <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/hugo/categories/js/"> js </a>
-</span>  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/hugo/tags/js/"> js </a>
-    <a class="article-tag-link" href="/hugo/tags/ife/"> ife </a>
-  </span>
-
-        <span class="post-comment"><i class="icon icon-comment"></i> &nbsp;<a href="/hugo/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/#comments" class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1168字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/hugo/2020/04/bayesian-optimization/"
-    >Bayesian Optimization 直观理解</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        目标 最小(大)化一个没有具体表达式的函数。 举个例子 给定一个函数 $$ f(x,y) = -x^2 - (y-1)^2 +1 $$ BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。 吐槽一下 中文的科普
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://zecoo.github.io/hugo/2020/04/bayesian-optimization/" class="">
-  <time datetime="2020-04-21 11:37:07 &#43;0800 CST" itemprop="datePublished">2020-04-21</time>
-</a>
-</span>
-<span class="article-category">
-  <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/hugo/categories/math/"> math </a>
-</span>  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/hugo/tags/math/"> math </a>
-  </span>
-
-        <span class="post-comment"><i class="icon icon-comment"></i> &nbsp;<a href="/hugo/2020/04/bayesian-optimization/#comments" class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 204字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
       </p>
     </article></div>
