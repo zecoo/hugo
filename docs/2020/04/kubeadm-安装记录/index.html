@@ -41,7 +41,7 @@
 
 <meta itemprop="datePublished" content="2020-04-28T16:37:07&#43;08:00" />
 <meta itemprop="dateModified" content="2020-04-28T16:37:07&#43;08:00" />
-<meta itemprop="wordCount" content="906">
+<meta itemprop="wordCount" content="1080">
 
 
 
@@ -364,8 +364,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/hugo/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 906字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1080字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -385,7 +385,9 @@
 
 <p>回归正题，记录整个安装以及填坑的过程。</p>
 
-<p>第一步，kubelet、kubeadm、kubectl、kubernetes-cni一套安装下来。</p>
+<p>首先docker要安装上。</p>
+
+<p>然后，kubelet、kubeadm、kubectl、kubernetes-cni一套安装下来。</p>
 
 <p>我现在才看到参考1中的一句话：</p>
 
@@ -395,9 +397,17 @@ $ yum install -y kubelet-1.13.1 kubeadm-1.13.1 kubectl-1.13.1   kubernetes-cni-0
 $ systemctl enable kubelet &amp;&amp; systemctl start kubelet
 </code></pre>
 
-<p>看到第一句话了吗？给我大声读几遍！！我就是因为这个，吃了多少亏，搜索多少资料😭。</p>
+<p>看到第一句话了吗？给我大声读几遍！！我就是因为这个，吃了多少亏，搜索多少资料😭。请一定保证你的kubelet、kubeadm、kubectl的版本相同。</p>
 
-<p>第二步，<code>kubeadm config images list</code>列出所有需要的image，因为国内网络问题嘛，一样的。然后用参考1里的bash脚本安装好，docke images检查一下。</p>
+<p>第二步，<code>kubeadm config images list</code>列出所有需要的image，因为国内网络问题嘛，一样的。然后用以下bash脚本安装好，docke images检查一下。</p>
+
+<pre><code class="language-bash">for  i  in  `kubeadm config images list`;  do
+    imageName=${i#k8s.gcr.io/}
+    docker pull registry.aliyuncs.com/google_containers/$imageName
+    docker tag registry.aliyuncs.com/google_containers/$imageName k8s.gcr.io/$imageName
+    docker rmi registry.aliyuncs.com/google_containers/$imageName
+done;
+</code></pre>
 
 <p>第三步，<code>kubeadm init --pod-network-cidr=10.244.0.0/16</code>初始化kubeadm。这一步最重要的是<code>/etc/kubernetes/admin.conf</code>这个文件。还有后面那个参数，如果不加上，就会遇到新的坑哦～</p>
 
@@ -410,7 +420,13 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 <p>第四步，到了这里，我们发现所有的pod都运行挺好的，除了coredns。但是镜像也都下载好了，为什么宁就比较特殊呢？然后我describe了一下，发现和flannel有关。</p>
 
-<p>所以啦，就是要先把flannel给部署好，这里还有一个坑，flannel是quay.io库的镜像，国内也是访问不到的，还是要换个镜像哈。还有刚才提到的init后面的参数，如果没有添加这个参数的话，flannel部署也会出问题的😊。好的，flannel解决掉，coredns也就马上部署好了。</p>
+<p>所以啦，就是要先把flannel给部署好。注意版本问题。</p>
+
+<blockquote>
+<p>版本1.13.1使用的是github上flannel-old.yml文件。而1.17以上版本用的是flannel.yml文件。</p>
+</blockquote>
+
+<p>这里还有一个坑，flannel是quay.io库的镜像，国内也是访问不到的，describe flannel pod就能看到该下载哪个版本的flannel镜像。还有刚才提到的init后面的参数，如果没有添加这个参数的话，flannel部署也会出问题的😊。好的，flannel解决掉，coredns也就马上部署好了。</p>
 
 <p>最后一套检查一下</p>
 
@@ -435,21 +451,10 @@ kubectl get pod --all-namespaces
 
 <p><a href="https://www.cnblogs.com/qq952693358/p/6537846.html">https://www.cnblogs.com/qq952693358/p/6537846.html</a> （E: Unable to lock directory /var/lib/apt/lists/ 错误）</p>
 
-    </div>
-    <div class="article-footer">
-<blockquote class="mt-2x">
-  <ul class="post-copyright list-unstyled">
-    <li class="post-copyright-link hidden-xs">
-      <strong>本文链接: </strong>
-      <a href="https://zecoo.github.io/hugo/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/" title="Kubeadm 安装记录" target="_blank" rel="external">https://zecoo.github.io/hugo/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
-    </li>
-  </ul>
-</blockquote>
+<p><a href="https://learnku.com/articles/29209">https://learnku.com/articles/29209</a> （k8s-pull.sh）</p>
 
     </div>
+    
   </article>
 <section id="comments">
 </section>

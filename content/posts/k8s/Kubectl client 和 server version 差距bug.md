@@ -47,8 +47,6 @@ kubectl apply -f anyfile.yaml
 
 终于可以运行yaml文件了。
 
-
-
 ## 参考
 
 https://kubernetes.io/docs/tasks/tools/install-kubectl/#before-you-begin （升级kubectl cli）

@@ -17,3 +17,4 @@ draft: true
 - [ ] go
 - [ ] css /scss
 
+我死了起码还能留下一堆文件。

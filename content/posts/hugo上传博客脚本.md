@@ -34,6 +34,6 @@ read提供一个默认值“update blog”，这样既可以修改commit info，
 
 ## 参考
 
-https://www.cnblogs.com/lottu/p/3962921.html（shell接收键盘输入）
+https://www.cnblogs.com/lottu/p/3962921.html （shell接收键盘输入）
 
 https://blog.csdn.net/u010339879/article/details/77938911 （read添加默认值）
