@@ -10,12 +10,30 @@
     
     
     <item>
+      <title>Delta debug MS</title>
+      <link>https://zecoo.github.io/hugo/2020/05/delta-debug-ms/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/delta-debug-ms/</guid>
+      <description>a triangular tract of sediment deposited at the mouth of a river, typically where it diverges into several outlets. the fourth letter of the Greek alphabet ( Δ , δ ), transliterated as ‘d.’. variation of a variable or function. 一组影响系统执行dimensions，高效找出导致错</description>
+    </item>
+    
+    <item>
       <title>Graph-based RCA in SOA and MS</title>
       <link>https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/</guid>
       <description>Graph-based root cause analysis for service-oriented and microservice architectures JSS 2020 2 RW RCA方法有以下大致分类 model-based的RCA方法 Spectrum（也可以称之为Classificatio</description>
+    </item>
+    
+    <item>
+      <title>Microscope</title>
+      <link>https://zecoo.github.io/hugo/2020/05/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</guid>
+      <description>Microscope: Pinpoint Performance Issues with Causal Graphs in Micro-service Environments ICSOC 2018 Abstruct 错误定位的论文。通过服务调用关系构建DAG定位错误。 Introduction 定位有88%的准确性，2020的icws有一篇错误定位论文跟</description>
     </item>
     
     <item>
@@ -42,7 +60,7 @@
       <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/2020/05/rca-papers/</guid>
-      <description>Microscope: Pinpoint Performance Issues with Causal Graphs in Micro-service Environments （ICSOC 2018） MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications （ICWS 2019） Graph-based root cause analysis for service-oriented and microservice architectures （JSS 2020） Microservices Monitoring with Event Logs and Black Box Execution Tracing （TSC 2019） Fault Analysis and Debugging of Microservice Systems: Industrial Survey, Benchmark System, and Empirical Study （TSE 2018） Root Cause Analysis of Anomalies of Multitier Services in Public Clouds （TON 2018） Ranking Causal Anomalies by Modeling Local Propagations on Networked Systems （ICDM 2017）  </description>
+      <description>Literature Survey: Root Cause Analysis in Microservice System 摘要 微服务系统在最近几年迅速发展，微服务系统由多个独立部署并相互协作的微服务组成，大型的微服务系统可能包含几十个微服务，使得</description>
     </item>
     
     <item>
@@ -169,24 +187,6 @@
       
       <guid>https://zecoo.github.io/hugo/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</guid>
       <description>Prom的四种基本metric类型 counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、me</description>
-    </item>
-    
-    <item>
-      <title>About ZIK</title>
-      <link>https://zecoo.github.io/hugo/about/</link>
-      <pubDate>Fri, 01 May 2020 14:19:05 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/about/</guid>
-      <description>不知道自己在干嘛 豆瓣TOP250 骑行进藏 戴牙套 想学的内容 hugo go css /scss 如果有个网站记录我的一切，我死之后还能留下一堆文件。</description>
-    </item>
-    
-    <item>
-      <title>K8s &#43; Istio 概念</title>
-      <link>https://zecoo.github.io/hugo/2020/04/k8s-istio-%E6%A6%82%E5%BF%B5/</link>
-      <pubDate>Thu, 30 Apr 2020 10:37:07 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/04/k8s-istio-%E6%A6%82%E5%BF%B5/</guid>
-      <description>环境都搭好了，不知道里面的原理那可不行。 我也不会系统写，想到哪里就写到哪里吧。 istio是如何做到无侵入就能控制流量转发？ Sidecar还有</description>
     </item>
     
   </channel>

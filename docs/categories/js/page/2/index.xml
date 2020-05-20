@@ -11,6 +11,24 @@
     
     
     <item>
+      <title>About ZIK</title>
+      <link>https://zecoo.github.io/hugo/about/</link>
+      <pubDate>Fri, 01 May 2020 14:19:05 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/about/</guid>
+      <description>不知道自己在干嘛 豆瓣TOP250 骑行进藏 戴牙套 想学的内容 hugo go css /scss 如果有个网站记录我的一切，我死之后还能留下一堆文件。</description>
+    </item>
+    
+    <item>
+      <title>K8s &#43; Istio 概念</title>
+      <link>https://zecoo.github.io/hugo/2020/04/k8s-istio-%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Thu, 30 Apr 2020 10:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/04/k8s-istio-%E6%A6%82%E5%BF%B5/</guid>
+      <description>环境都搭好了，不知道里面的原理那可不行。 我也不会系统写，想到哪里就写到哪里吧。 istio是如何做到无侵入就能控制流量转发？ Sidecar还有</description>
+    </item>
+    
+    <item>
       <title>Istio 可视化插件概览</title>
       <link>https://zecoo.github.io/hugo/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
       <pubDate>Thu, 30 Apr 2020 10:35:07 +0800</pubDate>
@@ -134,6 +152,15 @@
       
       <guid>https://zecoo.github.io/hugo/2020/03/ife-task0001-log/</guid>
       <description>我记录一下ife其他几个页面。一共这么几个页面 index.html post.html archive.html about.html 如果自己写的话，除了index.html，其他几个页面都有或多多少的问题我写不出来。 一</description>
+    </item>
+    
+    <item>
+      <title>Monitoring with log and trace</title>
+      <link>https://zecoo.github.io/hugo/1/01/monitoring-with-log-and-trace/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/1/01/monitoring-with-log-and-trace/</guid>
+      <description>Microservices Monitoring with Event Logs and Black Box Execution Tracing TSC 2019 Chaper1 理解log一般需要专家，文章提出一个novel的方式帮助troubleshooting的决策 Clearwater IP Multimedia Subsystem 和 hipste</description>
     </item>
     
   </channel>

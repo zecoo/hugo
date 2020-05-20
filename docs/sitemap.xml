@@ -10,7 +10,21 @@
   </url>
   
   <url>
+    <loc>https://zecoo.github.io/hugo/2020/05/delta-debug-ms/</loc>
+    <lastmod>2020-05-20T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/</loc>
+    <lastmod>2020-05-20T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/05/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</loc>
     <lastmod>2020-05-20T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -192,14 +206,14 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/prom/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/prom/</loc>
     <lastmod>2020-05-08T00:17:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/prom/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/prom/</loc>
     <lastmod>2020-05-08T00:17:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -402,14 +416,14 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/math/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/math/</loc>
     <lastmod>2020-04-21T11:37:07+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/math/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/math/</loc>
     <lastmod>2020-04-21T11:37:07+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -488,6 +502,12 @@
   <url>
     <loc>https://zecoo.github.io/hugo/2020/03/ife-task0001-log/</loc>
     <lastmod>2020-03-01T17:39:45+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/1/01/monitoring-with-log-and-trace/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
