@@ -2,7 +2,7 @@
 <html lang="zh">
   <head>
     <title>
-        PromQL理解 - Pure theme for Hugo
+        Graph-based RCA in SOA and MS - Pure theme for Hugo
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,35 +20,35 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="期待数据 10min内的请求数（sum） istio_requests_total{destination_service_name=&amp;quot;productpage&amp;quot;} 10min内的请求数增长率（rate） rate(istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;}[10m]) 10min内的响应时间P90（quantile） histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&amp;quot;productpage&amp;quot;}[10m])) by(le)) 10m" />
+    <meta name="description" content="Graph-based root cause analysis for service-oriented and microservice architectures JSS 2020 2 RW RCA方法有以下大致分类 model-based的RCA方法 Spectrum（也可以称之为Classificatio" />
     <meta name="generator" content="Hugo 0.58.3 with theme pure" />
-    <title>PromQL理解 - Pure theme for Hugo</title>
+    <title>Graph-based RCA in SOA and MS - Pure theme for Hugo</title>
     
     
     <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/style.min.858d53515c6b1f10b70e21162e53e9f293ad919b89b477c1ec0aa97d369a803d.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="PromQL理解" />
-<meta property="og:description" content="期待数据 10min内的请求数（sum） istio_requests_total{destination_service_name=&quot;productpage&quot;} 10min内的请求数增长率（rate） rate(istio_requests_total{destination_app=&quot;productpage&quot;}[10m]) 10min内的响应时间P90（quantile） histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&quot;productpage&quot;}[10m])) by(le)) 10m" />
+    <meta property="og:title" content="Graph-based RCA in SOA and MS" />
+<meta property="og:description" content="Graph-based root cause analysis for service-oriented and microservice architectures JSS 2020 2 RW RCA方法有以下大致分类 model-based的RCA方法 Spectrum（也可以称之为Classificatio" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zecoo.github.io/hugo/2020/05/promql%E7%90%86%E8%A7%A3/" />
-<meta property="article:published_time" content="2020-05-08T00:00:00+08:00" />
-<meta property="article:modified_time" content="2020-05-08T00:00:00+08:00" />
-<meta itemprop="name" content="PromQL理解">
-<meta itemprop="description" content="期待数据 10min内的请求数（sum） istio_requests_total{destination_service_name=&quot;productpage&quot;} 10min内的请求数增长率（rate） rate(istio_requests_total{destination_app=&quot;productpage&quot;}[10m]) 10min内的响应时间P90（quantile） histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&quot;productpage&quot;}[10m])) by(le)) 10m">
+<meta property="og:url" content="https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/" />
+<meta property="article:published_time" content="2020-05-20T00:00:00+08:00" />
+<meta property="article:modified_time" content="2020-05-20T00:00:00+08:00" />
+<meta itemprop="name" content="Graph-based RCA in SOA and MS">
+<meta itemprop="description" content="Graph-based root cause analysis for service-oriented and microservice architectures JSS 2020 2 RW RCA方法有以下大致分类 model-based的RCA方法 Spectrum（也可以称之为Classificatio">
 
 
-<meta itemprop="datePublished" content="2020-05-08T00:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2020-05-08T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="105">
+<meta itemprop="datePublished" content="2020-05-20T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-20T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="1216">
 
 
 
-<meta itemprop="keywords" content="prom," />
+<meta itemprop="keywords" content="RCA," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="PromQL理解"/>
-<meta name="twitter:description" content="期待数据 10min内的请求数（sum） istio_requests_total{destination_service_name=&quot;productpage&quot;} 10min内的请求数增长率（rate） rate(istio_requests_total{destination_app=&quot;productpage&quot;}[10m]) 10min内的响应时间P90（quantile） histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&quot;productpage&quot;}[10m])) by(le)) 10m"/>
+<meta name="twitter:title" content="Graph-based RCA in SOA and MS"/>
+<meta name="twitter:description" content="Graph-based root cause analysis for service-oriented and microservice architectures JSS 2020 2 RW RCA方法有以下大致分类 model-based的RCA方法 Spectrum（也可以称之为Classificatio"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -348,8 +348,8 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/hugo/2020/05/promql%E7%90%86%E8%A7%A3/"
-    >PromQL理解</a
+    href="/hugo/2020/05/graph-based-rca-in-soa-and-ms/"
+    >Graph-based RCA in SOA and MS</a
   >
 </h1>
 
@@ -357,53 +357,119 @@
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://zecoo.github.io/hugo/2020/05/promql%E7%90%86%E8%A7%A3/" class="article-date">
-  <time datetime="2020-05-08 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-08</time>
+<a href="https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/" class="article-date">
+  <time datetime="2020-05-20 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-20</time>
 </a>
 </span>
 <span class="article-category">
   <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/hugo/categories/prom/"> prom </a>
+  <a class="article-category-link" href="/hugo/categories/paper/"> paper </a>
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/hugo/tags/prom/"> prom </a>
+    <a class="article-tag-link" href="/hugo/tags/rca/"> RCA </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/hugo/2020/05/promql%E7%90%86%E8%A7%A3/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/hugo/2020/05/graph-based-rca-in-soa-and-ms/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 105字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1216字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       
 
-<h2 id="期待数据">期待数据</h2>
+<p>Graph-based root cause analysis for service-oriented and microservice architectures</p>
 
-<p>10min内的请求数（sum）</p>
+<p>JSS 2020</p>
 
-<pre><code class="language-shell">istio_requests_total{destination_service_name=&quot;productpage&quot;}
-</code></pre>
+<h2 id="2-rw">2 RW</h2>
 
-<p>10min内的请求数增长率（rate）</p>
+<p>RCA方法有以下大致分类</p>
 
-<pre><code class="language-shell">rate(istio_requests_total{destination_app=&quot;productpage&quot;}[10m])
-</code></pre>
+<ol>
+<li>model-based的RCA方法</li>
+<li>Spectrum（也可以称之为Classification）方法。有人用ML来做</li>
+<li>图的方法</li>
+</ol>
 
-<p>10min内的响应时间P90（quantile）</p>
+<p>2017年的Sieve，MS-Rank也提到了这篇论文。</p>
 
-<pre><code class="language-shell">histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&quot;productpage&quot;}[10m])) by(le))
-</code></pre>
+<h2 id="3-graph-based-rca">3 Graph-based RCA</h2>
 
-<p>10min内的响应时间增长率（rate）</p>
+<p>举一个Wordpress的例子，如果不做loadbalance，HAProxy的运行缓慢可能是其中某一个服务器负载过大。</p>
 
-<pre><code class="language-shell">rate(istio_request_duration_milliseconds_bucket{destination_app=&quot;productpage&quot;}[10m])
-</code></pre>
+<h3 id="graph-modules">Graph Modules</h3>
 
-<h2 id="参考">参考</h2>
+<p>Node：</p>
 
-<p><a href="https://www.zhihu.com/question/380615839">https://www.zhihu.com/question/380615839</a> （Prom时区UTC没法改）</p>
+<p>Edge：网络连接的对象，例如一次TCP连接的双方</p>
+
+<p>Attribute：收集到的信息，比如Anomaly、metric和log</p>
+
+<p>系统有以下几个modules：</p>
+
+<h4 id="anomalous-region-module">anomalous region module</h4>
+
+<p>Extractor从system graph（系统的什么图？）中抽取一个子图，也就是anomalous region的子图。对于计算型的资源，选择异常节点周围2跳的所有节点作为子图，见图4。其他情况没提到233</p>
+
+<h4 id="pattern-module">pattern module</h4>
+
+<p>已经被标记为异常的节点，会作为计算相似度的模板。目的是为了对经常出现的异常做一个初始的集合，来避免冷启动的问题。（这里的冷启动是指异常区域没有可以对比相似度的对象）</p>
+
+<h4 id="similarity-module">similarity module</h4>
+
+<p>输入：1. 异常区域（anomaly region） 2. 异常模版（pattern）</p>
+
+<p>输出：1. 相似度得分 2. 节点对应图（见图5）</p>
+
+<h2 id="4-graph-similarity">4 Graph Similarity</h2>
+
+<p>都是自定义的相似度计算方法，包括两个图的相似度、两个节点的相似度、节点的属性相似度。</p>
+
+<h2 id="5-monitoring-and-building-graphs">5 Monitoring and Building Graphs</h2>
+
+<p>Prom做监控，cadvisor和node expoter作为监控agent。</p>
+
+<p>构建图的过程其实是节点和节点连接的过程，TCP连接就可以构建一个边，由此创建调用图。</p>
+
+<h2 id="6-evaluation">6 Evaluation</h2>
+
+<h3 id="场景">场景</h3>
+
+<p>不同的场景有不同的异常注入方式</p>
+
+<ul>
+<li>面向服务的场景</li>
+<li>负载均衡场景</li>
+<li>Kafka集群场景</li>
+<li>Spark&amp;HDFS场景</li>
+</ul>
+
+<h3 id="异常注入方式">异常注入方式</h3>
+
+<ul>
+<li>stress做cpu、mem压力异常</li>
+<li>连接异常（带宽限制）</li>
+<li>负载均衡异常</li>
+<li>高并发异常</li>
+</ul>
+
+<h3 id="precision">Precision</h3>
+
+<p>Training set的构建方式：异常注入的情况可以得到一些region啊，比如我用stress做异常测试，得到微服务m1出现异常，然后把m1周围2跳的节点抽取出来作为region。这就是一个新的pattern。</p>
+
+<p>threshold是控制不同pattern的参数，threshold设为0.9表示和训练集中已有的pattern的相似度小于90%的region设为一个新的pattern。</p>
+
+<p>实验做两次，第一次不做参数调整，第二次做参数调整。</p>
+
+<p>好好看一下table2，挺有意思的。拿第一列来说，Kafka场景下，比如我用CPU做异常注入，不做参数调整得到的CPU pattern的相似度是0.43，和Disk、Band、Heap pattern的相似度分别是0.18、0.03、0.34。但是用参数调整得到的CPU相似度是0.87。</p>
+
+<p>那么参数调整具体怎么做的呢？</p>
+
+<p>一是领域专家做调整，二是根据节点自身附带的其他信息，比如这个节点本身是cpu联系性较高的，那就把CPU pattern的参数调高。</p>
+
+<p>图15表示计算region和pattern之间相似度的时间会随着节点的增多而变大。</p>
 
     </div>
     
@@ -415,14 +481,9 @@
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://zecoo.github.io/hugo/2020/05/meta-metrics/" title="Meta Metrics"><i
+                <a href="https://zecoo.github.io/hugo/2020/05/ms-rank/" title="MS-Rank"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
-            </li>
-            <li class="next">
-                <a href="https://zecoo.github.io/hugo/2020/05/promql-query-in-http-api/"
-                    title="PromQL query in http API"><span>上一篇&nbsp;&nbsp;</span><i
-                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">

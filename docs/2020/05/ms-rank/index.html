@@ -25,7 +25,7 @@
     <title>MS-Rank - Pure theme for Hugo</title>
     
     
-    <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/style.min.fb6e6d5d9e5fa539e3d084f012b971c4f0ceb69ee16f354c1e4f9a99fb6b46b7.css">
+    <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/style.min.858d53515c6b1f10b70e21162e53e9f293ad919b89b477c1ec0aa97d369a803d.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
@@ -41,7 +41,7 @@
 
 <meta itemprop="datePublished" content="2020-05-19T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2020-05-19T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="938">
+<meta itemprop="wordCount" content="943">
 
 
 
@@ -166,7 +166,7 @@
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/js/" class="category-list-link">js</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/k8s/" class="category-list-link">k8s</a><span class="category-list-count">7</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/math/" class="category-list-link">math</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/paper/" class="category-list-link">paper</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/paper/" class="category-list-link">paper</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/prom/" class="category-list-link">prom</a><span class="category-list-count">4</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/server/" class="category-list-link">server</a><span class="category-list-count">4</span></li>
         </ul>
@@ -177,6 +177,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/" class="title">Graph-based RCA in SOA and MS</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-20 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-20</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -214,16 +224,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2020-05-18 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-18</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://zecoo.github.io/hugo/2020/05/hugo-tutorial/" class="title">hugo tutorial</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-05-17 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-17</time>
                     </p>
                 </div>
             </li>
@@ -309,7 +309,7 @@
             
             
             <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/rca/" class="tag-list-link">rca</a><span
-                    class="tag-list-count">1</span></li>
+                    class="tag-list-count">2</span></li>
             
             
             <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/scss/" class="tag-list-link">scss</a><span
@@ -372,14 +372,14 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/hugo/2020/05/ms-rank/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 938字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 943字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       
 
-<h2 id="ms-rank-multi-metric-and-self-adaptive-root-cause-diagnosis-for-microservice-applications">MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications</h2>
+<p>MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications</p>
 
 <p>ICWS 2019</p>
 
@@ -393,19 +393,19 @@
 <li><p>为了提高定位的准确性，用一种自适应的方法调整metrics的权重</p></li>
 </ol>
 
-<h2 id="rw">RW</h2>
+<h2 id="2-rw">2 RW</h2>
 
 <p>提到了Microscope和Sieve</p>
 
 <p>论文里居然还提到了SRE…hh</p>
 
-<h2 id="solution">Solution</h2>
+<h2 id="3-solution">3 Solution</h2>
 
-<h3 id="a-framwork">A Framwork</h3>
+<h3 id="3a-framwork">3A Framwork</h3>
 
 <p>针对不同的情景，选择的metric也不一样。UI相关的，一般更在意latency；计算相关的比如hadoop，更在意cpu负载。文章把微服务系统看成是一个黑盒，那么metric的权重这样的概念就出来了。</p>
 
-<h3 id="b-metric">B Metric</h3>
+<h3 id="3b-metric">3B Metric</h3>
 
 <p>latency适合短连接服务，但不适合长连接服务。</p>
 
@@ -419,11 +419,11 @@
 
 <p>还有两个没列出来</p>
 
-<h3 id="c-graph-construction">C Graph Construction</h3>
+<h3 id="3c-graph-construction">3C Graph Construction</h3>
 
 <p>基于PC算法，依旧是一个DAG。额，这部分看得我一头雾水</p>
 
-<h3 id="d-random-walk-diagnosis">D Random Walk Diagnosis</h3>
+<h3 id="3d-random-walk-diagnosis">3D Random Walk Diagnosis</h3>
 
 <p>一个最直观也是最常用的根因定位方法是计算某个服务的metric和Anomaly服务的metric的相似度。我看的其他论文里也大致是这个思想</p>
 
@@ -431,19 +431,19 @@
 
 <p>Transition（游走）：向前（遇到高相似度）、向内（前后都是低相似度，则停留在自身）、向后（遇到低相似度）</p>
 
-<h3 id="e-weight-update">E Weight Update</h3>
+<h3 id="3e-weight-update">3E Weight Update</h3>
 
 <p>P(M) Precision Function，计算定位结果的准确性。还有更新权重，都是一个公式带过。</p>
 
-<h3 id="f-example">F Example</h3>
+<h3 id="3f-example">3F Example</h3>
 
 <p>收集了2小时（7200s）的数据，每5s一次收集，对于每个metric都有1440个记录。</p>
 
 <p>示例的这个图画得挺好的，体现出了不同的metric在trace中的表现。但是这图看不懂原理啊</p>
 
-<h2 id="evaluation">Evaluation</h2>
+<h2 id="4-evaluation">4 Evaluation</h2>
 
-<h3 id="benchmark">Benchmark</h3>
+<h3 id="4-1-benchmark">4.1 Benchmark</h3>
 
 <p>有两个小问题：1. 没有考虑数据库 2. 并不是真正意义上的ms，是把一个api视为一个ms。所以没有用到k8s等</p>
 
@@ -455,7 +455,7 @@
 
 <p>最后还有不同的参数对实验的影响。</p>
 
-<h2 id="final">Final</h2>
+<h2 id="5-final">5 Final</h2>
 
 <p>他们和Pengfei Chen是一个圈子里的啊，中山大学和清华深研院应该有交易的hh。我感觉我们不在这个圈子里啊。</p>
 
@@ -472,6 +472,11 @@
                 <a href="https://zecoo.github.io/hugo/2020/05/rca-papers/" title="RCA Papers"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/"
+                    title="Graph-based RCA in SOA and MS"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">

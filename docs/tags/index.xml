@@ -5,10 +5,19 @@
     <link>https://zecoo.github.io/hugo/tags/</link>
     <description>Recent content in Tags on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 19 May 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2020 00:00:00 +0800</lastBuildDate>
     
         <atom:link href="https://zecoo.github.io/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Graph-based RCA in SOA and MS</title>
+      <link>https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/</guid>
+      <description>Graph-based root cause analysis for service-oriented and microservice architectures JSS 2020 2 RW RCA方法有以下大致分类 model-based的RCA方法 Spectrum（也可以称之为Classificatio</description>
+    </item>
     
     <item>
       <title>MS-Rank</title>
@@ -160,7 +169,7 @@
       <pubDate>Fri, 01 May 2020 14:19:05 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/about/</guid>
-      <description>不知道自己在干嘛 豆瓣TOP250 骑行进藏 戴牙套 想学的内容 hugo go css /scss 我死了起码还能留下一堆文件。</description>
+      <description>不知道自己在干嘛 豆瓣TOP250 骑行进藏 戴牙套 想学的内容 hugo go css /scss 如果有个网站记录我的一切，我死之后还能留下一堆文件。</description>
     </item>
     
     <item>
@@ -179,15 +188,6 @@
       
       <guid>https://zecoo.github.io/hugo/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
       <description>Prometheus 基本的metrics监测插件。 通过query查询不同的信息，例如以下信息就是istio_requests_total这条query查询到的</description>
-    </item>
-    
-    <item>
-      <title>Istio 安装回顾</title>
-      <link>https://zecoo.github.io/hugo/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</link>
-      <pubDate>Wed, 29 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
-      <description>如果是Microk8s安装，很简单就一步： microk8s.enable istio 好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。</description>
     </item>
     
   </channel>
