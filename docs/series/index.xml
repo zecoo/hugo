@@ -19,6 +19,15 @@
     </item>
     
     <item>
+      <title>RCA in multitier service</title>
+      <link>https://zecoo.github.io/hugo/2020/05/rca-in-multitier-service/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/rca-in-multitier-service/</guid>
+      <description>Root Cause Analysis of Anomalies of Multitier Services in Public Clouds TON 2018 读完感觉不像是A类的期刊，Chinglish的情况很严重，相似度的计算实在是不优美，最后baseline挑的也很奇</description>
+    </item>
+    
+    <item>
       <title>MS-Rank</title>
       <link>https://zecoo.github.io/hugo/2020/05/ms-rank/</link>
       <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
@@ -178,15 +187,6 @@
       
       <guid>https://zecoo.github.io/hugo/2020/04/k8s-istio-%E6%A6%82%E5%BF%B5/</guid>
       <description>环境都搭好了，不知道里面的原理那可不行。 我也不会系统写，想到哪里就写到哪里吧。 istio是如何做到无侵入就能控制流量转发？ Sidecar还有</description>
-    </item>
-    
-    <item>
-      <title>Istio 可视化插件概览</title>
-      <link>https://zecoo.github.io/hugo/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
-      <pubDate>Thu, 30 Apr 2020 10:35:07 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
-      <description>Prometheus 基本的metrics监测插件。 通过query查询不同的信息，例如以下信息就是istio_requests_total这条query查询到的</description>
     </item>
     
   </channel>

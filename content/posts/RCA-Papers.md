@@ -11,8 +11,8 @@ draft: false
 - [x] Graph-based root cause analysis for service-oriented and microservice architectures （JSS 2020）
 - [x] Microservices Monitoring with Event Logs and Black Box Execution Tracing （TSC 2019）
 - [x] Fault Analysis and Debugging of Microservice Systems: Industrial Survey, Benchmark System, and Empirical Study （TSE 2018）
-- [ ] Root Cause Analysis of Anomalies of Multitier Services in Public Clouds （TON 2018）
-- [ ] Ranking Causal Anomalies by Modeling Local Propagations on Networked Systems （ICDM 2017）
+- [x] Root Cause Analysis of Anomalies of Multitier Services in Public Clouds （TON 2018）
+- [x] Ranking Causal Anomalies by Modeling Local Propagations on Networked Systems （ICDM 2017）
 
 
 

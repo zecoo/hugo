@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Istio 可视化插件概览</title>
+      <link>https://zecoo.github.io/hugo/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
+      <pubDate>Thu, 30 Apr 2020 10:35:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
+      <description>Prometheus 基本的metrics监测插件。 通过query查询不同的信息，例如以下信息就是istio_requests_total这条query查询到的</description>
+    </item>
+    
+    <item>
       <title>Istio 安装回顾</title>
       <link>https://zecoo.github.io/hugo/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</link>
       <pubDate>Wed, 29 Apr 2020 11:37:07 +0800</pubDate>
