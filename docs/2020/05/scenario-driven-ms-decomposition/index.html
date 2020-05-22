@@ -41,7 +41,7 @@
 
 <meta itemprop="datePublished" content="2020-05-22T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2020-05-22T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1409">
+<meta itemprop="wordCount" content="1529">
 
 
 
@@ -386,8 +386,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/hugo/2020/05/scenario-driven-ms-decomposition/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1409字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1529字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -407,24 +407,29 @@
 
 <p>单体系统的微服务化拆分也可以借鉴传统软件模块化的思路和方法,已有不少这方面的研究</p>
 
-<p>获取系统运行数据的工具：Kieker</p>
+<p>图1是整个流程图</p>
 
-<p><img src="http://89.33.194.100:8888/images/2020/05/22/imageacbe468437e449d2.md.png" alt="" /></p>
+<p><img src="http://89.33.194.100:8888/images/2020/05/22/imageacbe468437e449d2.png" alt="" /></p>
+
+<ol>
+<li>标记权重：标记的是共享群组的权重（后面会提）</li>
+<li>监控工具：Kieker，收集trace的工具</li>
+<li>日志类型：被调用方法的签名、调用链 ID、调用时间、调用顺序</li>
+<li>轨迹图：见下图图3</li>
+<li>共享群组+关联度矩阵（后面会提）</li>
+<li>数据表权重图（关联矩阵添加权重的结果，用于聚类）</li>
+<li>数据图表聚类（GN社区聚类算法）</li>
+<li>计算拆分开销（later）</li>
+<li>拆分方案生产</li>
+</ol>
 
 <h2 id="拆分方法">拆分方法</h2>
-
-<p>图1是整个流程图，需要搞清楚几个点</p>
-
-<ul>
-<li>共享群组是什么</li>
-<li>数据表权重图代表什么</li>
-</ul>
 
 <p>图3也很关键，一个scenario数据访问的trace。</p>
 
 <p><img src="http://89.33.194.100:8888/images/2020/05/22/imagea65546611d68826d.md.png" alt="" /></p>
 
-<p>同样还有图4，数据库的相关度graph</p>
+<p>同样还有图4，数据库的相关度graph（later）</p>
 
 <h3 id="数据表关联度">数据表关联度</h3>
 
