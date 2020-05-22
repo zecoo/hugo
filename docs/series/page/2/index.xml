@@ -10,6 +10,15 @@
     
     
     <item>
+      <title>k8s HPA尝试</title>
+      <link>https://zecoo.github.io/hugo/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
+      <description>先提一个题外话：如何销毁已经创建的部署？答： 有kubectl create -f ./metrics-server就有kubectl delete -f ./metrics-server 按照主要参考，大部分</description>
+    </item>
+    
+    <item>
       <title>Prometheus Metric形式</title>
       <link>https://zecoo.github.io/hugo/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>

@@ -16,7 +16,16 @@
       <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/</guid>
-      <description>场景驱动、自底向上的单体系统微服务拆分方法 AIBR 前几篇Decomposition的论文都绕过了数据库的拆分。这篇论文强调了在数据库拆分上的工作。</description>
+      <description>场景驱动、自底向上的单体系统微服务拆分方法 评价 核心思想：把数据表之间紧密联系的聚在一起，作为拆分微服务的准则。 实际上是关于数据表的划分，微服</description>
+    </item>
+    
+    <item>
+      <title>vps搭建图床</title>
+      <link>https://zecoo.github.io/hugo/2020/05/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
+      <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
+      <description>参考 https://www.jianshu.com/p/7863fcb34aed</description>
     </item>
     
     <item>
@@ -179,15 +188,6 @@
       
       <guid>https://zecoo.github.io/hugo/2020/05/scss-tutorial/</guid>
       <description>SCSS：Sassy CSS SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。 我咋还在scss的环境上踩到坑了呢？ 先是给我报错 bad interpreter:</description>
-    </item>
-    
-    <item>
-      <title>k8s HPA尝试</title>
-      <link>https://zecoo.github.io/hugo/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
-      <description>先提一个题外话：如何销毁已经创建的部署？答： 有kubectl create -f ./metrics-server就有kubectl delete -f ./metrics-server 按照主要参考，大部分</description>
     </item>
     
   </channel>

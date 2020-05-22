@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on Pure theme for Hugo</title>
+    <link>https://zecoo.github.io/hugo/tags/blog/</link>
+    <description>Recent content in blog on Pure theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 22 May 2020 00:00:00 +0800</lastBuildDate>
+    
+        <atom:link href="https://zecoo.github.io/hugo/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Scenario Driven MS Decomposition</title>
+      <link>https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/</link>
+      <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/</guid>
+      <description>场景驱动、自底向上的单体系统微服务拆分方法 评价 核心思想：把数据表之间紧密联系的聚在一起，作为拆分微服务的准则。 实际上是关于数据表的划分，微服</description>
+    </item>
+    
+    <item>
+      <title>vps搭建图床</title>
+      <link>https://zecoo.github.io/hugo/2020/05/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
+      <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
+      <description>参考 https://www.jianshu.com/p/7863fcb34aed</description>
+    </item>
+    
+    <item>
+      <title>Delta debug MS</title>
+      <link>https://zecoo.github.io/hugo/2020/05/delta-debug-ms/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/delta-debug-ms/</guid>
+      <description>a triangular tract of sediment deposited at the mouth of a river, typically where it diverges into several outlets. the fourth letter of the Greek alphabet ( Δ , δ ), transliterated as ‘d.’. variation of a variable or function. 一组影响系统执行dimensions，高效找出导致错</description>
+    </item>
+    
+    <item>
+      <title>Graph-based RCA in SOA and MS</title>
+      <link>https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/</guid>
+      <description>Graph-based root cause analysis for service-oriented and microservice architectures JSS 2020 2 RW RCA方法有以下大致分类 model-based的RCA方法 Spectrum（也可以称之为Classificatio</description>
+    </item>
+    
+    <item>
+      <title>Microscope</title>
+      <link>https://zecoo.github.io/hugo/2020/05/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</guid>
+      <description>Microscope: Pinpoint Performance Issues with Causal Graphs in Micro-service Environments ICSOC 2018 Abstruct 错误定位的论文。通过服务调用关系构建DAG定位错误。 Introduction 定位有88%的准确性，2020的icws有一篇错误定位论文跟</description>
+    </item>
+    
+    <item>
+      <title>RCA in multitier service</title>
+      <link>https://zecoo.github.io/hugo/2020/05/rca-in-multitier-service/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/rca-in-multitier-service/</guid>
+      <description>Root Cause Analysis of Anomalies of Multitier Services in Public Clouds TON 2018 读完感觉不像是A类的期刊，Chinglish的情况很严重，相似度的计算实在是不优美，最后baseline挑的也很奇</description>
+    </item>
+    
+    <item>
+      <title>MS-Rank</title>
+      <link>https://zecoo.github.io/hugo/2020/05/ms-rank/</link>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/ms-rank/</guid>
+      <description>MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications ICWS 2019 主要贡献： 根据一系列的metrics，构建一个调用图 基于随机游走算法提出了根因定位算法 为了提高定位的准确性，用一种自</description>
+    </item>
+    
+    <item>
+      <title>RCA Papers</title>
+      <link>https://zecoo.github.io/hugo/2020/05/rca-papers/</link>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/rca-papers/</guid>
+      <description>Literature Survey: Root Cause Analysis in Microservice System 摘要 微服务系统在最近几年迅速发展，微服务系统由多个独立部署并相互协作的微服务组成，大型的微服务系统可能包含几十个微服务，使得</description>
+    </item>
+    
+    <item>
+      <title>hugo上传博客脚本</title>
+      <link>https://zecoo.github.io/hugo/2020/05/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</guid>
+      <description>我很傻的，每次更新博客之后都要手动输入 hugo -D git add . git commit -m &amp;quot;xxx&amp;quot; git push origin master 又不想下载git客户端一键push，写个脚本咯 #!/bin/bash hugo -D git add . echo &amp;quot;input commit info:&amp;quot; read -t 5 commit_info commit_info=${commit_info:-&amp;quot;update</description>
+    </item>
+    
+    <item>
+      <title>服务器命令行美化</title>
+      <link>https://zecoo.github.io/hugo/2020/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</guid>
+      <description>export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot; 但是有个问题，输了命令命令行前缀是变好看了，但是一旦退出就没有效果了。要把这个设置写进文件里才行。具体是$HOME/.bashrc这</description>
+    </item>
+    
+    <item>
+      <title>hugo tutorial</title>
+      <link>https://zecoo.github.io/hugo/2020/05/hugo-tutorial/</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/hugo-tutorial/</guid>
+      <description>hugo new theme zik-theme 可以创建一个新的主题。自己的主题就是从这里开始。来看看初始的theme目录长什么样吧。 ├── LICENSE ├── archetypes │ └── default.md ├── layouts │ ├── 404.html │</description>
+    </item>
+    
+    <item>
+      <title>Kubeadm init node not found</title>
+      <link>https://zecoo.github.io/hugo/2020/05/kubeadm-init-node-not-found/</link>
+      <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/kubeadm-init-node-not-found/</guid>
+      <description>新坑哦～ 5天都没有解决的新坑哦～ 环境： 华为云学生机2c4g 鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB 错误 kubeadm init 后卡在： [wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &amp;quot;/etc/kubernetes/manifests&amp;quot;. This</description>
+    </item>
+    
+    <item>
+      <title>Hugo添加代码高亮</title>
+      <link>https://zecoo.github.io/hugo/2020/05/hugo-code-highlight/</link>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/hugo-code-highlight/</guid>
+      <description>方法：用hightlight.js做高亮。 针对不同的Hugo主题，应该有不同的思路。但是基本思路还是： head里添加css body中添加两个</description>
+    </item>
+    
+    <item>
+      <title>Metric to Graph思路及实践</title>
+      <link>https://zecoo.github.io/hugo/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
+      <description>整体思路 01 查看Prom的metric： 写好PromQL获得自己想要的metric，这时候只是文本的形式。而且又臭又长。 &amp;quot;metric&amp;quot;: { &amp;quot;__name__&amp;quot;: &amp;quot;istio_requests_total&amp;quot;, &amp;quot;connection_security_policy&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;destination_app&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_canonical_revision&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_canonical_service&amp;quot;:</description>
+    </item>
+    
+    <item>
+      <title>jq in terminal for json</title>
+      <link>https://zecoo.github.io/hugo/2020/05/jq-in-terminal-for-json/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/jq-in-terminal-for-json/</guid>
+      <description>Prom返回的json格式没有reindent，看起来很费眼睛。 {&amp;quot;metric&amp;quot;:{&amp;quot;__name__&amp;quot;:&amp;quot;istio_requests_total&amp;quot;,&amp;quot;destination_app&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;destination_service&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;value&amp;quot;:[1588929523.247,&amp;quot;10523&amp;quot;]}]}} 在命令行，想让其用缩进好的json展示出来，就要用到jq。 curl http://test.json | jq 只需要在</description>
+    </item>
+    
+    <item>
+      <title>PromQL query in http API</title>
+      <link>https://zecoo.github.io/hugo/2020/05/promql-query-in-http-api/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/promql-query-in-http-api/</guid>
+      <description>Prom官网给出http API例如获取2015年7月1号某天的数据这样写：（我获得了istio_requests_total的所有metri</description>
+    </item>
+    
+    <item>
+      <title>PromQL理解</title>
+      <link>https://zecoo.github.io/hugo/2020/05/promql%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/promql%E7%90%86%E8%A7%A3/</guid>
+      <description>期待数据 10min内的请求数（sum） istio_requests_total{destination_service_name=&amp;quot;productpage&amp;quot;} 10min内的请求数增长率（rate） rate(istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;}[10m]) 10min内的响应时间P90（quantile） histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&amp;quot;productpage&amp;quot;}[10m])) by(le)) 10m</description>
+    </item>
+    
+    <item>
+      <title>Meta Metrics</title>
+      <link>https://zecoo.github.io/hugo/2020/05/meta-metrics/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/meta-metrics/</guid>
+      <description>siege一分钟压测最后给出的统计数据： Lifting the server siege... Transactions: 439 hits Availability: 51.83 % Elapsed time: 59.33 secs Data transferred: 8.47 MB Response time: 9.88 secs Transaction rate: 7.40 trans/sec Throughput: 0.14 MB/sec Concurrency: 73.10 Successful transactions: 439 Failed transactions: 408 Longest transaction: 56.69 Shortest transaction: 0.13 istio Envoy的</description>
+    </item>
+    
+    <item>
+      <title>istio envoy log type</title>
+      <link>https://zecoo.github.io/hugo/2020/05/istio-envoy-log-type/</link>
+      <pubDate>Wed, 06 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/istio-envoy-log-type/</guid>
+      <description>基本数据这样 【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/fl</description>
+    </item>
+    
+    <item>
+      <title>scss tutorial</title>
+      <link>https://zecoo.github.io/hugo/2020/05/scss-tutorial/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/scss-tutorial/</guid>
+      <description>SCSS：Sassy CSS SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。 我咋还在scss的环境上踩到坑了呢？ 先是给我报错 bad interpreter:</description>
+    </item>
+    
+  </channel>
+</rss>

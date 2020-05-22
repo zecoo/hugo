@@ -151,6 +151,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/blog/" class="category-list-link">blog</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/css/" class="category-list-link">css</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/hello-world/" class="category-list-link">hello-world</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">3</span></li>
@@ -173,6 +174,16 @@
                 <div class="item-inner">
                     <p class="item-title">
                         <a href="https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/" class="title">Scenario Driven MS Decomposition</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-22 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-22</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/" class="title">vps搭建图床</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-05-22 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-22</time>
@@ -209,16 +220,6 @@
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://zecoo.github.io/hugo/2020/05/rca-in-multitier-service/" class="title">RCA in multitier service</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-05-20 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-20</time>
-                    </p>
-                </div>
-            </li>
         </ul>
     </div>
 </div>
@@ -230,6 +231,10 @@
             
             
             <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/bash/" class="tag-list-link">bash</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/blog/" class="tag-list-link">blog</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -340,6 +345,46 @@
     
     
     
+    <article
+      class="article article-type-page"
+      itemscope
+      itemtype="http://schema.org/BlogPosting"
+    >
+      <div class="article-header">
+        <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/hugo/2020/05/jq-in-terminal-for-json/"
+    >jq in terminal for json</a
+  >
+</h1>
+
+      </div>
+      <div class="article-entry text-muted" itemprop="description">
+        Prom返回的json格式没有reindent，看起来很费眼睛。 {&quot;metric&quot;:{&quot;__name__&quot;:&quot;istio_requests_total&quot;,&quot;destination_app&quot;:&quot;productpage&quot;,&quot;destination_service&quot;:&quot;productpage&quot;,&quot;value&quot;:[1588929523.247,&quot;10523&quot;]}]}} 在命令行，想让其用缩进好的json展示出来，就要用到jq。 curl http://test.json | jq 只需要在
+      </div>
+      <p class="article-meta">
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://zecoo.github.io/hugo/2020/05/jq-in-terminal-for-json/" class="">
+  <time datetime="2020-05-08 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-08</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/hugo/categories/server/"> server </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/hugo/tags/server/"> server </a>
+    <a class="article-tag-link" href="/hugo/tags/jq/"> jq </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> &nbsp;<a href="/hugo/2020/05/jq-in-terminal-for-json/#comments" class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 181字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
+      </p>
+    </article>
     <article
       class="article article-type-page"
       itemscope
@@ -575,45 +620,6 @@
         <span class="post-comment"><i class="icon icon-comment"></i> &nbsp;<a href="/hugo/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/#comments" class="article-comment-link">评论</a></span>
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 380字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
-      </p>
-    </article>
-    <article
-      class="article article-type-page"
-      itemscope
-      itemtype="http://schema.org/BlogPosting"
-    >
-      <div class="article-header">
-        <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/hugo/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/"
-    >Prometheus Metric形式</a
-  >
-</h1>
-
-      </div>
-      <div class="article-entry text-muted" itemprop="description">
-        Prom的四种基本metric类型 counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、me
-      </div>
-      <p class="article-meta">
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://zecoo.github.io/hugo/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/" class="">
-  <time datetime="2020-05-03 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-03</time>
-</a>
-</span>
-<span class="article-category">
-  <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/hugo/categories/prom/"> prom </a>
-</span>  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/hugo/tags/prom/"> prom </a>
-  </span>
-
-        <span class="post-comment"><i class="icon icon-comment"></i> &nbsp;<a href="/hugo/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/#comments" class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1128字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
       </p>
     </article></div>
   

@@ -20,7 +20,7 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="场景驱动、自底向上的单体系统微服务拆分方法 AIBR 前几篇Decomposition的论文都绕过了数据库的拆分。这篇论文强调了在数据库拆分上的工作。" />
+    <meta name="description" content="场景驱动、自底向上的单体系统微服务拆分方法 评价 核心思想：把数据表之间紧密联系的聚在一起，作为拆分微服务的准则。 实际上是关于数据表的划分，微服" />
     <meta name="generator" content="Hugo 0.58.3 with theme pure" />
     <title>Scenario Driven MS Decomposition - Pure theme for Hugo</title>
     
@@ -30,25 +30,25 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
     <meta property="og:title" content="Scenario Driven MS Decomposition" />
-<meta property="og:description" content="场景驱动、自底向上的单体系统微服务拆分方法 AIBR 前几篇Decomposition的论文都绕过了数据库的拆分。这篇论文强调了在数据库拆分上的工作。" />
+<meta property="og:description" content="场景驱动、自底向上的单体系统微服务拆分方法 评价 核心思想：把数据表之间紧密联系的聚在一起，作为拆分微服务的准则。 实际上是关于数据表的划分，微服" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/" />
 <meta property="article:published_time" content="2020-05-22T00:00:00+08:00" />
 <meta property="article:modified_time" content="2020-05-22T00:00:00+08:00" />
 <meta itemprop="name" content="Scenario Driven MS Decomposition">
-<meta itemprop="description" content="场景驱动、自底向上的单体系统微服务拆分方法 AIBR 前几篇Decomposition的论文都绕过了数据库的拆分。这篇论文强调了在数据库拆分上的工作。">
+<meta itemprop="description" content="场景驱动、自底向上的单体系统微服务拆分方法 评价 核心思想：把数据表之间紧密联系的聚在一起，作为拆分微服务的准则。 实际上是关于数据表的划分，微服">
 
 
 <meta itemprop="datePublished" content="2020-05-22T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2020-05-22T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1075">
+<meta itemprop="wordCount" content="1409">
 
 
 
 <meta itemprop="keywords" content="decomposition," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Scenario Driven MS Decomposition"/>
-<meta name="twitter:description" content="场景驱动、自底向上的单体系统微服务拆分方法 AIBR 前几篇Decomposition的论文都绕过了数据库的拆分。这篇论文强调了在数据库拆分上的工作。"/>
+<meta name="twitter:description" content="场景驱动、自底向上的单体系统微服务拆分方法 评价 核心思想：把数据表之间紧密联系的聚在一起，作为拆分微服务的准则。 实际上是关于数据表的划分，微服"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -159,6 +159,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
+            <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/blog/" class="category-list-link">blog</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/css/" class="category-list-link">css</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/hello-world/" class="category-list-link">hello-world</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://zecoo.github.io/hugo/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">3</span></li>
@@ -181,6 +182,16 @@
                 <div class="item-inner">
                     <p class="item-title">
                         <a href="https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/" class="title">Scenario Driven MS Decomposition</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-22 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-22</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://zecoo.github.io/hugo/2020/05/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/" class="title">vps搭建图床</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-05-22 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-22</time>
@@ -217,16 +228,6 @@
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://zecoo.github.io/hugo/2020/05/rca-in-multitier-service/" class="title">RCA in multitier service</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-05-20 00:00:00 &#43;0800 CST" itemprop="datePublished">2020-05-20</time>
-                    </p>
-                </div>
-            </li>
         </ul>
     </div>
 </div>
@@ -238,6 +239,10 @@
             
             
             <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/bash/" class="tag-list-link">bash</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://zecoo.github.io/hugo/tags/blog/" class="tag-list-link">blog</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -381,7 +386,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/hugo/2020/05/scenario-driven-ms-decomposition/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1075字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1409字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
       </div>
     </div>
@@ -390,13 +395,21 @@
 
 <p>场景驱动、自底向上的单体系统微服务拆分方法</p>
 
+<h2 id="评价">评价</h2>
+
+<p>核心思想：把数据表之间紧密联系的聚在一起，作为拆分微服务的准则。</p>
+
+<p>实际上是关于数据表的划分，微服务的其他方面比如class、method的划分没有提到。</p>
+
 <h2 id="aibr">AIBR</h2>
 
-<p>前几篇Decomposition的论文都绕过了数据库的拆分。这篇论文强调了在数据库拆分上的工作。</p>
+<p>结合Scenario、Trace和Sql进行微服务拆分。</p>
+
+<p>单体系统的微服务化拆分也可以借鉴传统软件模块化的思路和方法,已有不少这方面的研究</p>
 
 <p>获取系统运行数据的工具：Kieker</p>
 
-<p>【19】应该是一篇综述，讲MS解构的。可看之</p>
+<p><img src="http://89.33.194.100:8888/images/2020/05/22/imageacbe468437e449d2.md.png" alt="" /></p>
 
 <h2 id="拆分方法">拆分方法</h2>
 
@@ -409,11 +422,13 @@
 
 <p>图3也很关键，一个scenario数据访问的trace。</p>
 
+<p><img src="http://89.33.194.100:8888/images/2020/05/22/imagea65546611d68826d.md.png" alt="" /></p>
+
 <p>同样还有图4，数据库的相关度graph</p>
 
 <h3 id="数据表关联度">数据表关联度</h3>
 
-<p>表关联度高表示表A和表B在一个场景要同时使用的情况比较多。</p>
+<p>表关联度高表示表A和表B在一个场景要同时使用的情况比较多。比如说注册要用到user表和profile表。登录也要用到这两个表。就说明user表和profile表的关联度较高。</p>
 
 <ul>
 <li>sql的权重</li>
@@ -426,7 +441,7 @@
 
 <h3 id="共享群组">共享群组</h3>
 
-<p>共享度高表示一张表被多个场景使用，更倾向于单独拆分成一个微服务。</p>
+<p>共享度高表示一张表被多个场景使用，更倾向于单独拆分成一个微服务。比如account表在注册场景、下单场景都用到了，说明account表的共享度较高。</p>
 
 <p>共享度 = Sscenario + Strace + Ssql</p>
 
@@ -442,7 +457,7 @@
 
 <p>Dscenario = 同时操作表A和表B的场景 / 操作表A的场景之和（Tb对Ta的依赖）</p>
 
-<h4 id="ta和tb归为共享群组的条件">Ta和Tb归为共享群组的条件</h4>
+<h4 id="共享群组条件">共享群组条件</h4>
 
 <p>Ta和Tb的相互依赖程度（Ta -&gt; Tb + Tb -&gt; Ta）大于某一个值</p>
 
@@ -456,11 +471,15 @@
 
 <h3 id="数据表图聚类">数据表图聚类</h3>
 
-<p>GN算法是一种社区发现算法，认为连接两个社区的边有更高的权重，将这些边删除，剩下的网络就被划分为独立的社区。</p>
+<p>上一步的权重矩阵作为聚类的图输入，GN聚类算法是一种社区发现算法，认为连接两个社区的边有更低的权重，将这些边删除，剩下的网络就被划分为独立的社区。见图4。</p>
+
+<p><img src="http://89.33.194.100:8888/images/2020/05/22/image.md.png" alt="" /></p>
 
 <p>betweenness：经过某条边的所有最短路金的数量。重复计算Betweeness和删除Betweeness的过程。</p>
 
-<p>那么聚类到什么程度？引入了模块度Modularity的概念，
+<h4 id="modularity">Modularity</h4>
+
+<p>那么聚类到什么程度？引入了模块度Modularity的概念，模块度表示一个网络的紧密程度。
 $$
 Modularity = \sum_i^c (eii - ai^2)
 $$
@@ -470,27 +489,45 @@ eii表示社区i内所有边的权重占整个网络边权重的比例，ai表�
 
 <h3 id="确定拆分方案">确定拆分方案</h3>
 
-<h4 id="计算拆分开销">计算拆分开销</h4>
+<h4 id="拆分开销-cost">拆分开销 Cost</h4>
 
-<p>Cost = µ1 * Vsql + µ2 * Vclass + µ3 * Vmethod</p>
+<p>$$
+Cost = µ1 * Vsql + µ2 * Vclass + µ3 * Vmethod
+$$</p>
 
-<p>Vsql表示需要拆分sql的数量。µ表示权重</p>
+<p>Vsql表示需要拆分sql的数量。µ表示权重。class和method的如何拆分没有介绍呀</p>
 
 <p>推荐方案倾向于减小拆分开销。</p>
 
 <h4 id="确定拆分方案-1">确定拆分方案</h4>
 
-<p>对于每一个拆分方案Pi有：</p>
-
-<p>Score = w1 * modularity(Pi) + w2 * cost(Pi) （其中w1+w2=1）</p>
-
-<p>得分最高的作为拆分方案</p>
+<p>对于每一个拆分方案Pi有：
+$$
+Score = w1 * modularity(Pi) + w2 * cost(Pi) （其中w1+w2=1）
+$$
+得分最高的作为拆分方案</p>
 
 <h4 id="反馈调整">反馈调整</h4>
 
 <p>用户可以对得到的拆分方案进行调整</p>
 
 <h2 id="工具实现">工具实现</h2>
+
+<p>直接看论文里的图吧。</p>
+
+<h3 id="疑问">疑问</h3>
+
+<p>Q 数据表是什么</p>
+
+<p>A 数据表权重图的每个节点表示一个数据表，每条边表示数据表和数据表之间的关联度</p>
+
+<p>Q Method、Sql和Table之间的关系</p>
+
+<p>A 见图3</p>
+
+<p>Q 数据表权重图有更直观的例子吗</p>
+
+<p>A 见图4</p>
 
     </div>
     
@@ -502,7 +539,7 @@ eii表示社区i内所有边的权重占整个网络边权重的比例，ai表�
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://zecoo.github.io/hugo/2020/05/delta-debug-ms/" title="Delta debug MS"><i
+                <a href="https://zecoo.github.io/hugo/2020/05/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/" title="vps搭建图床"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
             </li>
