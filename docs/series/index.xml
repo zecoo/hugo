@@ -10,6 +10,15 @@
     
     
     <item>
+      <title>Scenario Driven MS Decomposition</title>
+      <link>https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/</link>
+      <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/</guid>
+      <description>场景驱动、自底向上的单体系统微服务拆分方法 AIBR 前几篇Decomposition的论文都绕过了数据库的拆分。这篇论文强调了在数据库拆分上的工作。</description>
+    </item>
+    
+    <item>
       <title>Delta debug MS</title>
       <link>https://zecoo.github.io/hugo/2020/05/delta-debug-ms/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
@@ -178,15 +187,6 @@
       
       <guid>https://zecoo.github.io/hugo/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
       <description>先提一个题外话：如何销毁已经创建的部署？答： 有kubectl create -f ./metrics-server就有kubectl delete -f ./metrics-server 按照主要参考，大部分</description>
-    </item>
-    
-    <item>
-      <title>Prometheus Metric形式</title>
-      <link>https://zecoo.github.io/hugo/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</link>
-      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</guid>
-      <description>Prom的四种基本metric类型 counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、me</description>
     </item>
     
   </channel>

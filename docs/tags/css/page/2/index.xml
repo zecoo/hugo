@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Prometheus Metric形式</title>
+      <link>https://zecoo.github.io/hugo/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</guid>
+      <description>Prom的四种基本metric类型 counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、me</description>
+    </item>
+    
+    <item>
       <title>About ZIK</title>
       <link>https://zecoo.github.io/hugo/about/</link>
       <pubDate>Fri, 01 May 2020 14:19:05 +0800</pubDate>
