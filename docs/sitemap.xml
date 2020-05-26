@@ -143,14 +143,14 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/hugo/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/hugo/</loc>
     <lastmod>2020-05-18T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/hugo/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/hugo/</loc>
     <lastmod>2020-05-18T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -164,14 +164,14 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/server/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/server/</loc>
     <lastmod>2020-05-18T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/server/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/server/</loc>
     <lastmod>2020-05-18T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -311,14 +311,14 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/css/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/css/</loc>
     <lastmod>2020-05-05T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/css/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/css/</loc>
     <lastmod>2020-05-05T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -458,14 +458,14 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/math/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/math/</loc>
     <lastmod>2020-04-21T11:37:07+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/math/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/math/</loc>
     <lastmod>2020-04-21T11:37:07+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
