@@ -5,10 +5,19 @@
     <link>https://zecoo.github.io/hugo/categories/math/</link>
     <description>Recent content in math on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 21 Apr 2020 11:37:07 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2020 00:00:00 +0800</lastBuildDate>
     
         <atom:link href="https://zecoo.github.io/hugo/categories/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>IFE js.util</title>
+      <link>https://zecoo.github.io/hugo/2020/03/ife-js-util/</link>
+      <pubDate>Tue, 31 Mar 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/03/ife-js-util/</guid>
+      <description>task1的时候我还能勉强用自己的想法写，html的展示效果达到了就好。 但是到了task2的时候，js基础还是不牢啊，基本上每道题都要看下别</description>
+    </item>
     
     <item>
       <title>IFE Task0001 Log</title>

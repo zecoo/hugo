@@ -5,7 +5,7 @@
     <link>https://zecoo.github.io/hugo/categories/math/</link>
     <description>Recent content in math on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 21 Apr 2020 11:37:07 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2020 00:00:00 +0800</lastBuildDate>
     
         <atom:link href="https://zecoo.github.io/hugo/categories/math/index.xml" rel="self" type="application/rss+xml" />
     
@@ -16,7 +16,7 @@
       <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/2020/05/cool-sites/</guid>
-      <description>https://www.splayer.org/en/about (射手是个超nice的公司) https://diygod.me/ （DIYgod前端大神） https://shud.in （设计师+工程师） http://pea3nut.info/normal （花生A自制挺有意思的站点） http://www.matrix67.com/blog/ （搞数学的人是真的帅） https://www.ioiox.com （关于群</description>
+      <description>个人站点 DIYgod前端大神 设计师+工程师 花生A自制挺有意思的站点 搞数学的人是真的帅 关于群晖做个人站点 四火真实的程序员hh 从restful的</description>
     </item>
     
     <item>
@@ -26,6 +26,15 @@
       
       <guid>https://zecoo.github.io/hugo/2020/05/istio-sites/</guid>
       <description> productpage Prometheus Grafana Jaeger Kiali (admin,admin)  </description>
+    </item>
+    
+    <item>
+      <title>Start LeetCode</title>
+      <link>https://zecoo.github.io/hugo/2020/05/start-leetcode/</link>
+      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/start-leetcode/</guid>
+      <description>仅做个人记录，解题思路请看其他大佬的。 参考 https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/suan-fa-xue-xi-zhi-lu （如何学算法） https://leetcode.com/explore/learn/card/fun-with-arrays/ （leetcode官网）</description>
     </item>
     
     <item>
@@ -179,15 +188,6 @@
       
       <guid>https://zecoo.github.io/hugo/2020/05/promql-query-in-http-api/</guid>
       <description>Prom官网给出http API例如获取2015年7月1号某天的数据这样写：（我获得了istio_requests_total的所有metri</description>
-    </item>
-    
-    <item>
-      <title>PromQL理解</title>
-      <link>https://zecoo.github.io/hugo/2020/05/promql%E7%90%86%E8%A7%A3/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/promql%E7%90%86%E8%A7%A3/</guid>
-      <description>期待数据 10min内的请求数（sum） istio_requests_total{destination_service_name=&amp;quot;productpage&amp;quot;} 10min内的请求数增长率（rate） rate(istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;}[10m]) 10min内的响应时间P90（quantile） histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&amp;quot;productpage&amp;quot;}[10m])) by(le)) 10m</description>
     </item>
     
   </channel>

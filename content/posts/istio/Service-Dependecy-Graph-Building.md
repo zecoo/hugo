@@ -1,7 +1,7 @@
 ---
 title: "Service Dependecy Graph Building"
 date: "2020-05-26T00:00:00+08:00"
-tags: ["trace"]
+tags: ["trace", "ing"]
 categories: ["istio"]
 draft: false
 ---
