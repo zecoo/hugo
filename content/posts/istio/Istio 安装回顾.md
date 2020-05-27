@@ -24,6 +24,8 @@ microk8s.enable istio
 
 下载tar包，然后解压得到istio-15.2目录。这个目录里包含需要部署的yaml文件以及bookinfo的实例。
 
+我居然还遇到了docker.io不能pull镜像的问题。又要换一个源…… 
+
 然后按照istio官方的教程去安装就OK了。
 
 重点呢，是各种可视化插件的部署。如果istio部署顺利的话，各种插件的svc已经启动了，可以get svc查看一下。但是到目前为止还是只能在集群内访问。访问的入口是istio-ingressgateway。然后按照istio官方给出的远程访问方式去部署就好了。这里唯一一个和官方给出的教程不同的地方是，以Prometheus为例，官方给出的访问地址是：
@@ -45,8 +47,6 @@ kubectl expose service prometheus --type=NodePort \
 
 然后就会多出来一个名为prometheus-svc的nodeport形式的服务。调用这个服务暴露出来的地址就可以访问Prometheus，只是我觉得这个方法可能不太安全，就没有用。
 
-
-
 ## 参考
 
 https://www.jianshu.com/p/b72c1e06b140 （安装指南）
@@ -64,3 +64,7 @@ https://www.jianshu.com/p/bed143a1c886 （估计也是个研究生大神，给�
 https://www.cnblogs.com/CCE-SWR/p/10286404.html （也是演示之用）
 
 https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.3/manage_cluster/istio.html （另一种暴露Prometheus的方式）
+
+https://www.jianshu.com/p/9031fdf61115 （docker.io加速）
+
+https://istio.io/zh/docs/tasks/observability/gateways/ (暴露prom服务)

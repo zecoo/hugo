@@ -3,7 +3,7 @@ title: "Hugo添加代码高亮"
 date: "2020-05-09T00:00:00+08:00"
 draft: false
 tags: ["hugo", "highlight"]
-categories: ["hugo"]
+categories: ["blog"]
 ---
 
 方法：用hightlight.js做高亮。

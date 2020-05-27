@@ -5,10 +5,37 @@
     <link>https://zecoo.github.io/hugo/categories/blog/</link>
     <description>Recent content in blog on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 22 May 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2020 00:00:00 +0800</lastBuildDate>
     
         <atom:link href="https://zecoo.github.io/hugo/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cool Sites</title>
+      <link>https://zecoo.github.io/hugo/2020/05/cool-sites/</link>
+      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/cool-sites/</guid>
+      <description>https://www.splayer.org/en/about (射手是个超nice的公司) https://diygod.me/ （DIYgod前端大神） https://shud.in （设计师+工程师） http://pea3nut.info/normal （花生A自制挺有意思的站点） http://www.matrix67.com/blog/ （搞数学的人是真的帅） https://www.ioiox.com （关于群</description>
+    </item>
+    
+    <item>
+      <title>Istio sites</title>
+      <link>https://zecoo.github.io/hugo/2020/05/istio-sites/</link>
+      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/istio-sites/</guid>
+      <description> productpage Prometheus Grafana Jaeger Kiali (admin,admin)  </description>
+    </item>
+    
+    <item>
+      <title>Service Dependecy Graph Building</title>
+      <link>https://zecoo.github.io/hugo/2020/05/service-dependecy-graph-building/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/service-dependecy-graph-building/</guid>
+      <description>kiali是trace的一个可视化工具，那么我怎么才能拿到trace的原始数据呢？ istio的数据也都是prom给的，prom的metric</description>
+    </item>
     
     <item>
       <title>Scenario Driven MS Decomposition</title>
@@ -161,33 +188,6 @@
       
       <guid>https://zecoo.github.io/hugo/2020/05/promql%E7%90%86%E8%A7%A3/</guid>
       <description>期待数据 10min内的请求数（sum） istio_requests_total{destination_service_name=&amp;quot;productpage&amp;quot;} 10min内的请求数增长率（rate） rate(istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;}[10m]) 10min内的响应时间P90（quantile） histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&amp;quot;productpage&amp;quot;}[10m])) by(le)) 10m</description>
-    </item>
-    
-    <item>
-      <title>Meta Metrics</title>
-      <link>https://zecoo.github.io/hugo/2020/05/meta-metrics/</link>
-      <pubDate>Thu, 07 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/meta-metrics/</guid>
-      <description>siege一分钟压测最后给出的统计数据： Lifting the server siege... Transactions: 439 hits Availability: 51.83 % Elapsed time: 59.33 secs Data transferred: 8.47 MB Response time: 9.88 secs Transaction rate: 7.40 trans/sec Throughput: 0.14 MB/sec Concurrency: 73.10 Successful transactions: 439 Failed transactions: 408 Longest transaction: 56.69 Shortest transaction: 0.13 istio Envoy的</description>
-    </item>
-    
-    <item>
-      <title>istio envoy log type</title>
-      <link>https://zecoo.github.io/hugo/2020/05/istio-envoy-log-type/</link>
-      <pubDate>Wed, 06 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/istio-envoy-log-type/</guid>
-      <description>基本数据这样 【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/fl</description>
-    </item>
-    
-    <item>
-      <title>scss tutorial</title>
-      <link>https://zecoo.github.io/hugo/2020/05/scss-tutorial/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/scss-tutorial/</guid>
-      <description>SCSS：Sassy CSS SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。 我咋还在scss的环境上踩到坑了呢？ 先是给我报错 bad interpreter:</description>
     </item>
     
   </channel>

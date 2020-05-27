@@ -46,7 +46,11 @@ done;
 
 第三步，`kubeadm init --pod-network-cidr=10.244.0.0/16`初始化kubeadm。这一步最重要的是`/etc/kubernetes/admin.conf`这个文件。还有后面那个参数，如果不加上，就会遇到新的坑哦～
 
-init结束之后，不要忘了提示的三行命令
+init结束之后，不要忘了提示的三行命令，不然会报错：
+
+```shell
+Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "kubernetes")
+```
 
 ```shell
 mkdir -p $HOME/.kube
@@ -56,9 +60,15 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 第四步，到了这里，我们发现所有的pod都运行挺好的，除了coredns。但是镜像也都下载好了，为什么宁就比较特殊呢？然后我describe了一下，发现和flannel有关。
 
+coredns的报错呢：
+
+```shell
+0/1 nodes are available: 1 node(s) had taints that the pod didn't tolerate.
+```
+
 所以啦，就是要先把flannel给部署好。注意版本问题。
 
-> 版本1.13.1使用的是github上flannel-old.yml文件。而1.17以上版本用的是flannel.yml文件。
+> 版本1.13.1使用的是Doc/github上flannel-old.yml文件。而1.17以上版本用的是flannel.yml文件。
 
 这里还有一个坑，flannel是quay.io库的镜像，国内也是访问不到的，describe flannel pod就能看到该下载哪个版本的flannel镜像。还有刚才提到的init后面的参数，如果没有添加这个参数的话，flannel部署也会出问题的😊。好的，flannel解决掉，coredns也就马上部署好了。
 
@@ -87,3 +97,5 @@ https://blog.csdn.net/u012547633/article/details/103846564 （另一个也喜欢
 https://www.cnblogs.com/qq952693358/p/6537846.html （E: Unable to lock directory /var/lib/apt/lists/ 错误）
 
 https://learnku.com/articles/29209 （k8s-pull.sh）
+
+https://blog.csdn.net/BigData_Mining/article/details/88683459 (taint node)

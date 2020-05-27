@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on Pure theme for Hugo</title>
+    <link>https://zecoo.github.io/hugo/tags/blog/</link>
+    <description>Recent content in blog on Pure theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 22 May 2020 00:00:00 +0800</lastBuildDate>
+    
+        <atom:link href="https://zecoo.github.io/hugo/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>IFE Task0001 Log</title>
+      <link>https://zecoo.github.io/hugo/2020/03/ife-task0001-log/</link>
+      <pubDate>Sun, 01 Mar 2020 17:39:45 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/03/ife-task0001-log/</guid>
+      <description>我记录一下ife其他几个页面。一共这么几个页面 index.html post.html archive.html about.html 如果自己写的话，除了index.html，其他几个页面都有或多多少的问题我写不出来。 一</description>
+    </item>
+    
+    <item>
+      <title>Monitoring with log and trace</title>
+      <link>https://zecoo.github.io/hugo/1/01/monitoring-with-log-and-trace/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/1/01/monitoring-with-log-and-trace/</guid>
+      <description>Microservices Monitoring with Event Logs and Black Box Execution Tracing TSC 2019 Chaper1 理解log一般需要专家，文章提出一个novel的方式帮助troubleshooting的决策 Clearwater IP Multimedia Subsystem 和 hipste</description>
+    </item>
+    
+    <item>
+      <title>Send file from one server to another</title>
+      <link>https://zecoo.github.io/hugo/1/01/send-file-from-one-server-to-another/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/1/01/send-file-from-one-server-to-another/</guid>
+      <description>我没有想到传文件这么方便。那这样我有一台国外的服务器，可以做很多事情了啊。 参考 https://www.cnblogs.com/gudongcheng/p/8064808.html （scp）</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,7 +2,7 @@
 title: "hugo上传博客脚本"
 date: "2020-05-18T00:00:00+08:00"
 tags: ["hugo", "bash"]
-categories: ["hugo"]
+categories: ["blog"]
 draft: false
 ---
 

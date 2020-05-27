@@ -4,20 +4,76 @@
   
   <url>
     <loc>https://zecoo.github.io/hugo/categories/blog/</loc>
-    <lastmod>2020-05-22T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/tags/blog/</loc>
-    <lastmod>2020-05-22T00:00:00+08:00</lastmod>
+    <lastmod>2020-05-27T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://zecoo.github.io/hugo/categories/</loc>
+    <lastmod>2020-05-27T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/05/cool-sites/</loc>
+    <lastmod>2020-05-27T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/categories/istio/</loc>
+    <lastmod>2020-05-27T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/05/istio-sites/</loc>
+    <lastmod>2020-05-27T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/</loc>
+    <lastmod>2020-05-27T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/</loc>
+    <lastmod>2020-05-27T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/</loc>
+    <lastmod>2020-05-27T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/2020/05/service-dependecy-graph-building/</loc>
+    <lastmod>2020-05-26T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/trace/</loc>
+    <lastmod>2020-05-26T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/blog/</loc>
     <lastmod>2020-05-22T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -38,28 +94,7 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/</loc>
-    <lastmod>2020-05-22T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/</loc>
-    <lastmod>2020-05-22T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/</loc>
-    <lastmod>2020-05-22T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/tags/</loc>
     <lastmod>2020-05-22T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -150,13 +185,6 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/hugo/</loc>
-    <lastmod>2020-05-18T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://zecoo.github.io/hugo/2020/05/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2020-05-18T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -164,14 +192,14 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/server/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/server/</loc>
     <lastmod>2020-05-18T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/server/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/server/</loc>
     <lastmod>2020-05-18T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -192,14 +220,14 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -290,13 +318,6 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/istio/</loc>
-    <lastmod>2020-05-07T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://zecoo.github.io/hugo/2020/05/meta-metrics/</loc>
     <lastmod>2020-05-07T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -311,14 +332,14 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/css/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/css/</loc>
     <lastmod>2020-05-05T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/css/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/css/</loc>
     <lastmod>2020-05-05T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -458,14 +479,14 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/math/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/math/</loc>
     <lastmod>2020-04-21T11:37:07+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/math/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/math/</loc>
     <lastmod>2020-04-21T11:37:07+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -550,6 +571,12 @@
   
   <url>
     <loc>https://zecoo.github.io/hugo/1/01/monitoring-with-log-and-trace/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/1/01/send-file-from-one-server-to-another/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

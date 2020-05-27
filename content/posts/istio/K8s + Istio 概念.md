@@ -14,7 +14,7 @@ categories: ["istio"]
 
 Sidecar还有Envoy是这里的核心。
 
-![image-20200430104639542](../../../../posts/docs/imgs/image-20200430104639542.png)
+![image-sidecar](../../../docs/imgs/sidecar.md.png)
 
 这个图就很好得说明了sidecar中流量的走向。这部分在华为的书《云原声服务网格istio》中关于sidecar的介绍写得很清楚。也就是说Envoy通过iptables拦截了进来的流量，然后强迫流量走自己的通道，相当于一个收保护费的。
 

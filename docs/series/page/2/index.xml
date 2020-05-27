@@ -10,6 +10,33 @@
     
     
     <item>
+      <title>Meta Metrics</title>
+      <link>https://zecoo.github.io/hugo/2020/05/meta-metrics/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/meta-metrics/</guid>
+      <description>siege一分钟压测最后给出的统计数据： Lifting the server siege... Transactions: 439 hits Availability: 51.83 % Elapsed time: 59.33 secs Data transferred: 8.47 MB Response time: 9.88 secs Transaction rate: 7.40 trans/sec Throughput: 0.14 MB/sec Concurrency: 73.10 Successful transactions: 439 Failed transactions: 408 Longest transaction: 56.69 Shortest transaction: 0.13 istio Envoy的</description>
+    </item>
+    
+    <item>
+      <title>istio envoy log type</title>
+      <link>https://zecoo.github.io/hugo/2020/05/istio-envoy-log-type/</link>
+      <pubDate>Wed, 06 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/istio-envoy-log-type/</guid>
+      <description>基本数据这样 【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/fl</description>
+    </item>
+    
+    <item>
+      <title>scss tutorial</title>
+      <link>https://zecoo.github.io/hugo/2020/05/scss-tutorial/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/2020/05/scss-tutorial/</guid>
+      <description>SCSS：Sassy CSS SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。 我咋还在scss的环境上踩到坑了呢？ 先是给我报错 bad interpreter:</description>
+    </item>
+    
+    <item>
       <title>k8s HPA尝试</title>
       <link>https://zecoo.github.io/hugo/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
       <pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
@@ -160,24 +187,6 @@
       
       <guid>https://zecoo.github.io/hugo/2020/03/ife-js-util/</guid>
       <description>task1的时候我还能勉强用自己的想法写，html的展示效果达到了就好。 但是到了task2的时候，js基础还是不牢啊，基本上每道题都要看下别</description>
-    </item>
-    
-    <item>
-      <title>IFE Task0001 Log</title>
-      <link>https://zecoo.github.io/hugo/2020/03/ife-task0001-log/</link>
-      <pubDate>Sun, 01 Mar 2020 17:39:45 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/03/ife-task0001-log/</guid>
-      <description>我记录一下ife其他几个页面。一共这么几个页面 index.html post.html archive.html about.html 如果自己写的话，除了index.html，其他几个页面都有或多多少的问题我写不出来。 一</description>
-    </item>
-    
-    <item>
-      <title>Monitoring with log and trace</title>
-      <link>https://zecoo.github.io/hugo/1/01/monitoring-with-log-and-trace/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/1/01/monitoring-with-log-and-trace/</guid>
-      <description>Microservices Monitoring with Event Logs and Black Box Execution Tracing TSC 2019 Chaper1 理解log一般需要专家，文章提出一个novel的方式帮助troubleshooting的决策 Clearwater IP Multimedia Subsystem 和 hipste</description>
     </item>
     
   </channel>
