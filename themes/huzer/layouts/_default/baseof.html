@@ -18,17 +18,14 @@
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/github.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   </head>
+
   <body>
-    <!-- Code that all your templates share, like a header -->
     <div class="container">
       {{ block "main" . }}
-      <!-- The part of the page that begins to differ between templates -->
       {{ end }}
     </div>
     {{ block "footer" . }}
-    <!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
     {{ end }}
-
     <script src="{{ .Site.BaseURL }}js/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </body>
