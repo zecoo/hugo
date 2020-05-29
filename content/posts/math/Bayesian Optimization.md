@@ -1,7 +1,7 @@
 ---
 title: "Bayesian Optimization 直观理解"
 date: 2020-04-21T11:37:07+08:00
-draft: true
+draft: false
 tags: ["math"]
 categories: ["math"]
 ---

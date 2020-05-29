@@ -1,193 +1,98 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ife on Pure theme for Hugo</title>
-    <link>https://zecoo.github.io/hugo/tags/ife/</link>
-    <description>Recent content in ife on Pure theme for Hugo</description>
+    <title>ife on This is a title</title>
+    <link>/tags/ife/</link>
+    <description>Recent content in ife on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 23 Apr 2020 11:37:07 +0800</lastBuildDate>
     
-        <atom:link href="https://zecoo.github.io/hugo/tags/ife/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/ife/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Cool Sites</title>
-      <link>https://zecoo.github.io/hugo/2020/05/cool-sites/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
+      <title>IFE task0002_5 回顾</title>
+      <link>/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</link>
+      <pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/2020/05/cool-sites/</guid>
-      <description>个人站点 DIYgod前端大神 设计师+工程师 花生A自制挺有意思的站点 搞数学的人是真的帅 关于群晖做个人站点 四火真实的程序员hh 从restful的</description>
+      <guid>/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid>
+      <description>做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基础。
+我也百度了一下，发现写task0002_5的博客少之又少，说明ife的任务2到这里，基本上已经没有很多人在做了。
+瞎总结 首先要了解事件是个什么东西。在这个任务里面，要监听的是
+ 滑块被拖动时的位置 dragStart(e) 滑块处于拖动状态 dragging(e) 滑块最后放置的位置 drop(e)  而在js里，有专门针对拖动的监听事件*dragStart*和*drop*方法。
+让滑块动起来 首先要给滑块设置draggable=true，然后就会神奇得发现滑块真的可以拖动了。留下一个残影在原来的位置。但是也会神奇得发现鼠标一松开还是要打回原形。
+先做第一个动画，拖动一个滑块A的时候，首先A要在wrap中消失。可以用css添加一个class dragging，设置display=none。监听滑块处在拖动的状态时，就是不可见的。而一旦落了脚，要移除这个class。重新回到可见状态。
+第一个动画做完，可以发现，拖动A，A下面的滑块会自动补上A的位置。松开鼠标依旧打回原形。
+单个容器拖动效果 然后尝试做单个容器内滑块的拖动效果。第二个动画该考虑把要移动的滑块A插到合适的地方。这里面有这样几步
+ 获取当前滑块A的中心相对容器的坐标。得出插入第k格 将A插入指定位置 A下面的滑块均向下移动一格  我在这里偷了个懒，仅根据drop事件当前的鼠标位置来判断插入哪一格。具体细节先不追究，毕竟还要抓紧学vue的知识。2、3步也比较简单，让每个滑块position=absolute，然后设置一个top值，就可以控制滑块的移动了。
+多容器拖动效果 最后将单容器拓展到双容器甚至多容器，其实仅比单容器多了一步，就是根据滑块drop的中心位置判断落在哪个容器。
+踩坑记 我写回顾主要是想记一下自己踩的坑。
+$.on(document.body, &#39;dragover&#39;, dragOver);  没错，全在这一行代码里了。
+$.on是util.js里addEvent(element, event, listener)的封装。
+ element，就是监听对象。我在做drop效果的时候，打死都出不来。随便一拖动，滑块就没了。最后定位到是element的问题，我打开html检查器，发现自己没有定义container的高度，结果就是整个body只有一丢丢高，并没有把容器包括进去。所以我拖动的滑块，其实在监听对象body之外。那肯定是没得效果咯。 event，这…我本来以为没啥实际意义的参数，又给我栽一大跟头，让我不好好看文档先学习用法。event要和listener方法名一致，并且全部小写。 dragOver别看就一行代码，e.preventDefault();，这是为了防止浏览器拖动结束没来得及drop就结束监听。不然又会遇到一拖动滑块就消失了的情况。  以上。
+参考 https://www.runoob.com/jsref/event-ondrag.html （菜鸟onDrag事件）
+https://www.jianshu.com/p/2dfb870e0b88 （本任务类型）</description>
     </item>
     
     <item>
-      <title>Istio sites</title>
-      <link>https://zecoo.github.io/hugo/2020/05/istio-sites/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
+      <title>ife 轮播图回顾</title>
+      <link>/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</link>
+      <pubDate>Wed, 15 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/2020/05/istio-sites/</guid>
-      <description> productpage Prometheus Grafana Jaeger Kiali (admin,admin)  </description>
+      <guid>/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</guid>
+      <description>写在前面 做到ife task002_3，轮播图花了我最长的时间来写，甚至让我开始反思自己是不是真的…不适合当一个程序员。我要成了程序员，有种侮辱了这个群体的感jio。最后看了一下，虽然也就125行的代码，断断续续我大概做了一周。😓
+html&amp;amp;CSS也遇到问题：  怎么把6张图片都塞到frame里面去不漏出来。简单一个overflow：hidden我就是想不到。 6个按钮小圆点怎么放到frame里面。其实还是position的问题，我总是自以为了解position，然而到了真正实践的时候就出问题。小圆点div相对于frame的position要absolute。 如何让图片有一个滑动的效果？我是看了DIYgod的代码之后，才知道要让图片float left，让图片div的宽度仅可能宽，让图片相对于左上角每次移动一部分距离，就能实现移动的效果了。  最要命的是JS部分 一开始我百度了一个轮播图的代码，是通过调整其他图片display：none，指定index的图片display：block。这样就简单实现了图片的切换。这样做也没有什么问题，但就是没有滑动的动画效果，看起来很low。
+干脆继续参考DIYgod的代码。就有了上面提到的，让图片横向展开在页面中。每次切换让图片向左或向右移动一定的距离offset。也就是图片div的left增加或减少offset。如果移动一张图片距离，那么就是offset=img.width。
+Next &amp;amp; Prev button 于是我先把next、prev点击切换的功能做出来，还算简单，主要注意的是next移动到第六张图片的时候，要跳回到第一张图片，要用if做个判断。prev移动到第一张照片的时候同理。
+移动动画效果 到这里可以发现，到目前为止，功能做出来和display：none的那一版没有任何区别。因为移动在一瞬间就完成了，没有形成动画效果。
+如果想要动画效果，要在一定时间time内逐步完成移动。做法是设置每个时间间隔interval移动一小段距离，那么每个时间间隔移动的距离就是offset / (time / interval)。然后设置一个setTimeout函数执行移动过程。
+好，动手操作一下。然后就会惊奇的发现：操，我的轮播图怎么停不下来了？是因为setTimeout之后，每个时间间隔就会执行一次，不设置停止条件的话就会一直执行下去。那么停止条件是什么呢？图片移动了offset的距离，这个动画过程就应该结束。所以停止条件就是initialLeft + offset = newLeft的时候。
+再来看看轮播图效果怎么样？next和prev按钮都可以使用了，而且也有了动画效果。小阶段目标完成，先给自己小小鼓励一下。
+小圆点 接下来考虑实现小圆点和图片的index的同步。这中间也有一些trick，我随便想想发现悟不到就又看了Dg的代码。
+首先考虑怎么做到让某个index的小圆点（下面用O表示）亮起来呢？Dg给出的方法是，给index的O添加一个class比如light，CSS中设置该class light的bgc=white，就相当于让index的O亮起来了，挺巧妙的。同时要注意，亮起来了，还要让他灭掉，也很简单，把所有O的light class都给remove掉。
+好的，现在任意index的O都可以控制其亮或者不亮了。直接把这个方法封装成showBtn()。在next、prev的点击操作中，添加showBtn方法，就可以成功看到指定index的O亮起来了，和图片实现了同步。
+小圆点这里还没完。通常在轮播图中点击某个位置的O，应该能跳转到该index的图片。这里Dg在html中给每个O设置了一个index=0~6属性，通过this.getAttribute()方法获取当前index。有了当前的index，和要移动到的index，相减乘以图片的width，就是要移动的offset。那么到这里这个功能也就实现了。
+所以到最后的顺时针、逆时针播放就更简单了，setInterval()，每隔1000ms执行一次next或者prev，就OK了。但是要注意，如果先后点击playASC和playDESC，会发生鬼畜。解决方法是在这两个方法执行前先判断一下，如果setInterval的timer还在的话，就stop掉。这样鬼畜的问题也就解决了。
+最后 别看我回顾就写了1.3k字，写代码花费的时间真的比我想象中的多多了。感觉那些程序员坐一下午能搞出各种各样的功能，我这……真的菜啊。</description>
     </item>
     
     <item>
-      <title>Start LeetCode</title>
-      <link>https://zecoo.github.io/hugo/2020/05/start-leetcode/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
+      <title>IFE js.util</title>
+      <link>/posts/static-web/ife-js-util/</link>
+      <pubDate>Tue, 31 Mar 2020 11:37:07 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/2020/05/start-leetcode/</guid>
-      <description>仅做个人记录，解题思路请看其他大佬的。 参考 https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/suan-fa-xue-xi-zhi-lu （如何学算法） https://leetcode.com/explore/learn/card/fun-with-arrays/ （leetcode官网）</description>
+      <guid>/posts/static-web/ife-js-util/</guid>
+      <description>task1的时候我还能勉强用自己的想法写，html的展示效果达到了就好。
+但是到了task2的时候，js基础还是不牢啊，基本上每道题都要看下别人的博客。虽然有点low，但是还是秉着一股劲往前冲，后面再来捡技术细节的思路，不丢人的。
+一趟捣鼓下来，JS部分一共就5个板块：
+ js基础：数据结构、对象等 dom（html树形结构操作） ajax（和服务器交互，部分刷新页面） jQuery（更方便操作dom和ajax） nodejs（暂时不学习）  接下来总结一下自己的捣鼓过程吧（不包含技术细节）
+任务2 JS基础 判断数据类型。 用Objexct.prototype来判断
+深克隆。 如果直接var copy = src就是浅复制，所以要用递归的形式。
+数组相关操作 1 simpleTrim。这种问题以前从来没接触过，不会写正常2333。for循环判断分别从前和从后面判断时候有空字符
+2 trim。正则表达式直接把空字符给替换掉
+正则表达式 这是我第几次学习正则表达式啦？？
+任务3 Dom 到这里最好还是结合html页面来学习，直接上来写老夫实在是无处下手。
+任务4 Event 同dom
+任务5 Bom cookie的设置和获取。
+以前只知道cookie是什么，现在知道cookie长什么样了怎么搞一个。
+任务6 Ajax emmm自己写一个简单的，讲道理，其实是xmlhttp的使用，和ajax没有什么关系。</description>
     </item>
     
     <item>
-      <title>Service Dependecy Graph Building</title>
-      <link>https://zecoo.github.io/hugo/2020/05/service-dependecy-graph-building/</link>
-      <pubDate>Tue, 26 May 2020 00:00:00 +0800</pubDate>
+      <title>IFE Task0001 Log</title>
+      <link>/posts/static-web/ife-task0001-log/</link>
+      <pubDate>Sun, 01 Mar 2020 17:39:45 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/2020/05/service-dependecy-graph-building/</guid>
-      <description>kiali是trace的一个可视化工具，那么我怎么才能拿到trace的原始数据呢？ istio的数据也都是prom给的，prom的metric</description>
-    </item>
-    
-    <item>
-      <title>Scenario Driven MS Decomposition</title>
-      <link>https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/</link>
-      <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/</guid>
-      <description>场景驱动、自底向上的单体系统微服务拆分方法 评价 核心思想：把数据表之间紧密联系的聚在一起，作为拆分微服务的准则。 实际上是关于数据表的划分，微服</description>
-    </item>
-    
-    <item>
-      <title>vps搭建图床</title>
-      <link>https://zecoo.github.io/hugo/2020/05/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
-      <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
-      <description>展示一下我的图床已经搭起来了。放一张我在心动实习的时候想设计的一个todo app： 参考 https://www.jianshu.com/p/7863fcb34aed</description>
-    </item>
-    
-    <item>
-      <title>Delta debug MS</title>
-      <link>https://zecoo.github.io/hugo/2020/05/delta-debug-ms/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/delta-debug-ms/</guid>
-      <description>a triangular tract of sediment deposited at the mouth of a river, typically where it diverges into several outlets. the fourth letter of the Greek alphabet ( Δ , δ ), transliterated as ‘d.’. variation of a variable or function. 一组影响系统执行dimensions，高效找出导致错</description>
-    </item>
-    
-    <item>
-      <title>Graph-based RCA in SOA and MS</title>
-      <link>https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/</guid>
-      <description>Graph-based root cause analysis for service-oriented and microservice architectures JSS 2020 2 RW RCA方法有以下大致分类 model-based的RCA方法 Spectrum（也可以称之为Classificatio</description>
-    </item>
-    
-    <item>
-      <title>Microscope</title>
-      <link>https://zecoo.github.io/hugo/2020/05/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</guid>
-      <description>Microscope: Pinpoint Performance Issues with Causal Graphs in Micro-service Environments ICSOC 2018 Abstruct 错误定位的论文。通过服务调用关系构建DAG定位错误。 Introduction 定位有88%的准确性，2020的icws有一篇错误定位论文跟</description>
-    </item>
-    
-    <item>
-      <title>RCA in multitier service</title>
-      <link>https://zecoo.github.io/hugo/2020/05/rca-in-multitier-service/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/rca-in-multitier-service/</guid>
-      <description>Root Cause Analysis of Anomalies of Multitier Services in Public Clouds TON 2018 读完感觉不像是A类的期刊，Chinglish的情况很严重，相似度的计算实在是不优美，最后baseline挑的也很奇</description>
-    </item>
-    
-    <item>
-      <title>MS-Rank</title>
-      <link>https://zecoo.github.io/hugo/2020/05/ms-rank/</link>
-      <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/ms-rank/</guid>
-      <description>MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications ICWS 2019 主要贡献： 根据一系列的metrics，构建一个调用图 基于随机游走算法提出了根因定位算法 为了提高定位的准确性，用一种自</description>
-    </item>
-    
-    <item>
-      <title>RCA Papers</title>
-      <link>https://zecoo.github.io/hugo/2020/05/rca-papers/</link>
-      <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/rca-papers/</guid>
-      <description>Literature Survey: Root Cause Analysis in Microservice System 摘要 微服务系统在最近几年迅速发展，微服务系统由多个独立部署并相互协作的微服务组成，大型的微服务系统可能包含几十个微服务，使得</description>
-    </item>
-    
-    <item>
-      <title>hugo上传博客脚本</title>
-      <link>https://zecoo.github.io/hugo/2020/05/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</link>
-      <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</guid>
-      <description>我很傻的，每次更新博客之后都要手动输入 hugo -D git add . git commit -m &amp;quot;xxx&amp;quot; git push origin master 又不想下载git客户端一键push，写个脚本咯 #!/bin/bash hugo -D git add . echo &amp;quot;input commit info:&amp;quot; read -t 5 commit_info commit_info=${commit_info:-&amp;quot;update</description>
-    </item>
-    
-    <item>
-      <title>服务器命令行美化</title>
-      <link>https://zecoo.github.io/hugo/2020/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</link>
-      <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</guid>
-      <description>export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot; 但是有个问题，输了命令命令行前缀是变好看了，但是一旦退出就没有效果了。要把这个设置写进文件里才行。具体是$HOME/.bashrc这</description>
-    </item>
-    
-    <item>
-      <title>hugo tutorial</title>
-      <link>https://zecoo.github.io/hugo/2020/05/hugo-tutorial/</link>
-      <pubDate>Sun, 17 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/hugo-tutorial/</guid>
-      <description>hugo new theme zik-theme 可以创建一个新的主题。自己的主题就是从这里开始。来看看初始的theme目录长什么样吧。 ├── LICENSE ├── archetypes │ └── default.md ├── layouts │ ├── 404.html │</description>
-    </item>
-    
-    <item>
-      <title>Kubeadm init node not found</title>
-      <link>https://zecoo.github.io/hugo/2020/05/kubeadm-init-node-not-found/</link>
-      <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/kubeadm-init-node-not-found/</guid>
-      <description>新坑哦～ 5天都没有解决的新坑哦～ 环境： 华为云学生机2c4g 鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB 错误 kubeadm init 后卡在： [wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &amp;quot;/etc/kubernetes/manifests&amp;quot;. This</description>
-    </item>
-    
-    <item>
-      <title>Hugo添加代码高亮</title>
-      <link>https://zecoo.github.io/hugo/2020/05/hugo-code-highlight/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/hugo-code-highlight/</guid>
-      <description>方法：用hightlight.js做高亮。 针对不同的Hugo主题，应该有不同的思路。但是基本思路还是： head里添加css body中添加两个</description>
-    </item>
-    
-    <item>
-      <title>Metric to Graph思路及实践</title>
-      <link>https://zecoo.github.io/hugo/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
-      <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
-      <description>整体思路 01 查看Prom的metric： 写好PromQL获得自己想要的metric，这时候只是文本的形式。而且又臭又长。 &amp;quot;metric&amp;quot;: { &amp;quot;__name__&amp;quot;: &amp;quot;istio_requests_total&amp;quot;, &amp;quot;connection_security_policy&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;destination_app&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_canonical_revision&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_canonical_service&amp;quot;:</description>
-    </item>
-    
-    <item>
-      <title>jq in terminal for json</title>
-      <link>https://zecoo.github.io/hugo/2020/05/jq-in-terminal-for-json/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/jq-in-terminal-for-json/</guid>
-      <description>Prom返回的json格式没有reindent，看起来很费眼睛。 {&amp;quot;metric&amp;quot;:{&amp;quot;__name__&amp;quot;:&amp;quot;istio_requests_total&amp;quot;,&amp;quot;destination_app&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;destination_service&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;value&amp;quot;:[1588929523.247,&amp;quot;10523&amp;quot;]}]}} 在命令行，想让其用缩进好的json展示出来，就要用到jq。 curl http://test.json | jq 只需要在</description>
-    </item>
-    
-    <item>
-      <title>PromQL query in http API</title>
-      <link>https://zecoo.github.io/hugo/2020/05/promql-query-in-http-api/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/promql-query-in-http-api/</guid>
-      <description>Prom官网给出http API例如获取2015年7月1号某天的数据这样写：（我获得了istio_requests_total的所有metri</description>
+      <guid>/posts/static-web/ife-task0001-log/</guid>
+      <description>我记录一下ife其他几个页面。一共这么几个页面
+ index.html post.html archive.html about.html  如果自己写的话，除了index.html，其他几个页面都有或多多少的问题我写不出来。 一个一个说吧。
+Index.html  banner有三个部分，一个是logo，一个是站内其他链接，最后一个是git的logo。这三个部分要显示在水平的一行，这里其实是运用到了float，只要把三个部分都设置为float，就可以变成一行了。感觉有点像把div改成了块内元素一样，也就是变成了span。 一般banner的链接都是用list改成水平，改成水平的方法有两个，一个是float，另一个是display inline-block 我想让这三部分，随着页面的改变，位置不要定死，原来margin-left之类的也可以用百分比来表示，就很舒服了。 center是一个大的bg，bg上面有一个透明度的方形显示文字，放bg的时候遇到了以前就遇到的问题，比如默认是重复的，而且不能充满div。这两个问题代码很好解决。 至于透明度的方形，彻底让我对position这个元素有了一定的理解。absolute、fixed、relative分别代表什么。 box部分是三个卡片，卡片里有图片和文字。三个卡片并列其实也挺好写，好像用inline-block就可以实现，水平垂直居中什么的也都是现成的，不过写好了之后再看要求里面有一个是卡片的高度随文字内容自适应。 遂百度之，发现用display table可以解决这个问题，但是table是占满整个div的，不过也好解决，用一大一小div就解决了。 圆形的头像，这个做起来也好简单啊，图片的radius改一下就可以了。 intro部分其实不用display来写，比较常规。如果需要居中之类的工作，用display明显是要方便很多的。 最后一点，如果用flex来布局，flex里面的每个元素的宽度都是以最宽的那个为标准。这时候想要居中的话可以考虑用text-align center解决。这是最后那个小logo的居中问题。  Post.html 在开始写post.html之前我在GitHub上down了几个其他人的ife作业，然后发现我这个代码真的是稀烂…最基本的有这么几个问题：
+ 文件的结构，ife里强调了，但是我没有遵守。 div的命名方式。navbar，navbar-menu、profile之类的 class和id的区别 nav和footer是html的元素，可以不用div写 html的基本框架应该是navbar、banner、content、footer  然后我找到了一个极佳的对比例子。就是DIYgod，当我看到他就是RSSHub的发起者的时候，我懵逼了。他也就大我三届而已，而且还是武理的，我简直太菜了。。酸归酸，看DIYgod大神的前端页面。能学到很多东西：
+ html的其他默认元素：header、section、article、nav的使用 日历写起来其实就是一个table view tag-graph就更简单了，字体设几个不同的大小就可以 一个简单的单词，换一个字体就能变成logo一般的存在  然后记录一下写 blog.html的时候遇到的坑
+ blog应该是一个简单的双列布局。双列布局的形式有哪些来着？我是用百分比的形式来布局的。要求用980px，我不太喜欢 table设置了宽高之后，cell变大，那么cell里面字的间距自然就大了 有时候会遇到给div里面子元素加padding之后，div的宽度哪怕设好了，还是会超出来。这个时候要设置一下box-sizing=border-content a写在div外面，就把整个div变成了链接。 我现在使用自适应的方法太简陋了，@media (maxwidth=980) {.div { display=none} }  Archive.html 这个页面我被卡住了。本来一个瀑布流我可以百度，用flex或者用column来解决，但是ife的作业的瀑布流里偏偏有一个比较大的块，是一个这样的结构
+[ + ][ ][ ]
+[ ][ ][ ][ ]
+[ ][ ][ ][ ]</description>
     </item>
     
   </channel>

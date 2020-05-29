@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        RCA in multitier service 
+      
+    </title>
+  </head>
+  <body>
+    
+    
+<title>RCA in multitier service | This is a title</title>
+<aside id="meta">
+    <div>
+    <section>
+      <p id="date"> Wed May 20, 2020 </p>
+      <p id="wordcount"> 80 Words </p>
+    </section>
+    
+    
+    <ul id="tags">
+      
+        <li> <a href="tagsrca">RCA</a> </li>
+      
+    </ul>
+    
+    </div>
+</aside>
+<section id="main">
+  <h1 id="title">RCA in multitier service</h1>
+  <div>
+        <article id="content">
+           
+
+<p>Root Cause Analysis of Anomalies of Multitier Services in Public Clouds</p>
+
+<p>TON 2018</p>
+
+<p>读完感觉不像是A类的期刊，Chinglish的情况很严重，相似度的计算实在是不优美，最后baseline挑的也很奇怪。</p>
+
+<h2 id="ibr">IBR</h2>
+
+<p>这篇文章里用了一个很贴切的词：tenant，RCA用另一种解释其实就是tenant，也就是之前网易的面试官跟我说的profiling，是因为一个节点Root出现故障，导致和该节点有关的所有节点都变慢了。</p>
+
+<p>这篇也是在前面会议论文的基础上加了一些内容投的期刊。</p>
+
+<h2 id="system-arch">System Arch</h2>
+
+<h3 id="anomaly-type">Anomaly Type</h3>
+
+<p>内在因素：服务调用过程中出现的异常</p>
+
+<p>外在因素：在同一个物理机上的异常导致该物理机上不同的VM的异常</p>
+
+<h3 id="system">System</h3>
+
+<p>两部分，第一部分构建异常传播图（也是一个DAG），第二部分计算相似度Rank异常节点。</p>
+
+<h2 id="graph">Graph</h2>
+
+<p>VCG（VM Communication Graph）用工具PreciseTracer可以获得。</p>
+
+<p>APG（Anomaly Propagation Graph）</p>
+
+<h2 id="root-cause-location">Root Cause Location</h2>
+
+<p>这里面定义的相关度和其他不太一样，Sim(VMi, Rj)，是计算某个VM和某个请求之间的相关度。</p>
+
+<h3 id="data-collection">Data Collection</h3>
+
+<ol>
+<li>服务响应时间，这里的计算方式是将所有参与一次响应的相关组件的响应时间相加</li>
+<li>Utilization，比如CPU、mem等</li>
+</ol>
+
+<p>都是老生常谈了</p>
+
+<h3 id="similarity-calculation">Similarity Calculation</h3>
+
+<p>依旧是皮尔逊相关系数，不过这个相关度也太复杂了吧？</p>
+
+<p>R(i, M, R&reg;, ts, te) = cov(Mte(M,i),Tte (R&reg;)􏲊 / σMte (M,i)σTte (R&reg;)</p>
+
+<h3 id="random-walk">Random Walk</h3>
+
+<p>依旧是Forward、Backward和Self，就是随机游走哪一套</p>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<h3 id="baseline">Baseline</h3>
+
+<ul>
+<li>RS：Random Select，普通人用排列组合的方式选择</li>
+<li>SC：Sudden Change，比较当前metric和一个时间窗口之前的metric的变化，变化最大的那个视为Anomaly</li>
+<li>DBR：Distance Based Rank，选择最优传播路径，找传播过程花费距离最短的</li>
+</ul>
+
+<p>Evaluation Metric</p>
+
+<ul>
+<li>PR@K（Precision at TOP K）TOP K的准确性。比如K=5，能有90%的准确性Root Cause在里面</li>
+<li>MAP（Mean Average Precision）</li>
+</ul>
+
+        </article>
+  </div>
+</section>
+
+    
+    
+    
+  </body>
+</html>

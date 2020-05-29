@@ -1,6 +1,6 @@
 ---
 title: "Send file from one server to another"
-date: "2020-XX-XXT00:00:00+08:00"
+date: "2020-05-25T00:00:00+08:00"
 tags: [""]
 categories: [""]
 draft: false

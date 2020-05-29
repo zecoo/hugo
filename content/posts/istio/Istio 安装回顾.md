@@ -1,7 +1,7 @@
 ---
 title: "Istio 安装回顾"
 date: 2020-04-29T11:37:07+08:00
-draft: true
+draft: false
 tags: ["istio", "hello-world"]
 categories: ["istio"]
 ---
@@ -67,4 +67,4 @@ https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.3/manage_cluster/ist
 
 https://www.jianshu.com/p/9031fdf61115 （docker.io加速）
 
-https://istio.io/zh/docs/tasks/observability/gateways/ (暴露prom服务)
+https://istio.io/zh/docs/tasks/observability/gateways/ (官方暴露prom服务)

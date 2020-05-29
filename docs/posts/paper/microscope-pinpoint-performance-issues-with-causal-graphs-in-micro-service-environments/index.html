@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        Microscope 
+      
+    </title>
+  </head>
+  <body>
+    
+    
+<title>Microscope | This is a title</title>
+<aside id="meta">
+    <div>
+    <section>
+      <p id="date"> Wed May 20, 2020 </p>
+      <p id="wordcount"> 101 Words </p>
+    </section>
+    
+    
+    <ul id="tags">
+      
+        <li> <a href="tagsrca">RCA</a> </li>
+      
+    </ul>
+    
+    </div>
+</aside>
+<section id="main">
+  <h1 id="title">Microscope</h1>
+  <div>
+        <article id="content">
+           
+
+<p>Microscope: Pinpoint Performance Issues with Causal Graphs in Micro-service Environments</p>
+
+<p>ICSOC 2018</p>
+
+<h2 id="abstruct">Abstruct</h2>
+
+<p>错误定位的论文。通过服务调用关系构建DAG定位错误。</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>定位有88%的准确性，2020的icws有一篇错误定位论文跟该论文进行过比较。</p>
+
+<p>benchmark用的是sock shop</p>
+
+<h2 id="system-overview">System Overview</h2>
+
+<p>三个步骤</p>
+
+<ol>
+<li>data collection 收集的是两个服务之间的网络连接和SLO metric（应该和SLA差不多）</li>
+<li>casual graph building 用收集到的数据构建一个casual graph（服务调用关系图？）</li>
+<li>rank cause inference 根据graph，列出所有root cause候选并排序</li>
+</ol>
+
+<h3 id="system-design">System design</h3>
+
+<h4 id="data-collection">data collection</h4>
+
+<p>需要从“127.0.0.1:port -&gt; 172.80.12.98:port”的调用关系map到“Service A instance1 -&gt; Service B instance 1”</p>
+
+<p>SLO可以从服务监控软件中获取到服务响应时间</p>
+
+<h4 id="casual-graph-building">casual graph building</h4>
+
+<p>如果是Service A到Service B的错误定位，1中已经提到了。</p>
+
+<p>还有一种情况是Service内部instance和instance之间的关系，如果有一个instance占据了所有的cpu利用率，同一个service内的其他instance就不能和其他服务进行通信。本文采用PC-Algorithm构建DAG，一种用概率的方式来解决该问题。（细节需要去看PC-Algorithm的论文）</p>
+
+<h4 id="rank-cause-inference">rank cause inference</h4>
+
+<p>通过一个异常的节点（前端报出的异常节点），遍历该节点下的所有子节点，然后把所有的异常子节点都加入到候选集中。</p>
+
+<p>那么如何判断一个节点是否是异常节点？</p>
+
+<p>3sigma interval规则，即正态分布的3sigma，如果一个node的metric落在了99.7%的范围之外，就认为其是abnormal。3sigma interval是多少呢？（后面提了一嘴：“The sample interval in service request latency metrics is 1s.”）不知道是否可以理解为一个node的响应时间超过1*99.7%秒就认定其为异常节点。</p>
+
+<p>用皮尔逊相关系数来做rank，将候选集中的节点和初始的前端异常进行相关度计算，相关度最高的rank最高。</p>
+
+<h2 id="experiment">Experiment</h2>
+
+<p>4台物理机，64G Memory Ubuntu16</p>
+
+<p>数据收集部分，先把数据存成log，然后用了两个工具：Filebeat集中日志，elasticsearch保存Filebeat收集到的数据。这应该是ELTK那一套。</p>
+
+<p>用Prometheus工具获取service的request latency metrics</p>
+
+<p>sock-shop支持模拟大规模用户请求，这里QPS（Query Per Seconds）可以模拟到5k</p>
+
+<p>Sock-Shop还有istio、Prometheus都要摸熟</p>
+
+<h3 id="fault-injection">Fault Injection</h3>
+
+<p>模拟错误，3种类型：</p>
+
+<ol>
+<li><p>CPU满载</p></li>
+
+<li><p>Traffic Jam，用linux工具模拟</p></li>
+
+<li><p>Container Pause</p></li>
+</ol>
+
+<p>实验做得相当饱满</p>
+
+<ol>
+<li><p>Sock-Shop不同的服务对上面提到的3种错误模拟的敏感程度</p></li>
+
+<li><p>对比其他方法7种方法的precision</p></li>
+
+<li><p>Rank X能命中错误？对比各种方法的Rank1-10的准确率</p></li>
+
+<li><p>Scalability：如果instance从36个增加到120个，对准确率有影响吗？仅有7%的降低。</p></li>
+</ol>
+
+        </article>
+  </div>
+</section>
+
+    
+    
+    
+  </body>
+</html>

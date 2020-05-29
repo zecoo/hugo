@@ -1,193 +1,93 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>prom on Pure theme for Hugo</title>
-    <link>https://example.com/tags/prom/</link>
-    <description>Recent content in prom on Pure theme for Hugo</description>
+    <title>prom on This is a title</title>
+    <link>/tags/prom/</link>
+    <description>Recent content in prom on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 08 May 2020 00:17:00 +0800</lastBuildDate>
     
-        <atom:link href="https://example.com/tags/prom/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/prom/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>hugo tutorial</title>
-      <link>https://example.com/2020/05/hugo-tutorial/</link>
-      <pubDate>Sun, 17 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/hugo-tutorial/</guid>
-      <description>hugo new theme zik-theme 可以创建一个新的主题。自己的主题就是从这里开始。来看看初始的theme目录长什么样吧。 ├── LICENSE ├── archetypes │ └── default.md ├── layouts │ ├── 404.html │</description>
-    </item>
-    
-    <item>
-      <title>Kubeadm init node not found</title>
-      <link>https://example.com/2020/05/kubeadm-init-node-not-found/</link>
-      <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/kubeadm-init-node-not-found/</guid>
-      <description>新坑哦～ 花了5天都没有解决的新坑哦～ 特别炫酷的功能把服务器终端变好看一点： # 设置环境变量, 命令行看着舒服点 export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot; # vim 显示行号 cat &amp;lt;&amp;lt;EOF &amp;gt; ~/.vimrc set nu EOF</description>
-    </item>
-    
-    <item>
-      <title>Hugo添加代码高亮</title>
-      <link>https://example.com/2020/05/hugo-code-highlight/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/hugo-code-highlight/</guid>
-      <description>方法：用hightlight.js做高亮。 针对不同的Hugo主题，应该有不同的思路。但是基本思路还是： head里添加css body中添加两个</description>
-    </item>
     
     <item>
       <title>Metric to Graph思路及实践</title>
-      <link>https://example.com/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
+      <link>/posts/metrics/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
       
-      <guid>https://example.com/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
-      <description>整体思路 01 查看Prom的metric： 写好PromQL获得自己想要的metric，这时候只是文本的形式。而且又臭又长。 &amp;quot;metric&amp;quot;: { &amp;quot;__name__&amp;quot;: &amp;quot;istio_requests_total&amp;quot;, &amp;quot;connection_security_policy&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;destination_app&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_canonical_revision&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_canonical_service&amp;quot;:</description>
-    </item>
-    
-    <item>
-      <title>jq in terminal for json</title>
-      <link>https://example.com/2020/05/jq-in-terminal-for-json/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/jq-in-terminal-for-json/</guid>
-      <description>Prom返回的json格式没有reindent，看起来很费眼睛。 {&amp;quot;metric&amp;quot;:{&amp;quot;__name__&amp;quot;:&amp;quot;istio_requests_total&amp;quot;,&amp;quot;destination_app&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;destination_service&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;value&amp;quot;:[1588929523.247,&amp;quot;10523&amp;quot;]}]}} 在命令行，想让其用缩进好的json展示出来，就要用到jq。 curl http://test.json | jq 只需要在</description>
+      <guid>/posts/metrics/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
+      <description>整体思路 01 查看Prom的metric： 写好PromQL获得自己想要的metric，这时候只是文本的形式。而且又臭又长。
+&amp;quot;metric&amp;quot;: { &amp;quot;__name__&amp;quot;: &amp;quot;istio_requests_total&amp;quot;, &amp;quot;connection_security_policy&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;destination_app&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_canonical_revision&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_canonical_service&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_principal&amp;quot;: &amp;quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&amp;quot;, &amp;quot;destination_service&amp;quot;: &amp;quot;productpage.default.svc.cluster.local&amp;quot;, &amp;quot;destination_service_name&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_service_namespace&amp;quot;: &amp;quot;default&amp;quot;, &amp;quot;destination_version&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_workload&amp;quot;: &amp;quot;productpage-v1&amp;quot;, &amp;quot;destination_workload_namespace&amp;quot;: &amp;quot;default&amp;quot;, &amp;quot;instance&amp;quot;: &amp;quot;10.244.0.61:15090&amp;quot;, &amp;quot;job&amp;quot;: &amp;quot;envoy-stats&amp;quot;, &amp;quot;namespace&amp;quot;: &amp;quot;istio-system&amp;quot;, &amp;quot;pod_name&amp;quot;: &amp;quot;istio-ingressgateway-6489d9556d-ws6cg&amp;quot;, &amp;quot;reporter&amp;quot;: &amp;quot;source&amp;quot;, &amp;quot;request_protocol&amp;quot;: &amp;quot;http&amp;quot;, &amp;quot;response_code&amp;quot;: &amp;quot;200&amp;quot;, &amp;quot;response_flags&amp;quot;: &amp;quot;-&amp;quot;, &amp;quot;source_app&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_canonical_revision&amp;quot;: &amp;quot;1.5&amp;quot;, &amp;quot;source_canonical_service&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_principal&amp;quot;: &amp;quot;spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account&amp;quot;, &amp;quot;source_version&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;source_workload&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_workload_namespace&amp;quot;: &amp;quot;istio-system&amp;quot; }, &amp;quot;value&amp;quot;: [ 1588918429.726, &amp;quot;5148&amp;quot; ] }  02 提取metric 用代码或者在浏览器中用Prom提供的HTTP API访问提取metrics。请不要用curl，这个坑在另一个博客里已经提到了。</description>
     </item>
     
     <item>
       <title>PromQL query in http API</title>
-      <link>https://example.com/2020/05/promql-query-in-http-api/</link>
+      <link>/posts/metrics/promql-query-in-http-api/</link>
       <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://example.com/2020/05/promql-query-in-http-api/</guid>
-      <description>Prom官网给出http API例如获取2015年7月1号某天的数据这样写：（我获得了istio_requests_total的所有metri</description>
+      <guid>/posts/metrics/promql-query-in-http-api/</guid>
+      <description>Prom官网给出http API例如获取2015年7月1号某天的数据这样写：（我获得了istio_requests_total的所有metric）
+curl &#39;http://localhost:9090/api/v1/query?query=istio_requests_total&amp;amp;time=2015-07-01T20:10:51.781Z&#39;  我想用PromQL，类似Prom的UI针对repose_code对query进行过滤
+query?istio_requsets_total{response_code=200}  按照普通的思路我试着这样修改curl地址如下：
+curl &#39;http://localhost:9090/api/v1/query?query=istio_requsets_total{response_code=200}&amp;amp;time=2020-05-07T20:10:51.781Z&#39;  失败。花了很长时间找资料，找不到。
+最后用浏览器试一下，在http://localhost:9090/api/v1/query?query=之后把PromQL直接粘贴在后面就可以访问到。浏览器这边帮忙做了处理，最后的地址形式是这样的；
+http://121.37.159.247:30040/api/v1/query?query=istio_requests_total{response_code=%22200%22}  把引号&amp;quot;处理成了%22。
+参考 https://prometheus.io/docs/prometheus/latest/querying/api/ （官方http API用法）</description>
     </item>
     
     <item>
       <title>PromQL理解</title>
-      <link>https://example.com/2020/05/promql%E7%90%86%E8%A7%A3/</link>
+      <link>/posts/metrics/promql%E7%90%86%E8%A7%A3/</link>
       <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://example.com/2020/05/promql%E7%90%86%E8%A7%A3/</guid>
-      <description>期待数据 10min内的请求数（sum） istio_requests_total{destination_service_name=&amp;quot;productpage&amp;quot;} 10min内的请求数增长率（rate） rate(istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;}[10m]) 10min内的响应时间P90（quantile） histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&amp;quot;productpage&amp;quot;}[10m])) by(le)) 10m</description>
+      <guid>/posts/metrics/promql%E7%90%86%E8%A7%A3/</guid>
+      <description>期待数据 10min内的请求数（sum）
+istio_requests_total{destination_service_name=&amp;quot;productpage&amp;quot;}  10min内的请求数增长率（rate）
+rate(istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;}[10m])  10min内的响应时间P90（quantile）
+histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&amp;quot;productpage&amp;quot;}[10m])) by(le))  10min内的响应时间增长率（rate）
+rate(istio_request_duration_milliseconds_bucket{destination_app=&amp;quot;productpage&amp;quot;}[10m])  参考 https://www.zhihu.com/question/380615839 （Prom时区UTC没法改）</description>
     </item>
     
     <item>
       <title>Meta Metrics</title>
-      <link>https://example.com/2020/05/meta-metrics/</link>
+      <link>/posts/metrics/meta-metrics/</link>
       <pubDate>Thu, 07 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://example.com/2020/05/meta-metrics/</guid>
-      <description>siege一分钟压测最后给出的统计数据： Lifting the server siege... Transactions: 439 hits Availability: 51.83 % Elapsed time: 59.33 secs Data transferred: 8.47 MB Response time: 9.88 secs Transaction rate: 7.40 trans/sec Throughput: 0.14 MB/sec Concurrency: 73.10 Successful transactions: 439 Failed transactions: 408 Longest transaction: 56.69 Shortest transaction: 0.13 istio Envoy的</description>
-    </item>
-    
-    <item>
-      <title>istio envoy log type</title>
-      <link>https://example.com/2020/05/istio-envoy-log-type/</link>
-      <pubDate>Wed, 06 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/istio-envoy-log-type/</guid>
-      <description>基本数据这样 【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/fl</description>
-    </item>
-    
-    <item>
-      <title>scss tutorial</title>
-      <link>https://example.com/2020/05/scss-tutorial/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/scss-tutorial/</guid>
-      <description>SCSS：Sassy CSS SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。 我咋还在scss的环境上踩到坑了呢？ 先是给我报错 bad interpreter:</description>
-    </item>
-    
-    <item>
-      <title>k8s HPA尝试</title>
-      <link>https://example.com/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
-      <description>先提一个题外话：如何销毁已经创建的部署？答： 有kubectl create -f ./metrics-server就有kubectl delete -f ./metrics-server 按照主要参考，大部分</description>
+      <guid>/posts/metrics/meta-metrics/</guid>
+      <description>siege一分钟压测最后给出的统计数据：
+Lifting the server siege... Transactions:	439 hits Availability:	51.83 % Elapsed time:	59.33 secs Data transferred:	8.47 MB Response time:	9.88 secs Transaction rate:	7.40 trans/sec Throughput:	0.14 MB/sec Concurrency:	73.10 Successful transactions: 439 Failed transactions:	408 Longest transaction:	56.69 Shortest transaction:	0.13  istio Envoy的access log：
+【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/flasgger_static/swagger-ui-bundle.js 【PROTOCOL】HTTP/1.1&amp;quot; 【REPONSE CODE】200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 1048149 261 225 【FORWARD_FOR】&amp;quot;-&amp;quot; 【AGENT】&amp;quot;Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.5&amp;quot; 【REQUEST_ID】&amp;quot;51b45953-9ede-9390-b8b5-162247165a5b&amp;quot; 【AUTHORITY】&amp;quot;10.108.208.232:8000&amp;quot; 【HOST】&amp;quot;127.0.0.1:80&amp;quot; 【SERVICE】inbound|8000|http|httpbin.default.svc.cluster.local 【CLUSTER_IP】127.</description>
     </item>
     
     <item>
       <title>Prometheus Metric形式</title>
-      <link>https://example.com/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</link>
+      <link>/posts/metrics/prom-metric%E5%BD%A2%E5%BC%8F/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://example.com/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</guid>
-      <description>Prom的四种基本metric类型 counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、me</description>
-    </item>
-    
-    <item>
-      <title>About ZIK</title>
-      <link>https://example.com/about/</link>
-      <pubDate>Fri, 01 May 2020 14:19:05 +0800</pubDate>
-      
-      <guid>https://example.com/about/</guid>
-      <description>不知道自己在干嘛 豆瓣TOP250 骑行进藏 戴牙套 想学的内容 hugo go css /scss</description>
-    </item>
-    
-    <item>
-      <title>K8s &#43; Istio 概念</title>
-      <link>https://example.com/2020/04/k8s-istio-%E6%A6%82%E5%BF%B5/</link>
-      <pubDate>Thu, 30 Apr 2020 10:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/k8s-istio-%E6%A6%82%E5%BF%B5/</guid>
-      <description>环境都搭好了，不知道里面的原理那可不行。 我也不会系统写，想到哪里就写到哪里吧。 istio是如何做到无侵入就能控制流量转发？ Sidecar还有</description>
+      <guid>/posts/metrics/prom-metric%E5%BD%A2%E5%BC%8F/</guid>
+      <description>Prom的四种基本metric类型  counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、mem histogram：统计数据，比如P90 summary：和histogram类似  几个示例 P90  The φ-quantile is the observation value that ranks at number φ*N among the N observations. Examples for φ-quantiles: The 0.5-quantile is known as the median. The 0.95-quantile is the 95th percentile.
+ 分位点的概念。官方示例：10分钟内请求持续时间的90%，以PromQL的形式给出：
+histogram_quantile(0.9, rate(http_request_duration_seconds_bucket[10m]))  以下数据是通过 curl http://121.37.159.247:30040/metrics 获取的，截取部分。
+# HELP prometheus_tsdb_wal_fsync_duration_seconds Duration of WAL fsync. # TYPE prometheus_tsdb_wal_fsync_duration_seconds summary prometheus_tsdb_wal_fsync_duration_seconds{quantile=&amp;quot;0.5&amp;quot;} 0.012352463 prometheus_tsdb_wal_fsync_duration_seconds{quantile=&amp;quot;0.9&amp;quot;} 0.014458005 prometheus_tsdb_wal_fsync_duration_seconds{quantile=&amp;quot;0.99&amp;quot;} 0.017316173 prometheus_tsdb_wal_fsync_duration_seconds_sum 2.888716127000002 prometheus_tsdb_wal_fsync_duration_seconds_count 216  “从上面的样本中可以得知当前Prometheus Server进行wal_fsync操作的总次数为216次，耗时2.</description>
     </item>
     
     <item>
       <title>Istio 可视化插件概览</title>
-      <link>https://example.com/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
+      <link>/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
       <pubDate>Thu, 30 Apr 2020 10:35:07 +0800</pubDate>
       
-      <guid>https://example.com/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
-      <description>Prometheus 基本的metrics监测插件。 通过query查询不同的信息，例如以下信息就是istio_requests_total这条query查询到的</description>
-    </item>
-    
-    <item>
-      <title>Istio 安装回顾</title>
-      <link>https://example.com/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</link>
-      <pubDate>Wed, 29 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
-      <description>如果是Microk8s安装，很简单就一步： microk8s.enable istio 好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。</description>
-    </item>
-    
-    <item>
-      <title>Kubeadm 安装记录</title>
-      <link>https://example.com/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
-      <pubDate>Tue, 28 Apr 2020 16:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
-      <description>装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。 安装K8s有这几种方法 minikube mircok8s kubeadm 这三种方法我都用过。minikube在win</description>
-    </item>
-    
-    <item>
-      <title>Kubectl client 和 server version 差距错误</title>
-      <link>https://example.com/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
-      <pubDate>Tue, 28 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
-      <description>每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说 遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。 说得真好。</description>
-    </item>
-    
-    <item>
-      <title>IFE task0002_5 回顾</title>
-      <link>https://example.com/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</link>
-      <pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid>
-      <description>做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基</description>
-    </item>
-    
-    <item>
-      <title>Bayesian Optimization 直观理解</title>
-      <link>https://example.com/2020/04/bayesian-optimization/</link>
-      <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/bayesian-optimization/</guid>
-      <description>目标 最小(大)化一个没有具体表达式的函数。 举个例子 给定一个函数 $$ f(x,y) = -x^2 - (y-1)^2 +1 $$ BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。 吐槽一下 中文的科普</description>
+      <guid>/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
+      <description>Prometheus 基本的metrics监测插件。
+通过query查询不同的信息，例如以下信息就是istio_requests_total这条query查询到的n条数据中的一条。（不全，删除了部分我不关注的信息）
+istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;,destination_principal=&amp;quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&amp;quot;,destination_service=&amp;quot;productpage.default.svc.cluster.local&amp;quot;,destination_service_name=&amp;quot;productpage&amp;quot;,destination_service_namespace=&amp;quot;default&amp;quot;,destination_version=&amp;quot;v1&amp;quot;,destination_workload=&amp;quot;productpage-v1&amp;quot;,instance=&amp;quot;10.244.0.24:15090&amp;quot;,job=&amp;quot;envoy-stats&amp;quot;,namespace=&amp;quot;istio-system&amp;quot;,pod_name=&amp;quot;istio-ingressgateway-6489d9556d-bc48z&amp;quot;,response_code=&amp;quot;503&amp;quot;,source_workload=&amp;quot;istio-ingressgateway&amp;quot;,source_workload_namespace=&amp;quot;istio-system&amp;quot;}  Grafana Metrics可视化插件。
+Request Volume代表什么？
+Request Duration中的P50、P90分别代表什么？
+Jaegar 主要显示调用了哪些微服务，调用顺序是什么样的，响应时间是多少。
+Kiali 链路追踪可视化插件。可以看出有几个微服务，调用关系是什么样的。
+里面也有P50、P90。说明这个很关键啊。
+P90=100ms，就是说90%的请求其响应时间在100ms以内，剩余10%的响应时间大于100ms。
+Siege 压测工具。来看看压测结果
+$ siege -d 10 -c 200 -t 2 http://121.37.159.247:32753/productpage Lifting the server siege... Transactions:	519 hits Availability:	99.24 % Elapsed time:	119.34 secs Data transferred:	20.14 MB Response time:	9.01 secs Transaction rate:	4.35 trans/sec Throughput:	0.17 MB/sec Concurrency:	39.17 Successful transactions: 519 Failed transactions:	4 Longest transaction:	110.01 Shortest transaction:	0.</description>
     </item>
     
   </channel>

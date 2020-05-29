@@ -1,193 +1,50 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>css on Pure theme for Hugo</title>
-    <link>https://example.com/categories/css/</link>
-    <description>Recent content in css on Pure theme for Hugo</description>
+    <title>css on This is a title</title>
+    <link>/categories/css/</link>
+    <description>Recent content in css on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 01 Mar 2020 17:39:45 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 05 May 2020 00:00:00 +0800</lastBuildDate>
     
-        <atom:link href="https://example.com/categories/css/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/css/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>hugo tutorial</title>
-      <link>https://example.com/2020/05/hugo-tutorial/</link>
-      <pubDate>Sun, 17 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/hugo-tutorial/</guid>
-      <description>hugo new theme zik-theme 可以创建一个新的主题。自己的主题就是从这里开始。来看看初始的theme目录长什么样吧。 ├── LICENSE ├── archetypes │ └── default.md ├── layouts │ ├── 404.html │</description>
-    </item>
-    
-    <item>
-      <title>Kubeadm init node not found</title>
-      <link>https://example.com/2020/05/kubeadm-init-node-not-found/</link>
-      <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/kubeadm-init-node-not-found/</guid>
-      <description>新坑哦～ 花了5天都没有解决的新坑哦～ 特别炫酷的功能把服务器终端变好看一点： # 设置环境变量, 命令行看着舒服点 export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot; # vim 显示行号 cat &amp;lt;&amp;lt;EOF &amp;gt; ~/.vimrc set nu EOF</description>
-    </item>
-    
-    <item>
-      <title>Hugo添加代码高亮</title>
-      <link>https://example.com/2020/05/hugo-code-highlight/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/hugo-code-highlight/</guid>
-      <description>方法：用hightlight.js做高亮。 针对不同的Hugo主题，应该有不同的思路。但是基本思路还是： head里添加css body中添加两个</description>
-    </item>
-    
-    <item>
-      <title>Metric to Graph思路及实践</title>
-      <link>https://example.com/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
-      <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
-      <description>整体思路 01 查看Prom的metric： 写好PromQL获得自己想要的metric，这时候只是文本的形式。而且又臭又长。 &amp;quot;metric&amp;quot;: { &amp;quot;__name__&amp;quot;: &amp;quot;istio_requests_total&amp;quot;, &amp;quot;connection_security_policy&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;destination_app&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_canonical_revision&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_canonical_service&amp;quot;:</description>
-    </item>
-    
-    <item>
-      <title>jq in terminal for json</title>
-      <link>https://example.com/2020/05/jq-in-terminal-for-json/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/jq-in-terminal-for-json/</guid>
-      <description>Prom返回的json格式没有reindent，看起来很费眼睛。 {&amp;quot;metric&amp;quot;:{&amp;quot;__name__&amp;quot;:&amp;quot;istio_requests_total&amp;quot;,&amp;quot;destination_app&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;destination_service&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;value&amp;quot;:[1588929523.247,&amp;quot;10523&amp;quot;]}]}} 在命令行，想让其用缩进好的json展示出来，就要用到jq。 curl http://test.json | jq 只需要在</description>
-    </item>
-    
-    <item>
-      <title>PromQL query in http API</title>
-      <link>https://example.com/2020/05/promql-query-in-http-api/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/promql-query-in-http-api/</guid>
-      <description>Prom官网给出http API例如获取2015年7月1号某天的数据这样写：（我获得了istio_requests_total的所有metri</description>
-    </item>
-    
-    <item>
-      <title>PromQL理解</title>
-      <link>https://example.com/2020/05/promql%E7%90%86%E8%A7%A3/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/promql%E7%90%86%E8%A7%A3/</guid>
-      <description>期待数据 10min内的请求数（sum） istio_requests_total{destination_service_name=&amp;quot;productpage&amp;quot;} 10min内的请求数增长率（rate） rate(istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;}[10m]) 10min内的响应时间P90（quantile） histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&amp;quot;productpage&amp;quot;}[10m])) by(le)) 10m</description>
-    </item>
-    
-    <item>
-      <title>Meta Metrics</title>
-      <link>https://example.com/2020/05/meta-metrics/</link>
-      <pubDate>Thu, 07 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/meta-metrics/</guid>
-      <description>siege一分钟压测最后给出的统计数据： Lifting the server siege... Transactions: 439 hits Availability: 51.83 % Elapsed time: 59.33 secs Data transferred: 8.47 MB Response time: 9.88 secs Transaction rate: 7.40 trans/sec Throughput: 0.14 MB/sec Concurrency: 73.10 Successful transactions: 439 Failed transactions: 408 Longest transaction: 56.69 Shortest transaction: 0.13 istio Envoy的</description>
-    </item>
-    
-    <item>
-      <title>istio envoy log type</title>
-      <link>https://example.com/2020/05/istio-envoy-log-type/</link>
-      <pubDate>Wed, 06 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/istio-envoy-log-type/</guid>
-      <description>基本数据这样 【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/fl</description>
-    </item>
     
     <item>
       <title>scss tutorial</title>
-      <link>https://example.com/2020/05/scss-tutorial/</link>
+      <link>/posts/static-web/scss-tutorial/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://example.com/2020/05/scss-tutorial/</guid>
-      <description>SCSS：Sassy CSS SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。 我咋还在scss的环境上踩到坑了呢？ 先是给我报错 bad interpreter:</description>
+      <guid>/posts/static-web/scss-tutorial/</guid>
+      <description>SCSS：Sassy CSS
+SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。
+我咋还在scss的环境上踩到坑了呢？
+先是给我报错
+bad interpreter: /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby: no such file or directory  一查是sass环境没装上……我以为mac自带ruby不用管呢
+sudo gem install -n /usr/local/bin sass --pre  安装之。然后发现ruby的源用不了，原来是 https://gems.ruby-china.org 改成了 https://gems.ruby-china.com ，害。
+编译css的项目目录也需要更改，默认是编译到scss相同的目录。
+{ &amp;quot;cmd&amp;quot;: [ &amp;quot;sass&amp;quot;, &amp;quot;--update&amp;quot;, &amp;quot;$file:${file_path}/../css/${file_base_name}.css&amp;quot;, &amp;quot;--stop-on-error&amp;quot;, &amp;quot;--no-cache&amp;quot;], &amp;quot;osx&amp;quot;: { &amp;quot;path&amp;quot;: &amp;quot;/usr/local/bin:$PATH&amp;quot; } }  最后sublime再装一个插件&amp;rdquo;sublimeBuildOnSave&amp;rdquo;自动编译sass，不要每次都cmd+B一下。
+参考 https://www.jianshu.com/p/f8cbe91498dc （ruby china换源了）
+https://www.sass.hk/install/ （ruby 安装sass）
+https://blog.logrocket.com/getting-started-with-bootstrapvue-2d8bf907ef11/ （bootVue blog）
+https://bootstrap-vue.org/docs （bootVue官网）</description>
     </item>
     
     <item>
-      <title>k8s HPA尝试</title>
-      <link>https://example.com/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
+      <title>IFE Task0001 Log</title>
+      <link>/posts/static-web/ife-task0001-log/</link>
+      <pubDate>Sun, 01 Mar 2020 17:39:45 +0800</pubDate>
       
-      <guid>https://example.com/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
-      <description>先提一个题外话：如何销毁已经创建的部署？答： 有kubectl create -f ./metrics-server就有kubectl delete -f ./metrics-server 按照主要参考，大部分</description>
-    </item>
-    
-    <item>
-      <title>Prometheus Metric形式</title>
-      <link>https://example.com/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</link>
-      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</guid>
-      <description>Prom的四种基本metric类型 counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、me</description>
-    </item>
-    
-    <item>
-      <title>About ZIK</title>
-      <link>https://example.com/about/</link>
-      <pubDate>Fri, 01 May 2020 14:19:05 +0800</pubDate>
-      
-      <guid>https://example.com/about/</guid>
-      <description>不知道自己在干嘛 豆瓣TOP250 骑行进藏 戴牙套 想学的内容 hugo go css /scss</description>
-    </item>
-    
-    <item>
-      <title>K8s &#43; Istio 概念</title>
-      <link>https://example.com/2020/04/k8s-istio-%E6%A6%82%E5%BF%B5/</link>
-      <pubDate>Thu, 30 Apr 2020 10:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/k8s-istio-%E6%A6%82%E5%BF%B5/</guid>
-      <description>环境都搭好了，不知道里面的原理那可不行。 我也不会系统写，想到哪里就写到哪里吧。 istio是如何做到无侵入就能控制流量转发？ Sidecar还有</description>
-    </item>
-    
-    <item>
-      <title>Istio 可视化插件概览</title>
-      <link>https://example.com/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
-      <pubDate>Thu, 30 Apr 2020 10:35:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
-      <description>Prometheus 基本的metrics监测插件。 通过query查询不同的信息，例如以下信息就是istio_requests_total这条query查询到的</description>
-    </item>
-    
-    <item>
-      <title>Istio 安装回顾</title>
-      <link>https://example.com/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</link>
-      <pubDate>Wed, 29 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
-      <description>如果是Microk8s安装，很简单就一步： microk8s.enable istio 好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。</description>
-    </item>
-    
-    <item>
-      <title>Kubeadm 安装记录</title>
-      <link>https://example.com/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
-      <pubDate>Tue, 28 Apr 2020 16:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
-      <description>装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。 安装K8s有这几种方法 minikube mircok8s kubeadm 这三种方法我都用过。minikube在win</description>
-    </item>
-    
-    <item>
-      <title>Kubectl client 和 server version 差距错误</title>
-      <link>https://example.com/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
-      <pubDate>Tue, 28 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
-      <description>每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说 遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。 说得真好。</description>
-    </item>
-    
-    <item>
-      <title>IFE task0002_5 回顾</title>
-      <link>https://example.com/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</link>
-      <pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid>
-      <description>做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基</description>
-    </item>
-    
-    <item>
-      <title>Bayesian Optimization 直观理解</title>
-      <link>https://example.com/2020/04/bayesian-optimization/</link>
-      <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/bayesian-optimization/</guid>
-      <description>目标 最小(大)化一个没有具体表达式的函数。 举个例子 给定一个函数 $$ f(x,y) = -x^2 - (y-1)^2 +1 $$ BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。 吐槽一下 中文的科普</description>
+      <guid>/posts/static-web/ife-task0001-log/</guid>
+      <description>我记录一下ife其他几个页面。一共这么几个页面
+ index.html post.html archive.html about.html  如果自己写的话，除了index.html，其他几个页面都有或多多少的问题我写不出来。 一个一个说吧。
+Index.html  banner有三个部分，一个是logo，一个是站内其他链接，最后一个是git的logo。这三个部分要显示在水平的一行，这里其实是运用到了float，只要把三个部分都设置为float，就可以变成一行了。感觉有点像把div改成了块内元素一样，也就是变成了span。 一般banner的链接都是用list改成水平，改成水平的方法有两个，一个是float，另一个是display inline-block 我想让这三部分，随着页面的改变，位置不要定死，原来margin-left之类的也可以用百分比来表示，就很舒服了。 center是一个大的bg，bg上面有一个透明度的方形显示文字，放bg的时候遇到了以前就遇到的问题，比如默认是重复的，而且不能充满div。这两个问题代码很好解决。 至于透明度的方形，彻底让我对position这个元素有了一定的理解。absolute、fixed、relative分别代表什么。 box部分是三个卡片，卡片里有图片和文字。三个卡片并列其实也挺好写，好像用inline-block就可以实现，水平垂直居中什么的也都是现成的，不过写好了之后再看要求里面有一个是卡片的高度随文字内容自适应。 遂百度之，发现用display table可以解决这个问题，但是table是占满整个div的，不过也好解决，用一大一小div就解决了。 圆形的头像，这个做起来也好简单啊，图片的radius改一下就可以了。 intro部分其实不用display来写，比较常规。如果需要居中之类的工作，用display明显是要方便很多的。 最后一点，如果用flex来布局，flex里面的每个元素的宽度都是以最宽的那个为标准。这时候想要居中的话可以考虑用text-align center解决。这是最后那个小logo的居中问题。  Post.html 在开始写post.html之前我在GitHub上down了几个其他人的ife作业，然后发现我这个代码真的是稀烂…最基本的有这么几个问题：
+ 文件的结构，ife里强调了，但是我没有遵守。 div的命名方式。navbar，navbar-menu、profile之类的 class和id的区别 nav和footer是html的元素，可以不用div写 html的基本框架应该是navbar、banner、content、footer  然后我找到了一个极佳的对比例子。就是DIYgod，当我看到他就是RSSHub的发起者的时候，我懵逼了。他也就大我三届而已，而且还是武理的，我简直太菜了。。酸归酸，看DIYgod大神的前端页面。能学到很多东西：
+ html的其他默认元素：header、section、article、nav的使用 日历写起来其实就是一个table view tag-graph就更简单了，字体设几个不同的大小就可以 一个简单的单词，换一个字体就能变成logo一般的存在  然后记录一下写 blog.html的时候遇到的坑
+ blog应该是一个简单的双列布局。双列布局的形式有哪些来着？我是用百分比的形式来布局的。要求用980px，我不太喜欢 table设置了宽高之后，cell变大，那么cell里面字的间距自然就大了 有时候会遇到给div里面子元素加padding之后，div的宽度哪怕设好了，还是会超出来。这个时候要设置一下box-sizing=border-content a写在div外面，就把整个div变成了链接。 我现在使用自适应的方法太简陋了，@media (maxwidth=980) {.div { display=none} }  Archive.html 这个页面我被卡住了。本来一个瀑布流我可以百度，用flex或者用column来解决，但是ife的作业的瀑布流里偏偏有一个比较大的块，是一个这样的结构
+[ + ][ ][ ]
+[ ][ ][ ][ ]
+[ ][ ][ ][ ]</description>
     </item>
     
   </channel>

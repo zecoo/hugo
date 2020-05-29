@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      &lt;!-- Blocks may include default content. -->
+      This is a title
+    </title>
+  </head>
+  <body>
+    
+    
+<section id="main">
+  <h1 id="title">hugo上传博客脚本</h1>
+  <div>
+        <article id="content">
+           
+
+<p>我很傻的，每次更新博客之后都要手动输入</p>
+
+<pre><code class="language-shell">hugo -D
+git add .
+git commit -m &quot;xxx&quot;
+git push origin master
+</code></pre>
+
+<p>又不想下载git客户端一键push，写个脚本咯</p>
+
+<pre><code class="language-bash">#!/bin/bash
+hugo -D
+git add .
+echo &quot;input commit info:&quot;
+read -t 5 commit_info
+commit_info=${commit_info:-&quot;update blog&quot;}
+git commit -m &quot;$commit_info&quot;
+git push origin master
+</code></pre>
+
+<p>read提供一个默认值“update blog”，这样既可以修改commit info，5s后忘记输入的话也不用担心。</p>
+
+<p>记得最后把sh文件权限给足：<code>chmod 777 update.sh</code></p>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="https://www.cnblogs.com/lottu/p/3962921.html">https://www.cnblogs.com/lottu/p/3962921.html</a> （shell接收键盘输入）</p>
+
+<p><a href="https://blog.csdn.net/u010339879/article/details/77938911">https://blog.csdn.net/u010339879/article/details/77938911</a> （read添加默认值）</p>
+
+        </article>
+  </div>
+</section>
+<aside id="meta">
+    <div>
+    <section>
+      <h4 id="date"> Mon May 18, 2020 </h4>
+      <h5 id="wordcount"> 50 Words </h5>
+    </section>
+    
+    
+    <ul id="tags">
+      
+        <li> <a href="tagshugo">hugo</a> </li>
+      
+        <li> <a href="tagsbash">bash</a> </li>
+      
+    </ul>
+    
+    </div>
+    <div>
+        
+          <a class="previous" href="/posts/hugo-tutorial/"> hugo tutorial</a>
+        
+        
+          <a class="next" href="/posts/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/"> vps搭建图床</a>
+        
+    </div>
+</aside>
+
+    
+    
+    
+  </body>
+</html>

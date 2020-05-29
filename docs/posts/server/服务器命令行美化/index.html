@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        服务器命令行美化 
+      
+    </title>
+  </head>
+  <body>
+    
+    
+<title>服务器命令行美化 | This is a title</title>
+<aside id="meta">
+    <div>
+    <section>
+      <p id="date"> Mon May 18, 2020 </p>
+      <p id="wordcount"> 55 Words </p>
+    </section>
+    
+    
+    <ul id="tags">
+      
+        <li> <a href="tagsserver">server</a> </li>
+      
+    </ul>
+    
+    </div>
+</aside>
+<section id="main">
+  <h1 id="title">服务器命令行美化</h1>
+  <div>
+        <article id="content">
+           
+
+<pre><code class="language-shell">export PS1=&quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &quot;
+</code></pre>
+
+<p>但是有个问题，输了命令命令行前缀是变好看了，但是一旦退出就没有效果了。要把这个设置写进文件里才行。具体是<code>$HOME/.bashrc</code>这个文件，这样就OK啦。</p>
+
+<pre><code class="language-shell"># .bashrc
+# User specific aliases and functions
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+export PS1=&quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &quot;
+</code></pre>
+
+<p>vim也可以美化一下</p>
+
+<pre><code class="language-shell"># vim 显示行号
+cat &lt;&lt;EOF &gt; ~/.vimrc
+set nu
+EOF
+</code></pre>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="https://learnku.com/articles/29209">https://learnku.com/articles/29209</a> （ssh炫酷UI）</p>
+
+<p><a href="https://blog.csdn.net/yelangjueqi/article/details/45556657">https://blog.csdn.net/yelangjueqi/article/details/45556657</a> （修改.bashrc文件）</p>
+
+        </article>
+  </div>
+</section>
+
+    
+    
+    
+  </body>
+</html>

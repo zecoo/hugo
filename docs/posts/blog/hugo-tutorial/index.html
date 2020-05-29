@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        hugo tutorial 
+      
+    </title>
+  </head>
+  <body>
+    
+    
+<title>hugo tutorial | This is a title</title>
+<aside id="meta">
+    <div>
+    <section>
+      <p id="date"> Sun May 17, 2020 </p>
+      <p id="wordcount"> 98 Words </p>
+    </section>
+    
+    
+    <ul id="tags">
+      
+        <li> <a href="tagshugo">hugo</a> </li>
+      
+    </ul>
+    
+    </div>
+</aside>
+<section id="main">
+  <h1 id="title">hugo tutorial</h1>
+  <div>
+        <article id="content">
+           <pre><code class="language-shell">hugo new theme zik-theme
+</code></pre>
+
+<p>可以创建一个新的主题。自己的主题就是从这里开始。</p>
+
+<p>然后看看hugo官网对这些baseof.html、index.html里面语法的介绍吧</p>
+
+<p>Variable和Function都是用两个大括号括起来<code>{{ }}</code></p>
+
+<pre><code class="language-html">{{ partial &quot;header.html&quot; . }}
+</code></pre>
+
+<p>这会添加<code>layouts/partials/header.html</code> 这个文件到目标文件。</p>
+
+<p>访问预定义的变量（感觉就是config.yaml文件里定义的变量）用dot，访问和定义普通变量用$</p>
+
+<pre><code class="language-html">&lt;title&gt;{{ .Title }}&lt;/title&gt;
+{{ $address := &quot;123 Main St.&quot; }}
+{{ $address }}
+</code></pre>
+
+<p>if-else，记住最后要有一个end</p>
+
+<pre><code class="language-html">{{ if (isset .Params &quot;description&quot;) }}
+    {{ index .Params &quot;description&quot; }}
+{{ else }}
+    {{ .Summary }}
+{{ end }}
+</code></pre>
+
+<p>布局上需要注意的：<code>&lt;div&gt;   {{ .Title }} &lt;/div&gt;</code>会输出：</p>
+
+<pre><code>&lt;div&gt;
+  Hello, World!
+&lt;/div&gt;
+</code></pre>
+
+<p>而<code>&lt;div&gt;   {{- .Title -}} &lt;/div&gt;</code>会输出：</p>
+
+<pre><code>&lt;div&gt;Hello, World!&lt;/div&gt;
+</code></pre>
+
+<p>HTML 注释</p>
+
+<pre><code class="language-html">{{ printf &quot;&lt;!-- Our website is named: %s --&gt;&quot; .Site.Title | safeHTML }}
+</code></pre>
+
+<p>文件目录都是做什么的？</p>
+
+<pre><code class="language-shell">├── _default
+│   ├── baseof.html
+│   ├── list.html
+│   └── single.html
+└── index.html
+</code></pre>
+
+<ul>
+<li>baseof.html是在single.html和index.html都没有的时候发挥作用。作为post和首页的模板。</li>
+<li>list.html是post中的所有md的list</li>
+<li>single.html是post里面的单一页面。也就是我在post里面的md都会根据baseof.html改成html页面</li>
+</ul>
+
+        </article>
+  </div>
+</section>
+
+    
+    
+    
+  </body>
+</html>

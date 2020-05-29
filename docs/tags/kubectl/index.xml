@@ -1,193 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kubectl on Pure theme for Hugo</title>
-    <link>https://zecoo.github.io/hugo/tags/kubectl/</link>
-    <description>Recent content in kubectl on Pure theme for Hugo</description>
+    <title>kubectl on This is a title</title>
+    <link>/tags/kubectl/</link>
+    <description>Recent content in kubectl on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 28 Apr 2020 11:37:07 +0800</lastBuildDate>
     
-        <atom:link href="https://zecoo.github.io/hugo/tags/kubectl/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/kubectl/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Cool Sites</title>
-      <link>https://zecoo.github.io/hugo/2020/05/cool-sites/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
+      <title>Kubectl client 和 server version 差距错误</title>
+      <link>/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
+      <pubDate>Tue, 28 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/2020/05/cool-sites/</guid>
-      <description>个人站点 DIYgod前端大神 设计师+工程师 花生A自制挺有意思的站点 搞数学的人是真的帅 关于群晖做个人站点 四火真实的程序员hh 从restful的</description>
-    </item>
-    
-    <item>
-      <title>Istio sites</title>
-      <link>https://zecoo.github.io/hugo/2020/05/istio-sites/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/istio-sites/</guid>
-      <description> productpage Prometheus Grafana Jaeger Kiali (admin,admin)  </description>
-    </item>
-    
-    <item>
-      <title>Start LeetCode</title>
-      <link>https://zecoo.github.io/hugo/2020/05/start-leetcode/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/start-leetcode/</guid>
-      <description>仅做个人记录，解题思路请看其他大佬的。 参考 https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/suan-fa-xue-xi-zhi-lu （如何学算法） https://leetcode.com/explore/learn/card/fun-with-arrays/ （leetcode官网）</description>
-    </item>
-    
-    <item>
-      <title>Service Dependecy Graph Building</title>
-      <link>https://zecoo.github.io/hugo/2020/05/service-dependecy-graph-building/</link>
-      <pubDate>Tue, 26 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/service-dependecy-graph-building/</guid>
-      <description>kiali是trace的一个可视化工具，那么我怎么才能拿到trace的原始数据呢？ istio的数据也都是prom给的，prom的metric</description>
-    </item>
-    
-    <item>
-      <title>Scenario Driven MS Decomposition</title>
-      <link>https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/</link>
-      <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/</guid>
-      <description>场景驱动、自底向上的单体系统微服务拆分方法 评价 核心思想：把数据表之间紧密联系的聚在一起，作为拆分微服务的准则。 实际上是关于数据表的划分，微服</description>
-    </item>
-    
-    <item>
-      <title>vps搭建图床</title>
-      <link>https://zecoo.github.io/hugo/2020/05/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
-      <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
-      <description>展示一下我的图床已经搭起来了。放一张我在心动实习的时候想设计的一个todo app： 参考 https://www.jianshu.com/p/7863fcb34aed</description>
-    </item>
-    
-    <item>
-      <title>Delta debug MS</title>
-      <link>https://zecoo.github.io/hugo/2020/05/delta-debug-ms/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/delta-debug-ms/</guid>
-      <description>a triangular tract of sediment deposited at the mouth of a river, typically where it diverges into several outlets. the fourth letter of the Greek alphabet ( Δ , δ ), transliterated as ‘d.’. variation of a variable or function. 一组影响系统执行dimensions，高效找出导致错</description>
-    </item>
-    
-    <item>
-      <title>Graph-based RCA in SOA and MS</title>
-      <link>https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/</guid>
-      <description>Graph-based root cause analysis for service-oriented and microservice architectures JSS 2020 2 RW RCA方法有以下大致分类 model-based的RCA方法 Spectrum（也可以称之为Classificatio</description>
-    </item>
-    
-    <item>
-      <title>Microscope</title>
-      <link>https://zecoo.github.io/hugo/2020/05/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</guid>
-      <description>Microscope: Pinpoint Performance Issues with Causal Graphs in Micro-service Environments ICSOC 2018 Abstruct 错误定位的论文。通过服务调用关系构建DAG定位错误。 Introduction 定位有88%的准确性，2020的icws有一篇错误定位论文跟</description>
-    </item>
-    
-    <item>
-      <title>RCA in multitier service</title>
-      <link>https://zecoo.github.io/hugo/2020/05/rca-in-multitier-service/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/rca-in-multitier-service/</guid>
-      <description>Root Cause Analysis of Anomalies of Multitier Services in Public Clouds TON 2018 读完感觉不像是A类的期刊，Chinglish的情况很严重，相似度的计算实在是不优美，最后baseline挑的也很奇</description>
-    </item>
-    
-    <item>
-      <title>MS-Rank</title>
-      <link>https://zecoo.github.io/hugo/2020/05/ms-rank/</link>
-      <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/ms-rank/</guid>
-      <description>MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications ICWS 2019 主要贡献： 根据一系列的metrics，构建一个调用图 基于随机游走算法提出了根因定位算法 为了提高定位的准确性，用一种自</description>
-    </item>
-    
-    <item>
-      <title>RCA Papers</title>
-      <link>https://zecoo.github.io/hugo/2020/05/rca-papers/</link>
-      <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/rca-papers/</guid>
-      <description>Literature Survey: Root Cause Analysis in Microservice System 摘要 微服务系统在最近几年迅速发展，微服务系统由多个独立部署并相互协作的微服务组成，大型的微服务系统可能包含几十个微服务，使得</description>
-    </item>
-    
-    <item>
-      <title>hugo上传博客脚本</title>
-      <link>https://zecoo.github.io/hugo/2020/05/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</link>
-      <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</guid>
-      <description>我很傻的，每次更新博客之后都要手动输入 hugo -D git add . git commit -m &amp;quot;xxx&amp;quot; git push origin master 又不想下载git客户端一键push，写个脚本咯 #!/bin/bash hugo -D git add . echo &amp;quot;input commit info:&amp;quot; read -t 5 commit_info commit_info=${commit_info:-&amp;quot;update</description>
-    </item>
-    
-    <item>
-      <title>服务器命令行美化</title>
-      <link>https://zecoo.github.io/hugo/2020/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</link>
-      <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</guid>
-      <description>export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot; 但是有个问题，输了命令命令行前缀是变好看了，但是一旦退出就没有效果了。要把这个设置写进文件里才行。具体是$HOME/.bashrc这</description>
-    </item>
-    
-    <item>
-      <title>hugo tutorial</title>
-      <link>https://zecoo.github.io/hugo/2020/05/hugo-tutorial/</link>
-      <pubDate>Sun, 17 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/hugo-tutorial/</guid>
-      <description>hugo new theme zik-theme 可以创建一个新的主题。自己的主题就是从这里开始。来看看初始的theme目录长什么样吧。 ├── LICENSE ├── archetypes │ └── default.md ├── layouts │ ├── 404.html │</description>
-    </item>
-    
-    <item>
-      <title>Kubeadm init node not found</title>
-      <link>https://zecoo.github.io/hugo/2020/05/kubeadm-init-node-not-found/</link>
-      <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/kubeadm-init-node-not-found/</guid>
-      <description>新坑哦～ 5天都没有解决的新坑哦～ 环境： 华为云学生机2c4g 鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB 错误 kubeadm init 后卡在： [wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &amp;quot;/etc/kubernetes/manifests&amp;quot;. This</description>
-    </item>
-    
-    <item>
-      <title>Hugo添加代码高亮</title>
-      <link>https://zecoo.github.io/hugo/2020/05/hugo-code-highlight/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/hugo-code-highlight/</guid>
-      <description>方法：用hightlight.js做高亮。 针对不同的Hugo主题，应该有不同的思路。但是基本思路还是： head里添加css body中添加两个</description>
-    </item>
-    
-    <item>
-      <title>Metric to Graph思路及实践</title>
-      <link>https://zecoo.github.io/hugo/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
-      <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
-      <description>整体思路 01 查看Prom的metric： 写好PromQL获得自己想要的metric，这时候只是文本的形式。而且又臭又长。 &amp;quot;metric&amp;quot;: { &amp;quot;__name__&amp;quot;: &amp;quot;istio_requests_total&amp;quot;, &amp;quot;connection_security_policy&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;destination_app&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_canonical_revision&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_canonical_service&amp;quot;:</description>
-    </item>
-    
-    <item>
-      <title>jq in terminal for json</title>
-      <link>https://zecoo.github.io/hugo/2020/05/jq-in-terminal-for-json/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/jq-in-terminal-for-json/</guid>
-      <description>Prom返回的json格式没有reindent，看起来很费眼睛。 {&amp;quot;metric&amp;quot;:{&amp;quot;__name__&amp;quot;:&amp;quot;istio_requests_total&amp;quot;,&amp;quot;destination_app&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;destination_service&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;value&amp;quot;:[1588929523.247,&amp;quot;10523&amp;quot;]}]}} 在命令行，想让其用缩进好的json展示出来，就要用到jq。 curl http://test.json | jq 只需要在</description>
-    </item>
-    
-    <item>
-      <title>PromQL query in http API</title>
-      <link>https://zecoo.github.io/hugo/2020/05/promql-query-in-http-api/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/promql-query-in-http-api/</guid>
-      <description>Prom官网给出http API例如获取2015年7月1号某天的数据这样写：（我获得了istio_requests_total的所有metri</description>
+      <guid>/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
+      <description>每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说
+ 遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。
+ 说得真好。爆炸的心态慢慢也就平复了。
+回归正题，坑长这个样子：
+kubectl -f apply any.yaml  都会报错：
+Error from server (NotFound): the server could not find the requested resource  一开始我以为是apiserver的问题，但是apiserver是正常运行的。搜索了很长时间，还是在yandex上搜索到可能是Kubectl cli和server的版本差距过大造成的问题。
+看一下我的两个版本：kubectl version
+Client Version: version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;9&amp;quot;, GitVersion:&amp;quot;v1.9.3&amp;quot;, GitCommit:&amp;quot;5fa2db2bd46ac79e5e00a4e6ed24191080aa463b&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2018-01-18T21:12:46Z&amp;quot;, GoVersion:&amp;quot;go1.9.2&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;darwin/amd64&amp;quot;} Server Version: version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;16&amp;quot;, GitVersion:&amp;quot;v1.17.5&amp;quot;, GitCommit:&amp;quot;72c30166b2105cd7d3350f2c28a219e6abcd79eb&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2020-01-18T23:23:21Z&amp;quot;, GoVersion:&amp;quot;go1.13.5&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;linux/amd64&amp;quot;}  可以看到cli的版本是v1.9.3，而server的版本是1.17.5。差的太多了。
+继续搜索如何升级kubectl cli之，百度就别想能找到答案了。在k8s官网找到了安装kubectl的方法，重新安装了一下，kubectl cli的版本就升级到最新v1.18.5了。
+这下再试一下
+kubectl apply -f anyfile.yaml  终于可以运行yaml文件了。
+参考 https://kubernetes.io/docs/tasks/tools/install-kubectl/#before-you-begin （升级kubectl cli）
+https://devops.stackexchange.com/questions/2956/how-do-i-get-kubernetes-to-work-when-i-get-an-error-the-server-could-not-find-t （坑出现的原因1）</description>
     </item>
     
   </channel>

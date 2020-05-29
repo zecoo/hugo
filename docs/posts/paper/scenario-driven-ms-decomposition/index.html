@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        Scenario Driven MS Decomposition 
+      
+    </title>
+  </head>
+  <body>
+    
+    
+<title>Scenario Driven MS Decomposition | This is a title</title>
+<aside id="meta">
+    <div>
+    <section>
+      <p id="date"> Fri May 22, 2020 </p>
+      <p id="wordcount"> 143 Words </p>
+    </section>
+    
+    
+    <ul id="tags">
+      
+        <li> <a href="tagsdecomposition">decomposition</a> </li>
+      
+    </ul>
+    
+    </div>
+</aside>
+<section id="main">
+  <h1 id="title">Scenario Driven MS Decomposition</h1>
+  <div>
+        <article id="content">
+           
+
+<p>场景驱动、自底向上的单体系统微服务拆分方法</p>
+
+<h2 id="评价">评价</h2>
+
+<p>核心思想：把数据表之间紧密联系的聚在一起，作为拆分微服务的准则。</p>
+
+<p>实际上是关于数据表的划分，微服务的其他方面比如class、method的划分没有提到。</p>
+
+<h2 id="aibr">AIBR</h2>
+
+<p>结合Scenario、Trace和Sql进行微服务拆分。</p>
+
+<p>单体系统的微服务化拆分也可以借鉴传统软件模块化的思路和方法,已有不少这方面的研究</p>
+
+<p>图1是整个流程图</p>
+
+<p><img src="http://89.33.194.100:8888/images/2020/05/22/imageacbe468437e449d2.png" alt="" /></p>
+
+<ol>
+<li>标记权重：对用例标记权重（对于一些使用频率较高的用例增加权重）用例权重增加，用例包含的trace中边的权重都增加</li>
+<li>监控工具：Kieker，收集trace的工具</li>
+<li>日志类型：被调用方法的签名、调用链 ID、调用时间、调用顺序</li>
+<li>轨迹图：见下图图3</li>
+<li>共享群组+关联度矩阵（后面会提）</li>
+<li>数据表权重图（关联矩阵添加权重的结果，用于聚类）</li>
+<li>数据图表聚类（GN社区聚类算法）</li>
+<li>计算拆分开销（later）</li>
+<li>拆分方案生产</li>
+</ol>
+
+<h2 id="拆分方法">拆分方法</h2>
+
+<p>图3也很关键，一个scenario数据访问的trace。</p>
+
+<p><img src="http://89.33.194.100:8888/images/2020/05/22/imagea65546611d68826d.md.png" alt="" /></p>
+
+<p>同样还有图4，数据库的相关度graph（later）</p>
+
+<h3 id="数据表关联度">数据表关联度</h3>
+
+<p>表关联度高表示表A和表B在一个场景要同时使用的情况比较多。比如说注册要用到user表和profile表。登录也要用到这两个表。就说明user表和profile表的关联度较高。</p>
+
+<ul>
+<li>sql的权重</li>
+<li>两个数据表之间的关联度</li>
+</ul>
+
+<p>表A和表B的关联度 = Cscenario + Ctrace + Csql</p>
+
+<p>Cscenario = 同时操作表A+表B的场景之和 / 操作表A或表B中任意一张表的场景之和，trace、sql同理</p>
+
+<h3 id="共享群组">共享群组</h3>
+
+<p>共享度高表示一张表被多个场景使用，更倾向于单独拆分成一个微服务。比如account表在注册场景、下单场景都用到了，说明account表的共享度较高。</p>
+
+<p>共享度 = Sscenario + Strace + Ssql</p>
+
+<p>Sscenario = 操作表t的场景数量 / 总场景数量，trace、sql同理</p>
+
+<p>共享表的数量  = 共享表占比 * 所有表的数量</p>
+
+<p>那么共享表占比是如何计算出来的呢？（没有提，可能是共享度达到某个值以上的就算是共享表吧）</p>
+
+<h4 id="表依赖度">表依赖度</h4>
+
+<p>和关联度、共享度类似，表示表A对表B的依赖程度。那和关联度有什么区别呢…依赖度高，表A和表B更有可能有一种主从关系。见图6</p>
+
+<p>Dscenario = 同时操作表A和表B的场景 / 操作表A的场景之和（Tb对Ta的依赖）</p>
+
+<h4 id="共享群组条件">共享群组条件</h4>
+
+<p>Ta和Tb的相互依赖程度（Ta -&gt; Tb + Tb -&gt; Ta）大于某一个值</p>
+
+<p>将x张共享表划分为r个共享群组</p>
+
+<h3 id="数据表权重矩阵">数据表权重矩阵</h3>
+
+<p>有n张表，就能构建n*n的数据表关联矩阵。</p>
+
+<p>共享群组的意义在于，将同一个共享群组内的表关联度权重加强，不在同一个共享群组的数据表关联度减弱。</p>
+
+<h3 id="数据表图聚类">数据表图聚类</h3>
+
+<p>上一步的权重矩阵作为聚类的图输入，GN聚类算法是一种社区发现算法，认为连接两个社区的边有更低的权重，将这些边删除，剩下的网络就被划分为独立的社区。见图4。</p>
+
+<p><img src="http://89.33.194.100:8888/images/2020/05/22/image.md.png" alt="" /></p>
+
+<p>betweenness：经过某条边的所有最短路金的数量。重复计算Betweeness和删除Betweeness的过程。</p>
+
+<h4 id="modularity">Modularity</h4>
+
+<p>那么聚类到什么程度？引入了模块度Modularity的概念，模块度表示一个网络的紧密程度。
+$$
+Modularity = \sum_i^c (eii - ai^2)
+$$
+eii表示社区i内所有边的权重占整个网络边权重的比例，ai表示与社区i内定点相连的所有边的权重占整个网络所有顶点所连边的权重的比例。</p>
+
+<p>模块度的取值范围是[-0.5,1)，值越大说明网络内的聚类特性越明显。</p>
+
+<h3 id="确定拆分方案">确定拆分方案</h3>
+
+<h4 id="拆分开销-cost">拆分开销 Cost</h4>
+
+<p>$$
+Cost = µ1 * Vsql + µ2 * Vclass + µ3 * Vmethod
+$$</p>
+
+<p>Vsql表示需要拆分sql的数量。µ表示权重。class和method的如何拆分没有介绍呀</p>
+
+<p>推荐方案倾向于减小拆分开销。</p>
+
+<h4 id="确定拆分方案-1">确定拆分方案</h4>
+
+<p>对于每一个拆分方案Pi有：
+$$
+Score = w1 * modularity(Pi) + w2 * cost(Pi) （其中w1+w2=1）
+$$
+得分最高的作为拆分方案</p>
+
+<h4 id="反馈调整">反馈调整</h4>
+
+<p>用户可以对得到的拆分方案进行调整</p>
+
+<h2 id="工具实现">工具实现</h2>
+
+<p>直接看论文里的图吧。</p>
+
+<h3 id="疑问">疑问</h3>
+
+<p>Q 权重图的每个节点是什么</p>
+
+<p>A 数据表权重图的每个节点表示一个数据表，每条边表示数据表和数据表之间的关联度</p>
+
+<p>Q Method、Sql和Table之间的关系</p>
+
+<p>A 见图3</p>
+
+<p>Q 数据表权重图有更直观的例子吗</p>
+
+<p>A 见图4</p>
+
+        </article>
+  </div>
+</section>
+
+    
+    
+    
+  </body>
+</html>

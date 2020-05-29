@@ -1,7 +1,7 @@
 ---
 title: "Kubeadm 安装记录"
 date: 2020-04-28T16:37:07+08:00
-draft: true
+draft: false
 tags: ["k8s", "kubeadm"]
 categories: ["k8s"]
 ---

@@ -1,7 +1,7 @@
 ---
 title: "K8s + Istio 概念"
 date: 2020-04-30T10:37:07+08:00
-draft: true
+draft: false
 tags: ["istio"]
 categories: ["istio"]
 ---

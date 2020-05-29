@@ -1,7 +1,7 @@
 ---
 title: "ife 轮播图回顾"
 date: 2020-04-15T11:37:07+08:00
-draft: true
+draft: false
 tags: ["js", "ife"]
 categories: ["js"]
 ---

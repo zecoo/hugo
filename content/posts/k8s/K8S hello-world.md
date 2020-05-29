@@ -1,7 +1,7 @@
 ---
 title: "K8S hello-world 回顾"
 date: 2020-04-17T11:37:07+08:00
-draft: true
+draft: false
 tags: ["k8s"]
 categories: ["k8s", "hello-world"]
 ---

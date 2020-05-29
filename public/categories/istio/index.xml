@@ -1,193 +1,133 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>istio on Pure theme for Hugo</title>
-    <link>https://example.com/categories/istio/</link>
-    <description>Recent content in istio on Pure theme for Hugo</description>
+    <title>istio on This is a title</title>
+    <link>/categories/istio/</link>
+    <description>Recent content in istio on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 07 May 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2020 00:00:00 +0800</lastBuildDate>
     
-        <atom:link href="https://example.com/categories/istio/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/istio/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>hugo tutorial</title>
-      <link>https://example.com/2020/05/hugo-tutorial/</link>
-      <pubDate>Sun, 17 May 2020 00:00:00 +0800</pubDate>
+      <title>Istio sites</title>
+      <link>/posts/istio/istio-sites/</link>
+      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://example.com/2020/05/hugo-tutorial/</guid>
-      <description>hugo new theme zik-theme 可以创建一个新的主题。自己的主题就是从这里开始。来看看初始的theme目录长什么样吧。 ├── LICENSE ├── archetypes │ └── default.md ├── layouts │ ├── 404.html │</description>
+      <guid>/posts/istio/istio-sites/</guid>
+      <description> productpage Prometheus Grafana Jaeger Kiali (admin,admin)  </description>
     </item>
     
     <item>
-      <title>Kubeadm init node not found</title>
-      <link>https://example.com/2020/05/kubeadm-init-node-not-found/</link>
-      <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
+      <title>Service Dependecy Graph Building</title>
+      <link>/posts/istio/service-dependecy-graph-building/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://example.com/2020/05/kubeadm-init-node-not-found/</guid>
-      <description>新坑哦～ 花了5天都没有解决的新坑哦～ 特别炫酷的功能把服务器终端变好看一点： # 设置环境变量, 命令行看着舒服点 export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot; # vim 显示行号 cat &amp;lt;&amp;lt;EOF &amp;gt; ~/.vimrc set nu EOF</description>
-    </item>
-    
-    <item>
-      <title>Hugo添加代码高亮</title>
-      <link>https://example.com/2020/05/hugo-code-highlight/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/hugo-code-highlight/</guid>
-      <description>方法：用hightlight.js做高亮。 针对不同的Hugo主题，应该有不同的思路。但是基本思路还是： head里添加css body中添加两个</description>
-    </item>
-    
-    <item>
-      <title>Metric to Graph思路及实践</title>
-      <link>https://example.com/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
-      <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
-      <description>整体思路 01 查看Prom的metric： 写好PromQL获得自己想要的metric，这时候只是文本的形式。而且又臭又长。 &amp;quot;metric&amp;quot;: { &amp;quot;__name__&amp;quot;: &amp;quot;istio_requests_total&amp;quot;, &amp;quot;connection_security_policy&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;destination_app&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_canonical_revision&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_canonical_service&amp;quot;:</description>
-    </item>
-    
-    <item>
-      <title>jq in terminal for json</title>
-      <link>https://example.com/2020/05/jq-in-terminal-for-json/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/jq-in-terminal-for-json/</guid>
-      <description>Prom返回的json格式没有reindent，看起来很费眼睛。 {&amp;quot;metric&amp;quot;:{&amp;quot;__name__&amp;quot;:&amp;quot;istio_requests_total&amp;quot;,&amp;quot;destination_app&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;destination_service&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;value&amp;quot;:[1588929523.247,&amp;quot;10523&amp;quot;]}]}} 在命令行，想让其用缩进好的json展示出来，就要用到jq。 curl http://test.json | jq 只需要在</description>
-    </item>
-    
-    <item>
-      <title>PromQL query in http API</title>
-      <link>https://example.com/2020/05/promql-query-in-http-api/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/promql-query-in-http-api/</guid>
-      <description>Prom官网给出http API例如获取2015年7月1号某天的数据这样写：（我获得了istio_requests_total的所有metri</description>
-    </item>
-    
-    <item>
-      <title>PromQL理解</title>
-      <link>https://example.com/2020/05/promql%E7%90%86%E8%A7%A3/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/promql%E7%90%86%E8%A7%A3/</guid>
-      <description>期待数据 10min内的请求数（sum） istio_requests_total{destination_service_name=&amp;quot;productpage&amp;quot;} 10min内的请求数增长率（rate） rate(istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;}[10m]) 10min内的响应时间P90（quantile） histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&amp;quot;productpage&amp;quot;}[10m])) by(le)) 10m</description>
+      <guid>/posts/istio/service-dependecy-graph-building/</guid>
+      <description>kiali是trace的一个可视化工具，那么我怎么才能拿到trace的原始数据呢？
+istio的数据也都是prom给的，prom的metric之前已经看过了。怎么从prom的metric构造一个trace处理呢？
+Istio中Jaeger的数据是临时存在内存里的。
+Envoy的日志可以收集到，我又可以了。
+root@1201:istio-1.4.3 $ kubectl logs -l app=productpage -c istio-proxy [2020-05-28T09:17:49.996Z] &amp;quot;GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1&amp;quot; 200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 37045 241 240 &amp;quot;10.244.0.1&amp;quot; &amp;quot;Mozilla/5.0 (apple-x86_64-darwin19.0.0) Siege/4.0.4&amp;quot; &amp;quot;11bc5f08-0c8e-4a16-b0a5-b2c3f8900a4f&amp;quot; &amp;quot;39.100.0.61:30681&amp;quot; &amp;quot;127.0.0.1:9080&amp;quot; inbound|9080|http|productpage.default.svc.cluster.local - 10.244.0.160:9080 10.244.0.1:0 - default [2020-05-28T09:17:48.036Z] &amp;quot;GET /productpage HTTP/1.1&amp;quot; 200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 5179 2201 2201 &amp;quot;10.244.0.1&amp;quot; &amp;quot;Mozilla/5.0 (apple-x86_64-darwin19.0.0) Siege/4.0.4&amp;quot; &amp;quot;55cf1e7f-c6f7-41b0-9295-e3f72ecf5282&amp;quot; &amp;quot;39.100.0.61:30681&amp;quot; &amp;quot;127.0.0.1:9080&amp;quot; inbound|9080|http|productpage.default.svc.cluster.local - 10.244.0.160:9080 10.244.0.1:0 - default  参考 https://blog.csdn.net/qq_42038407/article/details/103510066 （深入istio源码查看kiali的数据来源）
+https://www.cnblogs.com/loveis715/p/5277051.html （neo4j介绍好文）
+https://juejin.im/entry/5b0aa414f265da0ddf04a894 (nodeport可以用来画图)</description>
     </item>
     
     <item>
       <title>Meta Metrics</title>
-      <link>https://example.com/2020/05/meta-metrics/</link>
+      <link>/posts/metrics/meta-metrics/</link>
       <pubDate>Thu, 07 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://example.com/2020/05/meta-metrics/</guid>
-      <description>siege一分钟压测最后给出的统计数据： Lifting the server siege... Transactions: 439 hits Availability: 51.83 % Elapsed time: 59.33 secs Data transferred: 8.47 MB Response time: 9.88 secs Transaction rate: 7.40 trans/sec Throughput: 0.14 MB/sec Concurrency: 73.10 Successful transactions: 439 Failed transactions: 408 Longest transaction: 56.69 Shortest transaction: 0.13 istio Envoy的</description>
+      <guid>/posts/metrics/meta-metrics/</guid>
+      <description>siege一分钟压测最后给出的统计数据：
+Lifting the server siege... Transactions:	439 hits Availability:	51.83 % Elapsed time:	59.33 secs Data transferred:	8.47 MB Response time:	9.88 secs Transaction rate:	7.40 trans/sec Throughput:	0.14 MB/sec Concurrency:	73.10 Successful transactions: 439 Failed transactions:	408 Longest transaction:	56.69 Shortest transaction:	0.13  istio Envoy的access log：
+【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/flasgger_static/swagger-ui-bundle.js 【PROTOCOL】HTTP/1.1&amp;quot; 【REPONSE CODE】200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 1048149 261 225 【FORWARD_FOR】&amp;quot;-&amp;quot; 【AGENT】&amp;quot;Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.5&amp;quot; 【REQUEST_ID】&amp;quot;51b45953-9ede-9390-b8b5-162247165a5b&amp;quot; 【AUTHORITY】&amp;quot;10.108.208.232:8000&amp;quot; 【HOST】&amp;quot;127.0.0.1:80&amp;quot; 【SERVICE】inbound|8000|http|httpbin.default.svc.cluster.local 【CLUSTER_IP】127.</description>
     </item>
     
     <item>
       <title>istio envoy log type</title>
-      <link>https://example.com/2020/05/istio-envoy-log-type/</link>
+      <link>/posts/istio/istio-envoy-log-type/</link>
       <pubDate>Wed, 06 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://example.com/2020/05/istio-envoy-log-type/</guid>
-      <description>基本数据这样 【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/fl</description>
-    </item>
-    
-    <item>
-      <title>scss tutorial</title>
-      <link>https://example.com/2020/05/scss-tutorial/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/scss-tutorial/</guid>
-      <description>SCSS：Sassy CSS SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。 我咋还在scss的环境上踩到坑了呢？ 先是给我报错 bad interpreter:</description>
-    </item>
-    
-    <item>
-      <title>k8s HPA尝试</title>
-      <link>https://example.com/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
-      <description>先提一个题外话：如何销毁已经创建的部署？答： 有kubectl create -f ./metrics-server就有kubectl delete -f ./metrics-server 按照主要参考，大部分</description>
-    </item>
-    
-    <item>
-      <title>Prometheus Metric形式</title>
-      <link>https://example.com/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</link>
-      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</guid>
-      <description>Prom的四种基本metric类型 counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、me</description>
-    </item>
-    
-    <item>
-      <title>About ZIK</title>
-      <link>https://example.com/about/</link>
-      <pubDate>Fri, 01 May 2020 14:19:05 +0800</pubDate>
-      
-      <guid>https://example.com/about/</guid>
-      <description>不知道自己在干嘛 豆瓣TOP250 骑行进藏 戴牙套 想学的内容 hugo go css /scss</description>
+      <guid>/posts/istio/istio-envoy-log-type/</guid>
+      <description>基本数据这样
+【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/flasgger_static/swagger-ui-bundle.js 【PROTOCOL】HTTP/1.1&amp;quot; 【REPONSE CODE】200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 1048149 261 225 【FORWARD_FOR】&amp;quot;-&amp;quot; 【AGENT】&amp;quot;Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.5&amp;quot; 【REQUEST_ID】&amp;quot;51b45953-9ede-9390-b8b5-162247165a5b&amp;quot; 【AUTHORITY】&amp;quot;10.108.208.232:8000&amp;quot; 【HOST】&amp;quot;127.0.0.1:80&amp;quot; inbound|8000|http|httpbin.default.svc.cluster.local 127.0.0.1:43000 10.244.0.67:80 10.244.0.1:10504 - default  0 135 1 1 (/status/418) 0 9593 73 73 (http/1.1) 0 1428809 1 1 (swagger-ui.bundle.js) 0 85578 1 0 (jquery.min.js) 0 0 118 - (DC ResponseCode:0) 0 1048149 261 225 (swagger-ui.bundle.js)  那么这4串数字分别代表什么呢？根据Envoy官方给出的对应关系，由于HTTP_FLAGS一般都是比较特别的，而我得到的都是&amp;rdquo;-&amp;ldquo;，可以得到对应关系：
+[1]BYTES_RECEIVED [2]BYTES_SENT [3]DURATION [4]ENVOY-UPSTREAM-SERVICE-TIME  istio bookinfo示例中给出的log是这样（官方给出的，我现在不想折腾Mixer，得不到这个数据）
+{&amp;quot;level&amp;quot;:&amp;quot;warn&amp;quot;,&amp;quot;time&amp;quot;:&amp;quot;2018-09-15T20:46:35.982761Z&amp;quot;,&amp;quot;instance&amp;quot;:&amp;quot;newlog.xxxxx.istio-system&amp;quot;,&amp;quot;destination&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;latency&amp;quot;:&amp;quot;968.030256ms&amp;quot;,&amp;quot;responseCode&amp;quot;:200,&amp;quot;responseSize&amp;quot;:4415,&amp;quot;source&amp;quot;:&amp;quot;istio-ingressgateway&amp;quot;,&amp;quot;user&amp;quot;:&amp;quot;unknown&amp;quot;}  区别的重点在于 samples/bookinfo/telemetry/log-entry.</description>
     </item>
     
     <item>
       <title>K8s &#43; Istio 概念</title>
-      <link>https://example.com/2020/04/k8s-istio-%E6%A6%82%E5%BF%B5/</link>
+      <link>/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Thu, 30 Apr 2020 10:37:07 +0800</pubDate>
       
-      <guid>https://example.com/2020/04/k8s-istio-%E6%A6%82%E5%BF%B5/</guid>
-      <description>环境都搭好了，不知道里面的原理那可不行。 我也不会系统写，想到哪里就写到哪里吧。 istio是如何做到无侵入就能控制流量转发？ Sidecar还有</description>
+      <guid>/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</guid>
+      <description>环境都搭好了，不知道里面的原理那可不行。
+我也不会系统写，想到哪里就写到哪里吧。
+istio是如何做到无侵入就能控制流量转发？ Sidecar还有Envoy是这里的核心。
+这个图就很好得说明了sidecar中流量的走向。这部分在华为的书《云原声服务网格istio》中关于sidecar的介绍写得很清楚。也就是说Envoy通过iptables拦截了进来的流量，然后强迫流量走自己的通道，相当于一个收保护费的。
+那么iptables为什么这么屌，能把流量给拦截下来？其实iptables改名叫netfilter更形象一些。先不深究iptables是如何做转发的，形象理解iptables为何这么屌，其实是它作为一个内核设置的功能，可以把网卡接受到的流量先通过自己过滤，然后再发送给web应用。
+那么也就是，我从Safari发起对http://serverip:port/productpage访问，首先流量通过我的网卡，经过计算机网络传到server的网卡，然后server的网卡把这条流量先交给iptables过滤一下，然后再发给productpage代表的微服务。
+iptables我好像把它关了，但是我的istio依然能够工作？这又是为什么呢…
+k8s如何调度微服务节点的 搞清楚这样几个概念：pod、deployment、service、node
+ 一个pod上跑k个容器，这k个容器组成一个app（微服务） deployment，其实叫replica controller更合适。顾名思义，就是扩缩pod service就是app对外的一个访问入口。一个svc中可能有n个replica node就是部署service的节点  那么到这里我有一个小问题，有如果有n个replica，那么流量进来了会被分配到哪个pod里呢？
+kubelet是什么 kubelet是node的proxy。
+k8s的DNS是什么 给每个svc可用地址。
+（以上两个百度结果都不太好，姑且这么理解吧）
+参考 http://www.zsythink.net/archives/1199/ （讲iptables的好文）</description>
     </item>
     
     <item>
       <title>Istio 可视化插件概览</title>
-      <link>https://example.com/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
+      <link>/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
       <pubDate>Thu, 30 Apr 2020 10:35:07 +0800</pubDate>
       
-      <guid>https://example.com/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
-      <description>Prometheus 基本的metrics监测插件。 通过query查询不同的信息，例如以下信息就是istio_requests_total这条query查询到的</description>
+      <guid>/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
+      <description>Prometheus 基本的metrics监测插件。
+通过query查询不同的信息，例如以下信息就是istio_requests_total这条query查询到的n条数据中的一条。（不全，删除了部分我不关注的信息）
+istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;,destination_principal=&amp;quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&amp;quot;,destination_service=&amp;quot;productpage.default.svc.cluster.local&amp;quot;,destination_service_name=&amp;quot;productpage&amp;quot;,destination_service_namespace=&amp;quot;default&amp;quot;,destination_version=&amp;quot;v1&amp;quot;,destination_workload=&amp;quot;productpage-v1&amp;quot;,instance=&amp;quot;10.244.0.24:15090&amp;quot;,job=&amp;quot;envoy-stats&amp;quot;,namespace=&amp;quot;istio-system&amp;quot;,pod_name=&amp;quot;istio-ingressgateway-6489d9556d-bc48z&amp;quot;,response_code=&amp;quot;503&amp;quot;,source_workload=&amp;quot;istio-ingressgateway&amp;quot;,source_workload_namespace=&amp;quot;istio-system&amp;quot;}  Grafana Metrics可视化插件。
+Request Volume代表什么？
+Request Duration中的P50、P90分别代表什么？
+Jaegar 主要显示调用了哪些微服务，调用顺序是什么样的，响应时间是多少。
+Kiali 链路追踪可视化插件。可以看出有几个微服务，调用关系是什么样的。
+里面也有P50、P90。说明这个很关键啊。
+P90=100ms，就是说90%的请求其响应时间在100ms以内，剩余10%的响应时间大于100ms。
+Siege 压测工具。来看看压测结果
+$ siege -d 10 -c 200 -t 2 http://121.37.159.247:32753/productpage Lifting the server siege... Transactions:	519 hits Availability:	99.24 % Elapsed time:	119.34 secs Data transferred:	20.14 MB Response time:	9.01 secs Transaction rate:	4.35 trans/sec Throughput:	0.17 MB/sec Concurrency:	39.17 Successful transactions: 519 Failed transactions:	4 Longest transaction:	110.01 Shortest transaction:	0.</description>
     </item>
     
     <item>
       <title>Istio 安装回顾</title>
-      <link>https://example.com/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</link>
+      <link>/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</link>
       <pubDate>Wed, 29 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>https://example.com/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
-      <description>如果是Microk8s安装，很简单就一步： microk8s.enable istio 好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。</description>
-    </item>
-    
-    <item>
-      <title>Kubeadm 安装记录</title>
-      <link>https://example.com/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
-      <pubDate>Tue, 28 Apr 2020 16:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
-      <description>装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。 安装K8s有这几种方法 minikube mircok8s kubeadm 这三种方法我都用过。minikube在win</description>
-    </item>
-    
-    <item>
-      <title>Kubectl client 和 server version 差距错误</title>
-      <link>https://example.com/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
-      <pubDate>Tue, 28 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
-      <description>每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说 遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。 说得真好。</description>
-    </item>
-    
-    <item>
-      <title>IFE task0002_5 回顾</title>
-      <link>https://example.com/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</link>
-      <pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid>
-      <description>做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基</description>
-    </item>
-    
-    <item>
-      <title>Bayesian Optimization 直观理解</title>
-      <link>https://example.com/2020/04/bayesian-optimization/</link>
-      <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/bayesian-optimization/</guid>
-      <description>目标 最小(大)化一个没有具体表达式的函数。 举个例子 给定一个函数 $$ f(x,y) = -x^2 - (y-1)^2 +1 $$ BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。 吐槽一下 中文的科普</description>
+      <guid>/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
+      <description>如果是Microk8s安装，很简单就一步：
+microk8s.enable istio  好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。
+然后转战华为云15天4g服务器试用。
+用Kubeadm安装k8s，过程呢，在另一篇博客中。
+这里主要回顾Kubeadm安装istio以及各种可视化插件的过程。
+全程请把精力集中在istio的官网上。每个教程都很详细。
+下载tar包，然后解压得到istio-15.2目录。这个目录里包含需要部署的yaml文件以及bookinfo的实例。
+我居然还遇到了docker.io不能pull镜像的问题。又要换一个源……
+然后按照istio官方的教程去安装就OK了。
+重点呢，是各种可视化插件的部署。如果istio部署顺利的话，各种插件的svc已经启动了，可以get svc查看一下。但是到目前为止还是只能在集群内访问。访问的入口是istio-ingressgateway。然后按照istio官方给出的远程访问方式去部署就好了。这里唯一一个和官方给出的教程不同的地方是，以Prometheus为例，官方给出的访问地址是：
+ Prometheus: http://&amp;lt;IP ADDRESS OF CLUSTER INGRESS&amp;gt;:15030/  这里的ingressip要改为
+[服务器地址] + [svc istioingressgateway对于15030暴露的端口]
+然后就可以用上面的地址访问到Prometheus了。
+当然我还搜到了另外一种方式访问，把Prometheus用另一个svc包裹起来，相当于多了一个nodeport svc的中介。输入这个命令即可：
+kubectl expose service prometheus --type=NodePort \ --name=prometheus-svc --namespace istio-system  然后就会多出来一个名为prometheus-svc的nodeport形式的服务。调用这个服务暴露出来的地址就可以访问Prometheus，只是我觉得这个方法可能不太安全，就没有用。
+参考 https://www.jianshu.com/p/b72c1e06b140 （安装指南）
+https://www.cnblogs.com/assion/p/11326088.html （修改istiogateway的LB为nodeport）
+https://www.jianshu.com/p/b72c1e06b140 （用hello-node做示例）
+https://www.cnblogs.com/davidwang456/articles/9311470.html （SLA和SLO的关系）
+https://www.jianshu.com/p/fd90d4914505 （istio的良好实践）
+https://www.jianshu.com/p/bed143a1c886 （估计也是个研究生大神，给王老师演示这个就可以了）
+https://www.cnblogs.com/CCE-SWR/p/10286404.html （也是演示之用）
+https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.3/manage_cluster/istio.html （另一种暴露Prometheus的方式）
+https://www.jianshu.com/p/9031fdf61115 （docker.io加速）
+https://istio.io/zh/docs/tasks/observability/gateways/ (官方暴露prom服务)</description>
     </item>
     
   </channel>

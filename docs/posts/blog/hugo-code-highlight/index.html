@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        Hugo添加代码高亮 
+      
+    </title>
+  </head>
+  <body>
+    
+    
+<title>Hugo添加代码高亮 | This is a title</title>
+<aside id="meta">
+    <div>
+    <section>
+      <p id="date"> Sat May 9, 2020 </p>
+      <p id="wordcount"> 22 Words </p>
+    </section>
+    
+    
+    <ul id="tags">
+      
+        <li> <a href="tagshugo">hugo</a> </li>
+      
+        <li> <a href="tagshighlight">highlight</a> </li>
+      
+    </ul>
+    
+    </div>
+</aside>
+<section id="main">
+  <h1 id="title">Hugo添加代码高亮</h1>
+  <div>
+        <article id="content">
+           
+
+<p>方法：用hightlight.js做高亮。</p>
+
+<p>针对不同的Hugo主题，应该有不同的思路。但是基本思路还是：</p>
+
+<ol>
+<li>head里添加css</li>
+<li>body中添加两个“script“元素第一个是js文件，第二个是loadjs</li>
+</ol>
+
+<p>我用的是Hugo的contrast主题，打开文件夹theme - layout，找到博文的base.html，打开在里面添加基本思路中的文件。我仿照代码里本来有的目录，简单修改一下就可以了。（第二行是我添加的highlight css文件）</p>
+
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ .Site.BaseURL }}css/index.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ .Site.BaseURL }}css/github.css&quot;&gt;
+</code></pre>
+
+<p>css的选择可以到GitHub上hightlight.js的src/style下面找。</p>
+
+<p>js文件，用官网上的cdn就可以。或者直接下载下来。</p>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="https://orianna-zzo.github.io/sci-tech/2018-01/blog养成记3-hugo的语法高亮配置/#使用highlight-shortcode进行高亮">https://orianna-zzo.github.io/sci-tech/2018-01/blog养成记3-hugo的语法高亮配置/#使用highlight-shortcode进行高亮</a></p>
+
+        </article>
+  </div>
+</section>
+
+    
+    
+    
+  </body>
+</html>

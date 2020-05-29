@@ -1,193 +1,137 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>k8s on Pure theme for Hugo</title>
-    <link>https://example.com/tags/k8s/</link>
-    <description>Recent content in k8s on Pure theme for Hugo</description>
+    <title>k8s on This is a title</title>
+    <link>/tags/k8s/</link>
+    <description>Recent content in k8s on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 16 May 2020 00:00:00 +0800</lastBuildDate>
     
-        <atom:link href="https://example.com/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>hugo tutorial</title>
-      <link>https://example.com/2020/05/hugo-tutorial/</link>
-      <pubDate>Sun, 17 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/hugo-tutorial/</guid>
-      <description>hugo new theme zik-theme 可以创建一个新的主题。自己的主题就是从这里开始。来看看初始的theme目录长什么样吧。 ├── LICENSE ├── archetypes │ └── default.md ├── layouts │ ├── 404.html │</description>
-    </item>
     
     <item>
       <title>Kubeadm init node not found</title>
-      <link>https://example.com/2020/05/kubeadm-init-node-not-found/</link>
+      <link>/posts/k8s/kubeadm-init-node-not-found/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://example.com/2020/05/kubeadm-init-node-not-found/</guid>
-      <description>新坑哦～ 花了5天都没有解决的新坑哦～ 特别炫酷的功能把服务器终端变好看一点： # 设置环境变量, 命令行看着舒服点 export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot; # vim 显示行号 cat &amp;lt;&amp;lt;EOF &amp;gt; ~/.vimrc set nu EOF</description>
-    </item>
-    
-    <item>
-      <title>Hugo添加代码高亮</title>
-      <link>https://example.com/2020/05/hugo-code-highlight/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/hugo-code-highlight/</guid>
-      <description>方法：用hightlight.js做高亮。 针对不同的Hugo主题，应该有不同的思路。但是基本思路还是： head里添加css body中添加两个</description>
-    </item>
-    
-    <item>
-      <title>Metric to Graph思路及实践</title>
-      <link>https://example.com/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
-      <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
-      <description>整体思路 01 查看Prom的metric： 写好PromQL获得自己想要的metric，这时候只是文本的形式。而且又臭又长。 &amp;quot;metric&amp;quot;: { &amp;quot;__name__&amp;quot;: &amp;quot;istio_requests_total&amp;quot;, &amp;quot;connection_security_policy&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;destination_app&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_canonical_revision&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_canonical_service&amp;quot;:</description>
-    </item>
-    
-    <item>
-      <title>jq in terminal for json</title>
-      <link>https://example.com/2020/05/jq-in-terminal-for-json/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/jq-in-terminal-for-json/</guid>
-      <description>Prom返回的json格式没有reindent，看起来很费眼睛。 {&amp;quot;metric&amp;quot;:{&amp;quot;__name__&amp;quot;:&amp;quot;istio_requests_total&amp;quot;,&amp;quot;destination_app&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;destination_service&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;value&amp;quot;:[1588929523.247,&amp;quot;10523&amp;quot;]}]}} 在命令行，想让其用缩进好的json展示出来，就要用到jq。 curl http://test.json | jq 只需要在</description>
-    </item>
-    
-    <item>
-      <title>PromQL query in http API</title>
-      <link>https://example.com/2020/05/promql-query-in-http-api/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/promql-query-in-http-api/</guid>
-      <description>Prom官网给出http API例如获取2015年7月1号某天的数据这样写：（我获得了istio_requests_total的所有metri</description>
-    </item>
-    
-    <item>
-      <title>PromQL理解</title>
-      <link>https://example.com/2020/05/promql%E7%90%86%E8%A7%A3/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/promql%E7%90%86%E8%A7%A3/</guid>
-      <description>期待数据 10min内的请求数（sum） istio_requests_total{destination_service_name=&amp;quot;productpage&amp;quot;} 10min内的请求数增长率（rate） rate(istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;}[10m]) 10min内的响应时间P90（quantile） histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&amp;quot;productpage&amp;quot;}[10m])) by(le)) 10m</description>
-    </item>
-    
-    <item>
-      <title>Meta Metrics</title>
-      <link>https://example.com/2020/05/meta-metrics/</link>
-      <pubDate>Thu, 07 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/meta-metrics/</guid>
-      <description>siege一分钟压测最后给出的统计数据： Lifting the server siege... Transactions: 439 hits Availability: 51.83 % Elapsed time: 59.33 secs Data transferred: 8.47 MB Response time: 9.88 secs Transaction rate: 7.40 trans/sec Throughput: 0.14 MB/sec Concurrency: 73.10 Successful transactions: 439 Failed transactions: 408 Longest transaction: 56.69 Shortest transaction: 0.13 istio Envoy的</description>
-    </item>
-    
-    <item>
-      <title>istio envoy log type</title>
-      <link>https://example.com/2020/05/istio-envoy-log-type/</link>
-      <pubDate>Wed, 06 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/istio-envoy-log-type/</guid>
-      <description>基本数据这样 【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/fl</description>
-    </item>
-    
-    <item>
-      <title>scss tutorial</title>
-      <link>https://example.com/2020/05/scss-tutorial/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/scss-tutorial/</guid>
-      <description>SCSS：Sassy CSS SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。 我咋还在scss的环境上踩到坑了呢？ 先是给我报错 bad interpreter:</description>
+      <guid>/posts/k8s/kubeadm-init-node-not-found/</guid>
+      <description>新坑哦～
+5天都没有解决的新坑哦～
+环境：  华为云学生机2c4g 鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB  错误 kubeadm init 后卡在：
+[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &amp;quot;/etc/kubernetes/manifests&amp;quot;. This can take up to 4m0s [kubelet-check] Initial timeout of 40s passed.  然后按照提示查看kubelet的日志，显示“node xxx not found”
+node &amp;quot;ecs-kc1-large-2-linux-20200511105949&amp;quot; not found Container &amp;quot;408a5e9f9958dd3919cecf4a944a25ce30582bc638d657fc065fec8c56579f2a&amp;quot; not found in pod&#39;s containers k8s.io/kubernetes/pkg/kubelet/kubelet.go:453: Failed to list *v1.Node: Get https://192.168.0.214:6443/api/v1/nodes?fieldSelector=metadata.name%3Decs-kc1-large-2-linux-20200511105949&amp;amp;limit=500&amp;amp;resourceVersion=0: dial tcp 192.</description>
     </item>
     
     <item>
       <title>k8s HPA尝试</title>
-      <link>https://example.com/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
+      <link>/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
       <pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://example.com/2020/05/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
-      <description>先提一个题外话：如何销毁已经创建的部署？答： 有kubectl create -f ./metrics-server就有kubectl delete -f ./metrics-server 按照主要参考，大部分</description>
-    </item>
-    
-    <item>
-      <title>Prometheus Metric形式</title>
-      <link>https://example.com/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</link>
-      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://example.com/2020/05/prom-metric%E5%BD%A2%E5%BC%8F/</guid>
-      <description>Prom的四种基本metric类型 counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、me</description>
-    </item>
-    
-    <item>
-      <title>About ZIK</title>
-      <link>https://example.com/about/</link>
-      <pubDate>Fri, 01 May 2020 14:19:05 +0800</pubDate>
-      
-      <guid>https://example.com/about/</guid>
-      <description>不知道自己在干嘛 豆瓣TOP250 骑行进藏 戴牙套 想学的内容 hugo go css /scss</description>
-    </item>
-    
-    <item>
-      <title>K8s &#43; Istio 概念</title>
-      <link>https://example.com/2020/04/k8s-istio-%E6%A6%82%E5%BF%B5/</link>
-      <pubDate>Thu, 30 Apr 2020 10:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/k8s-istio-%E6%A6%82%E5%BF%B5/</guid>
-      <description>环境都搭好了，不知道里面的原理那可不行。 我也不会系统写，想到哪里就写到哪里吧。 istio是如何做到无侵入就能控制流量转发？ Sidecar还有</description>
-    </item>
-    
-    <item>
-      <title>Istio 可视化插件概览</title>
-      <link>https://example.com/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
-      <pubDate>Thu, 30 Apr 2020 10:35:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
-      <description>Prometheus 基本的metrics监测插件。 通过query查询不同的信息，例如以下信息就是istio_requests_total这条query查询到的</description>
-    </item>
-    
-    <item>
-      <title>Istio 安装回顾</title>
-      <link>https://example.com/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</link>
-      <pubDate>Wed, 29 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
-      <description>如果是Microk8s安装，很简单就一步： microk8s.enable istio 好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。</description>
+      <guid>/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
+      <description>先提一个题外话：如何销毁已经创建的部署？答：
+有kubectl create -f ./metrics-server就有kubectl delete -f ./metrics-server
+按照主要参考，大部分都可以实现。但是有几个坑需要注意
+ autoscaling的版本分为v1beta1、v2beta1、v2beta2。用法不同 deployment: extension/v1beta1这样的用法我改为apps/v1beta1创建HPA才能成功  HPA的重点是hpa.yaml里面的cpu和mem的指定。
+Prometheus + HPA的重点是如何将Prom的数据改为metrics server可以使用的数据。这里的方法应该是config-map中构建的一系列rule。先拿来用，暂时不去深究。
+参考 https://blog.csdn.net/yevvzi/article/details/79561150 （本文主要参考）
+https://blog.csdn.net/xktxoo/article/details/87909432 （jq介绍）
+https://cloud.tencent.com/developer/article/1394657 （selector问题）
+https://q.cnblogs.com/q/125354/ （target问题）
+https://blog.51cto.com/13740724/2368066 （新版本该这么用）
+https://www.cnblogs.com/yunqishequ/p/10006896.html （不同版本autoscaling）
+https://stackoverflow.com/questions/43163625/when-i-use-deployment-in-kubernetes-whats-the-differences-between-apps-v1beta1 （deployment version）</description>
     </item>
     
     <item>
       <title>Kubeadm 安装记录</title>
-      <link>https://example.com/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
+      <link>/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Tue, 28 Apr 2020 16:37:07 +0800</pubDate>
       
-      <guid>https://example.com/2020/04/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
-      <description>装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。 安装K8s有这几种方法 minikube mircok8s kubeadm 这三种方法我都用过。minikube在win</description>
+      <guid>/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
+      <description>装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。
+安装K8s有这几种方法
+ minikube mircok8s kubeadm  这三种方法我都用过。minikube在win上以虚拟机的形式运行，挺麻烦的讲道理。microk8s是最友好的方式，解决一个拉镜像的问题，也就不成问题了。kubeadm应该是最麻烦的了。
+回归正题，记录整个安装以及填坑的过程。
+首先docker要安装上。
+然后，kubelet、kubeadm、kubectl、kubernetes-cni一套安装下来。
+我现在才看到参考1中的一句话：
+# 指定版本否则都会默认安装库中最新版本，会因为彼此依赖的版本不同安装失败 $ yum install -y kubelet-1.13.1 kubeadm-1.13.1 kubectl-1.13.1 kubernetes-cni-0.6.0 # 设置开机启动并启动kubelet $ systemctl enable kubelet &amp;amp;&amp;amp; systemctl start kubelet  看到第一句话了吗？给我大声读几遍！！我就是因为这个，吃了多少亏，搜索多少资料😭。请一定保证你的kubelet、kubeadm、kubectl的版本相同。
+第二步，kubeadm config images list列出所有需要的image，因为国内网络问题嘛，一样的。然后用以下bash脚本安装好，docke images检查一下。
+for i in `kubeadm config images list`; do imageName=${i#k8s.gcr.io/} docker pull registry.aliyuncs.com/google_containers/$imageName docker tag registry.aliyuncs.com/google_containers/$imageName k8s.gcr.io/$imageName docker rmi registry.aliyuncs.com/google_containers/$imageName done;  第三步，kubeadm init --pod-network-cidr=10.244.0.0/16初始化kubeadm。这一步最重要的是/etc/kubernetes/admin.conf这个文件。还有后面那个参数，如果不加上，就会遇到新的坑哦～
+init结束之后，不要忘了提示的三行命令，不然会报错：
+Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of &amp;quot;crypto/rsa: verification error&amp;quot; while trying to verify candidate authority certificate &amp;quot;kubernetes&amp;quot;)  mkdir -p $HOME/.</description>
     </item>
     
     <item>
       <title>Kubectl client 和 server version 差距错误</title>
-      <link>https://example.com/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
+      <link>/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
       <pubDate>Tue, 28 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>https://example.com/2020/04/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
-      <description>每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说 遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。 说得真好。</description>
+      <guid>/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
+      <description>每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说
+ 遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。
+ 说得真好。爆炸的心态慢慢也就平复了。
+回归正题，坑长这个样子：
+kubectl -f apply any.yaml  都会报错：
+Error from server (NotFound): the server could not find the requested resource  一开始我以为是apiserver的问题，但是apiserver是正常运行的。搜索了很长时间，还是在yandex上搜索到可能是Kubectl cli和server的版本差距过大造成的问题。
+看一下我的两个版本：kubectl version
+Client Version: version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;9&amp;quot;, GitVersion:&amp;quot;v1.9.3&amp;quot;, GitCommit:&amp;quot;5fa2db2bd46ac79e5e00a4e6ed24191080aa463b&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2018-01-18T21:12:46Z&amp;quot;, GoVersion:&amp;quot;go1.9.2&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;darwin/amd64&amp;quot;} Server Version: version.Info{Major:&amp;quot;1&amp;quot;, Minor:&amp;quot;16&amp;quot;, GitVersion:&amp;quot;v1.17.5&amp;quot;, GitCommit:&amp;quot;72c30166b2105cd7d3350f2c28a219e6abcd79eb&amp;quot;, GitTreeState:&amp;quot;clean&amp;quot;, BuildDate:&amp;quot;2020-01-18T23:23:21Z&amp;quot;, GoVersion:&amp;quot;go1.13.5&amp;quot;, Compiler:&amp;quot;gc&amp;quot;, Platform:&amp;quot;linux/amd64&amp;quot;}  可以看到cli的版本是v1.9.3，而server的版本是1.17.5。差的太多了。
+继续搜索如何升级kubectl cli之，百度就别想能找到答案了。在k8s官网找到了安装kubectl的方法，重新安装了一下，kubectl cli的版本就升级到最新v1.18.5了。
+这下再试一下
+kubectl apply -f anyfile.yaml  终于可以运行yaml文件了。
+参考 https://kubernetes.io/docs/tasks/tools/install-kubectl/#before-you-begin （升级kubectl cli）
+https://devops.stackexchange.com/questions/2956/how-do-i-get-kubernetes-to-work-when-i-get-an-error-the-server-could-not-find-t （坑出现的原因1）</description>
     </item>
     
     <item>
-      <title>IFE task0002_5 回顾</title>
-      <link>https://example.com/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</link>
-      <pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://example.com/2020/04/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid>
-      <description>做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基</description>
-    </item>
-    
-    <item>
-      <title>Bayesian Optimization 直观理解</title>
-      <link>https://example.com/2020/04/bayesian-optimization/</link>
+      <title>K8S Proxy</title>
+      <link>/posts/k8s/k8s-proxy/</link>
       <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>https://example.com/2020/04/bayesian-optimization/</guid>
-      <description>目标 最小(大)化一个没有具体表达式的函数。 举个例子 给定一个函数 $$ f(x,y) = -x^2 - (y-1)^2 +1 $$ BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。 吐槽一下 中文的科普</description>
+      <guid>/posts/k8s/k8s-proxy/</guid>
+      <description>上一节讲到现在可以在vps上访问到hello-world了。
+然而我想把访问操作放在我的电脑上。我没有想到NodePort这么容易就能做到了。修改一下service.yaml里面port的type，从ClusterIP改为NodePort就可以了。
+到这里我已经很满足了，但是手痒痒想要看看dashboard的情况。首先嘛，得先把dashboard服务给启动起来对不对？不幸的是，在之前装microk8s的时候，我使用了这样一行命令添加了dns和dashboard这两个add-on
+kubectl enable dns dashboard  结果就是，dashboard其实已经启动了，只是我一直使用的命令
+kubectl get svc  只能显示namespace为default的service，就看不到dashboard也已经启动了。
+如果想要查看所有的svc还是添加--all-namespaces选项。
+ubuntu@VM-0-12-ubuntu:~$ sudo kubectl get svc --all-namespaces NAMESPACE NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE container-registry registry NodePort 10.152.183.11 &amp;lt;none&amp;gt; 5000:32000/TCP 13d default hello-node NodePort 10.152.183.14 &amp;lt;none&amp;gt; 8080:31908/TCP 4d4h default kubernetes ClusterIP 10.152.183.1 &amp;lt;none&amp;gt; 443/TCP 13d kube-system dashboard-metrics-scraper ClusterIP 10.152.183.247 &amp;lt;none&amp;gt; 8000/TCP 13d kube-system heapster ClusterIP 10.152.183.227 &amp;lt;none&amp;gt; 80/TCP 13d kube-system kube-dns ClusterIP 10.152.183.10 &amp;lt;none&amp;gt; 53/UDP,53/TCP,9153/TCP 13d kube-system kubernetes-dashboard NodePort 10.</description>
+    </item>
+    
+    <item>
+      <title>K8S hello-world 回顾</title>
+      <link>/posts/k8s/k8s-hello-world/</link>
+      <pubDate>Fri, 17 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>/posts/k8s/k8s-hello-world/</guid>
+      <description>没错这部分也花了我很长时间，而且把我心态还搞崩了。
+k8s安装主要是镜像是国外私有库，pull下来比较麻烦。
+而k8s第一个hello-world难在理解pod、deployment、service之间的关系，以及各种奇奇怪怪的端口映射。我想这是计算机网络基础没有打好埋的坑吧。
+镜像&amp;amp;Pod 首先是创建pod，这里也需要把本地docker创建的image给注射到microk8s.ctr里面。我根据参考1给出的方法构建了hello-node:v1镜像。然后注入到k8s里面。
+image创建成功之后，就可以构建pod了。用以下命令
+kubectl run hello-node --image=hello-node:v1 --port=8080 --image-pull-policy=Never  创建了一个pod，可以用命令
+kubectl get pods  查看pod的创建。如果创建不成功，可以具体查看pod的详细情况。
+kubectl describe pod hello-node  创建Deployment pod创建成功了，考虑构建deployment，dep是pod的无状态体现。deployment可以控制pod的replica数量。创建方法我没有找到命令行的方式，k8s官网给出的也是推荐使用yaml构建。以下是deployment.yaml文件：
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 kind: Deployment metadata: name: hello-node spec: selector: matchLabels: name: hello-node replicas: 1 # tells deployment to run 2 pods matching the template template: metadata: labels: name: hello-node spec: containers: - name: hello-node image: hello-node:v1 ports: - containerPort: 8080  有了yaml文件，然后用以下命令可以创建deployment</description>
+    </item>
+    
+    <item>
+      <title>Microk8s 国内安装总结</title>
+      <link>/posts/k8s/microk8s-installation-in-china/</link>
+      <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>/posts/k8s/microk8s-installation-in-china/</guid>
+      <description>Ubuntu18本身自带snap，可以在microk8s的官网找到安装方法。
+注意k8s的运行条件只要满足以下
+ Linux kernel在3.1以上，很多小的openZV的服务器，都是2.6的核儿 Memory要在2G或以上。  我在国外买的xs vps就emmm。再附自己检查kernel的过程
+$ uname -r (check linux kernel) $ dpkg --print-architecture (check linux architecture amd64/arm64)  按照官网的方法，安装成功的话输入sudo kubectl version应该能看到client和server信息。
+但是现在的microk8s还需要安装一些add-on，装这些add-on的时候就会有问题了。
+sudo mircok8s enable dns dashboard
+这里开启microk8s的dns和dashboard服务，但是尝试一下会发现dashboard并不能使用。如果server装了ss可以翻wall，应该不会有这个问题。如果没有ss，用这个命令检查一下namespace为kube-system的pod的情况。
+sudo microk8s.kubectl get pods --all-namespaces
+你会看到以下信息：
+NAMESPACE NAME READY STATUS RESTARTS AGE container-registry registry-7cf58dcdcc-rlfdq 1/1 Running 1 18h default hello-node 0/1 ImagePullBackOff 0 16h kube-system coredns-588fd544bf-nmnnl 1/1 Creating 1 19h kube-system dashboard-metrics-scraper-db65b9c6f-46lrb 1/1 Creating 1 19h kube-system heapster-v1.</description>
     </item>
     
   </channel>

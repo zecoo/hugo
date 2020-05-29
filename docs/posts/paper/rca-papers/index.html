@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        RCA Papers 
+      
+    </title>
+  </head>
+  <body>
+    
+    
+<title>RCA Papers | This is a title</title>
+<aside id="meta">
+    <div>
+    <section>
+      <p id="date"> Tue May 19, 2020 </p>
+      <p id="wordcount"> 845 Words </p>
+    </section>
+    
+    
+    <ul id="tags">
+      
+        <li> <a href="tagsvalueless">valueless</a> </li>
+      
+    </ul>
+    
+    </div>
+</aside>
+<section id="main">
+  <h1 id="title">RCA Papers</h1>
+  <div>
+        <article id="content">
+           
+
+<h1 id="literature-survey-root-cause-analysis-in-microservice-system">Literature Survey: Root Cause Analysis in Microservice System</h1>
+
+<h2 id="摘要">摘要</h2>
+
+<p>微服务系统在最近几年迅速发展，微服务系统由多个独立部署并相互协作的微服务组成，大型的微服务系统可能包含几十个微服务，使得他们之间的调用链非常复杂。当某个微服务节点发生异常，可能会影响整个微服务调用链。为了保证Qos，定位发生异常的微服务节点显得尤为重要。目前RCA的过程大致可以分为服务调用链构建、筛选候选异常节点、排序异常节点这三个部分。这篇论文，我们将对比近几年RCA的发展以及常见的错误定位方法及这些方法之间的对比。基于以上讨论，得出对RCA的总结。</p>
+
+<p>Microservice systems have developed rapidly in recent years. Microservice systems consist of multiple microservices which are independently deployed and co- ordinated . A large microservice system may contain dozens of microservices, making the call chain among these microservices very complicated. When an anomaly occurs in a microservice node, it may affect the entire call chain. In order to ensure Qos(Qunatity of service) and SLA(Service Level Assurance), it is particularly important to locate the abnormal microservice nodes. The anomaly detection process is called root cause analysis. At present, the process of root cause analysis can be roughly divided into three parts: service call graph construction, listing of candidate abnormal nodes, and ranking abnormal nodes to find out the anomaly. In this paper, we will discuss the development of root cause analysis in recent years, as well as common anomaly localization methods and the comparison between these methods. Finally, based on the above discussion, we will give a breif summry about root cause analysis.</p>
+
+<p>关键词：root cause， microservice，anomaly detection</p>
+
+<h2 id="intro">Intro</h2>
+
+<p>传统的单体架构出现异常，寻找异常解决问题的过程需要花费大量的时间成本和人力成本。随着单体架构系统的继续扩大，排除异常的成本也会越来越高。于是微服务系统越来越受到工业界的认可，将大型的单体架构拆分成多个可以独立部署，通过REST相互协作的微服务，大大降低了运维的复杂度。</p>
+
+<p>但同时也带来了一些问题，由于系统的微服务数量较多，且微服务之间相互协作的复杂度较高，如果其中一个微服务出现异常，会牵连到与其协作的微服务均出现不同程度的异常。可能是服务响应时间变高，甚至有可能是某个调用过程卡住无法向前传递。RCA就是为了解决这个问题，快速定位出现异常的节点。</p>
+
+<p>这篇文章我们将粗略了解一下RCA的流程以及当前比较流行的异常探测方法。文章讲按照以下部分进行：</p>
+
+<p>The abnormality of the traditional monolithic architecture, the process of finding the abnormal solution to the problem requires a lot of time cost and labor cost. As the monolithic architecture continues to expand, the cost of eliminating anomalies will also increase. As a result, the microservice system is more and more recognized by the industry. The large-scale monolithic architecture is split into multiple microservices that can be independently deployed and cooperate with each other through REST, which greatly reduces the complexity of operation and maintenance.</p>
+
+<p>But at the same time, it also brings some problems. Due to the large number of microservices in the system and the high complexity of cooperation between microservices, if one of the microservices is abnormal, the microservices with which it cooperates will appear different Abnormal degree. It may be that the service response time becomes higher, or it may even be that a certain calling process is stuck and cannot be forwarded. RCA is to solve this problem and quickly locate abnormal nodes.</p>
+
+<p>In this article, we will take a rough look at the process of RCA and the currently popular anomaly detection methods. The article follows the following sections:</p>
+
+<h2 id="问题-挑战">问题&amp;挑战</h2>
+
+<ul>
+<li>复杂的网络依赖性。通过微服务架构，应用程序被分解为具有异常复杂的网络拓扑的许多细粒度的组件。而且，为了连接包裹在容器中的不同微服务，总是采用覆盖网络的方法，进一步增加了性能诊断的复杂性。</li>
+<li>动态运行时环境。微服务系统通常在容器状态经常变化的容器化环境中运行。高度动态的环境加剧了性能诊断的难度。</li>
+<li>大量的监视指标。由于微服务系统中共存有许多服务，因此这些服务的监视指标（例如响应时间）的数量非常大。指出Netflix，Uber和OpenStack分别有2,000,000个指标，500,000,000个指标和17608个指标需要监视。如何从这些数据中找出根本原因是一个具有挑战性的问题。</li>
+</ul>
+
+<p>-Complex networks allow. Through the microservices architecture, applications are broken down into many fine-grained components with unusually complex network topologies. Moreover, in order to connect different microservices wrapped in containers, the method of overlay network is always adopted. , Further increasing the complexity of performance diagnosis.
+-Dynamic runtime environment. Microservice systems usually operate in a containerized environment where the container state changes frequently. The highly dynamic environment exacerbates the difficulty of performance diagnosis.
+-A large number of monitoring indicators. Since there are many services coexisting in the microservice system, the number of monitoring indicators (such as response time) of these services is very large. Point out that Netflix, Uber and OpenStack have 2,000,000 indicators, 500,000,000 indicators and 17,608 indicators need to be monitored. How to find the root cause from these data is a challenging problem.</p>
+
+<h2 id="slo-metrics">SLO Metrics</h2>
+
+<h3 id="low-level-metrics">Low-level metrics</h3>
+
+<p>Low-level metrics in the context of this survey, are server information monitored at the physical server/virtual machine layer by hypervisors, such as utilization of CPU, memory, and network resources, memory swap, and cache miss rate.</p>
+
+<h3 id="high-level-metrics">High-level metrics</h3>
+
+<p>High-level metricsare performance indicators observed at the application layer. Those useful to auto-scaling include resource rate, average response time, session creation rate, throughput, service time, and request mix.</p>
+
+<h2 id="workflow">Workflow</h2>
+
+<h3 id="data-collection">Data Collection</h3>
+
+<p>根据以上提到metric类型的不同，采集的方式也不尽相同。对于low level的metric采集，一般是实时采集，当前某时刻的cpu负载和内存、磁盘利用率。对于high level的metric采集过程，分为主动采集和被动采集。现在比较流行的是被动采集方法，让应用程序暴露一个pull metric的接口，然后使用数据采集工具定时将数据拉取下来。采集到这些数据之后存入时序数据库中，方便调用和查看。根据【】中提到的，采集到的数据一般包含时间戳、通信双方的ip、通信的响应时间、响应状态码以及通信类型等。</p>
+
+<pre><code class="language-shell">27092018 09:42:15 UTC, GET, /test/users/1, 172.18.0.10 , 57170, 172.18.0.6 ,8888, 200, 2.31 , RequestResponse
+</code></pre>
+
+<p>这样基础的日志分析一般是对日志文件的分析，不够直观，于是有了一些工具帮助我们更好发现异常，【】提到一些链路可视化工具比如Zipkin等，可以将调用链以及在某个请求处所花费的时间直观表现出来。</p>
+
+<h3 id="graph-building">Graph Building</h3>
+
+<p>在采集到这样的原始数据之后，需要将ip对应关系映射到某个微服务的具体容器，基于以上数据构建服务调用图。在微服务架构之前，流行的架构模式是SOA，multitier service是其中一种架构。【】讨论了在multitier service系统下，服务调用图将跨越不同的VM，经由VM上的不同应用完成整个请求调用过程。一个VM上可能有多个服务，如果VM出现异常，那么在这个VM上的所有服务都会收到影响。</p>
+
+<p>相同的思想，【】关注到在微服务领域，一台物理机上的不同容器，会受到物理机的影响。故将依赖类型分为协作依赖和非协作依赖。</p>
+
+<p>同时我们定义：</p>
+
+<p>After collecting such raw data, you need to map the IP correspondence to a specific container of a microservice, and build a service call graph based on the above data. Before the microservice architecture, the popular architectural pattern was SOA, and multitier service was one of them. [] It is discussed that under the multitier service system, the service call graph will span different VMs and complete the entire request call process through different applications on the VM.</p>
+
+<h3 id="cause-inference">Cause Inference</h3>
+
+<p>一般异常都是前端的节点最先发现，然后经由调用图追溯到正确的异常节点。</p>
+
+<h4 id="计算相似度">计算相似度</h4>
+
+<p>为找到候选集，我们基于收集到的metric，计算初始异常节点（通常是前端节点）和其他节点的相似性。相似性越高，我们认为其更有可能是root cause。大部分的相似度计算方法都是用皮尔逊相关系数来实现的。</p>
+
+<h4 id="rank">Rank</h4>
+
+<p>这个过程出现了一些不同的思路。【】选择找到一些候选的root cause，为提高准确性对这些root cause进行排序。使用的是遍历子树的方法，如果一个节点有异常，那么遍历和其有关联的子节点，将出现异常的子节点加入候选集中。</p>
+
+<p>【】使用的是随机游走算法，认定在某个节点上停留的时间越久，那么这个节点更有可能是root cause。PageRank思想最早运用在网页领域，在互联网上，如果一个网页被很多其他网页所链接，说明它受到普遍的承认和信赖，那么它的排名就高。类似的，如果很多个节点收到某一个节点的影响，那么其是root cause的可能性就越大。</p>
+
+<p>而【】提供了一种更有趣的思路，该工作首先通过false injection创建了大量不同pattern的数据集，然后将出现的异常和数据集中的所有pattern进行相似度计算，如果匹配成功，就能根据fault injection的情况判断是出现何种异常。</p>
+
+<h2 id="ref">Ref</h2>
+
+<ul class="task-list">
+<li><label><input type="checkbox" checked disabled class="task-list-item"> Microscope: Pinpoint Performance Issues with Causal Graphs in Micro-service Environments （ICSOC 2018）</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications （ICWS 2019）</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> Graph-based root cause analysis for service-oriented and microservice architectures （JSS 2020）</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> Microservices Monitoring with Event Logs and Black Box Execution Tracing （TSC 2019）</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> Fault Analysis and Debugging of Microservice Systems: Industrial Survey, Benchmark System, and Empirical Study （TSE 2018）</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> Root Cause Analysis of Anomalies of Multitier Services in Public Clouds （TON 2018）</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> Ranking Causal Anomalies by Modeling Local Propagations on Networked Systems （ICDM 2017）</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> Fault Analysis and Debugging of Microservice Systems: Industrial Survey, Benchmark System, and Empirical Study （TSE 2018）</label></li>
+</ul>
+
+<h1 id="感想">感想</h1>
+
+<h2 id="how-did-you-choose-your-reference-papers">How did you choose your reference papers?</h2>
+
+<p>我的想法是不要把6篇参考文章都选为RCA相关的。</p>
+
+<p>文献6详细介绍了当前微服务系统下的日志分析现状，从传统的日志分析到可视化日志分析到可视化链路日志分析，对日志的基本情况可以做一个大致的把握。</p>
+
+<p>文献5深入日志，还原了日志最原始的数据展示情况。可以更清楚了解到日志的组成部分。</p>
+
+<p>文献1-4代表现阶段一些不同的RCA研究方法，有构造异常模版的方法，也有构造服务调用DAG的方法。但是大致的研究思路是相同的。</p>
+
+<h2 id="why-did-you-choose-the-papers">Why did you choose the papers?</h2>
+
+<p>最近看了几篇论文都是RCA相关的，刚好把看的一些论文给总结一下。我问过业界的工作人员，微服务领域弹性伸缩、RCA、Decompose都是存在而且是不可分割的问题。说明这部分的研究是非常有现实意义的。</p>
+
+<p>在单体架构盛行的年代，我们更关心的是系统出错了我们如何debug，到了微服务系统中，debug也要做，但是debug的复杂性会随着decompose的程度而减弱。这样同时带来的是服务于服务之间相互协作过程中出现的异常。RCA就是为了解决这样的问题。</p>
+
+<h2 id="what-did-you-get-from-the-final-report">What did you get from the final report?</h2>
+
+<ul>
+<li>latex是真的好用</li>
+<li>写一篇论文真不是轻松的工作</li>
+<li>尽量把工作写得详细一些</li>
+</ul>
+
+<p>我在写的过程中总是把论文的工作用几句话就能总结出来了，但其实一些大的概念我可能只是感觉自己弄明白了。过于概括的原因其实就是没有深入细节，也就是无料可写。</p>
+
+<p>最后感觉这个作业的形式还挺有意思的，作为没有写过英语论文的我来说，算是提前体验了一把写论文的感觉。</p>
+
+        </article>
+  </div>
+</section>
+
+    
+    
+    
+  </body>
+</html>

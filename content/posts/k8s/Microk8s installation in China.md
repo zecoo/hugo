@@ -1,7 +1,7 @@
 ---
 title: "Microk8s 国内安装总结"
 date: 2020-04-09T11:37:07+08:00
-draft: true
+draft: false
 tags: ["k8s", "mirok8s"]
 categories: ["k8s"]
 ---

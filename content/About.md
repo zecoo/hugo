@@ -1,31 +1,9 @@
 ---
-title: "About ZIK"
-date: 2020-05-01T14:19:05+08:00
-draft: true
+title: My Go Journey
+date: 2017-03-23
+publishdate: 2017-03-24
 ---
 
-不知道自己在干嘛
+I decided to start learning Go in March 2017.
 
-- [x] 豆瓣TOP250
-- [x] 骑行进藏
-- [x] 戴牙套
-
-想学的内容
-
-- [ ] hugo
-- [ ] go
-- [ ] css /scss
-- [ ] 日语
-
-如果有个网站记录我的一切，我死之后还能留下一堆文件。
-
-虽然学习的是软工专业，但是代码烂得一批。
-
-感兴趣的事情好像没有
-
-消遣的时候刷刷b站，看看书。
-
-每看完一本书都会写个读书笔记，才能算是一本书看过一遍吧
-
-如果博客有任何问题，欢迎给我发邮件。
-
+Follow my journey through this new blog.

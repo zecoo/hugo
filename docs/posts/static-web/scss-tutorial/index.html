@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        scss tutorial 
+      
+    </title>
+  </head>
+  <body>
+    
+    
+<title>scss tutorial | This is a title</title>
+<aside id="meta">
+    <div>
+    <section>
+      <p id="date"> Tue May 5, 2020 </p>
+      <p id="wordcount"> 54 Words </p>
+    </section>
+    
+    
+    <ul id="tags">
+      
+        <li> <a href="tagscss">css</a> </li>
+      
+        <li> <a href="tagsscss">scss</a> </li>
+      
+    </ul>
+    
+    </div>
+</aside>
+<section id="main">
+  <h1 id="title">scss tutorial</h1>
+  <div>
+        <article id="content">
+           
+
+<p>SCSS：Sassy CSS</p>
+
+<p>SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。</p>
+
+<p>我咋还在scss的环境上踩到坑了呢？</p>
+
+<p>先是给我报错</p>
+
+<pre><code class="language-shell">bad interpreter: /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby: no such file or directory
+</code></pre>
+
+<p>一查是sass环境没装上……我以为mac自带ruby不用管呢</p>
+
+<pre><code class="language-shell">sudo gem install -n /usr/local/bin sass --pre   
+</code></pre>
+
+<p>安装之。然后发现ruby的源用不了，原来是 <a href="https://gems.ruby-china.org">https://gems.ruby-china.org</a> 改成了 <a href="https://gems.ruby-china.com">https://gems.ruby-china.com</a> ，害。</p>
+
+<p>编译css的项目目录也需要更改，默认是编译到scss相同的目录。</p>
+
+<pre><code class="language-json">{
+	&quot;cmd&quot;: [ &quot;sass&quot;, &quot;--update&quot;, &quot;$file:${file_path}/../css/${file_base_name}.css&quot;, &quot;--stop-on-error&quot;, &quot;--no-cache&quot;],
+	&quot;osx&quot;: 
+	{
+		&quot;path&quot;: &quot;/usr/local/bin:$PATH&quot;
+	}
+}
+</code></pre>
+
+<p>最后sublime再装一个插件&rdquo;sublimeBuildOnSave&rdquo;自动编译sass，不要每次都cmd+B一下。</p>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="https://www.jianshu.com/p/f8cbe91498dc">https://www.jianshu.com/p/f8cbe91498dc</a> （ruby china换源了）</p>
+
+<p><a href="https://www.sass.hk/install/">https://www.sass.hk/install/</a> （ruby 安装sass）</p>
+
+<p><a href="https://blog.logrocket.com/getting-started-with-bootstrapvue-2d8bf907ef11/">https://blog.logrocket.com/getting-started-with-bootstrapvue-2d8bf907ef11/</a> （bootVue blog）</p>
+
+<p><a href="https://bootstrap-vue.org/docs">https://bootstrap-vue.org/docs</a> （bootVue官网）</p>
+
+        </article>
+  </div>
+</section>
+
+    
+    
+    
+  </body>
+</html>

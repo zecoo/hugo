@@ -1,193 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kubeadm on Pure theme for Hugo</title>
-    <link>https://zecoo.github.io/hugo/tags/kubeadm/</link>
-    <description>Recent content in kubeadm on Pure theme for Hugo</description>
+    <title>kubeadm on This is a title</title>
+    <link>/tags/kubeadm/</link>
+    <description>Recent content in kubeadm on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 16 May 2020 00:00:00 +0800</lastBuildDate>
     
-        <atom:link href="https://zecoo.github.io/hugo/tags/kubeadm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/kubeadm/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Cool Sites</title>
-      <link>https://zecoo.github.io/hugo/2020/05/cool-sites/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/cool-sites/</guid>
-      <description>个人站点 DIYgod前端大神 设计师+工程师 花生A自制挺有意思的站点 搞数学的人是真的帅 关于群晖做个人站点 四火真实的程序员hh 从restful的</description>
-    </item>
-    
-    <item>
-      <title>Istio sites</title>
-      <link>https://zecoo.github.io/hugo/2020/05/istio-sites/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/istio-sites/</guid>
-      <description> productpage Prometheus Grafana Jaeger Kiali (admin,admin)  </description>
-    </item>
-    
-    <item>
-      <title>Start LeetCode</title>
-      <link>https://zecoo.github.io/hugo/2020/05/start-leetcode/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/start-leetcode/</guid>
-      <description>仅做个人记录，解题思路请看其他大佬的。 参考 https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/suan-fa-xue-xi-zhi-lu （如何学算法） https://leetcode.com/explore/learn/card/fun-with-arrays/ （leetcode官网）</description>
-    </item>
-    
-    <item>
-      <title>Service Dependecy Graph Building</title>
-      <link>https://zecoo.github.io/hugo/2020/05/service-dependecy-graph-building/</link>
-      <pubDate>Tue, 26 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/service-dependecy-graph-building/</guid>
-      <description>kiali是trace的一个可视化工具，那么我怎么才能拿到trace的原始数据呢？ istio的数据也都是prom给的，prom的metric</description>
-    </item>
-    
-    <item>
-      <title>Scenario Driven MS Decomposition</title>
-      <link>https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/</link>
-      <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/scenario-driven-ms-decomposition/</guid>
-      <description>场景驱动、自底向上的单体系统微服务拆分方法 评价 核心思想：把数据表之间紧密联系的聚在一起，作为拆分微服务的准则。 实际上是关于数据表的划分，微服</description>
-    </item>
-    
-    <item>
-      <title>vps搭建图床</title>
-      <link>https://zecoo.github.io/hugo/2020/05/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
-      <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
-      <description>展示一下我的图床已经搭起来了。放一张我在心动实习的时候想设计的一个todo app： 参考 https://www.jianshu.com/p/7863fcb34aed</description>
-    </item>
-    
-    <item>
-      <title>Delta debug MS</title>
-      <link>https://zecoo.github.io/hugo/2020/05/delta-debug-ms/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/delta-debug-ms/</guid>
-      <description>a triangular tract of sediment deposited at the mouth of a river, typically where it diverges into several outlets. the fourth letter of the Greek alphabet ( Δ , δ ), transliterated as ‘d.’. variation of a variable or function. 一组影响系统执行dimensions，高效找出导致错</description>
-    </item>
-    
-    <item>
-      <title>Graph-based RCA in SOA and MS</title>
-      <link>https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/graph-based-rca-in-soa-and-ms/</guid>
-      <description>Graph-based root cause analysis for service-oriented and microservice architectures JSS 2020 2 RW RCA方法有以下大致分类 model-based的RCA方法 Spectrum（也可以称之为Classificatio</description>
-    </item>
-    
-    <item>
-      <title>Microscope</title>
-      <link>https://zecoo.github.io/hugo/2020/05/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</guid>
-      <description>Microscope: Pinpoint Performance Issues with Causal Graphs in Micro-service Environments ICSOC 2018 Abstruct 错误定位的论文。通过服务调用关系构建DAG定位错误。 Introduction 定位有88%的准确性，2020的icws有一篇错误定位论文跟</description>
-    </item>
-    
-    <item>
-      <title>RCA in multitier service</title>
-      <link>https://zecoo.github.io/hugo/2020/05/rca-in-multitier-service/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/rca-in-multitier-service/</guid>
-      <description>Root Cause Analysis of Anomalies of Multitier Services in Public Clouds TON 2018 读完感觉不像是A类的期刊，Chinglish的情况很严重，相似度的计算实在是不优美，最后baseline挑的也很奇</description>
-    </item>
-    
-    <item>
-      <title>MS-Rank</title>
-      <link>https://zecoo.github.io/hugo/2020/05/ms-rank/</link>
-      <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/ms-rank/</guid>
-      <description>MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications ICWS 2019 主要贡献： 根据一系列的metrics，构建一个调用图 基于随机游走算法提出了根因定位算法 为了提高定位的准确性，用一种自</description>
-    </item>
-    
-    <item>
-      <title>RCA Papers</title>
-      <link>https://zecoo.github.io/hugo/2020/05/rca-papers/</link>
-      <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/rca-papers/</guid>
-      <description>Literature Survey: Root Cause Analysis in Microservice System 摘要 微服务系统在最近几年迅速发展，微服务系统由多个独立部署并相互协作的微服务组成，大型的微服务系统可能包含几十个微服务，使得</description>
-    </item>
-    
-    <item>
-      <title>hugo上传博客脚本</title>
-      <link>https://zecoo.github.io/hugo/2020/05/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</link>
-      <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</guid>
-      <description>我很傻的，每次更新博客之后都要手动输入 hugo -D git add . git commit -m &amp;quot;xxx&amp;quot; git push origin master 又不想下载git客户端一键push，写个脚本咯 #!/bin/bash hugo -D git add . echo &amp;quot;input commit info:&amp;quot; read -t 5 commit_info commit_info=${commit_info:-&amp;quot;update</description>
-    </item>
-    
-    <item>
-      <title>服务器命令行美化</title>
-      <link>https://zecoo.github.io/hugo/2020/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</link>
-      <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</guid>
-      <description>export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot; 但是有个问题，输了命令命令行前缀是变好看了，但是一旦退出就没有效果了。要把这个设置写进文件里才行。具体是$HOME/.bashrc这</description>
-    </item>
-    
-    <item>
-      <title>hugo tutorial</title>
-      <link>https://zecoo.github.io/hugo/2020/05/hugo-tutorial/</link>
-      <pubDate>Sun, 17 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/hugo-tutorial/</guid>
-      <description>hugo new theme zik-theme 可以创建一个新的主题。自己的主题就是从这里开始。来看看初始的theme目录长什么样吧。 ├── LICENSE ├── archetypes │ └── default.md ├── layouts │ ├── 404.html │</description>
-    </item>
     
     <item>
       <title>Kubeadm init node not found</title>
-      <link>https://zecoo.github.io/hugo/2020/05/kubeadm-init-node-not-found/</link>
+      <link>/posts/k8s/kubeadm-init-node-not-found/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/2020/05/kubeadm-init-node-not-found/</guid>
-      <description>新坑哦～ 5天都没有解决的新坑哦～ 环境： 华为云学生机2c4g 鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB 错误 kubeadm init 后卡在： [wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &amp;quot;/etc/kubernetes/manifests&amp;quot;. This</description>
+      <guid>/posts/k8s/kubeadm-init-node-not-found/</guid>
+      <description>新坑哦～
+5天都没有解决的新坑哦～
+环境：  华为云学生机2c4g 鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB  错误 kubeadm init 后卡在：
+[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &amp;quot;/etc/kubernetes/manifests&amp;quot;. This can take up to 4m0s [kubelet-check] Initial timeout of 40s passed.  然后按照提示查看kubelet的日志，显示“node xxx not found”
+node &amp;quot;ecs-kc1-large-2-linux-20200511105949&amp;quot; not found Container &amp;quot;408a5e9f9958dd3919cecf4a944a25ce30582bc638d657fc065fec8c56579f2a&amp;quot; not found in pod&#39;s containers k8s.io/kubernetes/pkg/kubelet/kubelet.go:453: Failed to list *v1.Node: Get https://192.168.0.214:6443/api/v1/nodes?fieldSelector=metadata.name%3Decs-kc1-large-2-linux-20200511105949&amp;amp;limit=500&amp;amp;resourceVersion=0: dial tcp 192.</description>
     </item>
     
     <item>
-      <title>Hugo添加代码高亮</title>
-      <link>https://zecoo.github.io/hugo/2020/05/hugo-code-highlight/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
+      <title>Kubeadm 安装记录</title>
+      <link>/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Tue, 28 Apr 2020 16:37:07 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/2020/05/hugo-code-highlight/</guid>
-      <description>方法：用hightlight.js做高亮。 针对不同的Hugo主题，应该有不同的思路。但是基本思路还是： head里添加css body中添加两个</description>
-    </item>
-    
-    <item>
-      <title>Metric to Graph思路及实践</title>
-      <link>https://zecoo.github.io/hugo/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
-      <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
-      <description>整体思路 01 查看Prom的metric： 写好PromQL获得自己想要的metric，这时候只是文本的形式。而且又臭又长。 &amp;quot;metric&amp;quot;: { &amp;quot;__name__&amp;quot;: &amp;quot;istio_requests_total&amp;quot;, &amp;quot;connection_security_policy&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;destination_app&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_canonical_revision&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_canonical_service&amp;quot;:</description>
-    </item>
-    
-    <item>
-      <title>jq in terminal for json</title>
-      <link>https://zecoo.github.io/hugo/2020/05/jq-in-terminal-for-json/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/jq-in-terminal-for-json/</guid>
-      <description>Prom返回的json格式没有reindent，看起来很费眼睛。 {&amp;quot;metric&amp;quot;:{&amp;quot;__name__&amp;quot;:&amp;quot;istio_requests_total&amp;quot;,&amp;quot;destination_app&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;destination_service&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;value&amp;quot;:[1588929523.247,&amp;quot;10523&amp;quot;]}]}} 在命令行，想让其用缩进好的json展示出来，就要用到jq。 curl http://test.json | jq 只需要在</description>
-    </item>
-    
-    <item>
-      <title>PromQL query in http API</title>
-      <link>https://zecoo.github.io/hugo/2020/05/promql-query-in-http-api/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/2020/05/promql-query-in-http-api/</guid>
-      <description>Prom官网给出http API例如获取2015年7月1号某天的数据这样写：（我获得了istio_requests_total的所有metri</description>
+      <guid>/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
+      <description>装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。
+安装K8s有这几种方法
+ minikube mircok8s kubeadm  这三种方法我都用过。minikube在win上以虚拟机的形式运行，挺麻烦的讲道理。microk8s是最友好的方式，解决一个拉镜像的问题，也就不成问题了。kubeadm应该是最麻烦的了。
+回归正题，记录整个安装以及填坑的过程。
+首先docker要安装上。
+然后，kubelet、kubeadm、kubectl、kubernetes-cni一套安装下来。
+我现在才看到参考1中的一句话：
+# 指定版本否则都会默认安装库中最新版本，会因为彼此依赖的版本不同安装失败 $ yum install -y kubelet-1.13.1 kubeadm-1.13.1 kubectl-1.13.1 kubernetes-cni-0.6.0 # 设置开机启动并启动kubelet $ systemctl enable kubelet &amp;amp;&amp;amp; systemctl start kubelet  看到第一句话了吗？给我大声读几遍！！我就是因为这个，吃了多少亏，搜索多少资料😭。请一定保证你的kubelet、kubeadm、kubectl的版本相同。
+第二步，kubeadm config images list列出所有需要的image，因为国内网络问题嘛，一样的。然后用以下bash脚本安装好，docke images检查一下。
+for i in `kubeadm config images list`; do imageName=${i#k8s.gcr.io/} docker pull registry.aliyuncs.com/google_containers/$imageName docker tag registry.aliyuncs.com/google_containers/$imageName k8s.gcr.io/$imageName docker rmi registry.aliyuncs.com/google_containers/$imageName done;  第三步，kubeadm init --pod-network-cidr=10.244.0.0/16初始化kubeadm。这一步最重要的是/etc/kubernetes/admin.conf这个文件。还有后面那个参数，如果不加上，就会遇到新的坑哦～
+init结束之后，不要忘了提示的三行命令，不然会报错：
+Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of &amp;quot;crypto/rsa: verification error&amp;quot; while trying to verify candidate authority certificate &amp;quot;kubernetes&amp;quot;)  mkdir -p $HOME/.</description>
     </item>
     
   </channel>

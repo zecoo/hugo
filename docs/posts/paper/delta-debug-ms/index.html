@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        Delta debug MS 
+      
+    </title>
+  </head>
+  <body>
+    
+    
+<title>Delta debug MS | This is a title</title>
+<aside id="meta">
+    <div>
+    <section>
+      <p id="date"> Wed May 20, 2020 </p>
+      <p id="wordcount"> 126 Words </p>
+    </section>
+    
+    
+    <ul id="tags">
+      
+        <li> <a href="tagsrca">RCA</a> </li>
+      
+    </ul>
+    
+    </div>
+</aside>
+<section id="main">
+  <h1 id="title">Delta debug MS</h1>
+  <div>
+        <article id="content">
+           <ol>
+<li><p>a triangular tract of sediment deposited at the mouth of a river, typically where it diverges into several outlets. </p></li>
+
+<li><p>the fourth letter of the Greek alphabet ( Δ , δ ), transliterated as ‘d.’. </p></li>
+
+<li><p>variation of a variable or function. </p></li>
+
+<li><p>一组影响系统执行dimensions，高效找出导致错误的deltas。这里delta包括（deployment、enviromental、configurations） </p></li>
+
+<li><p>四个dimensions：node、instance、configuration、sequence </p></li>
+
+<li><p>node：分布式的服务器，未知性较多 </p></li>
+
+<li><p>instance：微服务的instance一般都是有状态的，如果没有处理好，相同的instance如果不是同样的状态就会出错。 </p></li>
+
+<li><p>configuration：docker的配置，k8s的配置，是挺恶心的，万一内存不够，就爆了 </p></li>
+
+<li><p>sequence：异步的invocation导致错误 </p></li>
+
+<li><p>微服务settings作为circumstances，就可以用delta bebugging了，db是一种简化和隔离错误案例的方法 </p></li>
+
+<li><p>Istio是微服务service mesh的？Istio可以部署在k8s里的 </p></li>
+
+<li><p>delta debugging的作用是找到min的deltas导致错误 </p></li>
+
+<li><p>controller：delta debugging的位置，是文章核心嗷 </p></li>
+
+<li><p>scheduler：根据容器状态选择test case去执行。queue，有可用资源就去跑测试 </p></li>
+
+<li><p>executor：根据所给的circumstances在docker上跑测试用例，返回测试结果 </p></li>
+
+<li><p>circumstance：4个dimension的组合 </p></li>
+
+<li><p>delta：两个cir之间的差异 </p></li>
+
+<li><p>delta db目的：通过最简单cir抽取导致错误的最小delta set </p></li>
+
+<li><p>min setting：一个node，一个instance，默认conf（full memory），正确的seq </p></li>
+
+<li><p>general setting：一个可能引起错误的cir </p></li>
+
+<li><p>表示方法：0表示min setting，1表示general setting </p></li>
+
+<li><p>seq的表示方法稍微复杂一点，0表示顺序执行，1表示逆序执行 </p></li>
+
+<li><p>seq能全覆盖，node、instance numbers可以放低一点要求 </p></li>
+
+<li><p>If the given failing test case still fails with the simplest circumstance, the failure can be thought to be caused by internal faults of related microservices </p></li>
+
+<li><p>我们的目标是找到应用在min cir上导致ftc产生ftr的同时ptc产生ptr的deltas </p></li>
+
+<li><p>atomic delta是什么意思？？ </p></li>
+
+<li><p>we partition the set of deltas X into n equal-sized partitions </p></li>
+
+<li><p>13vm each 8-core cpu 24gb memory </p></li>
+
+<li><p>36-63 deltas -》 1-2deltas </p></li>
+
+<li><p>就是能分出到底是哪种问题 </p></li>
+
+<li><p>但是有个很重要的点就是要开发再确认bug </p></li>
+</ol>
+
+        </article>
+  </div>
+</section>
+
+    
+    
+    
+  </body>
+</html>
