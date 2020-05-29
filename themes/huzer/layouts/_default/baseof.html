@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <title>
@@ -10,13 +10,16 @@
       {{ end }}
     </title>
     <link rel="stylesheet" type="text/css" href="{{.Site.BaseURL }}css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{.Site.BaseURL }}css/classes.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   </head>
   <body>
     <!-- Code that all your templates share, like a header -->
-    {{ block "main" . }}
+    <div class="container">
+      {{ block "main" . }}
       <!-- The part of the page that begins to differ between templates -->
-    {{ end }}
+      {{ end }}
+    </div>
     {{ block "footer" . }}
     <!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
     {{ end }}
