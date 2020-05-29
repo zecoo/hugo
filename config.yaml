@@ -1,5 +1,5 @@
 baseURL: https://zecoo.github.io/hugo/
-theme: zik-theme
+theme: huzer
 publishDir: "docs"
 # theme: contrast-hugo
 title: This is a title
