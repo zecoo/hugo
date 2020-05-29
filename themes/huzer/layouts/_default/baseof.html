@@ -2,6 +2,10 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
+    {{ hugo.Generator }}
+    {{- if or .Description .Site.Params.description }}
+    <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+    {{- end }}
     <title>
       {{ if .Title }}
         {{ .Title }} 
@@ -11,6 +15,7 @@
     </title>
     <link rel="stylesheet" type="text/css" href="{{.Site.BaseURL }}css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{.Site.BaseURL }}css/classes.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/github.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   </head>
   <body>
@@ -23,5 +28,8 @@
     {{ block "footer" . }}
     <!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
     {{ end }}
+
+    <script src="{{ .Site.BaseURL }}js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

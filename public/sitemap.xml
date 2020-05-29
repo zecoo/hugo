@@ -3,12 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/categories/blog/</loc>
-    <lastmod>2020-05-27T00:00:00+08:00</lastmod>
+    <loc>/tags/asl/</loc>
+    <lastmod>2020-05-29T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/experiment/asl%E5%A4%8D%E7%8E%B0/</loc>
+    <lastmod>2020-05-29T00:00:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
+    <lastmod>2020-05-29T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/paper/</loc>
+    <lastmod>2020-05-29T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-05-29T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-05-29T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-05-29T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/blog/</loc>
     <lastmod>2020-05-27T00:00:00+08:00</lastmod>
   </url>
   
@@ -38,22 +68,7 @@
   </url>
   
   <url>
-    <loc>/posts/</loc>
-    <lastmod>2020-05-27T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/posts/math/start-leetcode/</loc>
-    <lastmod>2020-05-27T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-05-27T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
     <lastmod>2020-05-27T00:00:00+08:00</lastmod>
   </url>
   
@@ -73,17 +88,17 @@
   </url>
   
   <url>
+    <loc>/posts/server/send-file-from-one-server-to-another/</loc>
+    <lastmod>2020-05-25T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/blog/</loc>
     <lastmod>2020-05-22T00:00:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/decomposition/</loc>
-    <lastmod>2020-05-22T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/paper/</loc>
     <lastmod>2020-05-22T00:00:00+08:00</lastmod>
   </url>
   
@@ -95,6 +110,11 @@
   <url>
     <loc>/posts/blog/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2020-05-22T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/paper/monitoring-with-log-and-trace/</loc>
+    <lastmod>2020-05-21T00:00:00+08:00</lastmod>
   </url>
   
   <url>
@@ -178,12 +198,12 @@
   </url>
   
   <url>
-    <loc>/tags/k8s/</loc>
+    <loc>/categories/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/k8s/</loc>
+    <loc>/tags/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
   </url>
   
@@ -258,12 +278,12 @@
   </url>
   
   <url>
-    <loc>/categories/css/</loc>
+    <loc>/tags/css/</loc>
     <lastmod>2020-05-05T00:00:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/css/</loc>
+    <loc>/categories/css/</loc>
     <lastmod>2020-05-05T00:00:00+08:00</lastmod>
   </url>
   
@@ -420,14 +440,6 @@
   <url>
     <loc>/about/</loc>
     <lastmod>2017-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/paper/monitoring-with-log-and-trace/</loc>
-  </url>
-  
-  <url>
-    <loc>/posts/server/send-file-from-one-server-to-another/</loc>
   </url>
   
 </urlset>
