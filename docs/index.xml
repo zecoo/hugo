@@ -5,10 +5,26 @@
     <link>https://zecoo.github.io/hugo/</link>
     <description>Recent content on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 27 May 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 May 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ASL复现</title>
+      <link>https://zecoo.github.io/hugo/posts/experiment/asl%E5%A4%8D%E7%8E%B0/</link>
+      <pubDate>Fri, 29 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/experiment/asl%E5%A4%8D%E7%8E%B0/</guid>
+      <description>贝叶斯优化扩容 记录下实验过程
+一开始发现无论我用多大的并发去压测productpage，都是在压测的瞬间P90和P50陡增，但是不用任何扩容的操作，P90和P50都能立马降下来。如下图
+可以看到每一次峰值就是我增加一个压测后立马出现的情况。但是不做任何操作立马回落到正常。
+一开始考虑要么让物理机的CPU和Mem限制住，但是觉得这样开销太大了。要不试试把pod的CPU和Mem限制住？立即开干。查到了限制pod资源的方法：
+spec: containers: - image: gcr.io/google_containers/serve_hostname imagePullPolicy: Always name: kubernetes-serve-hostname resources: limits: cpu: &amp;quot;1&amp;quot; #限制pod申请最大的cpu数量为1个cpu memory: 512Mi #申请内存最大值 requests: cpu: &amp;quot;0.5&amp;quot; #pod申请的cpu数量为0.5个cpu memory: 400Mi #申请内存的最小值  调整限制的大小，发现cpu给0.1，mem给100m是比较合适的。继续尝试实验，如下图
+仔细解说一下哈：
+17:41分的时候，我开了两个并发为200的压测，指标立马上去了。BO这时候在后台跑着呢，记录一下几次迭代的结果：
+| iter | target | x | time : 2020-05-29 17:41:44 | 2 | -55.71 | 1.441 | Pod Count Set to: 1 | 3 | 8.421 | 0.000228 | Pod Count Set to: 1 | 4 | -70.</description>
+    </item>
     
     <item>
       <title>Cool Sites</title>
