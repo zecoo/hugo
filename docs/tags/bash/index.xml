@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>bash on This is a title</title>
-    <link>/tags/bash/</link>
+    <link>https://zecoo.github.io/hugo/tags/bash/</link>
     <description>Recent content in bash on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 18 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/bash/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>hugo上传博客脚本</title>
-      <link>/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</link>
+      <link>https://zecoo.github.io/hugo/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</guid>
       <description>我很傻的，每次更新博客之后都要手动输入
 hugo -D git add . git commit -m &amp;quot;xxx&amp;quot; git push origin master  又不想下载git客户端一键push，写个脚本咯
 #!/bin/bash hugo -D git add . echo &amp;quot;input commit info:&amp;quot; read -t 5 commit_info commit_info=${commit_info:-&amp;quot;update blog&amp;quot;} git commit -m &amp;quot;$commit_info&amp;quot; git push origin master  read提供一个默认值“update blog”，这样既可以修改commit info，5s后忘记输入的话也不用担心。

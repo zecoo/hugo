@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>k8s on This is a title</title>
-    <link>/tags/k8s/</link>
+    <link>https://zecoo.github.io/hugo/tags/k8s/</link>
     <description>Recent content in k8s on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 16 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Kubeadm init node not found</title>
-      <link>/posts/k8s/kubeadm-init-node-not-found/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/kubeadm-init-node-not-found/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/k8s/kubeadm-init-node-not-found/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/kubeadm-init-node-not-found/</guid>
       <description>新坑哦～
 5天都没有解决的新坑哦～
 环境：  华为云学生机2c4g 鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB  错误 kubeadm init 后卡在：
@@ -25,10 +25,10 @@ node &amp;quot;ecs-kc1-large-2-linux-20200511105949&amp;quot; not found Containe
     
     <item>
       <title>k8s HPA尝试</title>
-      <link>/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
       <pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
       <description>先提一个题外话：如何销毁已经创建的部署？答：
 有kubectl create -f ./metrics-server就有kubectl delete -f ./metrics-server
 按照主要参考，大部分都可以实现。但是有几个坑需要注意
@@ -45,10 +45,10 @@ https://stackoverflow.com/questions/43163625/when-i-use-deployment-in-kubernetes
     
     <item>
       <title>Kubeadm 安装记录</title>
-      <link>/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Tue, 28 Apr 2020 16:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
       <description>装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。
 安装K8s有这几种方法
  minikube mircok8s kubeadm  这三种方法我都用过。minikube在win上以虚拟机的形式运行，挺麻烦的讲道理。microk8s是最友好的方式，解决一个拉镜像的问题，也就不成问题了。kubeadm应该是最麻烦的了。
@@ -65,10 +65,10 @@ Unable to connect to the server: x509: certificate signed by unknown authority (
     
     <item>
       <title>Kubectl client 和 server version 差距错误</title>
-      <link>/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
       <pubDate>Tue, 28 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
       <description>每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说
  遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。
  说得真好。爆炸的心态慢慢也就平复了。
@@ -86,10 +86,10 @@ https://devops.stackexchange.com/questions/2956/how-do-i-get-kubernetes-to-work-
     
     <item>
       <title>K8S Proxy</title>
-      <link>/posts/k8s/k8s-proxy/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/k8s-proxy/</link>
       <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/k8s-proxy/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/k8s-proxy/</guid>
       <description>上一节讲到现在可以在vps上访问到hello-world了。
 然而我想把访问操作放在我的电脑上。我没有想到NodePort这么容易就能做到了。修改一下service.yaml里面port的type，从ClusterIP改为NodePort就可以了。
 到这里我已经很满足了，但是手痒痒想要看看dashboard的情况。首先嘛，得先把dashboard服务给启动起来对不对？不幸的是，在之前装microk8s的时候，我使用了这样一行命令添加了dns和dashboard这两个add-on
@@ -101,10 +101,10 @@ ubuntu@VM-0-12-ubuntu:~$ sudo kubectl get svc --all-namespaces NAMESPACE NAME TY
     
     <item>
       <title>K8S hello-world 回顾</title>
-      <link>/posts/k8s/k8s-hello-world/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/k8s-hello-world/</link>
       <pubDate>Fri, 17 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/k8s-hello-world/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/k8s-hello-world/</guid>
       <description>没错这部分也花了我很长时间，而且把我心态还搞崩了。
 k8s安装主要是镜像是国外私有库，pull下来比较麻烦。
 而k8s第一个hello-world难在理解pod、deployment、service之间的关系，以及各种奇奇怪怪的端口映射。我想这是计算机网络基础没有打好埋的坑吧。
@@ -118,10 +118,10 @@ apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 kind: Deploymen
     
     <item>
       <title>Microk8s 国内安装总结</title>
-      <link>/posts/k8s/microk8s-installation-in-china/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</link>
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/microk8s-installation-in-china/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</guid>
       <description>Ubuntu18本身自带snap，可以在microk8s的官网找到安装方法。
 注意k8s的运行条件只要满足以下
  Linux kernel在3.1以上，很多小的openZV的服务器，都是2.6的核儿 Memory要在2G或以上。  我在国外买的xs vps就emmm。再附自己检查kernel的过程

@@ -2,263 +2,263 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on This is a title</title>
-    <link>/tags/</link>
+    <link>https://zecoo.github.io/hugo/tags/</link>
     <description>Recent content in Tags on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 27 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ing</title>
-      <link>/tags/ing/</link>
+      <link>https://zecoo.github.io/hugo/tags/ing/</link>
       <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/ing/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/ing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>useless</title>
-      <link>/tags/useless/</link>
+      <link>https://zecoo.github.io/hugo/tags/useless/</link>
       <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/useless/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/useless/</guid>
       <description></description>
     </item>
     
     <item>
       <title>trace</title>
-      <link>/tags/trace/</link>
+      <link>https://zecoo.github.io/hugo/tags/trace/</link>
       <pubDate>Tue, 26 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/trace/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/trace/</guid>
       <description></description>
     </item>
     
     <item>
       <title>blog</title>
-      <link>/tags/blog/</link>
+      <link>https://zecoo.github.io/hugo/tags/blog/</link>
       <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/blog/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/blog/</guid>
       <description></description>
     </item>
     
     <item>
       <title>decomposition</title>
-      <link>/tags/decomposition/</link>
+      <link>https://zecoo.github.io/hugo/tags/decomposition/</link>
       <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/decomposition/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/decomposition/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RCA</title>
-      <link>/tags/rca/</link>
+      <link>https://zecoo.github.io/hugo/tags/rca/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/rca/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/rca/</guid>
       <description></description>
     </item>
     
     <item>
       <title>icws</title>
-      <link>/tags/icws/</link>
+      <link>https://zecoo.github.io/hugo/tags/icws/</link>
       <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/icws/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/icws/</guid>
       <description></description>
     </item>
     
     <item>
       <title>valueless</title>
-      <link>/tags/valueless/</link>
+      <link>https://zecoo.github.io/hugo/tags/valueless/</link>
       <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/valueless/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/valueless/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bash</title>
-      <link>/tags/bash/</link>
+      <link>https://zecoo.github.io/hugo/tags/bash/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/bash/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/bash/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>/tags/hugo/</link>
+      <link>https://zecoo.github.io/hugo/tags/hugo/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/hugo/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>server</title>
-      <link>/tags/server/</link>
+      <link>https://zecoo.github.io/hugo/tags/server/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/server/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/server/</guid>
       <description></description>
     </item>
     
     <item>
       <title>k8s</title>
-      <link>/tags/k8s/</link>
+      <link>https://zecoo.github.io/hugo/tags/k8s/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/k8s/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/k8s/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kubeadm</title>
-      <link>/tags/kubeadm/</link>
+      <link>https://zecoo.github.io/hugo/tags/kubeadm/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/kubeadm/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/kubeadm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>highlight</title>
-      <link>/tags/highlight/</link>
+      <link>https://zecoo.github.io/hugo/tags/highlight/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/highlight/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/highlight/</guid>
       <description></description>
     </item>
     
     <item>
       <title>istio</title>
-      <link>/tags/istio/</link>
+      <link>https://zecoo.github.io/hugo/tags/istio/</link>
       <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
       
-      <guid>/tags/istio/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/istio/</guid>
       <description></description>
     </item>
     
     <item>
       <title>prom</title>
-      <link>/tags/prom/</link>
+      <link>https://zecoo.github.io/hugo/tags/prom/</link>
       <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
       
-      <guid>/tags/prom/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/prom/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jq</title>
-      <link>/tags/jq/</link>
+      <link>https://zecoo.github.io/hugo/tags/jq/</link>
       <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/jq/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/jq/</guid>
       <description></description>
     </item>
     
     <item>
       <title>css</title>
-      <link>/tags/css/</link>
+      <link>https://zecoo.github.io/hugo/tags/css/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/css/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>scss</title>
-      <link>/tags/scss/</link>
+      <link>https://zecoo.github.io/hugo/tags/scss/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/scss/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/scss/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HPA</title>
-      <link>/tags/hpa/</link>
+      <link>https://zecoo.github.io/hugo/tags/hpa/</link>
       <pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/tags/hpa/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/hpa/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hello-world</title>
-      <link>/tags/hello-world/</link>
+      <link>https://zecoo.github.io/hugo/tags/hello-world/</link>
       <pubDate>Wed, 29 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/tags/hello-world/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/hello-world/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kubectl</title>
-      <link>/tags/kubectl/</link>
+      <link>https://zecoo.github.io/hugo/tags/kubectl/</link>
       <pubDate>Tue, 28 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/tags/kubectl/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/kubectl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ife</title>
-      <link>/tags/ife/</link>
+      <link>https://zecoo.github.io/hugo/tags/ife/</link>
       <pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/tags/ife/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/ife/</guid>
       <description></description>
     </item>
     
     <item>
       <title>js</title>
-      <link>/tags/js/</link>
+      <link>https://zecoo.github.io/hugo/tags/js/</link>
       <pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/tags/js/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/js/</guid>
       <description></description>
     </item>
     
     <item>
       <title>math</title>
-      <link>/tags/math/</link>
+      <link>https://zecoo.github.io/hugo/tags/math/</link>
       <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/tags/math/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/math/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mirok8s</title>
-      <link>/tags/mirok8s/</link>
+      <link>https://zecoo.github.io/hugo/tags/mirok8s/</link>
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/tags/mirok8s/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/mirok8s/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nginx</title>
-      <link>/tags/nginx/</link>
+      <link>https://zecoo.github.io/hugo/tags/nginx/</link>
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/tags/nginx/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/nginx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ss</title>
-      <link>/tags/ss/</link>
+      <link>https://zecoo.github.io/hugo/tags/ss/</link>
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/tags/ss/</guid>
+      <guid>https://zecoo.github.io/hugo/tags/ss/</guid>
       <description></description>
     </item>
     

@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on This is a title</title>
-    <link>/posts/</link>
+    <link>https://zecoo.github.io/hugo/posts/</link>
     <description>Recent content in Posts on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 27 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Cool Sites</title>
-      <link>/posts/blog/cool-sites/</link>
+      <link>https://zecoo.github.io/hugo/posts/blog/cool-sites/</link>
       <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/blog/cool-sites/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/blog/cool-sites/</guid>
       <description> 个人站点  DIYgod前端大神 设计师+工程师 花生A自制挺有意思的站点 搞数学的人是真的帅 关于群晖做个人站点 四火真实的程序员hh 从restful的todo找到的在读研究生 张怡宝藏女孩 像素风个人站点 about页的喜欢和不喜欢太可爱了 敖小剑ServiceMesh布道者 绿色记忆生活编程记录  公司  射手是个超nice的公司  博客  喜欢记录的在读生  </description>
     </item>
     
     <item>
       <title>Istio sites</title>
-      <link>/posts/istio/istio-sites/</link>
+      <link>https://zecoo.github.io/hugo/posts/istio/istio-sites/</link>
       <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/istio/istio-sites/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/istio/istio-sites/</guid>
       <description> productpage Prometheus Grafana Jaeger Kiali (admin,admin)  </description>
     </item>
     
     <item>
       <title>Start LeetCode</title>
-      <link>/posts/math/start-leetcode/</link>
+      <link>https://zecoo.github.io/hugo/posts/math/start-leetcode/</link>
       <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/math/start-leetcode/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/math/start-leetcode/</guid>
       <description>仅做个人记录，解题思路请看其他大佬的。
 参考 https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/suan-fa-xue-xi-zhi-lu （如何学算法）
 https://leetcode.com/explore/learn/card/fun-with-arrays/ （leetcode官网）
@@ -42,10 +42,10 @@ https://github.com/MisterBooo/LeetCodeAnimation （动画演示）</description>
     
     <item>
       <title>Service Dependecy Graph Building</title>
-      <link>/posts/istio/service-dependecy-graph-building/</link>
+      <link>https://zecoo.github.io/hugo/posts/istio/service-dependecy-graph-building/</link>
       <pubDate>Tue, 26 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/istio/service-dependecy-graph-building/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/istio/service-dependecy-graph-building/</guid>
       <description>kiali是trace的一个可视化工具，那么我怎么才能拿到trace的原始数据呢？
 istio的数据也都是prom给的，prom的metric之前已经看过了。怎么从prom的metric构造一个trace处理呢？
 Istio中Jaeger的数据是临时存在内存里的。
@@ -57,20 +57,20 @@ https://juejin.im/entry/5b0aa414f265da0ddf04a894 (nodeport可以用来画图)</d
     
     <item>
       <title>Send file from one server to another</title>
-      <link>/posts/server/send-file-from-one-server-to-another/</link>
+      <link>https://zecoo.github.io/hugo/posts/server/send-file-from-one-server-to-another/</link>
       <pubDate>Mon, 25 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/server/send-file-from-one-server-to-another/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/server/send-file-from-one-server-to-another/</guid>
       <description>我没有想到传文件这么方便。那这样我有一台国外的服务器，可以做很多事情了啊。
 参考 https://www.cnblogs.com/gudongcheng/p/8064808.html （scp）</description>
     </item>
     
     <item>
       <title>Scenario Driven MS Decomposition</title>
-      <link>/posts/paper/scenario-driven-ms-decomposition/</link>
+      <link>https://zecoo.github.io/hugo/posts/paper/scenario-driven-ms-decomposition/</link>
       <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/paper/scenario-driven-ms-decomposition/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/paper/scenario-driven-ms-decomposition/</guid>
       <description>场景驱动、自底向上的单体系统微服务拆分方法
 评价 核心思想：把数据表之间紧密联系的聚在一起，作为拆分微服务的准则。
 实际上是关于数据表的划分，微服务的其他方面比如class、method的划分没有提到。
@@ -94,20 +94,20 @@ Dscenario = 同时操作表A和表B的场景 / 操作表A的场景之和（Tb对
     
     <item>
       <title>vps搭建图床</title>
-      <link>/posts/blog/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
+      <link>https://zecoo.github.io/hugo/posts/blog/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
       <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/blog/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/blog/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
       <description>展示一下我的图床已经搭起来了。放一张我在心动实习的时候想设计的一个todo app：
 参考 https://www.jianshu.com/p/7863fcb34aed</description>
     </item>
     
     <item>
       <title>Monitoring with log and trace</title>
-      <link>/posts/paper/monitoring-with-log-and-trace/</link>
+      <link>https://zecoo.github.io/hugo/posts/paper/monitoring-with-log-and-trace/</link>
       <pubDate>Thu, 21 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/paper/monitoring-with-log-and-trace/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/paper/monitoring-with-log-and-trace/</guid>
       <description>Microservices Monitoring with Event Logs and Black Box Execution Tracing
 TSC 2019
 Chaper1 理解log一般需要专家，文章提出一个novel的方式帮助troubleshooting的决策 Clearwater IP Multimedia Subsystem 和 hipster差不多，都是有十多个微服务的玩意儿 嗯，微服务decomposed，非常适合monitoring，同时也有挑战 indirect monitoring 检测cpu之类的什么东西，direct monitoring可以直接在代码里插入log function进行monitoring。event log属于direct monitoring 现有的log management tool应该用的是正则和关键词查找的方式做分析，但是好像不是特别适合微服务。毕竟不同的系统，分析规则是不一样的 吹一波作者的monitoring工具MetroFunnel，不需要改变现有的微服务，也不需要对现有的系统有特别深刻的了解。
@@ -122,19 +122,19 @@ Tracing algorithm Tracing Algorithm有两个要点，
     
     <item>
       <title>Delta debug MS</title>
-      <link>/posts/paper/delta-debug-ms/</link>
+      <link>https://zecoo.github.io/hugo/posts/paper/delta-debug-ms/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/paper/delta-debug-ms/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/paper/delta-debug-ms/</guid>
       <description> a triangular tract of sediment deposited at the mouth of a river, typically where it diverges into several outlets.  the fourth letter of the Greek alphabet ( Δ , δ ), transliterated as ‘d.’.  variation of a variable or function.  一组影响系统执行dimensions，高效找出导致错误的deltas。这里delta包括（deployment、enviromental、configurations）  四个dimensions：node、instance、configuration、sequence  node：分布式的服务器，未知性较多  instance：微服务的instance一般都是有状态的，如果没有处理好，相同的instance如果不是同样的状态就会出错。  configuration：docker的配置，k8s的配置，是挺恶心的，万一内存不够，就爆了  sequence：异步的invocation导致错误  微服务settings作为circumstances，就可以用delta bebugging了，db是一种简化和隔离错误案例的方法  Istio是微服务service mesh的？Istio可以部署在k8s里的  delta debugging的作用是找到min的deltas导致错误  controller：delta debugging的位置，是文章核心嗷  scheduler：根据容器状态选择test case去执行。queue，有可用资源就去跑测试  executor：根据所给的circumstances在docker上跑测试用例，返回测试结果  circumstance：4个dimension的组合  delta：两个cir之间的差异  delta db目的：通过最简单cir抽取导致错误的最小delta set  min setting：一个node，一个instance，默认conf（full memory），正确的seq  general setting：一个可能引起错误的cir  表示方法：0表示min setting，1表示general setting  seq的表示方法稍微复杂一点，0表示顺序执行，1表示逆序执行  seq能全覆盖，node、instance numbers可以放低一点要求  If the given failing test case still fails with the simplest circumstance, the failure can be thought to be caused by internal faults of related microservices  我们的目标是找到应用在min cir上导致ftc产生ftr的同时ptc产生ptr的deltas  atomic delta是什么意思？？  we partition the set of deltas X into n equal-sized partitions  13vm each 8-core cpu 24gb memory  36-63 deltas -》 1-2deltas  就是能分出到底是哪种问题  但是有个很重要的点就是要开发再确认bug   </description>
     </item>
     
     <item>
       <title>Graph-based RCA in SOA and MS</title>
-      <link>/posts/paper/graph-based-rca-in-soa-and-ms/</link>
+      <link>https://zecoo.github.io/hugo/posts/paper/graph-based-rca-in-soa-and-ms/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/paper/graph-based-rca-in-soa-and-ms/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/paper/graph-based-rca-in-soa-and-ms/</guid>
       <description>Graph-based root cause analysis for service-oriented and microservice architectures
 JSS 2020
 2 RW RCA方法有以下大致分类
@@ -157,10 +157,10 @@ similarity module 输入：1. 异常区域（anomaly region） 2. 异常模版�
     
     <item>
       <title>Microscope</title>
-      <link>/posts/paper/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</link>
+      <link>https://zecoo.github.io/hugo/posts/paper/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/paper/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/paper/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</guid>
       <description>Microscope: Pinpoint Performance Issues with Causal Graphs in Micro-service Environments
 ICSOC 2018
 Abstruct 错误定位的论文。通过服务调用关系构建DAG定位错误。
@@ -178,10 +178,10 @@ rank cause inference 通过一个异常的节点（前端报出的异常节点�
     
     <item>
       <title>RCA in multitier service</title>
-      <link>/posts/paper/rca-in-multitier-service/</link>
+      <link>https://zecoo.github.io/hugo/posts/paper/rca-in-multitier-service/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/paper/rca-in-multitier-service/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/paper/rca-in-multitier-service/</guid>
       <description>Root Cause Analysis of Anomalies of Multitier Services in Public Clouds
 TON 2018
 读完感觉不像是A类的期刊，Chinglish的情况很严重，相似度的计算实在是不优美，最后baseline挑的也很奇怪。
@@ -202,10 +202,10 @@ Evaluation Baseline  RS：Random Select，普通人用排列组合的方式选�
     
     <item>
       <title>MS-Rank</title>
-      <link>/posts/paper/ms-rank/</link>
+      <link>https://zecoo.github.io/hugo/posts/paper/ms-rank/</link>
       <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/paper/ms-rank/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/paper/ms-rank/</guid>
       <description>MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications
 ICWS 2019
 主要贡献：  根据一系列的metrics，构建一个调用图
@@ -230,20 +230,20 @@ Transition（游走）：向前（遇到高相似度）、向内（前后都是�
     
     <item>
       <title>RCA Papers</title>
-      <link>/posts/paper/rca-papers/</link>
+      <link>https://zecoo.github.io/hugo/posts/paper/rca-papers/</link>
       <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/paper/rca-papers/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/paper/rca-papers/</guid>
       <description>Literature Survey: Root Cause Analysis in Microservice System 摘要 微服务系统在最近几年迅速发展，微服务系统由多个独立部署并相互协作的微服务组成，大型的微服务系统可能包含几十个微服务，使得他们之间的调用链非常复杂。当某个微服务节点发生异常，可能会影响整个微服务调用链。为了保证Qos，定位发生异常的微服务节点显得尤为重要。目前RCA的过程大致可以分为服务调用链构建、筛选候选异常节点、排序异常节点这三个部分。这篇论文，我们将对比近几年RCA的发展以及常见的错误定位方法及这些方法之间的对比。基于以上讨论，得出对RCA的总结。
 Microservice systems have developed rapidly in recent years. Microservice systems consist of multiple microservices which are independently deployed and co- ordinated . A large microservice system may contain dozens of microservices, making the call chain among these microservices very complicated. When an anomaly occurs in a microservice node, it may affect the entire call chain. In order to ensure Qos(Qunatity of service) and SLA(Service Level Assurance), it is particularly important to locate the abnormal microservice nodes.</description>
     </item>
     
     <item>
       <title>hugo上传博客脚本</title>
-      <link>/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</link>
+      <link>https://zecoo.github.io/hugo/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</guid>
       <description>我很傻的，每次更新博客之后都要手动输入
 hugo -D git add . git commit -m &amp;quot;xxx&amp;quot; git push origin master  又不想下载git客户端一键push，写个脚本咯
 #!/bin/bash hugo -D git add . echo &amp;quot;input commit info:&amp;quot; read -t 5 commit_info commit_info=${commit_info:-&amp;quot;update blog&amp;quot;} git commit -m &amp;quot;$commit_info&amp;quot; git push origin master  read提供一个默认值“update blog”，这样既可以修改commit info，5s后忘记输入的话也不用担心。
@@ -254,10 +254,10 @@ https://blog.csdn.net/u010339879/article/details/77938911 （read添加默认值
     
     <item>
       <title>服务器命令行美化</title>
-      <link>/posts/server/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</link>
+      <link>https://zecoo.github.io/hugo/posts/server/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/server/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/server/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</guid>
       <description>export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot;  但是有个问题，输了命令命令行前缀是变好看了，但是一旦退出就没有效果了。要把这个设置写进文件里才行。具体是$HOME/.bashrc这个文件，这样就OK啦。
 # .bashrc # User specific aliases and functions alias rm=&#39;rm -i&#39; alias cp=&#39;cp -i&#39; alias mv=&#39;mv -i&#39; # Source global definitions if [ -f /etc/bashrc ]; then . /etc/bashrc fi export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot;  vim也可以美化一下
 # vim 显示行号 cat &amp;lt;&amp;lt;EOF &amp;gt; ~/.vimrc set nu EOF  参考 https://learnku.com/articles/29209 （ssh炫酷UI）
@@ -266,10 +266,10 @@ https://blog.csdn.net/yelangjueqi/article/details/45556657 （修改.bashrc文�
     
     <item>
       <title>hugo tutorial</title>
-      <link>/posts/blog/hugo-tutorial/</link>
+      <link>https://zecoo.github.io/hugo/posts/blog/hugo-tutorial/</link>
       <pubDate>Sun, 17 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/blog/hugo-tutorial/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/blog/hugo-tutorial/</guid>
       <description>hugo new theme zik-theme  可以创建一个新的主题。自己的主题就是从这里开始。
 然后看看hugo官网对这些baseof.html、index.html里面语法的介绍吧
 Variable和Function都是用两个大括号括起来{{ }}
@@ -283,10 +283,10 @@ Variable和Function都是用两个大括号括起来{{ }}
     
     <item>
       <title>Kubeadm init node not found</title>
-      <link>/posts/k8s/kubeadm-init-node-not-found/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/kubeadm-init-node-not-found/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/k8s/kubeadm-init-node-not-found/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/kubeadm-init-node-not-found/</guid>
       <description>新坑哦～
 5天都没有解决的新坑哦～
 环境：  华为云学生机2c4g 鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB  错误 kubeadm init 后卡在：
@@ -296,10 +296,10 @@ node &amp;quot;ecs-kc1-large-2-linux-20200511105949&amp;quot; not found Containe
     
     <item>
       <title>Hugo添加代码高亮</title>
-      <link>/posts/blog/hugo-code-highlight/</link>
+      <link>https://zecoo.github.io/hugo/posts/blog/hugo-code-highlight/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/blog/hugo-code-highlight/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/blog/hugo-code-highlight/</guid>
       <description>方法：用hightlight.js做高亮。
 针对不同的Hugo主题，应该有不同的思路。但是基本思路还是：
  head里添加css body中添加两个“script“元素第一个是js文件，第二个是loadjs  我用的是Hugo的contrast主题，打开文件夹theme - layout，找到博文的base.html，打开在里面添加基本思路中的文件。我仿照代码里本来有的目录，简单修改一下就可以了。（第二行是我添加的highlight css文件）
@@ -310,20 +310,20 @@ js文件，用官网上的cdn就可以。或者直接下载下来。
     
     <item>
       <title>Metric to Graph思路及实践</title>
-      <link>/posts/metrics/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
+      <link>https://zecoo.github.io/hugo/posts/metrics/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
       
-      <guid>/posts/metrics/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/metrics/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
       <description>整体思路 01 查看Prom的metric： 写好PromQL获得自己想要的metric，这时候只是文本的形式。而且又臭又长。
 &amp;quot;metric&amp;quot;: { &amp;quot;__name__&amp;quot;: &amp;quot;istio_requests_total&amp;quot;, &amp;quot;connection_security_policy&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;destination_app&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_canonical_revision&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_canonical_service&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_principal&amp;quot;: &amp;quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&amp;quot;, &amp;quot;destination_service&amp;quot;: &amp;quot;productpage.default.svc.cluster.local&amp;quot;, &amp;quot;destination_service_name&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_service_namespace&amp;quot;: &amp;quot;default&amp;quot;, &amp;quot;destination_version&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_workload&amp;quot;: &amp;quot;productpage-v1&amp;quot;, &amp;quot;destination_workload_namespace&amp;quot;: &amp;quot;default&amp;quot;, &amp;quot;instance&amp;quot;: &amp;quot;10.244.0.61:15090&amp;quot;, &amp;quot;job&amp;quot;: &amp;quot;envoy-stats&amp;quot;, &amp;quot;namespace&amp;quot;: &amp;quot;istio-system&amp;quot;, &amp;quot;pod_name&amp;quot;: &amp;quot;istio-ingressgateway-6489d9556d-ws6cg&amp;quot;, &amp;quot;reporter&amp;quot;: &amp;quot;source&amp;quot;, &amp;quot;request_protocol&amp;quot;: &amp;quot;http&amp;quot;, &amp;quot;response_code&amp;quot;: &amp;quot;200&amp;quot;, &amp;quot;response_flags&amp;quot;: &amp;quot;-&amp;quot;, &amp;quot;source_app&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_canonical_revision&amp;quot;: &amp;quot;1.5&amp;quot;, &amp;quot;source_canonical_service&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_principal&amp;quot;: &amp;quot;spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account&amp;quot;, &amp;quot;source_version&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;source_workload&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_workload_namespace&amp;quot;: &amp;quot;istio-system&amp;quot; }, &amp;quot;value&amp;quot;: [ 1588918429.726, &amp;quot;5148&amp;quot; ] }  02 提取metric 用代码或者在浏览器中用Prom提供的HTTP API访问提取metrics。请不要用curl，这个坑在另一个博客里已经提到了。</description>
     </item>
     
     <item>
       <title>jq in terminal for json</title>
-      <link>/posts/server/jq-in-terminal-for-json/</link>
+      <link>https://zecoo.github.io/hugo/posts/server/jq-in-terminal-for-json/</link>
       <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/server/jq-in-terminal-for-json/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/server/jq-in-terminal-for-json/</guid>
       <description>Prom返回的json格式没有reindent，看起来很费眼睛。
 {&amp;quot;metric&amp;quot;:{&amp;quot;__name__&amp;quot;:&amp;quot;istio_requests_total&amp;quot;,&amp;quot;destination_app&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;destination_service&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;value&amp;quot;:[1588929523.247,&amp;quot;10523&amp;quot;]}]}}  在命令行，想让其用缩进好的json展示出来，就要用到jq。
 curl http://test.json | jq  只需要在后面加上jq，就可以看到漂亮的json格式数据
@@ -332,10 +332,10 @@ curl http://test.json | jq  只需要在后面加上jq，就可以看到漂亮�
     
     <item>
       <title>PromQL query in http API</title>
-      <link>/posts/metrics/promql-query-in-http-api/</link>
+      <link>https://zecoo.github.io/hugo/posts/metrics/promql-query-in-http-api/</link>
       <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/metrics/promql-query-in-http-api/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/metrics/promql-query-in-http-api/</guid>
       <description>Prom官网给出http API例如获取2015年7月1号某天的数据这样写：（我获得了istio_requests_total的所有metric）
 curl &#39;http://localhost:9090/api/v1/query?query=istio_requests_total&amp;amp;time=2015-07-01T20:10:51.781Z&#39;  我想用PromQL，类似Prom的UI针对repose_code对query进行过滤
 query?istio_requsets_total{response_code=200}  按照普通的思路我试着这样修改curl地址如下：
@@ -347,10 +347,10 @@ http://121.37.159.247:30040/api/v1/query?query=istio_requests_total{response_cod
     
     <item>
       <title>PromQL理解</title>
-      <link>/posts/metrics/promql%E7%90%86%E8%A7%A3/</link>
+      <link>https://zecoo.github.io/hugo/posts/metrics/promql%E7%90%86%E8%A7%A3/</link>
       <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/metrics/promql%E7%90%86%E8%A7%A3/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/metrics/promql%E7%90%86%E8%A7%A3/</guid>
       <description>期待数据 10min内的请求数（sum）
 istio_requests_total{destination_service_name=&amp;quot;productpage&amp;quot;}  10min内的请求数增长率（rate）
 rate(istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;}[10m])  10min内的响应时间P90（quantile）
@@ -360,10 +360,10 @@ rate(istio_request_duration_milliseconds_bucket{destination_app=&amp;quot;produc
     
     <item>
       <title>Meta Metrics</title>
-      <link>/posts/metrics/meta-metrics/</link>
+      <link>https://zecoo.github.io/hugo/posts/metrics/meta-metrics/</link>
       <pubDate>Thu, 07 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/metrics/meta-metrics/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/metrics/meta-metrics/</guid>
       <description>siege一分钟压测最后给出的统计数据：
 Lifting the server siege... Transactions:	439 hits Availability:	51.83 % Elapsed time:	59.33 secs Data transferred:	8.47 MB Response time:	9.88 secs Transaction rate:	7.40 trans/sec Throughput:	0.14 MB/sec Concurrency:	73.10 Successful transactions: 439 Failed transactions:	408 Longest transaction:	56.69 Shortest transaction:	0.13  istio Envoy的access log：
 【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/flasgger_static/swagger-ui-bundle.js 【PROTOCOL】HTTP/1.1&amp;quot; 【REPONSE CODE】200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 1048149 261 225 【FORWARD_FOR】&amp;quot;-&amp;quot; 【AGENT】&amp;quot;Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.5&amp;quot; 【REQUEST_ID】&amp;quot;51b45953-9ede-9390-b8b5-162247165a5b&amp;quot; 【AUTHORITY】&amp;quot;10.108.208.232:8000&amp;quot; 【HOST】&amp;quot;127.0.0.1:80&amp;quot; 【SERVICE】inbound|8000|http|httpbin.default.svc.cluster.local 【CLUSTER_IP】127.</description>
@@ -371,10 +371,10 @@ Lifting the server siege... Transactions:	439 hits Availability:	51.83 % Elapsed
     
     <item>
       <title>istio envoy log type</title>
-      <link>/posts/istio/istio-envoy-log-type/</link>
+      <link>https://zecoo.github.io/hugo/posts/istio/istio-envoy-log-type/</link>
       <pubDate>Wed, 06 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/istio/istio-envoy-log-type/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/istio/istio-envoy-log-type/</guid>
       <description>基本数据这样
 【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/flasgger_static/swagger-ui-bundle.js 【PROTOCOL】HTTP/1.1&amp;quot; 【REPONSE CODE】200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 1048149 261 225 【FORWARD_FOR】&amp;quot;-&amp;quot; 【AGENT】&amp;quot;Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.5&amp;quot; 【REQUEST_ID】&amp;quot;51b45953-9ede-9390-b8b5-162247165a5b&amp;quot; 【AUTHORITY】&amp;quot;10.108.208.232:8000&amp;quot; 【HOST】&amp;quot;127.0.0.1:80&amp;quot; inbound|8000|http|httpbin.default.svc.cluster.local 127.0.0.1:43000 10.244.0.67:80 10.244.0.1:10504 - default  0 135 1 1 (/status/418) 0 9593 73 73 (http/1.1) 0 1428809 1 1 (swagger-ui.bundle.js) 0 85578 1 0 (jquery.min.js) 0 0 118 - (DC ResponseCode:0) 0 1048149 261 225 (swagger-ui.bundle.js)  那么这4串数字分别代表什么呢？根据Envoy官方给出的对应关系，由于HTTP_FLAGS一般都是比较特别的，而我得到的都是&amp;rdquo;-&amp;ldquo;，可以得到对应关系：
 [1]BYTES_RECEIVED [2]BYTES_SENT [3]DURATION [4]ENVOY-UPSTREAM-SERVICE-TIME  istio bookinfo示例中给出的log是这样（官方给出的，我现在不想折腾Mixer，得不到这个数据）
@@ -383,10 +383,10 @@ Lifting the server siege... Transactions:	439 hits Availability:	51.83 % Elapsed
     
     <item>
       <title>scss tutorial</title>
-      <link>/posts/static-web/scss-tutorial/</link>
+      <link>https://zecoo.github.io/hugo/posts/static-web/scss-tutorial/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/static-web/scss-tutorial/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/static-web/scss-tutorial/</guid>
       <description>SCSS：Sassy CSS
 SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。
 我咋还在scss的环境上踩到坑了呢？
@@ -403,10 +403,10 @@ https://bootstrap-vue.org/docs （bootVue官网）</description>
     
     <item>
       <title>k8s HPA尝试</title>
-      <link>/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
       <pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
       <description>先提一个题外话：如何销毁已经创建的部署？答：
 有kubectl create -f ./metrics-server就有kubectl delete -f ./metrics-server
 按照主要参考，大部分都可以实现。但是有几个坑需要注意
@@ -423,10 +423,10 @@ https://stackoverflow.com/questions/43163625/when-i-use-deployment-in-kubernetes
     
     <item>
       <title>Prometheus Metric形式</title>
-      <link>/posts/metrics/prom-metric%E5%BD%A2%E5%BC%8F/</link>
+      <link>https://zecoo.github.io/hugo/posts/metrics/prom-metric%E5%BD%A2%E5%BC%8F/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/metrics/prom-metric%E5%BD%A2%E5%BC%8F/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/metrics/prom-metric%E5%BD%A2%E5%BC%8F/</guid>
       <description>Prom的四种基本metric类型  counter：从0开始计数的，比如http_req_total gauge：有浮动的指标，比如cpu、mem histogram：统计数据，比如P90 summary：和histogram类似  几个示例 P90  The φ-quantile is the observation value that ranks at number φ*N among the N observations. Examples for φ-quantiles: The 0.5-quantile is known as the median. The 0.95-quantile is the 95th percentile.
  分位点的概念。官方示例：10分钟内请求持续时间的90%，以PromQL的形式给出：
 histogram_quantile(0.9, rate(http_request_duration_seconds_bucket[10m]))  以下数据是通过 curl http://121.37.159.247:30040/metrics 获取的，截取部分。
@@ -435,10 +435,10 @@ histogram_quantile(0.9, rate(http_request_duration_seconds_bucket[10m]))  以下
     
     <item>
       <title>K8s &#43; Istio 概念</title>
-      <link>/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</link>
+      <link>https://zecoo.github.io/hugo/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Thu, 30 Apr 2020 10:37:07 +0800</pubDate>
       
-      <guid>/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</guid>
       <description>环境都搭好了，不知道里面的原理那可不行。
 我也不会系统写，想到哪里就写到哪里吧。
 istio是如何做到无侵入就能控制流量转发？ Sidecar还有Envoy是这里的核心。
@@ -456,10 +456,10 @@ k8s的DNS是什么 给每个svc可用地址。
     
     <item>
       <title>Istio 可视化插件概览</title>
-      <link>/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
+      <link>https://zecoo.github.io/hugo/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
       <pubDate>Thu, 30 Apr 2020 10:35:07 +0800</pubDate>
       
-      <guid>/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
       <description>Prometheus 基本的metrics监测插件。
 通过query查询不同的信息，例如以下信息就是istio_requests_total这条query查询到的n条数据中的一条。（不全，删除了部分我不关注的信息）
 istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;,destination_principal=&amp;quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&amp;quot;,destination_service=&amp;quot;productpage.default.svc.cluster.local&amp;quot;,destination_service_name=&amp;quot;productpage&amp;quot;,destination_service_namespace=&amp;quot;default&amp;quot;,destination_version=&amp;quot;v1&amp;quot;,destination_workload=&amp;quot;productpage-v1&amp;quot;,instance=&amp;quot;10.244.0.24:15090&amp;quot;,job=&amp;quot;envoy-stats&amp;quot;,namespace=&amp;quot;istio-system&amp;quot;,pod_name=&amp;quot;istio-ingressgateway-6489d9556d-bc48z&amp;quot;,response_code=&amp;quot;503&amp;quot;,source_workload=&amp;quot;istio-ingressgateway&amp;quot;,source_workload_namespace=&amp;quot;istio-system&amp;quot;}  Grafana Metrics可视化插件。
@@ -475,10 +475,10 @@ $ siege -d 10 -c 200 -t 2 http://121.37.159.247:32753/productpage Lifting the se
     
     <item>
       <title>Istio 安装回顾</title>
-      <link>/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</link>
+      <link>https://zecoo.github.io/hugo/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</link>
       <pubDate>Wed, 29 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
       <description>如果是Microk8s安装，很简单就一步：
 microk8s.enable istio  好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。
 然后转战华为云15天4g服务器试用。
@@ -508,10 +508,10 @@ https://istio.io/zh/docs/tasks/observability/gateways/ (官方暴露prom服务)<
     
     <item>
       <title>Kubeadm 安装记录</title>
-      <link>/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Tue, 28 Apr 2020 16:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
       <description>装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。
 安装K8s有这几种方法
  minikube mircok8s kubeadm  这三种方法我都用过。minikube在win上以虚拟机的形式运行，挺麻烦的讲道理。microk8s是最友好的方式，解决一个拉镜像的问题，也就不成问题了。kubeadm应该是最麻烦的了。
@@ -528,10 +528,10 @@ Unable to connect to the server: x509: certificate signed by unknown authority (
     
     <item>
       <title>Kubectl client 和 server version 差距错误</title>
-      <link>/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
       <pubDate>Tue, 28 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
       <description>每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说
  遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。
  说得真好。爆炸的心态慢慢也就平复了。
@@ -549,10 +549,10 @@ https://devops.stackexchange.com/questions/2956/how-do-i-get-kubernetes-to-work-
     
     <item>
       <title>IFE task0002_5 回顾</title>
-      <link>/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</link>
+      <link>https://zecoo.github.io/hugo/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</link>
       <pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid>
       <description>做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基础。
 我也百度了一下，发现写task0002_5的博客少之又少，说明ife的任务2到这里，基本上已经没有很多人在做了。
 瞎总结 首先要了解事件是个什么东西。在这个任务里面，要监听的是
@@ -573,10 +573,10 @@ https://www.jianshu.com/p/2dfb870e0b88 （本任务类型）</description>
     
     <item>
       <title>Bayesian Optimization 直观理解</title>
-      <link>/posts/math/bayesian-optimization/</link>
+      <link>https://zecoo.github.io/hugo/posts/math/bayesian-optimization/</link>
       <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/math/bayesian-optimization/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/math/bayesian-optimization/</guid>
       <description>目标 最小(大)化一个没有具体表达式的函数。
 举个例子 给定一个函数 $$ f(x,y) = -x^2 - (y-1)^2 +1 $$
 BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。
@@ -589,10 +589,10 @@ BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。
     
     <item>
       <title>K8S Proxy</title>
-      <link>/posts/k8s/k8s-proxy/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/k8s-proxy/</link>
       <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/k8s-proxy/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/k8s-proxy/</guid>
       <description>上一节讲到现在可以在vps上访问到hello-world了。
 然而我想把访问操作放在我的电脑上。我没有想到NodePort这么容易就能做到了。修改一下service.yaml里面port的type，从ClusterIP改为NodePort就可以了。
 到这里我已经很满足了，但是手痒痒想要看看dashboard的情况。首先嘛，得先把dashboard服务给启动起来对不对？不幸的是，在之前装microk8s的时候，我使用了这样一行命令添加了dns和dashboard这两个add-on
@@ -604,10 +604,10 @@ ubuntu@VM-0-12-ubuntu:~$ sudo kubectl get svc --all-namespaces NAMESPACE NAME TY
     
     <item>
       <title>K8S hello-world 回顾</title>
-      <link>/posts/k8s/k8s-hello-world/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/k8s-hello-world/</link>
       <pubDate>Fri, 17 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/k8s-hello-world/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/k8s-hello-world/</guid>
       <description>没错这部分也花了我很长时间，而且把我心态还搞崩了。
 k8s安装主要是镜像是国外私有库，pull下来比较麻烦。
 而k8s第一个hello-world难在理解pod、deployment、service之间的关系，以及各种奇奇怪怪的端口映射。我想这是计算机网络基础没有打好埋的坑吧。
@@ -621,10 +621,10 @@ apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 kind: Deploymen
     
     <item>
       <title>ife 轮播图回顾</title>
-      <link>/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</link>
+      <link>https://zecoo.github.io/hugo/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</link>
       <pubDate>Wed, 15 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</guid>
       <description>写在前面 做到ife task002_3，轮播图花了我最长的时间来写，甚至让我开始反思自己是不是真的…不适合当一个程序员。我要成了程序员，有种侮辱了这个群体的感jio。最后看了一下，虽然也就125行的代码，断断续续我大概做了一周。😓
 html&amp;amp;CSS也遇到问题：  怎么把6张图片都塞到frame里面去不漏出来。简单一个overflow：hidden我就是想不到。 6个按钮小圆点怎么放到frame里面。其实还是position的问题，我总是自以为了解position，然而到了真正实践的时候就出问题。小圆点div相对于frame的position要absolute。 如何让图片有一个滑动的效果？我是看了DIYgod的代码之后，才知道要让图片float left，让图片div的宽度仅可能宽，让图片相对于左上角每次移动一部分距离，就能实现移动的效果了。  最要命的是JS部分 一开始我百度了一个轮播图的代码，是通过调整其他图片display：none，指定index的图片display：block。这样就简单实现了图片的切换。这样做也没有什么问题，但就是没有滑动的动画效果，看起来很low。
 干脆继续参考DIYgod的代码。就有了上面提到的，让图片横向展开在页面中。每次切换让图片向左或向右移动一定的距离offset。也就是图片div的left增加或减少offset。如果移动一张图片距离，那么就是offset=img.width。
@@ -643,10 +643,10 @@ Next &amp;amp; Prev button 于是我先把next、prev点击切换的功能做出
     
     <item>
       <title>Microk8s 国内安装总结</title>
-      <link>/posts/k8s/microk8s-installation-in-china/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</link>
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/microk8s-installation-in-china/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</guid>
       <description>Ubuntu18本身自带snap，可以在microk8s的官网找到安装方法。
 注意k8s的运行条件只要满足以下
  Linux kernel在3.1以上，很多小的openZV的服务器，都是2.6的核儿 Memory要在2G或以上。  我在国外买的xs vps就emmm。再附自己检查kernel的过程
@@ -661,20 +661,20 @@ NAMESPACE NAME READY STATUS RESTARTS AGE container-registry registry-7cf58dcdcc-
     
     <item>
       <title>SS on Ubuntu</title>
-      <link>/posts/k8s/ss-on-ubuntu/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</link>
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/ss-on-ubuntu/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</guid>
       <description>弄起来挺快的，其实就三点
  安装ss。apt install就可以 配置ss。就一个json文件 启动ss。一行命令  参考： https://viencoding.com/article/90</description>
     </item>
     
     <item>
       <title>初试Nginx部署静态网页</title>
-      <link>/posts/static-web/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</link>
+      <link>https://zecoo.github.io/hugo/posts/static-web/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</link>
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/static-web/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/static-web/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</guid>
       <description>在ife上也写了几个网页了，但是如果一直用github-pages的话，感觉有点麻烦，自己有一个服务器干嘛不直接用呢？
 安装Nginx及其简单：
 apt install nginx
@@ -696,10 +696,10 @@ cat /var/log/nginx/error.log
     
     <item>
       <title>IFE js.util</title>
-      <link>/posts/static-web/ife-js-util/</link>
+      <link>https://zecoo.github.io/hugo/posts/static-web/ife-js-util/</link>
       <pubDate>Tue, 31 Mar 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/static-web/ife-js-util/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/static-web/ife-js-util/</guid>
       <description>task1的时候我还能勉强用自己的想法写，html的展示效果达到了就好。
 但是到了task2的时候，js基础还是不牢啊，基本上每道题都要看下别人的博客。虽然有点low，但是还是秉着一股劲往前冲，后面再来捡技术细节的思路，不丢人的。
 一趟捣鼓下来，JS部分一共就5个板块：
@@ -718,10 +718,10 @@ cat /var/log/nginx/error.log
     
     <item>
       <title>IFE Task0001 Log</title>
-      <link>/posts/static-web/ife-task0001-log/</link>
+      <link>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</link>
       <pubDate>Sun, 01 Mar 2020 17:39:45 +0800</pubDate>
       
-      <guid>/posts/static-web/ife-task0001-log/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</guid>
       <description>我记录一下ife其他几个页面。一共这么几个页面
  index.html post.html archive.html about.html  如果自己写的话，除了index.html，其他几个页面都有或多多少的问题我写不出来。 一个一个说吧。
 Index.html  banner有三个部分，一个是logo，一个是站内其他链接，最后一个是git的logo。这三个部分要显示在水平的一行，这里其实是运用到了float，只要把三个部分都设置为float，就可以变成一行了。感觉有点像把div改成了块内元素一样，也就是变成了span。 一般banner的链接都是用list改成水平，改成水平的方法有两个，一个是float，另一个是display inline-block 我想让这三部分，随着页面的改变，位置不要定死，原来margin-left之类的也可以用百分比来表示，就很舒服了。 center是一个大的bg，bg上面有一个透明度的方形显示文字，放bg的时候遇到了以前就遇到的问题，比如默认是重复的，而且不能充满div。这两个问题代码很好解决。 至于透明度的方形，彻底让我对position这个元素有了一定的理解。absolute、fixed、relative分别代表什么。 box部分是三个卡片，卡片里有图片和文字。三个卡片并列其实也挺好写，好像用inline-block就可以实现，水平垂直居中什么的也都是现成的，不过写好了之后再看要求里面有一个是卡片的高度随文字内容自适应。 遂百度之，发现用display table可以解决这个问题，但是table是占满整个div的，不过也好解决，用一大一小div就解决了。 圆形的头像，这个做起来也好简单啊，图片的radius改一下就可以了。 intro部分其实不用display来写，比较常规。如果需要居中之类的工作，用display明显是要方便很多的。 最后一点，如果用flex来布局，flex里面的每个元素的宽度都是以最宽的那个为标准。这时候想要居中的话可以考虑用text-align center解决。这是最后那个小logo的居中问题。  Post.html 在开始写post.html之前我在GitHub上down了几个其他人的ife作业，然后发现我这个代码真的是稀烂…最基本的有这么几个问题：

@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ife on This is a title</title>
-    <link>/tags/ife/</link>
+    <link>https://zecoo.github.io/hugo/tags/ife/</link>
     <description>Recent content in ife on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 23 Apr 2020 11:37:07 +0800</lastBuildDate>
     
-	<atom:link href="/tags/ife/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/ife/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>IFE task0002_5 回顾</title>
-      <link>/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</link>
+      <link>https://zecoo.github.io/hugo/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</link>
       <pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid>
       <description>做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基础。
 我也百度了一下，发现写task0002_5的博客少之又少，说明ife的任务2到这里，基本上已经没有很多人在做了。
 瞎总结 首先要了解事件是个什么东西。在这个任务里面，要监听的是
@@ -36,10 +36,10 @@ https://www.jianshu.com/p/2dfb870e0b88 （本任务类型）</description>
     
     <item>
       <title>ife 轮播图回顾</title>
-      <link>/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</link>
+      <link>https://zecoo.github.io/hugo/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</link>
       <pubDate>Wed, 15 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</guid>
       <description>写在前面 做到ife task002_3，轮播图花了我最长的时间来写，甚至让我开始反思自己是不是真的…不适合当一个程序员。我要成了程序员，有种侮辱了这个群体的感jio。最后看了一下，虽然也就125行的代码，断断续续我大概做了一周。😓
 html&amp;amp;CSS也遇到问题：  怎么把6张图片都塞到frame里面去不漏出来。简单一个overflow：hidden我就是想不到。 6个按钮小圆点怎么放到frame里面。其实还是position的问题，我总是自以为了解position，然而到了真正实践的时候就出问题。小圆点div相对于frame的position要absolute。 如何让图片有一个滑动的效果？我是看了DIYgod的代码之后，才知道要让图片float left，让图片div的宽度仅可能宽，让图片相对于左上角每次移动一部分距离，就能实现移动的效果了。  最要命的是JS部分 一开始我百度了一个轮播图的代码，是通过调整其他图片display：none，指定index的图片display：block。这样就简单实现了图片的切换。这样做也没有什么问题，但就是没有滑动的动画效果，看起来很low。
 干脆继续参考DIYgod的代码。就有了上面提到的，让图片横向展开在页面中。每次切换让图片向左或向右移动一定的距离offset。也就是图片div的left增加或减少offset。如果移动一张图片距离，那么就是offset=img.width。
@@ -58,10 +58,10 @@ Next &amp;amp; Prev button 于是我先把next、prev点击切换的功能做出
     
     <item>
       <title>IFE js.util</title>
-      <link>/posts/static-web/ife-js-util/</link>
+      <link>https://zecoo.github.io/hugo/posts/static-web/ife-js-util/</link>
       <pubDate>Tue, 31 Mar 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/static-web/ife-js-util/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/static-web/ife-js-util/</guid>
       <description>task1的时候我还能勉强用自己的想法写，html的展示效果达到了就好。
 但是到了task2的时候，js基础还是不牢啊，基本上每道题都要看下别人的博客。虽然有点low，但是还是秉着一股劲往前冲，后面再来捡技术细节的思路，不丢人的。
 一趟捣鼓下来，JS部分一共就5个板块：
@@ -80,10 +80,10 @@ Next &amp;amp; Prev button 于是我先把next、prev点击切换的功能做出
     
     <item>
       <title>IFE Task0001 Log</title>
-      <link>/posts/static-web/ife-task0001-log/</link>
+      <link>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</link>
       <pubDate>Sun, 01 Mar 2020 17:39:45 +0800</pubDate>
       
-      <guid>/posts/static-web/ife-task0001-log/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</guid>
       <description>我记录一下ife其他几个页面。一共这么几个页面
  index.html post.html archive.html about.html  如果自己写的话，除了index.html，其他几个页面都有或多多少的问题我写不出来。 一个一个说吧。
 Index.html  banner有三个部分，一个是logo，一个是站内其他链接，最后一个是git的logo。这三个部分要显示在水平的一行，这里其实是运用到了float，只要把三个部分都设置为float，就可以变成一行了。感觉有点像把div改成了块内元素一样，也就是变成了span。 一般banner的链接都是用list改成水平，改成水平的方法有两个，一个是float，另一个是display inline-block 我想让这三部分，随着页面的改变，位置不要定死，原来margin-left之类的也可以用百分比来表示，就很舒服了。 center是一个大的bg，bg上面有一个透明度的方形显示文字，放bg的时候遇到了以前就遇到的问题，比如默认是重复的，而且不能充满div。这两个问题代码很好解决。 至于透明度的方形，彻底让我对position这个元素有了一定的理解。absolute、fixed、relative分别代表什么。 box部分是三个卡片，卡片里有图片和文字。三个卡片并列其实也挺好写，好像用inline-block就可以实现，水平垂直居中什么的也都是现成的，不过写好了之后再看要求里面有一个是卡片的高度随文字内容自适应。 遂百度之，发现用display table可以解决这个问题，但是table是占满整个div的，不过也好解决，用一大一小div就解决了。 圆形的头像，这个做起来也好简单啊，图片的radius改一下就可以了。 intro部分其实不用display来写，比较常规。如果需要居中之类的工作，用display明显是要方便很多的。 最后一点，如果用flex来布局，flex里面的每个元素的宽度都是以最宽的那个为标准。这时候想要居中的话可以考虑用text-align center解决。这是最后那个小logo的居中问题。  Post.html 在开始写post.html之前我在GitHub上down了几个其他人的ife作业，然后发现我这个代码真的是稀烂…最基本的有这么几个问题：

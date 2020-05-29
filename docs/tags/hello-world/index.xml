@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hello-world on This is a title</title>
-    <link>/tags/hello-world/</link>
+    <link>https://zecoo.github.io/hugo/tags/hello-world/</link>
     <description>Recent content in hello-world on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 29 Apr 2020 11:37:07 +0800</lastBuildDate>
     
-	<atom:link href="/tags/hello-world/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/hello-world/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Istio 安装回顾</title>
-      <link>/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</link>
+      <link>https://zecoo.github.io/hugo/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</link>
       <pubDate>Wed, 29 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
       <description>如果是Microk8s安装，很简单就一步：
 microk8s.enable istio  好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。
 然后转战华为云15天4g服务器试用。

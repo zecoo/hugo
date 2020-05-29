@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kubectl on This is a title</title>
-    <link>/tags/kubectl/</link>
+    <link>https://zecoo.github.io/hugo/tags/kubectl/</link>
     <description>Recent content in kubectl on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 28 Apr 2020 11:37:07 +0800</lastBuildDate>
     
-	<atom:link href="/tags/kubectl/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/kubectl/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Kubectl client 和 server version 差距错误</title>
-      <link>/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</link>
       <pubDate>Tue, 28 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/kubectl-client-%E5%92%8C-server-version-%E5%B7%AE%E8%B7%9Dbug/</guid>
       <description>每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说
  遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。
  说得真好。爆炸的心态慢慢也就平复了。

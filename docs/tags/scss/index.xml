@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>scss on This is a title</title>
-    <link>/tags/scss/</link>
+    <link>https://zecoo.github.io/hugo/tags/scss/</link>
     <description>Recent content in scss on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 05 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/scss/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/scss/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>scss tutorial</title>
-      <link>/posts/static-web/scss-tutorial/</link>
+      <link>https://zecoo.github.io/hugo/posts/static-web/scss-tutorial/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/static-web/scss-tutorial/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/static-web/scss-tutorial/</guid>
       <description>SCSS：Sassy CSS
 SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。
 我咋还在scss的环境上踩到坑了呢？

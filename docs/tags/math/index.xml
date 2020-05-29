@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>math on This is a title</title>
-    <link>/tags/math/</link>
+    <link>https://zecoo.github.io/hugo/tags/math/</link>
     <description>Recent content in math on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 21 Apr 2020 11:37:07 +0800</lastBuildDate>
     
-	<atom:link href="/tags/math/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/math/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Bayesian Optimization 直观理解</title>
-      <link>/posts/math/bayesian-optimization/</link>
+      <link>https://zecoo.github.io/hugo/posts/math/bayesian-optimization/</link>
       <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/math/bayesian-optimization/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/math/bayesian-optimization/</guid>
       <description>目标 最小(大)化一个没有具体表达式的函数。
 举个例子 给定一个函数 $$ f(x,y) = -x^2 - (y-1)^2 +1 $$
 BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。

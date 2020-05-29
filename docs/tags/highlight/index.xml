@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>highlight on This is a title</title>
-    <link>/tags/highlight/</link>
+    <link>https://zecoo.github.io/hugo/tags/highlight/</link>
     <description>Recent content in highlight on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 09 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/highlight/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/highlight/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hugo添加代码高亮</title>
-      <link>/posts/blog/hugo-code-highlight/</link>
+      <link>https://zecoo.github.io/hugo/posts/blog/hugo-code-highlight/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/blog/hugo-code-highlight/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/blog/hugo-code-highlight/</guid>
       <description>方法：用hightlight.js做高亮。
 针对不同的Hugo主题，应该有不同的思路。但是基本思路还是：
  head里添加css body中添加两个“script“元素第一个是js文件，第二个是loadjs  我用的是Hugo的contrast主题，打开文件夹theme - layout，找到博文的base.html，打开在里面添加基本思路中的文件。我仿照代码里本来有的目录，简单修改一下就可以了。（第二行是我添加的highlight css文件）

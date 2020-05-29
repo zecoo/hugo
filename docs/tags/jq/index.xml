@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>jq on This is a title</title>
-    <link>/tags/jq/</link>
+    <link>https://zecoo.github.io/hugo/tags/jq/</link>
     <description>Recent content in jq on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 08 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/jq/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/jq/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>jq in terminal for json</title>
-      <link>/posts/server/jq-in-terminal-for-json/</link>
+      <link>https://zecoo.github.io/hugo/posts/server/jq-in-terminal-for-json/</link>
       <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/server/jq-in-terminal-for-json/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/server/jq-in-terminal-for-json/</guid>
       <description>Prom返回的json格式没有reindent，看起来很费眼睛。
 {&amp;quot;metric&amp;quot;:{&amp;quot;__name__&amp;quot;:&amp;quot;istio_requests_total&amp;quot;,&amp;quot;destination_app&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;destination_service&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;value&amp;quot;:[1588929523.247,&amp;quot;10523&amp;quot;]}]}}  在命令行，想让其用缩进好的json展示出来，就要用到jq。
 curl http://test.json | jq  只需要在后面加上jq，就可以看到漂亮的json格式数据

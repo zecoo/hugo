@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>istio on This is a title</title>
-    <link>/tags/istio/</link>
+    <link>https://zecoo.github.io/hugo/tags/istio/</link>
     <description>Recent content in istio on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 08 May 2020 00:17:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/istio/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/istio/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Metric to Graph思路及实践</title>
-      <link>/posts/metrics/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
+      <link>https://zecoo.github.io/hugo/posts/metrics/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
       
-      <guid>/posts/metrics/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/metrics/metric-graph%E6%80%9D%E8%B7%AF%E5%8F%8A%E5%AE%9E%E8%B7%B5/</guid>
       <description>整体思路 01 查看Prom的metric： 写好PromQL获得自己想要的metric，这时候只是文本的形式。而且又臭又长。
 &amp;quot;metric&amp;quot;: { &amp;quot;__name__&amp;quot;: &amp;quot;istio_requests_total&amp;quot;, &amp;quot;connection_security_policy&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;destination_app&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_canonical_revision&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_canonical_service&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_principal&amp;quot;: &amp;quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&amp;quot;, &amp;quot;destination_service&amp;quot;: &amp;quot;productpage.default.svc.cluster.local&amp;quot;, &amp;quot;destination_service_name&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_service_namespace&amp;quot;: &amp;quot;default&amp;quot;, &amp;quot;destination_version&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_workload&amp;quot;: &amp;quot;productpage-v1&amp;quot;, &amp;quot;destination_workload_namespace&amp;quot;: &amp;quot;default&amp;quot;, &amp;quot;instance&amp;quot;: &amp;quot;10.244.0.61:15090&amp;quot;, &amp;quot;job&amp;quot;: &amp;quot;envoy-stats&amp;quot;, &amp;quot;namespace&amp;quot;: &amp;quot;istio-system&amp;quot;, &amp;quot;pod_name&amp;quot;: &amp;quot;istio-ingressgateway-6489d9556d-ws6cg&amp;quot;, &amp;quot;reporter&amp;quot;: &amp;quot;source&amp;quot;, &amp;quot;request_protocol&amp;quot;: &amp;quot;http&amp;quot;, &amp;quot;response_code&amp;quot;: &amp;quot;200&amp;quot;, &amp;quot;response_flags&amp;quot;: &amp;quot;-&amp;quot;, &amp;quot;source_app&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_canonical_revision&amp;quot;: &amp;quot;1.5&amp;quot;, &amp;quot;source_canonical_service&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_principal&amp;quot;: &amp;quot;spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account&amp;quot;, &amp;quot;source_version&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;source_workload&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_workload_namespace&amp;quot;: &amp;quot;istio-system&amp;quot; }, &amp;quot;value&amp;quot;: [ 1588918429.726, &amp;quot;5148&amp;quot; ] }  02 提取metric 用代码或者在浏览器中用Prom提供的HTTP API访问提取metrics。请不要用curl，这个坑在另一个博客里已经提到了。</description>
     </item>
     
     <item>
       <title>Meta Metrics</title>
-      <link>/posts/metrics/meta-metrics/</link>
+      <link>https://zecoo.github.io/hugo/posts/metrics/meta-metrics/</link>
       <pubDate>Thu, 07 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/metrics/meta-metrics/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/metrics/meta-metrics/</guid>
       <description>siege一分钟压测最后给出的统计数据：
 Lifting the server siege... Transactions:	439 hits Availability:	51.83 % Elapsed time:	59.33 secs Data transferred:	8.47 MB Response time:	9.88 secs Transaction rate:	7.40 trans/sec Throughput:	0.14 MB/sec Concurrency:	73.10 Successful transactions: 439 Failed transactions:	408 Longest transaction:	56.69 Shortest transaction:	0.13  istio Envoy的access log：
 【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/flasgger_static/swagger-ui-bundle.js 【PROTOCOL】HTTP/1.1&amp;quot; 【REPONSE CODE】200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 1048149 261 225 【FORWARD_FOR】&amp;quot;-&amp;quot; 【AGENT】&amp;quot;Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.5&amp;quot; 【REQUEST_ID】&amp;quot;51b45953-9ede-9390-b8b5-162247165a5b&amp;quot; 【AUTHORITY】&amp;quot;10.108.208.232:8000&amp;quot; 【HOST】&amp;quot;127.0.0.1:80&amp;quot; 【SERVICE】inbound|8000|http|httpbin.default.svc.cluster.local 【CLUSTER_IP】127.</description>
@@ -33,10 +33,10 @@ Lifting the server siege... Transactions:	439 hits Availability:	51.83 % Elapsed
     
     <item>
       <title>istio envoy log type</title>
-      <link>/posts/istio/istio-envoy-log-type/</link>
+      <link>https://zecoo.github.io/hugo/posts/istio/istio-envoy-log-type/</link>
       <pubDate>Wed, 06 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/istio/istio-envoy-log-type/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/istio/istio-envoy-log-type/</guid>
       <description>基本数据这样
 【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/flasgger_static/swagger-ui-bundle.js 【PROTOCOL】HTTP/1.1&amp;quot; 【REPONSE CODE】200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 1048149 261 225 【FORWARD_FOR】&amp;quot;-&amp;quot; 【AGENT】&amp;quot;Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.5&amp;quot; 【REQUEST_ID】&amp;quot;51b45953-9ede-9390-b8b5-162247165a5b&amp;quot; 【AUTHORITY】&amp;quot;10.108.208.232:8000&amp;quot; 【HOST】&amp;quot;127.0.0.1:80&amp;quot; inbound|8000|http|httpbin.default.svc.cluster.local 127.0.0.1:43000 10.244.0.67:80 10.244.0.1:10504 - default  0 135 1 1 (/status/418) 0 9593 73 73 (http/1.1) 0 1428809 1 1 (swagger-ui.bundle.js) 0 85578 1 0 (jquery.min.js) 0 0 118 - (DC ResponseCode:0) 0 1048149 261 225 (swagger-ui.bundle.js)  那么这4串数字分别代表什么呢？根据Envoy官方给出的对应关系，由于HTTP_FLAGS一般都是比较特别的，而我得到的都是&amp;rdquo;-&amp;ldquo;，可以得到对应关系：
 [1]BYTES_RECEIVED [2]BYTES_SENT [3]DURATION [4]ENVOY-UPSTREAM-SERVICE-TIME  istio bookinfo示例中给出的log是这样（官方给出的，我现在不想折腾Mixer，得不到这个数据）
@@ -45,10 +45,10 @@ Lifting the server siege... Transactions:	439 hits Availability:	51.83 % Elapsed
     
     <item>
       <title>K8s &#43; Istio 概念</title>
-      <link>/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</link>
+      <link>https://zecoo.github.io/hugo/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Thu, 30 Apr 2020 10:37:07 +0800</pubDate>
       
-      <guid>/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/istio/k8s-&#43;-istio-%E6%A6%82%E5%BF%B5/</guid>
       <description>环境都搭好了，不知道里面的原理那可不行。
 我也不会系统写，想到哪里就写到哪里吧。
 istio是如何做到无侵入就能控制流量转发？ Sidecar还有Envoy是这里的核心。
@@ -66,10 +66,10 @@ k8s的DNS是什么 给每个svc可用地址。
     
     <item>
       <title>Istio 可视化插件概览</title>
-      <link>/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
+      <link>https://zecoo.github.io/hugo/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</link>
       <pubDate>Thu, 30 Apr 2020 10:35:07 +0800</pubDate>
       
-      <guid>/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/istio/istio-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8F%92%E4%BB%B6%E6%A6%82%E8%A7%88/</guid>
       <description>Prometheus 基本的metrics监测插件。
 通过query查询不同的信息，例如以下信息就是istio_requests_total这条query查询到的n条数据中的一条。（不全，删除了部分我不关注的信息）
 istio_requests_total{destination_app=&amp;quot;productpage&amp;quot;,destination_principal=&amp;quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&amp;quot;,destination_service=&amp;quot;productpage.default.svc.cluster.local&amp;quot;,destination_service_name=&amp;quot;productpage&amp;quot;,destination_service_namespace=&amp;quot;default&amp;quot;,destination_version=&amp;quot;v1&amp;quot;,destination_workload=&amp;quot;productpage-v1&amp;quot;,instance=&amp;quot;10.244.0.24:15090&amp;quot;,job=&amp;quot;envoy-stats&amp;quot;,namespace=&amp;quot;istio-system&amp;quot;,pod_name=&amp;quot;istio-ingressgateway-6489d9556d-bc48z&amp;quot;,response_code=&amp;quot;503&amp;quot;,source_workload=&amp;quot;istio-ingressgateway&amp;quot;,source_workload_namespace=&amp;quot;istio-system&amp;quot;}  Grafana Metrics可视化插件。
@@ -85,10 +85,10 @@ $ siege -d 10 -c 200 -t 2 http://121.37.159.247:32753/productpage Lifting the se
     
     <item>
       <title>Istio 安装回顾</title>
-      <link>/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</link>
+      <link>https://zecoo.github.io/hugo/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</link>
       <pubDate>Wed, 29 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/istio/istio-%E5%AE%89%E8%A3%85%E5%9B%9E%E9%A1%BE/</guid>
       <description>如果是Microk8s安装，很简单就一步：
 microk8s.enable istio  好像pull istio镜像的过程特别漫长。由于用的是力的2g服务器，到这里内存爆炸，用不了了。
 然后转战华为云15天4g服务器试用。

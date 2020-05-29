@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>server on This is a title</title>
-    <link>/categories/server/</link>
+    <link>https://zecoo.github.io/hugo/categories/server/</link>
     <description>Recent content in server on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 18 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/categories/server/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/categories/server/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>服务器命令行美化</title>
-      <link>/posts/server/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</link>
+      <link>https://zecoo.github.io/hugo/posts/server/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/server/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/server/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BE%8E%E5%8C%96/</guid>
       <description>export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot;  但是有个问题，输了命令命令行前缀是变好看了，但是一旦退出就没有效果了。要把这个设置写进文件里才行。具体是$HOME/.bashrc这个文件，这样就OK啦。
 # .bashrc # User specific aliases and functions alias rm=&#39;rm -i&#39; alias cp=&#39;cp -i&#39; alias mv=&#39;mv -i&#39; # Source global definitions if [ -f /etc/bashrc ]; then . /etc/bashrc fi export PS1=&amp;quot;\[\033[33m\]\u\[\033[0m\]@\[\033[36m\]k8s\[\033[0m\]:\[\033[32m\]\W \[\033[0m\]$ &amp;quot;  vim也可以美化一下
 # vim 显示行号 cat &amp;lt;&amp;lt;EOF &amp;gt; ~/.vimrc set nu EOF  参考 https://learnku.com/articles/29209 （ssh炫酷UI）
@@ -24,10 +24,10 @@ https://blog.csdn.net/yelangjueqi/article/details/45556657 （修改.bashrc文�
     
     <item>
       <title>jq in terminal for json</title>
-      <link>/posts/server/jq-in-terminal-for-json/</link>
+      <link>https://zecoo.github.io/hugo/posts/server/jq-in-terminal-for-json/</link>
       <pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/server/jq-in-terminal-for-json/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/server/jq-in-terminal-for-json/</guid>
       <description>Prom返回的json格式没有reindent，看起来很费眼睛。
 {&amp;quot;metric&amp;quot;:{&amp;quot;__name__&amp;quot;:&amp;quot;istio_requests_total&amp;quot;,&amp;quot;destination_app&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;destination_service&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;value&amp;quot;:[1588929523.247,&amp;quot;10523&amp;quot;]}]}}  在命令行，想让其用缩进好的json展示出来，就要用到jq。
 curl http://test.json | jq  只需要在后面加上jq，就可以看到漂亮的json格式数据
@@ -36,20 +36,20 @@ curl http://test.json | jq  只需要在后面加上jq，就可以看到漂亮�
     
     <item>
       <title>SS on Ubuntu</title>
-      <link>/posts/k8s/ss-on-ubuntu/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</link>
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/ss-on-ubuntu/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</guid>
       <description>弄起来挺快的，其实就三点
  安装ss。apt install就可以 配置ss。就一个json文件 启动ss。一行命令  参考： https://viencoding.com/article/90</description>
     </item>
     
     <item>
       <title>初试Nginx部署静态网页</title>
-      <link>/posts/static-web/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</link>
+      <link>https://zecoo.github.io/hugo/posts/static-web/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</link>
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/static-web/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/static-web/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</guid>
       <description>在ife上也写了几个网页了，但是如果一直用github-pages的话，感觉有点麻烦，自己有一个服务器干嘛不直接用呢？
 安装Nginx及其简单：
 apt install nginx

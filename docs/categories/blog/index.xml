@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>blog on This is a title</title>
-    <link>/categories/blog/</link>
+    <link>https://zecoo.github.io/hugo/categories/blog/</link>
     <description>Recent content in blog on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 27 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Cool Sites</title>
-      <link>/posts/blog/cool-sites/</link>
+      <link>https://zecoo.github.io/hugo/posts/blog/cool-sites/</link>
       <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/blog/cool-sites/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/blog/cool-sites/</guid>
       <description> 个人站点  DIYgod前端大神 设计师+工程师 花生A自制挺有意思的站点 搞数学的人是真的帅 关于群晖做个人站点 四火真实的程序员hh 从restful的todo找到的在读研究生 张怡宝藏女孩 像素风个人站点 about页的喜欢和不喜欢太可爱了 敖小剑ServiceMesh布道者 绿色记忆生活编程记录  公司  射手是个超nice的公司  博客  喜欢记录的在读生  </description>
     </item>
     
     <item>
       <title>vps搭建图床</title>
-      <link>/posts/blog/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
+      <link>https://zecoo.github.io/hugo/posts/blog/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
       <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/blog/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/blog/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
       <description>展示一下我的图床已经搭起来了。放一张我在心动实习的时候想设计的一个todo app：
 参考 https://www.jianshu.com/p/7863fcb34aed</description>
     </item>
     
     <item>
       <title>hugo上传博客脚本</title>
-      <link>/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</link>
+      <link>https://zecoo.github.io/hugo/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</guid>
       <description>我很傻的，每次更新博客之后都要手动输入
 hugo -D git add . git commit -m &amp;quot;xxx&amp;quot; git push origin master  又不想下载git客户端一键push，写个脚本咯
 #!/bin/bash hugo -D git add . echo &amp;quot;input commit info:&amp;quot; read -t 5 commit_info commit_info=${commit_info:-&amp;quot;update blog&amp;quot;} git commit -m &amp;quot;$commit_info&amp;quot; git push origin master  read提供一个默认值“update blog”，这样既可以修改commit info，5s后忘记输入的话也不用担心。
@@ -45,10 +45,10 @@ https://blog.csdn.net/u010339879/article/details/77938911 （read添加默认值
     
     <item>
       <title>hugo tutorial</title>
-      <link>/posts/blog/hugo-tutorial/</link>
+      <link>https://zecoo.github.io/hugo/posts/blog/hugo-tutorial/</link>
       <pubDate>Sun, 17 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/blog/hugo-tutorial/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/blog/hugo-tutorial/</guid>
       <description>hugo new theme zik-theme  可以创建一个新的主题。自己的主题就是从这里开始。
 然后看看hugo官网对这些baseof.html、index.html里面语法的介绍吧
 Variable和Function都是用两个大括号括起来{{ }}
@@ -62,10 +62,10 @@ Variable和Function都是用两个大括号括起来{{ }}
     
     <item>
       <title>Hugo添加代码高亮</title>
-      <link>/posts/blog/hugo-code-highlight/</link>
+      <link>https://zecoo.github.io/hugo/posts/blog/hugo-code-highlight/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/blog/hugo-code-highlight/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/blog/hugo-code-highlight/</guid>
       <description>方法：用hightlight.js做高亮。
 针对不同的Hugo主题，应该有不同的思路。但是基本思路还是：
  head里添加css body中添加两个“script“元素第一个是js文件，第二个是loadjs  我用的是Hugo的contrast主题，打开文件夹theme - layout，找到博文的base.html，打开在里面添加基本思路中的文件。我仿照代码里本来有的目录，简单修改一下就可以了。（第二行是我添加的highlight css文件）

@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HPA on This is a title</title>
-    <link>/tags/hpa/</link>
+    <link>https://zecoo.github.io/hugo/tags/hpa/</link>
     <description>Recent content in HPA on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 04 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/hpa/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/hpa/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>k8s HPA尝试</title>
-      <link>/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
       <pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
       <description>先提一个题外话：如何销毁已经创建的部署？答：
 有kubectl create -f ./metrics-server就有kubectl delete -f ./metrics-server
 按照主要参考，大部分都可以实现。但是有几个坑需要注意

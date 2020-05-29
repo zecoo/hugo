@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kubeadm on This is a title</title>
-    <link>/tags/kubeadm/</link>
+    <link>https://zecoo.github.io/hugo/tags/kubeadm/</link>
     <description>Recent content in kubeadm on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 16 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/kubeadm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/kubeadm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Kubeadm init node not found</title>
-      <link>/posts/k8s/kubeadm-init-node-not-found/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/kubeadm-init-node-not-found/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/k8s/kubeadm-init-node-not-found/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/kubeadm-init-node-not-found/</guid>
       <description>新坑哦～
 5天都没有解决的新坑哦～
 环境：  华为云学生机2c4g 鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB  错误 kubeadm init 后卡在：
@@ -25,10 +25,10 @@ node &amp;quot;ecs-kc1-large-2-linux-20200511105949&amp;quot; not found Containe
     
     <item>
       <title>Kubeadm 安装记录</title>
-      <link>/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Tue, 28 Apr 2020 16:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/kubeadm-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
       <description>装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。
 安装K8s有这几种方法
  minikube mircok8s kubeadm  这三种方法我都用过。minikube在win上以虚拟机的形式运行，挺麻烦的讲道理。microk8s是最友好的方式，解决一个拉镜像的问题，也就不成问题了。kubeadm应该是最麻烦的了。

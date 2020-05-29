@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RCA on This is a title</title>
-    <link>/tags/rca/</link>
+    <link>https://zecoo.github.io/hugo/tags/rca/</link>
     <description>Recent content in RCA on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 20 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/rca/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/rca/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Delta debug MS</title>
-      <link>/posts/paper/delta-debug-ms/</link>
+      <link>https://zecoo.github.io/hugo/posts/paper/delta-debug-ms/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/paper/delta-debug-ms/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/paper/delta-debug-ms/</guid>
       <description> a triangular tract of sediment deposited at the mouth of a river, typically where it diverges into several outlets.  the fourth letter of the Greek alphabet ( Δ , δ ), transliterated as ‘d.’.  variation of a variable or function.  一组影响系统执行dimensions，高效找出导致错误的deltas。这里delta包括（deployment、enviromental、configurations）  四个dimensions：node、instance、configuration、sequence  node：分布式的服务器，未知性较多  instance：微服务的instance一般都是有状态的，如果没有处理好，相同的instance如果不是同样的状态就会出错。  configuration：docker的配置，k8s的配置，是挺恶心的，万一内存不够，就爆了  sequence：异步的invocation导致错误  微服务settings作为circumstances，就可以用delta bebugging了，db是一种简化和隔离错误案例的方法  Istio是微服务service mesh的？Istio可以部署在k8s里的  delta debugging的作用是找到min的deltas导致错误  controller：delta debugging的位置，是文章核心嗷  scheduler：根据容器状态选择test case去执行。queue，有可用资源就去跑测试  executor：根据所给的circumstances在docker上跑测试用例，返回测试结果  circumstance：4个dimension的组合  delta：两个cir之间的差异  delta db目的：通过最简单cir抽取导致错误的最小delta set  min setting：一个node，一个instance，默认conf（full memory），正确的seq  general setting：一个可能引起错误的cir  表示方法：0表示min setting，1表示general setting  seq的表示方法稍微复杂一点，0表示顺序执行，1表示逆序执行  seq能全覆盖，node、instance numbers可以放低一点要求  If the given failing test case still fails with the simplest circumstance, the failure can be thought to be caused by internal faults of related microservices  我们的目标是找到应用在min cir上导致ftc产生ftr的同时ptc产生ptr的deltas  atomic delta是什么意思？？  we partition the set of deltas X into n equal-sized partitions  13vm each 8-core cpu 24gb memory  36-63 deltas -》 1-2deltas  就是能分出到底是哪种问题  但是有个很重要的点就是要开发再确认bug   </description>
     </item>
     
     <item>
       <title>Graph-based RCA in SOA and MS</title>
-      <link>/posts/paper/graph-based-rca-in-soa-and-ms/</link>
+      <link>https://zecoo.github.io/hugo/posts/paper/graph-based-rca-in-soa-and-ms/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/paper/graph-based-rca-in-soa-and-ms/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/paper/graph-based-rca-in-soa-and-ms/</guid>
       <description>Graph-based root cause analysis for service-oriented and microservice architectures
 JSS 2020
 2 RW RCA方法有以下大致分类
@@ -47,10 +47,10 @@ similarity module 输入：1. 异常区域（anomaly region） 2. 异常模版�
     
     <item>
       <title>Microscope</title>
-      <link>/posts/paper/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</link>
+      <link>https://zecoo.github.io/hugo/posts/paper/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/paper/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/paper/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</guid>
       <description>Microscope: Pinpoint Performance Issues with Causal Graphs in Micro-service Environments
 ICSOC 2018
 Abstruct 错误定位的论文。通过服务调用关系构建DAG定位错误。
@@ -68,10 +68,10 @@ rank cause inference 通过一个异常的节点（前端报出的异常节点�
     
     <item>
       <title>RCA in multitier service</title>
-      <link>/posts/paper/rca-in-multitier-service/</link>
+      <link>https://zecoo.github.io/hugo/posts/paper/rca-in-multitier-service/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/paper/rca-in-multitier-service/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/paper/rca-in-multitier-service/</guid>
       <description>Root Cause Analysis of Anomalies of Multitier Services in Public Clouds
 TON 2018
 读完感觉不像是A类的期刊，Chinglish的情况很严重，相似度的计算实在是不优美，最后baseline挑的也很奇怪。

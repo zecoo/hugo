@@ -2,101 +2,101 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on This is a title</title>
-    <link>/categories/</link>
+    <link>https://zecoo.github.io/hugo/categories/</link>
     <description>Recent content in Categories on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 27 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>blog</title>
-      <link>/categories/blog/</link>
+      <link>https://zecoo.github.io/hugo/categories/blog/</link>
       <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/categories/blog/</guid>
+      <guid>https://zecoo.github.io/hugo/categories/blog/</guid>
       <description></description>
     </item>
     
     <item>
       <title>istio</title>
-      <link>/categories/istio/</link>
+      <link>https://zecoo.github.io/hugo/categories/istio/</link>
       <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/categories/istio/</guid>
+      <guid>https://zecoo.github.io/hugo/categories/istio/</guid>
       <description></description>
     </item>
     
     <item>
       <title>math</title>
-      <link>/categories/math/</link>
+      <link>https://zecoo.github.io/hugo/categories/math/</link>
       <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/categories/math/</guid>
+      <guid>https://zecoo.github.io/hugo/categories/math/</guid>
       <description></description>
     </item>
     
     <item>
       <title>paper</title>
-      <link>/categories/paper/</link>
+      <link>https://zecoo.github.io/hugo/categories/paper/</link>
       <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/categories/paper/</guid>
+      <guid>https://zecoo.github.io/hugo/categories/paper/</guid>
       <description></description>
     </item>
     
     <item>
       <title>server</title>
-      <link>/categories/server/</link>
+      <link>https://zecoo.github.io/hugo/categories/server/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/categories/server/</guid>
+      <guid>https://zecoo.github.io/hugo/categories/server/</guid>
       <description></description>
     </item>
     
     <item>
       <title>k8s</title>
-      <link>/categories/k8s/</link>
+      <link>https://zecoo.github.io/hugo/categories/k8s/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/categories/k8s/</guid>
+      <guid>https://zecoo.github.io/hugo/categories/k8s/</guid>
       <description></description>
     </item>
     
     <item>
       <title>prom</title>
-      <link>/categories/prom/</link>
+      <link>https://zecoo.github.io/hugo/categories/prom/</link>
       <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
       
-      <guid>/categories/prom/</guid>
+      <guid>https://zecoo.github.io/hugo/categories/prom/</guid>
       <description></description>
     </item>
     
     <item>
       <title>css</title>
-      <link>/categories/css/</link>
+      <link>https://zecoo.github.io/hugo/categories/css/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/categories/css/</guid>
+      <guid>https://zecoo.github.io/hugo/categories/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>js</title>
-      <link>/categories/js/</link>
+      <link>https://zecoo.github.io/hugo/categories/js/</link>
       <pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/categories/js/</guid>
+      <guid>https://zecoo.github.io/hugo/categories/js/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hello-world</title>
-      <link>/categories/hello-world/</link>
+      <link>https://zecoo.github.io/hugo/categories/hello-world/</link>
       <pubDate>Fri, 17 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/categories/hello-world/</guid>
+      <guid>https://zecoo.github.io/hugo/categories/hello-world/</guid>
       <description></description>
     </item>
     

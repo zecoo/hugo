@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mirok8s on This is a title</title>
-    <link>/tags/mirok8s/</link>
+    <link>https://zecoo.github.io/hugo/tags/mirok8s/</link>
     <description>Recent content in mirok8s on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 09 Apr 2020 11:37:07 +0800</lastBuildDate>
     
-	<atom:link href="/tags/mirok8s/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/mirok8s/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Microk8s 国内安装总结</title>
-      <link>/posts/k8s/microk8s-installation-in-china/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</link>
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/microk8s-installation-in-china/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</guid>
       <description>Ubuntu18本身自带snap，可以在microk8s的官网找到安装方法。
 注意k8s的运行条件只要满足以下
  Linux kernel在3.1以上，很多小的openZV的服务器，都是2.6的核儿 Memory要在2G或以上。  我在国外买的xs vps就emmm。再附自己检查kernel的过程

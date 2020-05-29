@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>icws on This is a title</title>
-    <link>/tags/icws/</link>
+    <link>https://zecoo.github.io/hugo/tags/icws/</link>
     <description>Recent content in icws on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 19 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/icws/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/icws/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>MS-Rank</title>
-      <link>/posts/paper/ms-rank/</link>
+      <link>https://zecoo.github.io/hugo/posts/paper/ms-rank/</link>
       <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/paper/ms-rank/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/paper/ms-rank/</guid>
       <description>MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications
 ICWS 2019
 主要贡献：  根据一系列的metrics，构建一个调用图

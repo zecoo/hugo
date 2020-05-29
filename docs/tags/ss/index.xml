@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ss on This is a title</title>
-    <link>/tags/ss/</link>
+    <link>https://zecoo.github.io/hugo/tags/ss/</link>
     <description>Recent content in ss on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 09 Apr 2020 11:37:07 +0800</lastBuildDate>
     
-	<atom:link href="/tags/ss/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/ss/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SS on Ubuntu</title>
-      <link>/posts/k8s/ss-on-ubuntu/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</link>
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
-      <guid>/posts/k8s/ss-on-ubuntu/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</guid>
       <description>弄起来挺快的，其实就三点
  安装ss。apt install就可以 配置ss。就一个json文件 启动ss。一行命令  参考： https://viencoding.com/article/90</description>
     </item>

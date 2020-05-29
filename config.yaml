@@ -1,3 +1,4 @@
+baseURL: https://zecoo.github.io/hugo/
 theme: zik-theme
 publishDir: "docs"
 # theme: contrast-hugo

@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>css on This is a title</title>
-    <link>/tags/css/</link>
+    <link>https://zecoo.github.io/hugo/tags/css/</link>
     <description>Recent content in css on This is a title</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 05 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/css/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zecoo.github.io/hugo/tags/css/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>scss tutorial</title>
-      <link>/posts/static-web/scss-tutorial/</link>
+      <link>https://zecoo.github.io/hugo/posts/static-web/scss-tutorial/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/posts/static-web/scss-tutorial/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/static-web/scss-tutorial/</guid>
       <description>SCSS：Sassy CSS
 SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。
 我咋还在scss的环境上踩到坑了呢？
@@ -32,10 +32,10 @@ https://bootstrap-vue.org/docs （bootVue官网）</description>
     
     <item>
       <title>IFE Task0001 Log</title>
-      <link>/posts/static-web/ife-task0001-log/</link>
+      <link>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</link>
       <pubDate>Sun, 01 Mar 2020 17:39:45 +0800</pubDate>
       
-      <guid>/posts/static-web/ife-task0001-log/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</guid>
       <description>我记录一下ife其他几个页面。一共这么几个页面
  index.html post.html archive.html about.html  如果自己写的话，除了index.html，其他几个页面都有或多多少的问题我写不出来。 一个一个说吧。
 Index.html  banner有三个部分，一个是logo，一个是站内其他链接，最后一个是git的logo。这三个部分要显示在水平的一行，这里其实是运用到了float，只要把三个部分都设置为float，就可以变成一行了。感觉有点像把div改成了块内元素一样，也就是变成了span。 一般banner的链接都是用list改成水平，改成水平的方法有两个，一个是float，另一个是display inline-block 我想让这三部分，随着页面的改变，位置不要定死，原来margin-left之类的也可以用百分比来表示，就很舒服了。 center是一个大的bg，bg上面有一个透明度的方形显示文字，放bg的时候遇到了以前就遇到的问题，比如默认是重复的，而且不能充满div。这两个问题代码很好解决。 至于透明度的方形，彻底让我对position这个元素有了一定的理解。absolute、fixed、relative分别代表什么。 box部分是三个卡片，卡片里有图片和文字。三个卡片并列其实也挺好写，好像用inline-block就可以实现，水平垂直居中什么的也都是现成的，不过写好了之后再看要求里面有一个是卡片的高度随文字内容自适应。 遂百度之，发现用display table可以解决这个问题，但是table是占满整个div的，不过也好解决，用一大一小div就解决了。 圆形的头像，这个做起来也好简单啊，图片的radius改一下就可以了。 intro部分其实不用display来写，比较常规。如果需要居中之类的工作，用display明显是要方便很多的。 最后一点，如果用flex来布局，flex里面的每个元素的宽度都是以最宽的那个为标准。这时候想要居中的话可以考虑用text-align center解决。这是最后那个小logo的居中问题。  Post.html 在开始写post.html之前我在GitHub上down了几个其他人的ife作业，然后发现我这个代码真的是稀烂…最基本的有这么几个问题：
