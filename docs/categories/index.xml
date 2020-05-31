@@ -20,6 +20,15 @@
     </item>
     
     <item>
+      <title>diary</title>
+      <link>https://zecoo.github.io/hugo/categories/diary/</link>
+      <pubDate>Sun, 31 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/categories/diary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>paper</title>
       <link>https://zecoo.github.io/hugo/categories/paper/</link>
       <pubDate>Fri, 29 May 2020 00:00:00 +0800</pubDate>
@@ -97,15 +106,6 @@
       <pubDate>Fri, 17 Apr 2020 11:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/categories/hello-world/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>diary</title>
-      <link>https://zecoo.github.io/hugo/categories/diary/</link>
-      <pubDate>Mon, 01 Jan 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/categories/diary/</guid>
       <description></description>
     </item>
     
