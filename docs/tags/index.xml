@@ -280,5 +280,14 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Year</title>
+      <link>https://zecoo.github.io/hugo/tags/year/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/tags/year/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
