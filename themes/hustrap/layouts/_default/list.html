@@ -26,6 +26,7 @@
           <article>
 		    <ul class="archive">
 		      {{- range $Pages }}
+          {{ .Date}}
 		      <li>
 		        {{ if .Date }}<time>{{ .Date.Format "01-02" }}</time>{{ end }}
 		        <a href="{{ .Permalink }}">{{ .Title }}</a> <span class="category-tag">{{ .Params.categories }} </span>
