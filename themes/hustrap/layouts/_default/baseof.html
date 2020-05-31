@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  {{ partial "head.html" . }}
+
+  <body>
+    {{ block "masthead" . }}
+    {{ end }}
+
+    {{ block "header" . }}
+    {{ end }}
+
+    {{ block "body" . }}
+    {{ end }}
+    
+    {{ block "footer" . }}
+    {{ end }}
+
+    <script src="{{ .Site.BaseURL }}js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    {{- if or .Params.math .Site.Params.math }}
+    {{ partial "math.html" . }}
+    {{- end }}
+  </body>
+</html>

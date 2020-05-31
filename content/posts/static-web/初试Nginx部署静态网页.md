@@ -67,11 +67,8 @@ pid /run/nginx.pid;
 
 user 是www-data不是root，更改之后重启，就能看到指定目录下的index.html了。
 
+## 参考：
 
-
----
-
-参考：
 https://segmentfault.com/a/1190000010487262?utm_source=tag-newest
 
 https://www.liangjucai.com/article/224

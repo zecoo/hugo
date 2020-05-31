@@ -4,6 +4,7 @@ date: 2020-04-21T11:37:07+08:00
 draft: false
 tags: ["math"]
 categories: ["math"]
+math: true
 ---
 
 ## 目标

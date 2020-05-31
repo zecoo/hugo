@@ -1,9 +1,29 @@
 ---
-title: My Go Journey
-date: 2017-03-23
-publishdate: 2017-03-24
+title: "ABOUT ZIK"
+date: "2020-05-31T00:00:00+08:00"
+tags: [""]
+categories: [""]
+draft: false
 ---
 
-I decided to start learning Go in March 2017.
+写一个About是真的费脑细胞。
 
-Follow my journey through this new blog.
+难道没有什么能概括自己的东西吗？
+
+没有特别喜欢的东西，也就没有坚持下去的动力。好像大部分的事情都是三分钟热度。对人对事都是如此。
+
+从本科开始折腾博客，从Jekyll到hexo到hugo，哪怕作为一个科班生，也从没有认真了解过里面的原理。光是花在找模板上的时间，估计都够写一个符合自己审美的页面出来。我也知道对于写东西来说，重要的不是UI，而是内容。但是就是沉迷各种折腾UI。
+
+### 喜欢：
+
+红楼梦 iPod Reeder 塞尔达传说 Typora 豆瓣 iPhone MacBook RSS Nike 皮具 精酿 番茄炒蛋 红烧肉 MUJI 蛋炒饭 麻婆豆腐 
+
+### 不喜欢：
+
+湿气 知乎 微博 
+
+### 推荐：
+
+- 《非暴力沟通》
+- 《被讨厌的勇气》
+

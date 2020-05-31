@@ -1,0 +1,31 @@
+<aside class="col-sm-3 ml-auto blog-sidebar">
+  {{ if and (.Site.Params.sidebar) (isset .Site.Params.sidebar "about") }}
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p dir="auto">{{ .Site.Params.sidebar.about | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ if .Site.Params.sidebar }}
+    <section class="sidebar-module">
+      <h4>Recent Posts</h4>
+      <ol class="list-unstyled">
+        {{ $num_recent_posts := (index .Site.Params.sidebar "num_recent_posts" | default 5) }}
+        {{ range first $num_recent_posts (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) }}
+        <li><a href="{{.RelPermalink}}">{{.Title | markdownify }}</a></li>
+        {{ end }}
+      </ol>
+    </section>
+  {{ end }}
+
+  {{ with .Site.Menus.sidebar }}
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      {{ range . }}
+      <li><a href="{{ .URL | absURL }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ol>
+  </section>
+  {{ end }}
+</aside>

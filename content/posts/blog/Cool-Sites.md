@@ -9,23 +9,22 @@ draft: false
 ## 个人站点
 
 
-- [DIYgod前端大神](https://diygod.me/)
-- [设计师+工程师](https://shud.in)
-- [花生A自制挺有意思的站点](http://pea3nut.info/normal)
-- [搞数学的人是真的帅](http://www.matrix67.com/blog/)
-- [关于群晖做个人站点](https://www.ioiox.com)
-- [四火真实的程序员hh](https://www.raychase.net/aboutme)
-- [从restful的todo找到的在读研究生](https://blog.shiniao.fun/about/)
-- [张怡宝藏女孩](http://codewithzhangyi.com/about/)
-- [像素风个人站点](http://zhangwenli.com/blog/)
-- [about页的喜欢和不喜欢太可爱了](http://nanshu.wang/about/)
-- [敖小剑ServiceMesh布道者](https://skyao.io/#about)
-- [绿色记忆生活编程记录](https://blog.gmem.cc)
+- [DIYgod](https://diygod.me/)：前端大神
+- [shud.in](https://shud.in)：设计师
+- [花生A](http://pea3nut.info/normal)：自制挺有意思的站点
+- [matrix67](http://www.matrix67.com/blog/)：搞数学的人是真的帅
+- [四火](https://www.raychase.net/aboutme)：真实的程序员hh
+- [石鸟](https://blog.shiniao.fun/about/)：从restful的todo找到的在读研究生
+- [张怡](http://codewithzhangyi.com/about/)：宝藏女孩
+- [羡辙杂俎](http://zhangwenli.com/blog/)：像素风个人站点
+- [nanshu](http://nanshu.wang/about/)：about页的喜欢和不喜欢太可爱了
+- [敖小剑](https://skyao.io/#about)：ServiceMesh布道者
+- [绿色](https://blog.gmem.cc)：记忆生活编程记录
 
 ## 公司
 
-- [射手是个超nice的公司](https://www.splayer.org/en/about)
+- [Splayer](https://www.splayer.org/en/about)：射手是个超nice的公司
 
 ## 博客
 
-- [喜欢记录的在读生](https://blog.csdn.net/chichoxian)
+- [编程小栈](https://blog.csdn.net/chichoxian)：喜欢记录的在读生

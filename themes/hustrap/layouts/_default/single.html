@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+{{ block "body" . }}
+{{ $dateFormat := default "Mon Jan 2, 2006" (index .Site.Params "date_format") }}
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+        	<article class="blog-post">
+			  <header>
+			    <h2 class="blog-post-title" dir="auto">{{ .Title | markdownify }}</h2>
+			    <p class="blog-post-meta"><time {{ .Date.Format "2006-01-02T15:04:05Z07:00" | printf "datetime=%q" | safeHTMLAttr }}>{{ .Date.Format $dateFormat }}</time></p>
+			  </header>
+			  {{ .Content }}
+			</article>
+        </div> 
+      </div> 
+    </div>
+{{ end }}
+
+{{ end }}

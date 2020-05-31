@@ -4,6 +4,7 @@ date: "2020-05-22T00:00:00+08:00"
 tags: ["decomposition"]
 categories: ["paper"]
 draft: false
+math: true
 ---
 
 场景驱动、自底向上的单体系统微服务拆分方法

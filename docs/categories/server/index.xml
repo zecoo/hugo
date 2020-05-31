@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>server on This is a title</title>
+    <title>server on 玉子泡温泉</title>
     <link>https://zecoo.github.io/hugo/categories/server/</link>
-    <description>Recent content in server on This is a title</description>
+    <description>Recent content in server on 玉子泡温泉</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 18 May 2020 00:00:00 +0800</lastBuildDate>
     
@@ -66,7 +66,7 @@ nginx -s reload
 查看nginx错误信息
 cat /var/log/nginx/error.log
 得到这样的信息
-2020/04/08 23:43:58 [notice] 1390#1390: signal process started 2020/04/08 23:44:10 [error] 1391#1391: *4 &amp;quot;/root/www/static-web/index.html&amp;quot; is forbidden (13: Permission denied), client: 171.41.91.51, server: =, request: &amp;quot;GET / HTTP/1.1&amp;quot;, host: &amp;quot;89.</description>
+2020/04/08 23:43:58 [notice] 1390#1390: signal process started 2020/04/08 23:44:10 [error] 1391#1391: *4 &amp;quot;/root/www/static-web/index.html&amp;quot; is forbidden (13: Permission denied), client: 171.41.91.51, server: =, request: &amp;quot;GET / HTTP/1.</description>
     </item>
     
   </channel>

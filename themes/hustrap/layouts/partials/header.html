@@ -1,0 +1,6 @@
+{{ if (ne .Site.Params.header_visible false) }}
+<header class="blog-header">
+  <h1 class="blog-title" dir="auto">{{ .Site.Title }}</h1>
+    {{ if .Site.Params.description }}<p class="lead blog-description" dir="auto">{{ .Site.Params.description | markdownify }}</p>{{ end }}
+</header>
+{{ end }}
