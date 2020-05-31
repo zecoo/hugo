@@ -8,7 +8,17 @@
   </url>
   
   <url>
+    <loc>https://zecoo.github.io/hugo/categories/blog/</loc>
+    <lastmod>2020-05-31T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://zecoo.github.io/hugo/categories/</loc>
+    <lastmod>2020-05-31T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/</loc>
     <lastmod>2020-05-31T00:00:00+08:00</lastmod>
   </url>
   
@@ -19,6 +29,11 @@
   
   <url>
     <loc>https://zecoo.github.io/hugo/</loc>
+    <lastmod>2020-05-31T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/blog/%E7%BD%91%E9%A1%B5%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AD%97%E4%BD%93%E6%96%B0%E6%89%8B%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2020-05-31T00:00:00+08:00</lastmod>
   </url>
   
@@ -35,16 +50,6 @@
   <url>
     <loc>https://zecoo.github.io/hugo/categories/paper/</loc>
     <lastmod>2020-05-29T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/posts/</loc>
-    <lastmod>2020-05-29T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/categories/blog/</loc>
-    <lastmod>2020-05-27T00:00:00+08:00</lastmod>
   </url>
   
   <url>
@@ -203,12 +208,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
   </url>
   

@@ -5,10 +5,24 @@
     <link>https://zecoo.github.io/hugo/categories/blog/</link>
     <description>Recent content in blog on 玉子泡温泉</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 27 May 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 31 May 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>网页中英文字体新手使用</title>
+      <link>https://zecoo.github.io/hugo/posts/blog/%E7%BD%91%E9%A1%B5%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AD%97%E4%BD%93%E6%96%B0%E6%89%8B%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sun, 31 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/blog/%E7%BD%91%E9%A1%B5%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AD%97%E4%BD%93%E6%96%B0%E6%89%8B%E4%BD%BF%E7%94%A8/</guid>
+      <description>关于中英文字体 一开始我天真地以为一套字体能够满足我中英文混排的需求。就是一套字体，包括中文和英文，而且中英文放在一起也不违和。事实证明我的确是太天真了。
+设计一套英文字体本来就是一件非常费时间精力的事情，中文字体更是了。所以一般英文字体里不会有中文，中文字体里可能有英文。
+字体渲染顺序 像这样一段css代码：
+font-family: Helvetica, &amp;quot;微软雅黑&amp;quot;, sans-serif;  Helvetica是英文字体，微软雅黑是中文字体。系统碰到第一字，如果是中文，那么会先加载第一个字体Helvetica，发现不支持中文，于是转向下一个字体，发现雅黑支持中文，就渲染出来了。就这样依据顺序，如果系统里没有上述字体，就会用浏览器默认的，一般是宋体。
+博客字体美观化 中文字体呢，我就选择微软雅黑，但是默认的微软雅黑字重是regular的400，看起来比较笨。我把字重改成了300，立马高级了一些。
+英文字体呢，我觉得Arial和Tahoma都还挺好看的，但是他们最细的字重也要400了，和300的中文字体放在一起实在不搭。于是最后选择了Helvetica，意外还挺香。</description>
+    </item>
     
     <item>
       <title>Cool Sites</title>

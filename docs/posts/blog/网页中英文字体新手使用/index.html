@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="description" content="好记性不如烂笔头">
+    <title>
+        网页中英文字体新手使用 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://zecoo.github.io/hugo/css/classes.css">
+    <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+    
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+        	<article class="blog-post">
+			  <header>
+			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">网页中英文字体新手使用</h2></a>
+			    <p class="blog-post-meta"><time datetime="2020-05-31T00:00:00+08:00">Sun May 31, 2020</time></p>
+			  </header>
+			  
+
+<h2 id="关于中英文字体">关于中英文字体</h2>
+
+<p>一开始我天真地以为一套字体能够满足我中英文混排的需求。就是一套字体，包括中文和英文，而且中英文放在一起也不违和。事实证明我的确是太天真了。</p>
+
+<p>设计一套英文字体本来就是一件非常费时间精力的事情，中文字体更是了。所以一般英文字体里不会有中文，中文字体里可能有英文。</p>
+
+<h2 id="字体渲染顺序">字体渲染顺序</h2>
+
+<p>像这样一段css代码：</p>
+
+<pre><code class="language-css">font-family: Helvetica, &quot;微软雅黑&quot;, sans-serif;
+</code></pre>
+
+<p>Helvetica是英文字体，微软雅黑是中文字体。系统碰到第一字，如果是中文，那么会先加载第一个字体Helvetica，发现不支持中文，于是转向下一个字体，发现雅黑支持中文，就渲染出来了。就这样依据顺序，如果系统里没有上述字体，就会用浏览器默认的，一般是宋体。</p>
+
+<h2 id="博客字体美观化">博客字体美观化</h2>
+
+<p>中文字体呢，我就选择微软雅黑，但是默认的微软雅黑字重是regular的400，看起来比较笨。我把字重改成了300，立马高级了一些。</p>
+
+<p>英文字体呢，我觉得Arial和Tahoma都还挺好看的，但是他们最细的字重也要400了，和300的中文字体放在一起实在不搭。于是最后选择了Helvetica，意外还挺香。</p>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="https://zecoo.github.io/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
