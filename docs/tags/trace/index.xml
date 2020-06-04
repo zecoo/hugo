@@ -17,7 +17,7 @@
       
       <guid>https://zecoo.github.io/hugo/posts/paper/service-dependecy-graph-building/</guid>
       <description>开始之前 正式开始之前我问自己这样几个问题
- kiali是trace的一个可视化工具，那么我怎么才能拿到trace的原始数据呢？ istio的数据也都是prom给的，prom的metric之前已经看过了。怎么从prom的metric构造一个trace处理呢？*  终于在今天得到了想要的答案：
+ kiali是trace的一个可视化工具，那么我怎么才能拿到trace的原始数据呢？ istio的数据也都是prom给的，prom的metric之前已经看过了。怎么从prom的metric构造一个trace处理呢？  终于在今天得到了想要的答案：
 首先，Prometheus和tracing没有关系。其次，trace的原始数据是jaeger提供的，具体是opentracing标准的链路追踪手段。
 OK，继续深入吧。
 Jaeger数据存储 关于agent怎么上报span，collector如何管理span我先不关心。我现在立刻马上想要拿到trace的原始数据，最起码是能让我能二次开发的那种数据。

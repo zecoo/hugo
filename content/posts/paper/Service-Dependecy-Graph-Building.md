@@ -11,7 +11,7 @@ draft: false
 正式开始之前我问自己这样几个问题
 
 1. *kiali是trace的一个可视化工具，那么我怎么才能拿到trace的原始数据呢？*
-2. istio的数据也都是prom给的，prom的metric之前已经看过了。怎么从prom的metric构造一个trace处理呢？*
+2. *istio的数据也都是prom给的，prom的metric之前已经看过了。怎么从prom的metric构造一个trace处理呢？*
 
 终于在今天得到了想要的答案：
 

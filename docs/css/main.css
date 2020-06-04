@@ -84,7 +84,6 @@ time {
   border-left: .3rem solid transparent;
 }
 
-
 /*
  * Blog name and description
  */
@@ -189,8 +188,9 @@ section + #disqus_thread {
 }
 
 article blockquote {
-  margin-bottom: $spacer;
-  font-size: $blockquote-font-size;
+  border-left: 0.2rem solid gray;
+  padding-left: 1rem;
+  color: gray;
 }
 
 article div.highlight {
