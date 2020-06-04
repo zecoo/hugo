@@ -5,10 +5,21 @@
     <link>https://zecoo.github.io/hugo/</link>
     <description>Recent content on 玉子泡温泉</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 31 May 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>云计算雾计算和边缘计算</title>
+      <link>https://zecoo.github.io/hugo/posts/paper/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/paper/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</guid>
+      <description>参考 https://zhuanlan.zhihu.com/p/55937656 （雾计算的特点）
+https://zhuanlan.zhihu.com/p/42066947 （雾计算和边缘计算的区别）
+https://blog.csdn.net/robertsong2004/article/details/52203710 （吸尘器这个例子可以解释什么叫计算）</description>
+    </item>
     
     <item>
       <title>ABOUT ZIK</title>
@@ -62,7 +73,7 @@ spec: containers: - image: gcr.io/google_containers/serve_hostname imagePullPoli
       <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/blog/cool-sites/</guid>
-      <description> 个人站点  DIYgod：前端大神 shud.in：设计师 花生A：自制挺有意思的站点 matrix67：搞数学的人是真的帅 四火：真实的程序员hh 石鸟：从restful的todo找到的在读研究生 张怡：宝藏女孩 羡辙杂俎：像素风个人站点 nanshu：about页的喜欢和不喜欢太可爱了 敖小剑：ServiceMesh布道者 绿色：记忆生活编程记录  公司  Splayer：射手是个超nice的公司  博客  编程小栈：喜欢记录的在读生  </description>
+      <description> 同学  小崔：本科一起混日协的编程大佬 曹真：本科毕业pdd做推荐系统…  个人站点  DIYgod：前端大神 shud.in：设计师 花生A：自制挺有意思的站点 matrix67：搞数学的人是真的帅 四火：真实的程序员hh 石鸟：从restful的todo找到的在读研究生 张怡：宝藏女孩 羡辙杂俎：像素风个人站点 nanshu：about页的喜欢和不喜欢太可爱了 敖小剑：ServiceMesh布道者 绿色：记忆生活编程记录  公司  Splayer：射手是个超nice的公司  博客  编程小栈：喜欢记录的在读生  </description>
     </item>
     
     <item>

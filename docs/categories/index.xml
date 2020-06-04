@@ -5,10 +5,19 @@
     <link>https://zecoo.github.io/hugo/categories/</link>
     <description>Recent content in Categories on 玉子泡温泉</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 31 May 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>paper</title>
+      <link>https://zecoo.github.io/hugo/categories/paper/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/categories/paper/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>blog</title>
@@ -16,15 +25,6 @@
       <pubDate>Sun, 31 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/categories/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>paper</title>
-      <link>https://zecoo.github.io/hugo/categories/paper/</link>
-      <pubDate>Fri, 29 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/categories/paper/</guid>
       <description></description>
     </item>
     

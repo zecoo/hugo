@@ -5,10 +5,21 @@
     <link>https://zecoo.github.io/hugo/categories/paper/</link>
     <description>Recent content in paper on 玉子泡温泉</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 29 May 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/categories/paper/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>云计算雾计算和边缘计算</title>
+      <link>https://zecoo.github.io/hugo/posts/paper/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/paper/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</guid>
+      <description>参考 https://zhuanlan.zhihu.com/p/55937656 （雾计算的特点）
+https://zhuanlan.zhihu.com/p/42066947 （雾计算和边缘计算的区别）
+https://blog.csdn.net/robertsong2004/article/details/52203710 （吸尘器这个例子可以解释什么叫计算）</description>
+    </item>
     
     <item>
       <title>ASL复现</title>

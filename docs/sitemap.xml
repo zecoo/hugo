@@ -3,32 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://zecoo.github.io/hugo/categories/</loc>
+    <lastmod>2020-06-01T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/cloud-computing/</loc>
+    <lastmod>2020-06-01T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/categories/paper/</loc>
+    <lastmod>2020-06-01T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/</loc>
+    <lastmod>2020-06-01T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/</loc>
+    <lastmod>2020-06-01T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/paper/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</loc>
+    <lastmod>2020-06-01T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/</loc>
+    <lastmod>2020-06-01T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://zecoo.github.io/hugo/about/</loc>
     <lastmod>2020-05-31T00:00:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://zecoo.github.io/hugo/categories/blog/</loc>
-    <lastmod>2020-05-31T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/categories/</loc>
-    <lastmod>2020-05-31T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/posts/</loc>
-    <lastmod>2020-05-31T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/tags/</loc>
-    <lastmod>2020-05-31T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/</loc>
     <lastmod>2020-05-31T00:00:00+08:00</lastmod>
   </url>
   
@@ -44,11 +59,6 @@
   
   <url>
     <loc>https://zecoo.github.io/hugo/posts/experiment/asl%E5%A4%8D%E7%8E%B0/</loc>
-    <lastmod>2020-05-29T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/categories/paper/</loc>
     <lastmod>2020-05-29T00:00:00+08:00</lastmod>
   </url>
   
@@ -288,12 +298,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/css/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/css/</loc>
     <lastmod>2020-05-05T00:00:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/css/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/css/</loc>
     <lastmod>2020-05-05T00:00:00+08:00</lastmod>
   </url>
   

@@ -6,6 +6,11 @@ categories: ["blog"]
 draft: false
 ---
 
+## 同学
+
+- [小崔](https://blog.varkarix.com)：本科一起混日协的编程大佬
+- [曹真](https://hellogod.cn/about/)：本科毕业pdd做推荐系统…
+
 ## 个人站点
 
 
