@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>paper on 玉子泡温泉</title>
+    <title>paper on 暴躁老农</title>
     <link>https://zecoo.github.io/hugo/categories/paper/</link>
-    <description>Recent content in paper on 玉子泡温泉</description>
+    <description>Recent content in paper on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/categories/paper/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Service Dependecy Graph Building</title>
+      <link>https://zecoo.github.io/hugo/posts/paper/service-dependecy-graph-building/</link>
+      <pubDate>Thu, 04 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/paper/service-dependecy-graph-building/</guid>
+      <description>开始之前 正式开始之前我问自己这样几个问题
+ kiali是trace的一个可视化工具，那么我怎么才能拿到trace的原始数据呢？ istio的数据也都是prom给的，prom的metric之前已经看过了。怎么从prom的metric构造一个trace处理呢？*  终于在今天得到了想要的答案：
+首先，Prometheus和tracing没有关系。其次，trace的原始数据是jaeger提供的，具体是opentracing标准的链路追踪手段。
+OK，继续深入吧。
+Jaeger数据存储 关于agent怎么上报span，collector如何管理span我先不关心。我现在立刻马上想要拿到trace的原始数据，最起码是能让我能二次开发的那种数据。
+数据一般呢，是存在数据库里的，而我的pod里并没有数据库相关的，那数据存在哪里呢？然后我就搜到了这样一个信息：
+ Istio中Jaeger的数据临时存在内存中
+ 既然这样，Jaeger UI又是怎么抽取数据并graph展示的？会不会有Prometheus类似的api接口暴露出来？果然功夫不负有心人，让我找到了Jaeger的API：
+Jaeger trace info Trace API 先提下Jaeger提供的接口，因为这个东西我曾经上Jaeger官网，告诉我/traces这个接口是获取trace信息的API。看看原文怎么说的哈：
+ Jaeger UI communicates with Jaeger Query Service via JSON API. For example, a trace can be retrieved via GET request to https://jaeger-query:16686/api/traces/{trace-id-hex-string}. This JSON API is intentionally undocumented and subject to change.
+ 但是我只顾着一个劲撞南墙，基础概念都没有打好就老想着找捷径。恰好今天静下心来好好想了一下一个trace是什么，拿istio的productpage来说，一次访问网址http://istio-gateway:port/productpage的过程，其实就是一个完整的trace。
+回到官网提供的API，也就是说我知道了trace-id，那么trace的信息就能得到了呀。而trace-id在UI里已经提供了。
+Trace meta data 回到Jaeger UI，点进一个trace，查看JSON格式的数据，其实就是我需要的数据。详细来看看这个json数据里的span都有哪些内容：
+{ &amp;quot;data&amp;quot;: [ { &amp;quot;traceID&amp;quot;: &amp;quot;aeb825de4ba82901d71fecb349727885&amp;quot;, &amp;quot;spans&amp;quot;: [ { &amp;quot;traceID&amp;quot;: &amp;quot;aeb825de4ba82901d71fecb349727885&amp;quot;, &amp;quot;spanID&amp;quot;: &amp;quot;22958c27bcc7f900&amp;quot;, &amp;quot;operationName&amp;quot;: &amp;quot;details.</description>
+    </item>
     
     <item>
       <title>云计算雾计算和边缘计算</title>

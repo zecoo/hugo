@@ -4,7 +4,42 @@
   
   <url>
     <loc>https://zecoo.github.io/hugo/categories/</loc>
-    <lastmod>2020-06-01T00:00:00+08:00</lastmod>
+    <lastmod>2020-06-04T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/istio/</loc>
+    <lastmod>2020-06-04T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/categories/paper/</loc>
+    <lastmod>2020-06-04T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/</loc>
+    <lastmod>2020-06-04T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/paper/service-dependecy-graph-building/</loc>
+    <lastmod>2020-06-04T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/</loc>
+    <lastmod>2020-06-04T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/trace/</loc>
+    <lastmod>2020-06-04T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/</loc>
+    <lastmod>2020-06-04T00:00:00+08:00</lastmod>
   </url>
   
   <url>
@@ -13,27 +48,7 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/paper/</loc>
-    <lastmod>2020-06-01T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/posts/</loc>
-    <lastmod>2020-06-01T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/tags/</loc>
-    <lastmod>2020-06-01T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://zecoo.github.io/hugo/posts/paper/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</loc>
-    <lastmod>2020-06-01T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/</loc>
     <lastmod>2020-06-01T00:00:00+08:00</lastmod>
   </url>
   
@@ -95,16 +110,6 @@
   <url>
     <loc>https://zecoo.github.io/hugo/tags/useless/</loc>
     <lastmod>2020-05-27T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/posts/istio/service-dependecy-graph-building/</loc>
-    <lastmod>2020-05-26T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/tags/trace/</loc>
-    <lastmod>2020-05-26T00:00:00+08:00</lastmod>
   </url>
   
   <url>
@@ -218,12 +223,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
   </url>
   
@@ -245,11 +250,6 @@
   <url>
     <loc>https://zecoo.github.io/hugo/posts/blog/hugo-code-highlight/</loc>
     <lastmod>2020-05-09T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/tags/istio/</loc>
-    <lastmod>2020-05-08T00:17:00+08:00</lastmod>
   </url>
   
   <url>
@@ -298,12 +298,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/css/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/css/</loc>
     <lastmod>2020-05-05T00:00:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/css/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/css/</loc>
     <lastmod>2020-05-05T00:00:00+08:00</lastmod>
   </url>
   
@@ -378,12 +378,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/js/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/js/</loc>
     <lastmod>2020-04-23T11:37:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/js/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/js/</loc>
     <lastmod>2020-04-23T11:37:07+08:00</lastmod>
   </url>
   

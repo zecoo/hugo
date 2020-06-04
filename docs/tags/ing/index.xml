@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ing on 玉子泡温泉</title>
+    <title>ing on 暴躁老农</title>
     <link>https://zecoo.github.io/hugo/tags/ing/</link>
-    <description>Recent content in ing on 玉子泡温泉</description>
+    <description>Recent content in ing on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 27 May 2020 00:00:00 +0800</lastBuildDate>
     
@@ -20,21 +20,6 @@
 参考 https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/suan-fa-xue-xi-zhi-lu （如何学算法）
 https://leetcode.com/explore/learn/card/fun-with-arrays/ （leetcode官网）
 https://github.com/MisterBooo/LeetCodeAnimation （动画演示）</description>
-    </item>
-    
-    <item>
-      <title>Service Dependecy Graph Building</title>
-      <link>https://zecoo.github.io/hugo/posts/istio/service-dependecy-graph-building/</link>
-      <pubDate>Tue, 26 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/istio/service-dependecy-graph-building/</guid>
-      <description>kiali是trace的一个可视化工具，那么我怎么才能拿到trace的原始数据呢？
-istio的数据也都是prom给的，prom的metric之前已经看过了。怎么从prom的metric构造一个trace处理呢？
-Istio中Jaeger的数据是临时存在内存里的。
-Envoy的日志可以收集到，我又可以了。
-root@1201:istio-1.4.3 $ kubectl logs -l app=productpage -c istio-proxy [2020-05-28T09:17:49.996Z] &amp;quot;GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1&amp;quot; 200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 37045 241 240 &amp;quot;10.244.0.1&amp;quot; &amp;quot;Mozilla/5.0 (apple-x86_64-darwin19.0.0) Siege/4.0.4&amp;quot; &amp;quot;11bc5f08-0c8e-4a16-b0a5-b2c3f8900a4f&amp;quot; &amp;quot;39.100.0.61:30681&amp;quot; &amp;quot;127.0.0.1:9080&amp;quot; inbound|9080|http|productpage.default.svc.cluster.local - 10.244.0.160:9080 10.244.0.1:0 - default [2020-05-28T09:17:48.036Z] &amp;quot;GET /productpage HTTP/1.1&amp;quot; 200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 5179 2201 2201 &amp;quot;10.244.0.1&amp;quot; &amp;quot;Mozilla/5.0 (apple-x86_64-darwin19.0.0) Siege/4.0.4&amp;quot; &amp;quot;55cf1e7f-c6f7-41b0-9295-e3f72ecf5282&amp;quot; &amp;quot;39.100.0.61:30681&amp;quot; &amp;quot;127.0.0.1:9080&amp;quot; inbound|9080|http|productpage.default.svc.cluster.local - 10.244.0.160:9080 10.244.0.1:0 - default  参考 https://blog.csdn.net/qq_42038407/article/details/103510066 （深入istio源码查看kiali的数据来源）
-https://www.cnblogs.com/loveis715/p/5277051.html （neo4j介绍好文）
-https://juejin.im/entry/5b0aa414f265da0ddf04a894 (nodeport可以用来画图)</description>
     </item>
     
   </channel>

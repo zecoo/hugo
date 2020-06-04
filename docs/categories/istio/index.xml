@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>istio on 玉子泡温泉</title>
+    <title>istio on 暴躁老农</title>
     <link>https://zecoo.github.io/hugo/categories/istio/</link>
-    <description>Recent content in istio on 玉子泡温泉</description>
+    <description>Recent content in istio on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 27 May 2020 00:00:00 +0800</lastBuildDate>
     
@@ -17,21 +17,6 @@
       
       <guid>https://zecoo.github.io/hugo/posts/istio/istio-sites/</guid>
       <description> productpage Prometheus Grafana Jaeger Kiali (admin,admin)  </description>
-    </item>
-    
-    <item>
-      <title>Service Dependecy Graph Building</title>
-      <link>https://zecoo.github.io/hugo/posts/istio/service-dependecy-graph-building/</link>
-      <pubDate>Tue, 26 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/istio/service-dependecy-graph-building/</guid>
-      <description>kiali是trace的一个可视化工具，那么我怎么才能拿到trace的原始数据呢？
-istio的数据也都是prom给的，prom的metric之前已经看过了。怎么从prom的metric构造一个trace处理呢？
-Istio中Jaeger的数据是临时存在内存里的。
-Envoy的日志可以收集到，我又可以了。
-root@1201:istio-1.4.3 $ kubectl logs -l app=productpage -c istio-proxy [2020-05-28T09:17:49.996Z] &amp;quot;GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1&amp;quot; 200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 37045 241 240 &amp;quot;10.244.0.1&amp;quot; &amp;quot;Mozilla/5.0 (apple-x86_64-darwin19.0.0) Siege/4.0.4&amp;quot; &amp;quot;11bc5f08-0c8e-4a16-b0a5-b2c3f8900a4f&amp;quot; &amp;quot;39.100.0.61:30681&amp;quot; &amp;quot;127.0.0.1:9080&amp;quot; inbound|9080|http|productpage.default.svc.cluster.local - 10.244.0.160:9080 10.244.0.1:0 - default [2020-05-28T09:17:48.036Z] &amp;quot;GET /productpage HTTP/1.1&amp;quot; 200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 5179 2201 2201 &amp;quot;10.244.0.1&amp;quot; &amp;quot;Mozilla/5.0 (apple-x86_64-darwin19.0.0) Siege/4.0.4&amp;quot; &amp;quot;55cf1e7f-c6f7-41b0-9295-e3f72ecf5282&amp;quot; &amp;quot;39.100.0.61:30681&amp;quot; &amp;quot;127.0.0.1:9080&amp;quot; inbound|9080|http|productpage.default.svc.cluster.local - 10.244.0.160:9080 10.244.0.1:0 - default  参考 https://blog.csdn.net/qq_42038407/article/details/103510066 （深入istio源码查看kiali的数据来源）
-https://www.cnblogs.com/loveis715/p/5277051.html （neo4j介绍好文）
-https://juejin.im/entry/5b0aa414f265da0ddf04a894 (nodeport可以用来画图)</description>
     </item>
     
     <item>
@@ -51,10 +36,9 @@ Lifting the server siege... Transactions:	439 hits Availability:	51.83 % Elapsed
       <pubDate>Wed, 06 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/istio/istio-envoy-log-type/</guid>
-      <description>基本数据这样
-【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/flasgger_static/swagger-ui-bundle.js 【PROTOCOL】HTTP/1.1&amp;quot; 【REPONSE CODE】200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 1048149 261 225 【FORWARD_FOR】&amp;quot;-&amp;quot; 【AGENT】&amp;quot;Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.5&amp;quot; 【REQUEST_ID】&amp;quot;51b45953-9ede-9390-b8b5-162247165a5b&amp;quot; 【AUTHORITY】&amp;quot;10.108.208.232:8000&amp;quot; 【HOST】&amp;quot;127.0.0.1:80&amp;quot; inbound|8000|http|httpbin.default.svc.cluster.local 127.0.0.1:43000 10.244.0.67:80 10.244.0.1:10504 - default  0 135 1 1 (/status/418) 0 9593 73 73 (http/1.1) 0 1428809 1 1 (swagger-ui.bundle.js) 0 85578 1 0 (jquery.min.js) 0 0 118 - (DC ResponseCode:0) 0 1048149 261 225 (swagger-ui.bundle.js)  那么这4串数字分别代表什么呢？根据Envoy官方给出的对应关系，由于HTTP_FLAGS一般都是比较特别的，而我得到的都是&amp;rdquo;-&amp;ldquo;，可以得到对应关系：
-[1]BYTES_RECEIVED [2]BYTES_SENT [3]DURATION [4]ENVOY-UPSTREAM-SERVICE-TIME  istio bookinfo示例中给出的log是这样（官方给出的，我现在不想折腾Mixer，得不到这个数据）
-{&amp;quot;level&amp;quot;:&amp;quot;warn&amp;quot;,&amp;quot;time&amp;quot;:&amp;quot;2018-09-15T20:46:35.982761Z&amp;quot;,&amp;quot;instance&amp;quot;:&amp;quot;newlog.xxxxx.istio-system&amp;quot;,&amp;quot;destination&amp;quot;:&amp;quot;productpage&amp;quot;,&amp;quot;latency&amp;quot;:&amp;quot;968.030256ms&amp;quot;,&amp;quot;responseCode&amp;quot;:200,&amp;quot;responseSize&amp;quot;:4415,&amp;quot;source&amp;quot;:&amp;quot;istio-ingressgateway&amp;quot;,&amp;quot;user&amp;quot;:&amp;quot;unknown&amp;quot;}  区别的重点在于 samples/bookinfo/telemetry/log-entry.</description>
+      <description>Envoy log type 【START_TIME】[2020-05-06T09:32:24.488Z] 【METHOD】&amp;quot;GET 【PATH】/flasgger_static/swagger-ui-bundle.js 【PROTOCOL】HTTP/1.1&amp;quot; 【REPONSE CODE】200 - &amp;quot;-&amp;quot; &amp;quot;-&amp;quot; 0 1048149 261 225 【FORWARD_FOR】&amp;quot;-&amp;quot; 【AGENT】&amp;quot;Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.5&amp;quot; 【REQUEST_ID】&amp;quot;51b45953-9ede-9390-b8b5-162247165a5b&amp;quot; 【AUTHORITY】&amp;quot;10.108.208.232:8000&amp;quot; 【HOST】&amp;quot;127.0.0.1:80&amp;quot; inbound|8000|http|httpbin.default.svc.cluster.local 127.0.0.1:43000 10.244.0.67:80 10.244.0.1:10504 - default  获取相应时间数据 特别得，我想知道响应时间，但是好像没有具体列出来。不过每个envoy log都有4个数字特别可疑：
+0 135 1 1 (/status/418) 0 9593 73 73 (http/1.1) 0 1428809 1 1 (swagger-ui.bundle.js) 0 85578 1 0 (jquery.min.js) 0 0 118 - (DC ResponseCode:0) 0 1048149 261 225 (swagger-ui.bundle.js)  那么这4串数字分别代表什么呢？根据Envoy官方给出的对应关系，由于HTTP_FLAGS一般都是比较特别的，而我得到的都是&amp;rdquo;-&amp;ldquo;，可以得到对应关系：
+[1]BYTES_RECEIVED [2]BYTES_SENT [3]DURATION [4]ENVOY-UPSTREAM-SERVICE-TIME  于是响应时间duration其实就可以拿到了。</description>
     </item>
     
     <item>

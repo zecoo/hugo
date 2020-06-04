@@ -2,13 +2,13 @@ baseURL: https://zecoo.github.io/hugo/
 theme: hustrap
 publishDir: "docs"
 # theme: contrast-hugo
-title: "玉子泡温泉"
+title: "暴躁老农"
 
 
 params:
   sidebar:
     board: "不会照搬其他博客，感谢参考的文章<br><br> Feel free to contact me~<br> wechat: doubeKon"
-  description: "好记性不如烂笔头"
+  description: "好记性也要烂笔头"
 
 menus:
   sidebar:

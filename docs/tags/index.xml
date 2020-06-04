@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 玉子泡温泉</title>
+    <title>Tags on 暴躁老农</title>
     <link>https://zecoo.github.io/hugo/tags/</link>
-    <description>Recent content in Tags on 玉子泡温泉</description>
+    <description>Recent content in Tags on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>istio</title>
+      <link>https://zecoo.github.io/hugo/tags/istio/</link>
+      <pubDate>Thu, 04 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/tags/istio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>trace</title>
+      <link>https://zecoo.github.io/hugo/tags/trace/</link>
+      <pubDate>Thu, 04 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/tags/trace/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cloud computing</title>
@@ -43,15 +61,6 @@
       <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/tags/useless/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>trace</title>
-      <link>https://zecoo.github.io/hugo/tags/trace/</link>
-      <pubDate>Tue, 26 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/tags/trace/</guid>
       <description></description>
     </item>
     
@@ -151,15 +160,6 @@
       <pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/tags/highlight/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>istio</title>
-      <link>https://zecoo.github.io/hugo/tags/istio/</link>
-      <pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/tags/istio/</guid>
       <description></description>
     </item>
     

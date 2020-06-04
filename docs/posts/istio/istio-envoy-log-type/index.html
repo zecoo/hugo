@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="generator" content="Hugo 0.58.3" />
-    <meta name="description" content="好记性不如烂笔头">
+    <meta name="description" content="好记性也要烂笔头">
     <title>
         istio envoy log type 
     </title>
@@ -32,7 +32,7 @@
 			  </header>
 			  
 
-<p>基本数据这样</p>
+<h2 id="envoy-log-type">Envoy log type</h2>
 
 <pre><code class="language-shell">【START_TIME】[2020-05-06T09:32:24.488Z] 
 【METHOD】&quot;GET 【PATH】/flasgger_static/swagger-ui-bundle.js 【PROTOCOL】HTTP/1.1&quot; 
@@ -44,6 +44,10 @@
 【HOST】&quot;127.0.0.1:80&quot; 
 inbound|8000|http|httpbin.default.svc.cluster.local 127.0.0.1:43000 10.244.0.67:80 10.244.0.1:10504 - default
 </code></pre>
+
+<h3 id="获取相应时间数据">获取相应时间数据</h3>
+
+<p>特别得，我想知道响应时间，但是好像没有具体列出来。不过每个envoy log都有4个数字特别可疑：</p>
 
 <pre><code class="language-basic">0 135 1 1            (/status/418)
 0 9593 73 73         (http/1.1)
@@ -58,7 +62,20 @@ inbound|8000|http|httpbin.default.svc.cluster.local 127.0.0.1:43000 10.244.0.67:
 <pre><code class="language-shell">[1]BYTES_RECEIVED [2]BYTES_SENT [3]DURATION [4]ENVOY-UPSTREAM-SERVICE-TIME
 </code></pre>
 
-<p>istio bookinfo示例中给出的log是这样（官方给出的，我现在不想折腾Mixer，得不到这个数据）</p>
+<p>于是响应时间duration其实就可以拿到了。</p>
+
+<h3 id="具体例子">具体例子</h3>
+
+<p>Envoy对productpage的日志也可以收集到：</p>
+
+<pre><code class="language-shell">root@1201:istio-1.4.3 $ kubectl logs -l app=productpage -c istio-proxy
+[2020-05-28T09:17:49.996Z] &quot;GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1&quot; 200 - &quot;-&quot; &quot;-&quot; 0 37045 241 240 &quot;10.244.0.1&quot; &quot;Mozilla/5.0 (apple-x86_64-darwin19.0.0) Siege/4.0.4&quot; &quot;11bc5f08-0c8e-4a16-b0a5-b2c3f8900a4f&quot; &quot;39.100.0.61:30681&quot; &quot;127.0.0.1:9080&quot; inbound|9080|http|productpage.default.svc.cluster.local - 10.244.0.160:9080 10.244.0.1:0 - default
+[2020-05-28T09:17:48.036Z] &quot;GET /productpage HTTP/1.1&quot; 200 - &quot;-&quot; &quot;-&quot; 0 5179 2201 2201 &quot;10.244.0.1&quot; &quot;Mozilla/5.0 (apple-x86_64-darwin19.0.0) Siege/4.0.4&quot; &quot;55cf1e7f-c6f7-41b0-9295-e3f72ecf5282&quot; &quot;39.100.0.61:30681&quot; &quot;127.0.0.1:9080&quot; inbound|9080|http|productpage.default.svc.cluster.local - 10.244.0.160:9080 10.244.0.1:0 - default
+</code></pre>
+
+<h2 id="关于mixer">关于Mixer</h2>
+
+<p>istio bookinfo示例中给出的log是这样，latency是直接给出来的，也太好了吧。（官方给出的，我现在不想折腾Mixer，得不到这个数据）</p>
 
 <pre><code class="language-shell">{&quot;level&quot;:&quot;warn&quot;,&quot;time&quot;:&quot;2018-09-15T20:46:35.982761Z&quot;,&quot;instance&quot;:&quot;newlog.xxxxx.istio-system&quot;,&quot;destination&quot;:&quot;productpage&quot;,&quot;latency&quot;:&quot;968.030256ms&quot;,&quot;responseCode&quot;:200,&quot;responseSize&quot;:4415,&quot;source&quot;:&quot;istio-ingressgateway&quot;,&quot;user&quot;:&quot;unknown&quot;}
 </code></pre>
@@ -67,7 +84,7 @@ inbound|8000|http|httpbin.default.svc.cluster.local 127.0.0.1:43000 10.244.0.67:
 
 <p>但是如果要log的话，要用到Mixer这个组件，然而Mixer已经被官方弃用了，怎么官方文档还是要这玩意儿？</p>
 
-<p>中文文档更新得好慢啊，Envoy获取log已经不在英文的文档里了…</p>
+<p>中文文档更新得好慢啊，Mixer获取log已经不在英文的文档里了…</p>
 
 <h2 id="参考">参考</h2>
 
