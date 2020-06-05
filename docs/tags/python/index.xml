@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on 暴躁老农</title>
+    <link>https://zecoo.github.io/hugo/tags/python/</link>
+    <description>Recent content in python on 暴躁老农</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 05 Jun 2020 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://zecoo.github.io/hugo/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>python应用环境搭建</title>
+      <link>https://zecoo.github.io/hugo/posts/server/python%E5%BA%94%E7%94%A8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/server/python%E5%BA%94%E7%94%A8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+      <description>安装python3 首先下载python3安装包，在csdn上下载可能更快一点。
+如果是在服务器上安python3，那可能需要修改镜像源。
+app依赖 由于代码里需要import很多依赖，如果直接跑python app.py就会报各种依赖不存在的错误，所以需要先安装所有的依赖：pip install -r requirements.txt
+参考 https://www.cnblogs.com/Simple-Small/p/12221135.html （安装python3）
+https://github.com/shiniao/mini_sms_classify （python应用需要import的依赖）
+https://blog.csdn.net/timtian008/article/details/81186356 （国内python下载太慢了）</description>
+    </item>
+    
+  </channel>
+</rss>
