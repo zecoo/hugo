@@ -5,10 +5,72 @@
     <link>https://zecoo.github.io/hugo/posts/</link>
     <description>Recent content in Posts on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 05 Jun 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LNCS subsubsection 插入数学公式</title>
+      <link>https://zecoo.github.io/hugo/posts/paper/lncs-subsubsection-%E6%8F%92%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</link>
+      <pubDate>Mon, 06 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/paper/lncs-subsubsection-%E6%8F%92%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</guid>
+      <description>记一个在LNCS里用latex遇到的坑。
+插入数学公式的时候遇到这样的报错：
+Math formula deleted: Insufficient symbol fonts.  我查了一下，从这几个角度排查问题
+ 可能是导包的时候\usepackage{xxx}不支持数学公式 是不是$$和\begin{equation}的区别  查了半天都没有结果，还是在控制变量的情况下发现，subsubsection后面是无法插入数学公式。section和subsection就是可以的。原因是LNCS里的subsubsection是一个整体，而不是类似于paragraph的那种。如果有换行，而且是以段落的形式来体现subsubsection就可以插入数学公式。
+那怎么调整LNCS里subsubsection的格式呢？参考这篇文章
+参考 http://blog.sina.com.cn/s/blog_7851bb8501017zbm.html （subsubsection格式）</description>
+    </item>
+    
+    <item>
+      <title>ALL in ONE</title>
+      <link>https://zecoo.github.io/hugo/posts/all-in-one/</link>
+      <pubDate>Fri, 03 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/all-in-one/</guid>
+      <description> RCA 一些例子：
+比如接口成功率下降了，发现北京的接口成功率的曲线和接口成功率最相似，那将“北京的接口成功率”定位为根因。
+KPI anomaly
+当某个总指标（如总流量）发生异常时，需要快速准确地定位到是哪个交叉维度的细粒度指标（如“省份=北京 &amp;amp; 运营商=联通”的流量）的异常导致的，以便尽快做进一步的修复止损操作。
+对于网络运维中多数的关键性能指标（KPI，CPU利用率、某页面点击量等），对其应用实时的异常检测算法，即可快速发现异常状况
+Fault Injection方式：
+ 对一个container进行CPU消耗 网络包延迟（具体delay到某个微服务还是？） Container Pause  MS-Rank就根本没提什么是微服务系统的Root Cause，但是在RW里提到了两类：
+ Network traffic analysis web service anomaly detection  MS-Rank评价Microscope是基于单指标，也就是Latency
+Anomaly Detection和Root Cause Analysis又有什么关系？
+回应的问题 Q1: 选择的metric是什么，他们之间有权重吗
+A1: 目前论文里看到的是没有的，MircoScope是用latency单指标，MS-Rank是用多指标，但是没有说明指标之前的权重，icws2020也是用latency单指标。
+Q2: Root Cause 检测的anomaly是个什么异常？
+A2: 看Fault Injection方式，也就是说1. 一个或多个微服务停机 2. 一个或多个微服务的网络延迟高
+为什么实验表明和论文里的有出入 感觉不是forward、selfward和backward的问题。因为这是解决不能向兄弟节点random walk的问题。而不是整个调用链latency相似的问题。
+docker 格式化查看 container
+docker ps --format &amp;quot;table {{.ID}}\t{{.Names}}\t{{.Status}}&amp;quot;  其中Reviews有3个版本：
+ v1只提供评论 v2同时提供评论和评分，评分以黑色星星展现 v3同时提供评论和评分，评分以红色星星展现  </description>
+    </item>
+    
+    <item>
+      <title>从PageRank谈几篇RCA论文</title>
+      <link>https://zecoo.github.io/hugo/posts/math/pagerank%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 09 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/math/pagerank%E4%BD%BF%E7%94%A8/</guid>
+      <description>从论文说起 先来看看几篇核心方法类似的论文：
+ Root Cause Detection in a Service-Oriented Architecture （SIGMETRICS 2013） MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications （ICWS 2019） Root Cause Analysis of Latency Problems with End-to-End Tracing in Microservice Environments （ICWS 2020）  第一篇论文是早的，后面两篇论文都参考了这个论文。最诡异的是ICWS2020这篇，连算法和公式都没有改就敢直接投？这赤裸裸的抄袭好吧，就是把SOA的概念换成了ms的概念。
+吐槽还没完，聊聊具体的方法吧。
+找Anomaly的方法 其中都提到了PageRank，而且要注意不是不同的PageRank，而是Personalized PageRank（PPR）其实也就是Weighted PageRank（WPR）
+其中的问题 RCD SOA这篇论文里写得很清楚了，如果某一个区域的PR值保持很低，那么surfer会停留在此区域，陷入僵局。那么就需要往后传递surfer，于是就有了backward edge。
+而到了后面两篇论文这里就走了样，变成了forward transformation、backward transformation和self transformation。让人难以理解。
+PageRank 用一个东西，抓住输入和输出。
+输入 DAG的matrix，如果有n个节点，那么就是一个n*n的矩阵。nij表示节点i和节点j的连接关系。在PageRank中，如果一个节点i链接到节点j，那么nij=1。
+以上这个输入不对。
+基于随机游走的PageRank算法的输入应该是第一个节点。然后是节点和节点之间的相关度。
+输出 n个节点的PageRank排序PR，范围是0-10，值越高表示重要性越高。
+Weighted PageRank 传统的PR跳转到页面中提到的链接或者重新输入一个链接是通过设定一个固定概率。显然在已知关系度的网络里不太适用。所以把节点与节点之间的边作为权重的WPR就被提出来了。
+而RCD SOA这篇论文里的backward，其实就是增强反向传递surfer的概率。也就是加强了反向边的权重。
+至此，关于这几篇论文的方法是大致有一个了解了，实现起来emmm。感觉就凭我的代码水平，是块硬骨头，不知道现在该不该啃。
+参考 https://www.jianshu.com/p/6af90342c3ba （简单代码讲解）</description>
+    </item>
     
     <item>
       <title>Demo: flask&#43;vue&#43;mysql</title>
@@ -116,7 +178,7 @@ spec: containers: - image: gcr.io/google_containers/serve_hostname imagePullPoli
       <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/blog/cool-sites/</guid>
-      <description> 同学  小崔：本科一起混日协的编程大佬 曹真：本科毕业pdd做推荐系统…  个人站点  DIYgod：前端大神 shud.in：设计师 花生A：自制挺有意思的站点 matrix67：搞数学的人是真的帅 四火：真实的程序员hh 石鸟：从restful的todo找到的在读研究生 张怡：宝藏女孩 羡辙杂俎：像素风个人站点 nanshu：about页的喜欢和不喜欢太可爱了 敖小剑：ServiceMesh布道者 绿色：记忆生活编程记录  公司  Splayer：射手是个超nice的公司  博客  编程小栈：喜欢记录的在读生  </description>
+      <description> 同学  小崔：本科一起混日协的编程大佬 曹真：本科毕业pdd做推荐系统…  个人站点  DIYgod：前端大神 shud.in：设计师 花生A：自制挺有意思的站点 matrix67：搞数学的人是真的帅 四火：真实的程序员hh 石鸟：从restful的todo找到的在读研究生 张怡：宝藏女孩 羡辙杂俎：像素风个人站点 nanshu：about页的喜欢和不喜欢太可爱了 敖小剑：ServiceMesh布道者 绿色：记忆生活编程记录 MY：这简历太好看了  公司  Splayer：射手是个超nice的公司  博客  编程小栈：喜欢记录的在读生 进阶女学霸：图相关的研究  </description>
     </item>
     
     <item>
@@ -311,16 +373,6 @@ Gradient ratio(t) = Gradient(t) / Mj,i(t)
 Transition（游走）：向前（遇到高相似度）、向内（前后都是低相似度，则停留在自身）、向后（遇到低相似度）
 3E Weight Update P(M) Precision Function，计算定位结果的准确性。还有更新权重，都是一个公式带过。
 3F Example 收集了2小时（7200s）的数据，每5s一次收集，对于每个metric都有1440个记录。</description>
-    </item>
-    
-    <item>
-      <title>RCA Papers</title>
-      <link>https://zecoo.github.io/hugo/posts/paper/rca-papers/</link>
-      <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/paper/rca-papers/</guid>
-      <description>Literature Survey: Root Cause Analysis in Microservice System 摘要 微服务系统在最近几年迅速发展，微服务系统由多个独立部署并相互协作的微服务组成，大型的微服务系统可能包含几十个微服务，使得他们之间的调用链非常复杂。当某个微服务节点发生异常，可能会影响整个微服务调用链。为了保证Qos，定位发生异常的微服务节点显得尤为重要。目前RCA的过程大致可以分为服务调用链构建、筛选候选异常节点、排序异常节点这三个部分。这篇论文，我们将对比近几年RCA的发展以及常见的错误定位方法及这些方法之间的对比。基于以上讨论，得出对RCA的总结。
-Microservice systems have developed rapidly in recent years. Microservice systems consist of multiple microservices which are independently deployed and co- ordinated . A large microservice system may contain dozens of microservices, making the call chain among these microservices very complicated. When an anomaly occurs in a microservice node, it may affect the entire call chain. In order to ensure Qos(Qunatity of service) and SLA(Service Level Assurance), it is particularly important to locate the abnormal microservice nodes.</description>
     </item>
     
     <item>
@@ -815,6 +867,15 @@ Index.html  banner有三个部分，一个是logo，一个是站内其他链接�
 [ + ][ ][ ]
 [ ][ ][ ][ ]
 [ ][ ][ ][ ]</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zecoo.github.io/hugo/posts/metrics/%E5%8F%82%E8%80%83/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/metrics/%E5%8F%82%E8%80%83/</guid>
+      <description>参考 https://www.cnblogs.com/lidawn/p/10230903.html （将span很详细）</description>
     </item>
     
   </channel>

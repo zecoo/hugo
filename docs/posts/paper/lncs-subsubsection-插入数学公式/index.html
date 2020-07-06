@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="description" content="好记性也要烂笔头">
+    <title>
+        LNCS subsubsection 插入数学公式 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://zecoo.github.io/hugo/css/main.css">
+    <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+    
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+        	<article class="blog-post">
+			  <header>
+			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">LNCS subsubsection 插入数学公式</h2></a>
+			    <p class="blog-post-meta"><time datetime="2020-07-06T00:00:00+08:00">Mon Jul 6, 2020</time></p>
+			  </header>
+			  
+
+<p>记一个在LNCS里用latex遇到的坑。</p>
+
+<p>插入数学公式的时候遇到这样的报错：</p>
+
+<pre><code class="language-shell">Math formula deleted: Insufficient symbol fonts.
+</code></pre>
+
+<p>我查了一下，从这几个角度排查问题</p>
+
+<ul>
+<li>可能是导包的时候<code>\usepackage{xxx}</code>不支持数学公式</li>
+<li>是不是<code>$$</code>和<code>\begin{equation}</code>的区别</li>
+</ul>
+
+<p>查了半天都没有结果，还是在控制变量的情况下发现，subsubsection后面是无法插入数学公式。section和subsection就是可以的。原因是LNCS里的subsubsection是一个整体，而不是类似于paragraph的那种。如果有换行，而且是以段落的形式来体现subsubsection就可以插入数学公式。</p>
+
+<p>那怎么调整LNCS里subsubsection的格式呢？参考<a href="http://blog.sina.com.cn/s/blog_7851bb8501017zbm.html">这篇文章</a></p>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="http://blog.sina.com.cn/s/blog_7851bb8501017zbm.html">http://blog.sina.com.cn/s/blog_7851bb8501017zbm.html</a> （subsubsection格式）</p>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="https://zecoo.github.io/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

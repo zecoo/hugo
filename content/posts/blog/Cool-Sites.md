@@ -25,6 +25,7 @@ draft: false
 - [nanshu](http://nanshu.wang/about/)：about页的喜欢和不喜欢太可爱了
 - [敖小剑](https://skyao.io/#about)：ServiceMesh布道者
 - [绿色](https://blog.gmem.cc)：记忆生活编程记录
+- [MY](https://mayi1996.top/resume.pdf)：这简历太好看了
 
 ## 公司
 
@@ -33,3 +34,4 @@ draft: false
 ## 博客
 
 - [编程小栈](https://blog.csdn.net/chichoxian)：喜欢记录的在读生
+- [进阶女学霸](https://blog.csdn.net/ypp0229/article/list/1?t=1)：图相关的研究

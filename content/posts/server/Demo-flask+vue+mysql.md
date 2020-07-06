@@ -89,3 +89,4 @@ def conn_mysql():
 
 https://www.jianshu.com/p/ead7317d01ec （本文主要参考，很详细）
 
+https://www.cnblogs.com/dashenisme/p/10282811.html （flask写入mysql）

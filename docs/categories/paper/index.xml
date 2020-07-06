@@ -5,10 +5,33 @@
     <link>https://zecoo.github.io/hugo/categories/paper/</link>
     <description>Recent content in paper on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 04 Jun 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/categories/paper/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>从PageRank谈几篇RCA论文</title>
+      <link>https://zecoo.github.io/hugo/posts/math/pagerank%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 09 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/math/pagerank%E4%BD%BF%E7%94%A8/</guid>
+      <description>从论文说起 先来看看几篇核心方法类似的论文：
+ Root Cause Detection in a Service-Oriented Architecture （SIGMETRICS 2013） MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications （ICWS 2019） Root Cause Analysis of Latency Problems with End-to-End Tracing in Microservice Environments （ICWS 2020）  第一篇论文是早的，后面两篇论文都参考了这个论文。最诡异的是ICWS2020这篇，连算法和公式都没有改就敢直接投？这赤裸裸的抄袭好吧，就是把SOA的概念换成了ms的概念。
+吐槽还没完，聊聊具体的方法吧。
+找Anomaly的方法 其中都提到了PageRank，而且要注意不是不同的PageRank，而是Personalized PageRank（PPR）其实也就是Weighted PageRank（WPR）
+其中的问题 RCD SOA这篇论文里写得很清楚了，如果某一个区域的PR值保持很低，那么surfer会停留在此区域，陷入僵局。那么就需要往后传递surfer，于是就有了backward edge。
+而到了后面两篇论文这里就走了样，变成了forward transformation、backward transformation和self transformation。让人难以理解。
+PageRank 用一个东西，抓住输入和输出。
+输入 DAG的matrix，如果有n个节点，那么就是一个n*n的矩阵。nij表示节点i和节点j的连接关系。在PageRank中，如果一个节点i链接到节点j，那么nij=1。
+以上这个输入不对。
+基于随机游走的PageRank算法的输入应该是第一个节点。然后是节点和节点之间的相关度。
+输出 n个节点的PageRank排序PR，范围是0-10，值越高表示重要性越高。
+Weighted PageRank 传统的PR跳转到页面中提到的链接或者重新输入一个链接是通过设定一个固定概率。显然在已知关系度的网络里不太适用。所以把节点与节点之间的边作为权重的WPR就被提出来了。
+而RCD SOA这篇论文里的backward，其实就是增强反向传递surfer的概率。也就是加强了反向边的权重。
+至此，关于这几篇论文的方法是大致有一个了解了，实现起来emmm。感觉就凭我的代码水平，是块硬骨头，不知道现在该不该啃。
+参考 https://www.jianshu.com/p/6af90342c3ba （简单代码讲解）</description>
+    </item>
     
     <item>
       <title>Service Dependecy Graph Building</title>
@@ -192,16 +215,6 @@ Gradient ratio(t) = Gradient(t) / Mj,i(t)
 Transition（游走）：向前（遇到高相似度）、向内（前后都是低相似度，则停留在自身）、向后（遇到低相似度）
 3E Weight Update P(M) Precision Function，计算定位结果的准确性。还有更新权重，都是一个公式带过。
 3F Example 收集了2小时（7200s）的数据，每5s一次收集，对于每个metric都有1440个记录。</description>
-    </item>
-    
-    <item>
-      <title>RCA Papers</title>
-      <link>https://zecoo.github.io/hugo/posts/paper/rca-papers/</link>
-      <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/paper/rca-papers/</guid>
-      <description>Literature Survey: Root Cause Analysis in Microservice System 摘要 微服务系统在最近几年迅速发展，微服务系统由多个独立部署并相互协作的微服务组成，大型的微服务系统可能包含几十个微服务，使得他们之间的调用链非常复杂。当某个微服务节点发生异常，可能会影响整个微服务调用链。为了保证Qos，定位发生异常的微服务节点显得尤为重要。目前RCA的过程大致可以分为服务调用链构建、筛选候选异常节点、排序异常节点这三个部分。这篇论文，我们将对比近几年RCA的发展以及常见的错误定位方法及这些方法之间的对比。基于以上讨论，得出对RCA的总结。
-Microservice systems have developed rapidly in recent years. Microservice systems consist of multiple microservices which are independently deployed and co- ordinated . A large microservice system may contain dozens of microservices, making the call chain among these microservices very complicated. When an anomaly occurs in a microservice node, it may affect the entire call chain. In order to ensure Qos(Qunatity of service) and SLA(Service Level Assurance), it is particularly important to locate the abnormal microservice nodes.</description>
     </item>
     
   </channel>

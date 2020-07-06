@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="description" content="好记性也要烂笔头">
+    <title>
+        ALL in ONE 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://zecoo.github.io/hugo/css/main.css">
+    <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+    
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+        	<article class="blog-post">
+			  <header>
+			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">ALL in ONE</h2></a>
+			    <p class="blog-post-meta"><time datetime="2020-07-03T00:00:00+08:00">Fri Jul 3, 2020</time></p>
+			  </header>
+			  
+
+<h2 id="rca">RCA</h2>
+
+<p>一些例子：</p>
+
+<p>比如接口成功率下降了，发现北京的接口成功率的曲线和接口成功率最相似，那将“北京的接口成功率”定位为根因。</p>
+
+<p>KPI anomaly</p>
+
+<p>当某个总指标（如总流量）发生异常时，需要快速准确地定位到是哪个交叉维度的细粒度指标（如“省份=北京 &amp; 运营商=联通”的流量）的异常导致的，以便尽快做进一步的修复止损操作。</p>
+
+<p>对于网络运维中多数的关键性能指标（KPI，CPU利用率、某页面点击量等），对其应用实时的异常检测算法，即可快速发现异常状况</p>
+
+<p>Fault Injection方式：</p>
+
+<ul>
+<li>对一个container进行CPU消耗</li>
+<li>网络包延迟（具体delay到某个微服务还是？）</li>
+<li>Container Pause</li>
+</ul>
+
+<p>MS-Rank就根本没提什么是微服务系统的Root Cause，但是在RW里提到了两类：</p>
+
+<ol>
+<li>Network traffic analysis</li>
+<li>web service anomaly detection</li>
+</ol>
+
+<p>MS-Rank评价Microscope是基于单指标，也就是Latency</p>
+
+<p>Anomaly Detection和Root Cause Analysis又有什么关系？</p>
+
+<h3 id="回应的问题">回应的问题</h3>
+
+<p>Q1: 选择的metric是什么，他们之间有权重吗</p>
+
+<p>A1: 目前论文里看到的是没有的，MircoScope是用latency单指标，MS-Rank是用多指标，但是没有说明指标之前的权重，icws2020也是用latency单指标。</p>
+
+<p>Q2: Root Cause 检测的anomaly是个什么异常？</p>
+
+<p>A2: 看Fault Injection方式，也就是说1. 一个或多个微服务停机 2. 一个或多个微服务的网络延迟高</p>
+
+<h3 id="为什么实验表明和论文里的有出入">为什么实验表明和论文里的有出入</h3>
+
+<p>感觉不是forward、selfward和backward的问题。因为这是解决不能向兄弟节点random walk的问题。而不是整个调用链latency相似的问题。</p>
+
+<p>docker 格式化查看 container</p>
+
+<pre><code class="language-shell">docker ps --format &quot;table {{.ID}}\t{{.Names}}\t{{.Status}}&quot;
+</code></pre>
+
+<p>其中Reviews有3个版本：</p>
+
+<ul>
+<li>v1只提供评论</li>
+<li>v2同时提供评论和评分，评分以黑色星星展现</li>
+<li>v3同时提供评论和评分，评分以红色星星展现</li>
+</ul>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="https://zecoo.github.io/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
