@@ -1,8 +1,8 @@
 ---
 title: "LNCS subsubsection 插入数学公式"
 date: "2020-07-06T00:00:00+08:00"
-tags: 
-categories: 
+tags: latex
+categories: paper
 draft: false
 ---
 

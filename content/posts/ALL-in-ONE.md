@@ -6,6 +6,43 @@ categories:
 draft: false
 ---
 
+> 这是一个类似于inbox的东西，乱七八糟的内容都会放进来
+
+
+
+[xml的方式表示图](https://github.com/amir-f/delta-simrank/blob/master/non_mr_simrank/test/simrank_test_graph_widom.graphml)
+
+
+
+一句话讲清楚PCA是做什么的：
+
+将一组N维向量降为R维，其目标是选择R个**单位正交基**，使得原始数据变换到这组基上后，各维度两两间的**协方差**为0，而每个维度的**方差**则尽可能大（在正交的约束下，取最大的R个方差）。
+
+
+
+## GCN好文
+
+- https://zhuanlan.zhihu.com/p/89503068
+- https://mp.weixin.qq.com/s/sg9O761F0KHAmCPOfMW_kQ
+- https://zhuanlan.zhihu.com/p/78452993
+- https://github.com/LYuhang/GNN_Review
+
+
+
+
+
+
+
+奥卡姆剃刀原则：假如两个假说具有相同的解释力和预测力，我们应当以那个较为简单的假说作为讨论根据。
+
+
+
+Microscope和MS-Rank都没有提到Precision是如何计算的。要我自己去猜吗？不过好像就是我猜的那个思路。
+
+
+
+新的idea：RCA这些论文里对anomaly detection是怎么做的？他们关注的重点是analysis，就是找异常节点，异常发生如何检测是怎么做的？
+
 
 
 ## RCA

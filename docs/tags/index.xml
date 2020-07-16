@@ -5,10 +5,19 @@
     <link>https://zecoo.github.io/hugo/tags/</link>
     <description>Recent content in Tags on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 05 Jun 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>latex</title>
+      <link>https://zecoo.github.io/hugo/tags/latex/</link>
+      <pubDate>Mon, 06 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/tags/latex/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>python</title>
