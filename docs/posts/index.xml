@@ -31,7 +31,10 @@ Math formula deleted: Insufficient symbol fonts.  我查了一下，从这几个
       
       <guid>https://zecoo.github.io/hugo/posts/all-in-one/</guid>
       <description>这是一个类似于inbox的东西，乱七八糟的内容都会放进来
- xml的方式表示图
+ istio自动注入的方法：
+kubectl label namespace ns-xxx istio-injection=enabled  然后查看是否注入成功：
+kubectl get namespace -L istio-injection  参考：https://istio.io/latest/zh/docs/setup/additional-setup/sidecar-injection/
+xml的方式表示图
 一句话讲清楚PCA是做什么的：
 将一组N维向量降为R维，其目标是选择R个单位正交基，使得原始数据变换到这组基上后，各维度两两间的协方差为0，而每个维度的方差则尽可能大（在正交的约束下，取最大的R个方差）。
 GCN好文  https://zhuanlan.zhihu.com/p/89503068 https://mp.weixin.qq.com/s/sg9O761F0KHAmCPOfMW_kQ https://zhuanlan.zhihu.com/p/78452993 https://github.com/LYuhang/GNN_Review  奥卡姆剃刀原则：假如两个假说具有相同的解释力和预测力，我们应当以那个较为简单的假说作为讨论根据。
@@ -47,11 +50,7 @@ Fault Injection方式：
  Network traffic analysis web service anomaly detection  MS-Rank评价Microscope是基于单指标，也就是Latency
 Anomaly Detection和Root Cause Analysis又有什么关系？
 回应的问题 Q1: 选择的metric是什么，他们之间有权重吗
-A1: 目前论文里看到的是没有的，MircoScope是用latency单指标，MS-Rank是用多指标，但是没有说明指标之前的权重，icws2020也是用latency单指标。
-Q2: Root Cause 检测的anomaly是个什么异常？
-A2: 看Fault Injection方式，也就是说1. 一个或多个微服务停机 2. 一个或多个微服务的网络延迟高
-为什么实验表明和论文里的有出入 感觉不是forward、selfward和backward的问题。因为这是解决不能向兄弟节点random walk的问题。而不是整个调用链latency相似的问题。
-docker 格式化查看 container</description>
+A1: 目前论文里看到的是没有的，MircoScope是用latency单指标，MS-Rank是用多指标，但是没有说明指标之前的权重，icws2020也是用latency单指标。</description>
     </item>
     
     <item>
@@ -883,6 +882,17 @@ Index.html  banner有三个部分，一个是logo，一个是站内其他链接�
       
       <guid>https://zecoo.github.io/hugo/posts/metrics/%E5%8F%82%E8%80%83/</guid>
       <description>参考 https://www.cnblogs.com/lidawn/p/10230903.html （将span很详细）</description>
+    </item>
+    
+    <item>
+      <title>mRCA 复现</title>
+      <link>https://zecoo.github.io/hugo/posts/experiment/mrca-%E5%A4%8D%E7%8E%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/experiment/mrca-%E5%A4%8D%E7%8E%B0/</guid>
+      <description>histogram_quantile(0.50, sum(irate(istio_request_duration_seconds_bucket{reporter=&amp;quot;source&amp;quot;, destination_workload_namespace=&amp;quot;sock-shop&amp;quot;}[1m])) by (destination_workload, source_workload, le))  [{&#39;metric&#39;: {&#39;destination_workload&#39;: &#39;orders-db&#39;, &#39;source_workload&#39;: &#39;orders&#39;}, &#39;value&#39;: [1594888889.714, &#39;0.03426666666666667&#39;]},  记录一个大致的过程
+ locust GET请求没有问题 POST请求如果参数合理也没有问题 卡在了login上面   login 在client.js里写了有一个xhr.setHttpRequest的东西，需要验证base64加密过的header 是这样啊，那我的locust加密header送过去了但是无法正常返回 那我就去看了sock-shop的源码，在user/api/trasport.go 文件里看到了basicAuth的过程  至此为止也就卡住了
+官网说明确实header的用法没错</description>
     </item>
     
   </channel>

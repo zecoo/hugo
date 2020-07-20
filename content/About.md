@@ -16,7 +16,7 @@ draft: false
 
 ### 喜欢：
 
-红楼梦 iPod Reeder 塞尔达传说 Typora 豆瓣 iPhone MacBook RSS Nike 皮具 精酿 番茄炒蛋 红烧肉 MUJI 蛋炒饭 麻婆豆腐 
+红楼梦 iPod Reeder 塞尔达传说 Typora 豆瓣 iPhone MacBook RSS Nike 皮具 精酿 番茄炒蛋 红烧肉 MUJI 蛋炒饭 麻婆豆腐 双拼 Anki 
 
 ### 不喜欢：
 
@@ -26,4 +26,5 @@ draft: false
 
 - 《非暴力沟通》
 - 《被讨厌的勇气》
+- 《认知红利》
 

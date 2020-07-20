@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="description" content="好记性也要烂笔头">
+    <title>
+        mRCA 复现 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://zecoo.github.io/hugo/css/main.css">
+    <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+    
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+        	<article class="blog-post">
+			  <header>
+			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">mRCA 复现</h2></a>
+			    <p class="blog-post-meta"><time datetime="0001-01-01T00:00:00Z">Mon Jan 1, 0001</time></p>
+			  </header>
+			  <pre><code class="language-shell">histogram_quantile(0.50, sum(irate(istio_request_duration_seconds_bucket{reporter=&quot;source&quot;, destination_workload_namespace=&quot;sock-shop&quot;}[1m])) by (destination_workload, source_workload, le))
+</code></pre>
+
+<pre><code class="language-json">[{'metric': {'destination_workload': 'orders-db', 'source_workload': 'orders'}, 'value': [1594888889.714, '0.03426666666666667']}, 
+</code></pre>
+
+<p>记录一个大致的过程</p>
+
+<ul>
+<li>locust GET请求没有问题</li>
+<li>POST请求如果参数合理也没有问题</li>
+<li>卡在了login上面</li>
+</ul>
+
+<ol>
+<li>login 在client.js里写了有一个xhr.setHttpRequest的东西，需要验证base64加密过的header</li>
+<li>是这样啊，那我的locust加密header送过去了但是无法正常返回</li>
+<li>那我就去看了sock-shop的源码，在user/api/trasport.go 文件里看到了basicAuth的过程</li>
+</ol>
+
+<p>至此为止也就卡住了</p>
+
+<p><a href="https://docs.locust.io/en/stable/changelog.html#improved-http-client">官网说明确实header的用法没错</a></p>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="https://zecoo.github.io/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

@@ -36,6 +36,20 @@
 <p>这是一个类似于inbox的东西，乱七八糟的内容都会放进来</p>
 </blockquote>
 
+<p>istio自动注入的方法：</p>
+
+<pre><code class="language-shell">kubectl label namespace ns-xxx istio-injection=enabled
+</code></pre>
+
+<p>然后查看是否注入成功：</p>
+
+<pre><code class="language-shell">kubectl get namespace -L istio-injection
+</code></pre>
+
+<p>参考：<a href="https://istio.io/latest/zh/docs/setup/additional-setup/sidecar-injection/">https://istio.io/latest/zh/docs/setup/additional-setup/sidecar-injection/</a></p>
+
+<hr />
+
 <p><a href="https://github.com/amir-f/delta-simrank/blob/master/non_mr_simrank/test/simrank_test_graph_widom.graphml">xml的方式表示图</a></p>
 
 <p>一句话讲清楚PCA是做什么的：</p>

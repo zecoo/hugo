@@ -10,6 +10,26 @@ draft: false
 
 
 
+istio自动注入的方法：
+
+```shell
+kubectl label namespace ns-xxx istio-injection=enabled
+```
+
+然后查看是否注入成功：
+
+```shell
+kubectl get namespace -L istio-injection
+```
+
+
+
+参考：https://istio.io/latest/zh/docs/setup/additional-setup/sidecar-injection/
+
+---
+
+
+
 [xml的方式表示图](https://github.com/amir-f/delta-simrank/blob/master/non_mr_simrank/test/simrank_test_graph_widom.graphml)
 
 
