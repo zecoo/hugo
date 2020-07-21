@@ -5,7 +5,7 @@
     <meta name="generator" content="Hugo 0.58.3" />
     <meta name="description" content="好记性也要烂笔头">
     <title>
-        mRCA 复现 
+        microRCA 复现 
     </title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -27,7 +27,7 @@
         <div class="blog-main">
         	<article class="blog-post">
 			  <header>
-			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">mRCA 复现</h2></a>
+			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">microRCA 复现</h2></a>
 			    <p class="blog-post-meta"><time datetime="2020-07-18T00:00:00+08:00">Sat Jul 18, 2020</time></p>
 			  </header>
 			  
@@ -131,11 +131,12 @@ Hello, congratulation for your great work on microRCA. I'am a master student in 
 
 I was wondering if you had met the same issues as I did, if not, hoping the github issue won't waste much of your time. I will try another way to simulate the fault injection. Here are my steps:
 
-I download the &quot;load-test&quot; module of sock-shop from github
-Locust 0.4.16 is also downloaded
-In the downloaded &quot;load-test&quot; folder, I ran &quot;locust&quot; in the terminal.
-Then turn to localhost:8098, input the user number and the request number, starting the fault injection.
-All fault injections were succeed except the &quot;get /login&quot; and the &quot;post /order&quot; method.
+1. I download the &quot;load-test&quot; module of sock-shop from github
+2. Locust 0.4.16 is also downloaded
+3. In the downloaded &quot;load-test&quot; folder, I ran &quot;locust&quot; in the terminal.
+4. Then turn to localhost:8098, input the user number and the request number, starting the fault injection.
+5. All fault injections were succeed except the &quot;get /login&quot; and the &quot;post /order&quot; method.
+
 The return of locust shown that the login request is unauthorized.
 But I've already registered a user on my server for sock-shop, then encoded the username and password with base64 for header authorization.
 

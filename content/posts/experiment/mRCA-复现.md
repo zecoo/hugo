@@ -1,5 +1,5 @@
 ---
-title: "mRCA 复现"
+title: "microRCA 复现"
 date: "2020-07-18T00:00:00+08:00"
 tags: 
 - RCA
@@ -117,11 +117,12 @@ Hello, congratulation for your great work on microRCA. I'am a master student in 
 
 I was wondering if you had met the same issues as I did, if not, hoping the github issue won't waste much of your time. I will try another way to simulate the fault injection. Here are my steps:
 
-I download the "load-test" module of sock-shop from github
-Locust 0.4.16 is also downloaded
-In the downloaded "load-test" folder, I ran "locust" in the terminal.
-Then turn to localhost:8098, input the user number and the request number, starting the fault injection.
-All fault injections were succeed except the "get /login" and the "post /order" method.
+1. I download the "load-test" module of sock-shop from github
+2. Locust 0.4.16 is also downloaded
+3. In the downloaded "load-test" folder, I ran "locust" in the terminal.
+4. Then turn to localhost:8098, input the user number and the request number, starting the fault injection.
+5. All fault injections were succeed except the "get /login" and the "post /order" method.
+
 The return of locust shown that the login request is unauthorized.
 But I've already registered a user on my server for sock-shop, then encoded the username and password with base64 for header authorization.
 
