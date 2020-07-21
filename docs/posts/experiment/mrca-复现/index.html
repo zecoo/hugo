@@ -28,31 +28,125 @@
         	<article class="blog-post">
 			  <header>
 			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">mRCA 复现</h2></a>
-			    <p class="blog-post-meta"><time datetime="0001-01-01T00:00:00Z">Mon Jan 1, 0001</time></p>
+			    <p class="blog-post-meta"><time datetime="2020-07-18T00:00:00+08:00">Sat Jul 18, 2020</time></p>
 			  </header>
-			  <pre><code class="language-shell">histogram_quantile(0.50, sum(irate(istio_request_duration_seconds_bucket{reporter=&quot;source&quot;, destination_workload_namespace=&quot;sock-shop&quot;}[1m])) by (destination_workload, source_workload, le))
+			  
+
+<p>检测流量是否进入的promQL：</p>
+
+<pre><code class="language-shell">histogram_quantile(0.50, sum(irate(istio_request_duration_seconds_bucket{reporter=&quot;source&quot;, destination_workload_namespace=&quot;sock-shop&quot;}[1m])) by (destination_workload, source_workload, le))
 </code></pre>
+
+<p>复现工作终于取得了第一阶段的胜利，<code>.scv</code>文件的来源都弄清楚了。这就花了我快一周的时间。记录一下踩的坑：</p>
+
+<h2 id="locust和siege">Locust和Siege</h2>
+
+<p>Locust的压测比较灵活，我用siege压测的话，单单压一个页面可能还可以满足，但是如果要压多个http接口，甚至还有带header的post，get请求之类的，siege就不能胜任了。</p>
+
+<h2 id="填坑过程">填坑过程</h2>
+
+<h3 id="坑一-版本问题">坑一：版本问题</h3>
+
+<p>Sock-shop本来自带压测的代码，用的就是Locust。但是由于版本问题，第一，locust的版本是老版本；第二，base64的版本也是老版本，导致basic-auth的header直接不能生成。这就…很难受了。新版本自己看着啃吧。</p>
+
+<p>Locust也有很多坑，首先是版本的问题，我在网上搜到的资料大多都是1.0版本之前的，而1.0相对于对于之前的版本有很大的变化。我只能根据官网的document硬啃，特别是header的使用。这个坑着实让我填的心塞。</p>
+
+<p>既然版本有问题，那我换回老版本行不行呢？换了locust的0.14.6版本，依旧是401错误。这就是debug的痛苦吧。</p>
+
+<h3 id="坑二-basic-auth的header">坑二：Basic-Auth的header</h3>
+
+<p>login 在sock-shop的client.js里写了有一个xhr.setHttpRequest的东西，需要验证base64加密过的header。</p>
+
+<pre><code class="language-js">beforeSend: function (xhr) {
+  xhr.setRequestHeader(&quot;Authorization&quot;, &quot;Basic &quot; + btoa(username + &quot;:&quot; + password));
+}
+</code></pre>
+
+<p>使用排除法缩小debug的范围。我用python原生的request来模拟登录，继续搜索相关内容，然后找到了<code>request.get(url, auth={&quot;username&quot;,&quot;password&quot;})</code>的方法可以通过basic-auth，试了一下果然可以。</p>
+
+<p>事实证明可能是locust出了问题，我用python自带的request来模拟用户登录是可以成功的。代码如下：</p>
+
+<pre><code class="language-python">import requests
+
+url = 'http://39.100.0.61:30001/login'
+response = requests.get(url, auth=('b','b'))
+print(response.text)
+</code></pre>
+
+<p>返回值200，内容是：Cookie is set。</p>
+
+<p>这说明什么问题，说明是我的base64加密出了问题。就出在basic-auth这个header上面，排除了sock-shop的bug。继续搜索之，于是就有了正解：</p>
+
+<h3 id="locust模拟带basic-auth的header">Locust模拟带Basic-Auth的header</h3>
+
+<p>base64旧版本的basic-auth是这样构造的：</p>
+
+<pre><code class="language-python">base64string = base64.encodestring('%s:%s' % ('user', 'password')).replace('\n', '')
+</code></pre>
+
+<p>因为版本问题惨遭抛弃。</p>
+
+<p>base64新版本靠我自己摸索，这里花费的时间是最多的，现在想想主要是因为自己没有查看两个内容：第一，basic-auth的格式要求，最好是能看个示例；第二，base64的新版本的用法也没有看官方介绍，故而格式一直是错误的。</p>
+
+<p>正确的base64新版本的auth方法是这样的：</p>
+
+<pre><code class="language-python">string = string.encode()
+base64string = base64.b64encode(string).decode()
+</code></pre>
+
+<p>最重要的是最后还有一个decode的过程。那么没有encode和decode到底有多大差别？</p>
+
+<h3 id="encode和decode">Encode和Decode</h3>
+
+<p>encode呢，主要是base64的API只接受byte类型的输入，那么就必须encode成二进制的格式。base64的输出也是二进制的格式，代码里输出看一下是这样的：<code>b'Yjpi</code>（&rsquo;b&rsquo;,&lsquo;b&rsquo;的base64加密结果），而我一开始错就错在直接把这个输出的内容丢进了header里。然鹅header里需要的不是二进制的内容，而是一个string类型的加密结果。也就是说要decode一下。把<code>b'Yjpi</code>的结果decode之后是<code>Yjpi</code>看起来好像没太大差别，但对于电脑来说就是天壤之别。</p>
+
+<p>到这里呢，debug取得了重大突破，我开心得甚至想跳起来。然而，又有新的坑着我</p>
+
+<h3 id="坑三-sock-shop登录出大问题">坑三：Sock-Shop登录出大问题</h3>
+
+<p>下订单order的过程，需要先填写address和card信息。但是怪就怪在一旦我把card信息填写之后，订单是可以下了，但是登录就出现密码错误的情况。这找谁说理去？这个坑我没心思去细看了，可能是机子抽风，我把card全填写成数字，bug没有出现，我简直烧高香了。</p>
+
+<p>到这里，你以为坑结束了吗？哈哈哈，还没有。现在想想我真的太强了，debug能力一流。就是心态不太好。</p>
+
+<h3 id="坑四-promql的query和query-range">坑四：PromQL的query和query_range</h3>
+
+<p>microRCA源代码里用的是query，我得到的<code>.scv</code>文件只有最后一个时刻的数据。这不对呀，150s的时间，每隔5s取一次数据，应该有30个时刻的数据才对呀。故搜索之，发现需要用的是query_range这个API，用于获取一段时间间隔内的数据，而query这个API是获取某个时刻的数据。看看区别吧：</p>
+
+<pre><code class="language-shell">prom_url = 'http://39.100.0.61:32685/api/v1/query_range'
+prom_url = 'http://39.100.0.61:32685/api/v1/query'
+</code></pre>
+
+<p>用query得到的，就是value（下面的示例）；用query_range得到的，就是values</p>
 
 <pre><code class="language-json">[{'metric': {'destination_workload': 'orders-db', 'source_workload': 'orders'}, 'value': [1594888889.714, '0.03426666666666667']}, 
 </code></pre>
 
-<p>记录一个大致的过程</p>
+<h2 id="最后">最后</h2>
 
-<ul>
-<li>locust GET请求没有问题</li>
-<li>POST请求如果参数合理也没有问题</li>
-<li>卡在了login上面</li>
-</ul>
+<p>太尴尬了，给microRCA的作者刚提一个issue，bug就让我解决了。枉我还认认真真给作者提了个issue：</p>
 
-<ol>
-<li>login 在client.js里写了有一个xhr.setHttpRequest的东西，需要验证base64加密过的header</li>
-<li>是这样啊，那我的locust加密header送过去了但是无法正常返回</li>
-<li>那我就去看了sock-shop的源码，在user/api/trasport.go 文件里看到了basicAuth的过程</li>
-</ol>
+<pre><code class="language-markdown">tag: help wanted
 
-<p>至此为止也就卡住了</p>
+Hello, congratulation for your great work on microRCA. I'am a master student in Wuhan China, who is also interested in RCA. It's lucky for me to read about your paper and I tried to run microRCA on my server. The input of microRCA are the &quot;.scv&quot; files generated by the &quot;Fault Injection&quot; part. However, I've met with some issues about the fault injection.
 
-<p><a href="https://docs.locust.io/en/stable/changelog.html#improved-http-client">官网说明确实header的用法没错</a></p>
+I was wondering if you had met the same issues as I did, if not, hoping the github issue won't waste much of your time. I will try another way to simulate the fault injection. Here are my steps:
+
+I download the &quot;load-test&quot; module of sock-shop from github
+Locust 0.4.16 is also downloaded
+In the downloaded &quot;load-test&quot; folder, I ran &quot;locust&quot; in the terminal.
+Then turn to localhost:8098, input the user number and the request number, starting the fault injection.
+All fault injections were succeed except the &quot;get /login&quot; and the &quot;post /order&quot; method.
+The return of locust shown that the login request is unauthorized.
+But I've already registered a user on my server for sock-shop, then encoded the username and password with base64 for header authorization.
+
+Have you met the same issue? Hoping for your reply. Thank you.
+</code></pre>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="https://blog.csdn.net/wuzhong8809/article/details/98072206">https://blog.csdn.net/wuzhong8809/article/details/98072206</a> （python auth）</p>
+
+<p><a href="https://docs.locust.io/en/stable/changelog.html#improved-http-client">https://docs.locust.io/en/stable/changelog.html#improved-http-client</a> （Locust官网header介绍）</p>
 
 			</article>
         </div> 

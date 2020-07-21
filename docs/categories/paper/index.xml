@@ -5,10 +5,34 @@
     <link>https://zecoo.github.io/hugo/categories/paper/</link>
     <description>Recent content in paper on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 06 Jul 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/categories/paper/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>mRCA 复现</title>
+      <link>https://zecoo.github.io/hugo/posts/experiment/mrca-%E5%A4%8D%E7%8E%B0/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/experiment/mrca-%E5%A4%8D%E7%8E%B0/</guid>
+      <description>检测流量是否进入的promQL：
+histogram_quantile(0.50, sum(irate(istio_request_duration_seconds_bucket{reporter=&amp;quot;source&amp;quot;, destination_workload_namespace=&amp;quot;sock-shop&amp;quot;}[1m])) by (destination_workload, source_workload, le))  复现工作终于取得了第一阶段的胜利，.scv文件的来源都弄清楚了。这就花了我快一周的时间。记录一下踩的坑：
+Locust和Siege Locust的压测比较灵活，我用siege压测的话，单单压一个页面可能还可以满足，但是如果要压多个http接口，甚至还有带header的post，get请求之类的，siege就不能胜任了。
+填坑过程 坑一：版本问题 Sock-shop本来自带压测的代码，用的就是Locust。但是由于版本问题，第一，locust的版本是老版本；第二，base64的版本也是老版本，导致basic-auth的header直接不能生成。这就…很难受了。新版本自己看着啃吧。
+Locust也有很多坑，首先是版本的问题，我在网上搜到的资料大多都是1.0版本之前的，而1.0相对于对于之前的版本有很大的变化。我只能根据官网的document硬啃，特别是header的使用。这个坑着实让我填的心塞。
+既然版本有问题，那我换回老版本行不行呢？换了locust的0.14.6版本，依旧是401错误。这就是debug的痛苦吧。
+坑二：Basic-Auth的header login 在sock-shop的client.js里写了有一个xhr.setHttpRequest的东西，需要验证base64加密过的header。
+beforeSend: function (xhr) { xhr.setRequestHeader(&amp;quot;Authorization&amp;quot;, &amp;quot;Basic &amp;quot; + btoa(username + &amp;quot;:&amp;quot; + password)); }  使用排除法缩小debug的范围。我用python原生的request来模拟登录，继续搜索相关内容，然后找到了request.get(url, auth={&amp;quot;username&amp;quot;,&amp;quot;password&amp;quot;})的方法可以通过basic-auth，试了一下果然可以。
+事实证明可能是locust出了问题，我用python自带的request来模拟用户登录是可以成功的。代码如下：
+import requests url = &#39;http://39.100.0.61:30001/login&#39; response = requests.get(url, auth=(&#39;b&#39;,&#39;b&#39;)) print(response.text)  返回值200，内容是：Cookie is set。
+这说明什么问题，说明是我的base64加密出了问题。就出在basic-auth这个header上面，排除了sock-shop的bug。继续搜索之，于是就有了正解：
+Locust模拟带Basic-Auth的header base64旧版本的basic-auth是这样构造的：
+base64string = base64.encodestring(&#39;%s:%s&#39; % (&#39;user&#39;, &#39;password&#39;)).replace(&#39;\n&#39;, &#39;&#39;)  因为版本问题惨遭抛弃。
+base64新版本靠我自己摸索，这里花费的时间是最多的，现在想想主要是因为自己没有查看两个内容：第一，basic-auth的格式要求，最好是能看个示例；第二，base64的新版本的用法也没有看官方介绍，故而格式一直是错误的。
+正确的base64新版本的auth方法是这样的：
+string = string.encode() base64string = base64.</description>
+    </item>
     
     <item>
       <title>LNCS subsubsection 插入数学公式</title>
