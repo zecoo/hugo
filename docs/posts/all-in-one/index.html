@@ -36,6 +36,41 @@
 <p>这是一个类似于inbox的东西，乱七八糟的内容都会放进来</p>
 </blockquote>
 
+<pre><code class="language-shell">
+</code></pre>
+
+<p>打开 prometheus.yml 文件, 在 scrape_configs 中添加如下配置：</p>
+
+<pre><code class="language-yaml">
+</code></pre>
+
+<p>文件传输（复制到本地）</p>
+
+<pre><code class="language-shell">scp root@www.abc.com:/usr/local/sin.sh /home/administrato
+</code></pre>
+
+<p>解压</p>
+
+<p><code>tar -xzvf file.tar.gz</code> //解压tar.gz</p>
+
+<p>每篇暂时搁置的论文都总结一下值得借鉴的点吧</p>
+
+<ul>
+<li>CCS里的图1，需要人工确认anomaly的图</li>
+<li>清华那个CPS实在是太难读懂了</li>
+<li>清华CDC那篇神经网络图，想法牛逼，但是具体实施看不懂啊</li>
+<li>MatchSim计算邻居的相似度</li>
+</ul>
+
+<p><a href="https://blog.csdn.net/kindred_joe/article/details/102584337">点的重要性</a> 这篇论文笔记我觉得写得挺好：</p>
+
+<p>1、PageRank：忽略了点的重要性评分
+2、Personalized PageRank：PPR考虑点重要性评分但忽略了边的类型。</p>
+
+<p>可能PPR也有可以改进的空间</p>
+
+<p>例如针对诈骗传播的场景，可以<a href="https://zhuanlan.zhihu.com/p/64065188">个性化修改PPR的权重</a>：</p>
+
 <p>istio自动注入的方法：</p>
 
 <pre><code class="language-shell">kubectl label namespace ns-xxx istio-injection=enabled

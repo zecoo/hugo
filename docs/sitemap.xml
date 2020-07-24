@@ -8,7 +8,7 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/experiment/mrca-%E5%A4%8D%E7%8E%B0/</loc>
+    <loc>https://zecoo.github.io/hugo/posts/experiment/microrca-%E5%A4%8D%E7%8E%B0/</loc>
     <lastmod>2020-07-18T00:00:00+08:00</lastmod>
   </url>
   
@@ -253,12 +253,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
   </url>
   
@@ -288,12 +288,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/prom/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/prom/</loc>
     <lastmod>2020-05-08T00:17:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/prom/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/prom/</loc>
     <lastmod>2020-05-08T00:17:00+08:00</lastmod>
   </url>
   
@@ -408,12 +408,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/js/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/js/</loc>
     <lastmod>2020-04-23T11:37:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/js/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/js/</loc>
     <lastmod>2020-04-23T11:37:07+08:00</lastmod>
   </url>
   

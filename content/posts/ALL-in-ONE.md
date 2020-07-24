@@ -10,6 +10,60 @@ draft: false
 
 
 
+
+
+```shell
+
+```
+
+
+
+
+
+打开 prometheus.yml 文件, 在 scrape_configs 中添加如下配置：
+
+```yaml
+
+```
+
+
+
+文件传输（复制到本地）
+
+```shell
+scp root@www.abc.com:/usr/local/sin.sh /home/administrato
+```
+
+
+
+解压
+
+`tar -xzvf file.tar.gz` //解压tar.gz
+
+
+
+每篇暂时搁置的论文都总结一下值得借鉴的点吧
+
+- CCS里的图1，需要人工确认anomaly的图
+- 清华那个CPS实在是太难读懂了
+- 清华CDC那篇神经网络图，想法牛逼，但是具体实施看不懂啊
+- MatchSim计算邻居的相似度
+
+
+
+[点的重要性](https://blog.csdn.net/kindred_joe/article/details/102584337) 这篇论文笔记我觉得写得挺好：
+
+1、PageRank：忽略了点的重要性评分
+2、Personalized PageRank：PPR考虑点重要性评分但忽略了边的类型。
+
+可能PPR也有可以改进的空间
+
+例如针对诈骗传播的场景，可以[个性化修改PPR的权重](https://zhuanlan.zhihu.com/p/64065188)：
+
+
+
+
+
 istio自动注入的方法：
 
 ```shell

@@ -20,7 +20,7 @@ histogram_quantile(0.50, sum(irate(istio_request_duration_seconds_bucket{reporte
 
 Locust的压测比较灵活，我用siege压测的话，单单压一个页面可能还可以满足，但是如果要压多个http接口，甚至还有带header的post，get请求之类的，siege就不能胜任了。
 
-## 填坑过程
+## 前期填坑过程
 
 ### 坑一：版本问题
 
@@ -104,6 +104,65 @@ prom_url = 'http://39.100.0.61:32685/api/v1/query'
 [{'metric': {'destination_workload': 'orders-db', 'source_workload': 'orders'}, 'value': [1594888889.714, '0.03426666666666667']}, 
 ```
 
+## 后期填坑过程
+
+坑还没填完呢宝贝儿
+
+### 坑五：获取 cpu、mem 等硬件指标
+
+我在Prom里输入了node_cpu这样的硬件指标，返回的是no data。然后我在`http://prom_url/metrics`看看metric里提供的东西，发现并没有node_cpu这样的东西，说明默认的Prom是收集不到硬件指标的。
+
+根据论文里提到的，Node Exporter可以获取硬件指标。安装Node Exporter很简单，根据参考文章就可以做到。
+
+Prom获取Node Exporter提供的数据，网上给的方法很简单，在`prometheus.yaml`文件里找到`scrape_configs`的配置，加入这样一些信息，就可以收集到硬件指标了。
+
+```yml
+scrape_configs:
+  # 采集node exporter监控数据
+  - job_name: 'node'
+    static_configs:
+      # 后期证明localhost是不行的，要用实际地址
+      - targets: ['localhost:9100'] 
+```
+
+坑就坑在istio里的prom的yaml文件找不到。我尝试过在istio-1.4.3文件夹里用find命令把所有和prom相关的yaml都查看过一遍，没有一个是真正影响prom部署的。气死我了。
+
+然后我去GitHub上一搜istio，看看repository里能不能找到prom相关的。结果看到新版本的istio，可能是1.6.5版本的，在samples/addon文件夹里直接就有一个prometheus.yaml文件，里面就有我需要的scrape.configs部分。
+
+好，那安装1.6.5版本吧。
+
+西吧，GitHub下载速度2-3k真的感人，40m左右的tar.gz文件，我可能要下一整天。这怎么行，然后我就在国外那台服务器上下，下载速度2M/s。然后用scp传到服务器，速度是快了一点，10k左右，下几个小时，那和一整天没啥大区别。我只能在mac上先用aria2下载，速度又稍微快一点点，十几k，我下了整整一个小时。疯了！！！！
+
+好，终于算是下载下来了。
+
+结果阿西吧，安装istio-1.6.5的时候又遇到bug，卡在istiod这个pod的启动，查看这个pod的坑、log，发现这个bug：
+
+```verilog
+Failed to list *v1beta1.Ingress: the server could not find the requested resource
+```
+
+搜不到结果，我死马当活马医，既然有ingress，我的服务器上又没有安装ingress，是不是我ingress安装好了是不是就OK了呢？
+
+好，安装ingress。
+
+西吧，Ingress安装，GitHub和官网给出来的，只有aws、azure、GKE、cloud等选项的部署文件。我这普普通通的服务器，怎么个安法？那就全试一遍吧，西吧。都装不上，期间还要忍受我delete depoly.yaml文件的过程中，可能删除需要一些时间，还提示我这段时间里不能部署。不知道我最宝贵的就是时间吗！！！好的，最后好不容易发现cloud可能有安装上的可能，结果卡在pod的pull image上面。这次这个image的地址，我惊了：
+
+```shell
+pulling image "us.gcr.io/k8s-artifacts-prod/ingress-nginx/controller:v0.34.1
+```
+
+我知道grc.io，你这个us.grc.io是个什么鬼。连镜像都让我搜不到吗？？？我不放弃，继续搜相关的image，终于让我搜到了一个网站，可以下载0.34.1的ingress压缩镜像。听起来不错吧？结果西吧，下载速度继续十几k，下了一个小时，继续用scp传到服务器，用docker load解压缩。西八西八西八，告诉我解压出问题，里面有个一个文件找不到MMP。
+
+到这里我已经疯了。老子对debug，特别是de版本问题的bug，厌恶到极点了。
+
+又回到最初的起点，我试着去看看istio+prom+config的组合搜索能搜出来什么。还真让我搜出来一个类似的，可以查看到istio老版本的prom配置文件：
+
+```shell
+kubectl get cm prometheus -n istio-system
+```
+
+秃顶聪明的我，试着把get换成edit，真的能edit，我，，，激动到差点落泪。然后问题又来了，我edit之后，怎么重启生效呢？如果重启istio，那肯定写进去的config都给我抹掉了。这可怎么办？秃顶的我，又想到k8s如果delete一个pod，会给我开一个新的pod，那我把prom这个pod重启，会不会生效呢？结果一试，哈哈哈哈，真的可以！！！！！我尼玛，太开心了。
+
 
 
 ## 最后
@@ -137,3 +196,4 @@ https://blog.csdn.net/wuzhong8809/article/details/98072206 （python auth）
 
 https://docs.locust.io/en/stable/changelog.html#improved-http-client （Locust官网header介绍）
 
+https://ctolib.com/article/releases/122210 （ingrees-0.34.1镜像下载）

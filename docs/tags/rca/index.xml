@@ -12,14 +12,14 @@
     
     <item>
       <title>microRCA 复现</title>
-      <link>https://zecoo.github.io/hugo/posts/experiment/mrca-%E5%A4%8D%E7%8E%B0/</link>
+      <link>https://zecoo.github.io/hugo/posts/experiment/microrca-%E5%A4%8D%E7%8E%B0/</link>
       <pubDate>Sat, 18 Jul 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/posts/experiment/mrca-%E5%A4%8D%E7%8E%B0/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/experiment/microrca-%E5%A4%8D%E7%8E%B0/</guid>
       <description>检测流量是否进入的promQL：
 histogram_quantile(0.50, sum(irate(istio_request_duration_seconds_bucket{reporter=&amp;quot;source&amp;quot;, destination_workload_namespace=&amp;quot;sock-shop&amp;quot;}[1m])) by (destination_workload, source_workload, le))  复现工作终于取得了第一阶段的胜利，.scv文件的来源都弄清楚了。这就花了我快一周的时间。记录一下踩的坑：
 Locust和Siege Locust的压测比较灵活，我用siege压测的话，单单压一个页面可能还可以满足，但是如果要压多个http接口，甚至还有带header的post，get请求之类的，siege就不能胜任了。
-填坑过程 坑一：版本问题 Sock-shop本来自带压测的代码，用的就是Locust。但是由于版本问题，第一，locust的版本是老版本；第二，base64的版本也是老版本，导致basic-auth的header直接不能生成。这就…很难受了。新版本自己看着啃吧。
+前期填坑过程 坑一：版本问题 Sock-shop本来自带压测的代码，用的就是Locust。但是由于版本问题，第一，locust的版本是老版本；第二，base64的版本也是老版本，导致basic-auth的header直接不能生成。这就…很难受了。新版本自己看着啃吧。
 Locust也有很多坑，首先是版本的问题，我在网上搜到的资料大多都是1.0版本之前的，而1.0相对于对于之前的版本有很大的变化。我只能根据官网的document硬啃，特别是header的使用。这个坑着实让我填的心塞。
 既然版本有问题，那我换回老版本行不行呢？换了locust的0.14.6版本，依旧是401错误。这就是debug的痛苦吧。
 坑二：Basic-Auth的header login 在sock-shop的client.js里写了有一个xhr.setHttpRequest的东西，需要验证base64加密过的header。
