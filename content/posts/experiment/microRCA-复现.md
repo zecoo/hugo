@@ -165,6 +165,33 @@ kubectl get cm prometheus -n istio-system
 
 
 
+## Fault Injection
+
+tc是针对某个网络的延迟，放在container里感觉不太合适。我就找到了istio的延迟注入方法，官网给出的bookinfo的介绍性太少了，直接移植到sock-shop上没有更多文档的话不好弄。好在我在网上搜到了其他人的介绍，还有一些介绍。这里面最重要的是host这个字段，我大致看了一下，其实用prom获取到destination-svc就可以看到sock-shop中各个服务的host，例如catalogue这个服务的host就是：`catalogue.sock-shop.svc.cluster.local`，整体的yaml文件是这样：
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: catalogue-delay
+spec:
+  hosts:
+  - catalogue.sock-shop.svc.cluster.local
+  http:
+  - fault:
+      delay:
+        percentage:
+          value: 100
+        fixedDelay: 5s
+    route:
+    - destination:
+        host: catalogue.sock-shop.svc.cluster.local
+```
+
+
+
+
+
 ## 最后
 
 太尴尬了，给microRCA的作者刚提一个issue，bug就让我解决了。枉我还认认真真给作者提了个issue：

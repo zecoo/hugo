@@ -10,21 +10,13 @@ draft: false
 
 
 
-
-
-```shell
-
-```
+trace型根因定位的缺点：丢失了时间轴上的因果信息
 
 
 
+pagerank的不同实现方法：https://blog.csdn.net/a_31415926/article/details/40510175
 
-
-打开 prometheus.yml 文件, 在 scrape_configs 中添加如下配置：
-
-```yaml
-
-```
+https://www.cnblogs.com/charlieroro/p/12869477.html
 
 
 

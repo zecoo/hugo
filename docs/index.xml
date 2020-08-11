@@ -55,8 +55,10 @@ Math formula deleted: Insufficient symbol fonts.  我查了一下，从这几个
       
       <guid>https://zecoo.github.io/hugo/posts/all-in-one/</guid>
       <description>这是一个类似于inbox的东西，乱七八糟的内容都会放进来
-  打开 prometheus.yml 文件, 在 scrape_configs 中添加如下配置：
- 文件传输（复制到本地）
+ trace型根因定位的缺点：丢失了时间轴上的因果信息
+pagerank的不同实现方法：https://blog.csdn.net/a_31415926/article/details/40510175
+https://www.cnblogs.com/charlieroro/p/12869477.html
+文件传输（复制到本地）
 scp root@www.abc.com:/usr/local/sin.sh /home/administrato  解压
 tar -xzvf file.tar.gz //解压tar.gz
 每篇暂时搁置的论文都总结一下值得借鉴的点吧
@@ -75,7 +77,10 @@ Microscope和MS-Rank都没有提到Precision是如何计算的。要我自己去
 新的idea：RCA这些论文里对anomaly detection是怎么做的？他们关注的重点是analysis，就是找异常节点，异常发生如何检测是怎么做的？
 RCA 一些例子：
 比如接口成功率下降了，发现北京的接口成功率的曲线和接口成功率最相似，那将“北京的接口成功率”定位为根因。
-KPI anomaly</description>
+KPI anomaly
+当某个总指标（如总流量）发生异常时，需要快速准确地定位到是哪个交叉维度的细粒度指标（如“省份=北京 &amp;amp; 运营商=联通”的流量）的异常导致的，以便尽快做进一步的修复止损操作。
+对于网络运维中多数的关键性能指标（KPI，CPU利用率、某页面点击量等），对其应用实时的异常检测算法，即可快速发现异常状况
+Fault Injection方式：</description>
     </item>
     
     <item>

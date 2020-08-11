@@ -176,6 +176,28 @@ prom_url = 'http://39.100.0.61:32685/api/v1/query'
 
 <p>秃顶聪明的我，试着把get换成edit，真的能edit，我，，，激动到差点落泪。然后问题又来了，我edit之后，怎么重启生效呢？如果重启istio，那肯定写进去的config都给我抹掉了。这可怎么办？秃顶的我，又想到k8s如果delete一个pod，会给我开一个新的pod，那我把prom这个pod重启，会不会生效呢？结果一试，哈哈哈哈，真的可以！！！！！我尼玛，太开心了。</p>
 
+<h2 id="fault-injection">Fault Injection</h2>
+
+<p>tc是针对某个网络的延迟，放在container里感觉不太合适。我就找到了istio的延迟注入方法，官网给出的bookinfo的介绍性太少了，直接移植到sock-shop上没有更多文档的话不好弄。好在我在网上搜到了其他人的介绍，还有一些介绍。这里面最重要的是host这个字段，我大致看了一下，其实用prom获取到destination-svc就可以看到sock-shop中各个服务的host，例如catalogue这个服务的host就是：<code>catalogue.sock-shop.svc.cluster.local</code>，整体的yaml文件是这样：</p>
+
+<pre><code class="language-yaml">apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: catalogue-delay
+spec:
+  hosts:
+  - catalogue.sock-shop.svc.cluster.local
+  http:
+  - fault:
+      delay:
+        percentage:
+          value: 100
+        fixedDelay: 5s
+    route:
+    - destination:
+        host: catalogue.sock-shop.svc.cluster.local
+</code></pre>
+
 <h2 id="最后">最后</h2>
 
 <p>太尴尬了，给microRCA的作者刚提一个issue，bug就让我解决了。枉我还认认真真给作者提了个issue：</p>
