@@ -16,7 +16,8 @@
       <pubDate>Sat, 18 Jul 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/posts/experiment/microrca-%E5%A4%8D%E7%8E%B0/</guid>
-      <description>检测流量是否进入的promQL：
+      <description>istio官网给出的sidecar注入的方法：
+kubectl label namespace sock-shop istio-injection=enabled  检测流量是否进入的promQL：
 histogram_quantile(0.50, sum(irate(istio_request_duration_seconds_bucket{reporter=&amp;quot;source&amp;quot;, destination_workload_namespace=&amp;quot;sock-shop&amp;quot;}[1m])) by (destination_workload, source_workload, le))  复现工作终于取得了第一阶段的胜利，.scv文件的来源都弄清楚了。这就花了我快一周的时间。记录一下踩的坑：
 Locust和Siege Locust的压测比较灵活，我用siege压测的话，单单压一个页面可能还可以满足，但是如果要压多个http接口，甚至还有带header的post，get请求之类的，siege就不能胜任了。
 前期填坑过程 坑一：版本问题 Sock-shop本来自带压测的代码，用的就是Locust。但是由于版本问题，第一，locust的版本是老版本；第二，base64的版本也是老版本，导致basic-auth的header直接不能生成。这就…很难受了。新版本自己看着啃吧。
@@ -28,10 +29,7 @@ beforeSend: function (xhr) { xhr.setRequestHeader(&amp;quot;Authorization&amp;qu
 import requests url = &#39;http://39.100.0.61:30001/login&#39; response = requests.get(url, auth=(&#39;b&#39;,&#39;b&#39;)) print(response.text)  返回值200，内容是：Cookie is set。
 这说明什么问题，说明是我的base64加密出了问题。就出在basic-auth这个header上面，排除了sock-shop的bug。继续搜索之，于是就有了正解：
 Locust模拟带Basic-Auth的header base64旧版本的basic-auth是这样构造的：
-base64string = base64.encodestring(&#39;%s:%s&#39; % (&#39;user&#39;, &#39;password&#39;)).replace(&#39;\n&#39;, &#39;&#39;)  因为版本问题惨遭抛弃。
-base64新版本靠我自己摸索，这里花费的时间是最多的，现在想想主要是因为自己没有查看两个内容：第一，basic-auth的格式要求，最好是能看个示例；第二，base64的新版本的用法也没有看官方介绍，故而格式一直是错误的。
-正确的base64新版本的auth方法是这样的：
-string = string.encode() base64string = base64.</description>
+base64string = base64.encodestring(&#39;%s:%s&#39; % (&#39;user&#39;, &#39;password&#39;)).replace(&#39;\n&#39;, &#39;&#39;)  因为版本问题惨遭抛弃。</description>
     </item>
     
     <item>
@@ -55,7 +53,12 @@ Math formula deleted: Insufficient symbol fonts.  我查了一下，从这几个
       
       <guid>https://zecoo.github.io/hugo/posts/all-in-one/</guid>
       <description>这是一个类似于inbox的东西，乱七八糟的内容都会放进来
- trace型根因定位的缺点：丢失了时间轴上的因果信息
+ 这有一个毕设跟我的挺像的。里面的benchmark可以参考。
+皮尔逊相关系数计算：
+https://blog.csdn.net/zh11403070219/article/details/82385057
+https://blog.csdn.net/afeionepiece/article/details/47624465
+公式： $$ score = \frac {\sum source_latency\ of\ Si / \sum(destination_latency\ of\ Si)} {N(Neighbors\ of\ Si)} $$
+trace型根因定位的缺点：丢失了时间轴上的因果信息
 pagerank的不同实现方法：https://blog.csdn.net/a_31415926/article/details/40510175
 https://www.cnblogs.com/charlieroro/p/12869477.html
 文件传输（复制到本地）
@@ -71,16 +74,7 @@ kubectl label namespace ns-xxx istio-injection=enabled  然后查看是否注入
 kubectl get namespace -L istio-injection  参考：https://istio.io/latest/zh/docs/setup/additional-setup/sidecar-injection/
 xml的方式表示图
 一句话讲清楚PCA是做什么的：
-将一组N维向量降为R维，其目标是选择R个单位正交基，使得原始数据变换到这组基上后，各维度两两间的协方差为0，而每个维度的方差则尽可能大（在正交的约束下，取最大的R个方差）。
-GCN好文  https://zhuanlan.zhihu.com/p/89503068 https://mp.weixin.qq.com/s/sg9O761F0KHAmCPOfMW_kQ https://zhuanlan.zhihu.com/p/78452993 https://github.com/LYuhang/GNN_Review  奥卡姆剃刀原则：假如两个假说具有相同的解释力和预测力，我们应当以那个较为简单的假说作为讨论根据。
-Microscope和MS-Rank都没有提到Precision是如何计算的。要我自己去猜吗？不过好像就是我猜的那个思路。
-新的idea：RCA这些论文里对anomaly detection是怎么做的？他们关注的重点是analysis，就是找异常节点，异常发生如何检测是怎么做的？
-RCA 一些例子：
-比如接口成功率下降了，发现北京的接口成功率的曲线和接口成功率最相似，那将“北京的接口成功率”定位为根因。
-KPI anomaly
-当某个总指标（如总流量）发生异常时，需要快速准确地定位到是哪个交叉维度的细粒度指标（如“省份=北京 &amp;amp; 运营商=联通”的流量）的异常导致的，以便尽快做进一步的修复止损操作。
-对于网络运维中多数的关键性能指标（KPI，CPU利用率、某页面点击量等），对其应用实时的异常检测算法，即可快速发现异常状况
-Fault Injection方式：</description>
+将一组N维向量降为R维，其目标是选择R个单位正交基，使得原始数据变换到这组基上后，各维度两两间的协方差为0，而每个维度的方差则尽可能大（在正交的约束下，取最大的R个方差）。</description>
     </item>
     
     <item>
@@ -237,7 +231,7 @@ spec: containers: - image: gcr.io/google_containers/serve_hostname imagePullPoli
       
       <guid>https://zecoo.github.io/hugo/posts/istio/istio-sites/</guid>
       <description>APP
- productpage sockshop  Istio（都被改了）
+ productpage sockshop hipser  Istio
  Prometheus Grafana Jaeger Kiali (admin,admin)  </description>
     </item>
     

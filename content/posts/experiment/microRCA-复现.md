@@ -8,6 +8,12 @@ categories:
 draft: false
 ---
 
+istio官网给出的sidecar注入的方法：
+
+```shell
+kubectl label namespace sock-shop istio-injection=enabled
+```
+
 检测流量是否进入的promQL：
 
 ```shell
@@ -224,3 +230,7 @@ https://blog.csdn.net/wuzhong8809/article/details/98072206 （python auth）
 https://docs.locust.io/en/stable/changelog.html#improved-http-client （Locust官网header介绍）
 
 https://ctolib.com/article/releases/122210 （ingrees-0.34.1镜像下载）
+
+https://www.cnblogs.com/bigberg/p/10118137.html （nodeexporter 加入 prom）
+
+https://blog.csdn.net/qq_37688023/article/details/106532101 （安装node exporter）

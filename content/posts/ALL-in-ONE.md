@@ -10,6 +10,28 @@ draft: false
 
 
 
+这有一个[毕设](https://walkdeadtobe.github.io/2020/06/11/毕设/)跟我的挺像的。里面的benchmark可以参考。
+
+
+
+
+
+皮尔逊相关系数计算：
+
+https://blog.csdn.net/zh11403070219/article/details/82385057
+
+https://blog.csdn.net/afeionepiece/article/details/47624465
+
+
+
+公式：
+$$
+score = \frac {\sum source\_latency\ of\ Si / \sum(destination\_latency\ of\ Si)} {N(Neighbors\ of\ Si)}
+$$
+
+
+
+
 trace型根因定位的缺点：丢失了时间轴上的因果信息
 
 

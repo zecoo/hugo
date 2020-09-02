@@ -32,6 +32,11 @@
 			  </header>
 			  
 
+<p>istio官网给出的sidecar注入的方法：</p>
+
+<pre><code class="language-shell">kubectl label namespace sock-shop istio-injection=enabled
+</code></pre>
+
 <p>检测流量是否进入的promQL：</p>
 
 <pre><code class="language-shell">histogram_quantile(0.50, sum(irate(istio_request_duration_seconds_bucket{reporter=&quot;source&quot;, destination_workload_namespace=&quot;sock-shop&quot;}[1m])) by (destination_workload, source_workload, le))
@@ -227,6 +232,10 @@ Have you met the same issue? Hoping for your reply. Thank you.
 <p><a href="https://docs.locust.io/en/stable/changelog.html#improved-http-client">https://docs.locust.io/en/stable/changelog.html#improved-http-client</a> （Locust官网header介绍）</p>
 
 <p><a href="https://ctolib.com/article/releases/122210">https://ctolib.com/article/releases/122210</a> （ingrees-0.34.1镜像下载）</p>
+
+<p><a href="https://www.cnblogs.com/bigberg/p/10118137.html">https://www.cnblogs.com/bigberg/p/10118137.html</a> （nodeexporter 加入 prom）</p>
+
+<p><a href="https://blog.csdn.net/qq_37688023/article/details/106532101">https://blog.csdn.net/qq_37688023/article/details/106532101</a> （安装node exporter）</p>
 
 			</article>
         </div> 

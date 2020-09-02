@@ -12,13 +12,14 @@ APP
 
 - [productpage](http://39.100.0.61:30681/productpage)
 - [sockshop](http://39.100.0.61:30001)
+- [hipser](http://39.100.0.61:32252)
 
 
 
-Istio（都被改了）
+Istio
 
-- [Prometheus](http://39.100.0.61:30598/graph)
-- [Grafana](http://39.100.0.61:31054/d/LJ_uJAvmk/istio-service-dashboard?orgId=1&refresh=10s)
-- [Jaeger](http://39.100.0.61:31246/jaeger/search)
-- [Kiali](http://39.100.0.61:32530/kiali/) (admin,admin)
+- [Prometheus](http://39.100.0.61:32644/graph)
+- [Grafana](http://39.100.0.61:31223)
+- [Jaeger](http://39.100.0.61:30036)
+- [Kiali](http://39.100.0.61:30806/kiali/) (admin,admin)
 
