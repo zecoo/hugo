@@ -253,12 +253,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
   </url>
   
@@ -485,6 +485,11 @@
   <url>
     <loc>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</loc>
     <lastmod>2020-03-01T17:39:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/experiment/%E4%B8%AD%E6%9C%9F%E8%80%83%E6%A0%B8/</loc>
+    <priority>0</priority>
   </url>
   
   <url>

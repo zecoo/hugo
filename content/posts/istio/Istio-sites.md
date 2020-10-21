@@ -12,7 +12,7 @@ APP
 
 - [productpage](http://39.100.0.61:30681/productpage)
 - [sockshop](http://39.100.0.61:30001)
-- [hipser](http://39.100.0.61:32252)
+- [hipser](http://39.100.0.61:32580)
 
 
 
