@@ -4,7 +4,37 @@
   
   <url>
     <loc>https://zecoo.github.io/hugo/categories/</loc>
-    <lastmod>2020-07-18T00:00:00+08:00</lastmod>
+    <lastmod>2020-12-22T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/istio/</loc>
+    <lastmod>2020-12-22T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/categories/istio/</loc>
+    <lastmod>2020-12-22T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/istio/istio%E4%B8%ADreportersource%E5%92%8Cdestination%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
+    <lastmod>2020-12-22T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/</loc>
+    <lastmod>2020-12-22T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/</loc>
+    <lastmod>2020-12-22T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/</loc>
+    <lastmod>2020-12-22T00:00:00+08:00</lastmod>
   </url>
   
   <url>
@@ -18,22 +48,7 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/</loc>
-    <lastmod>2020-07-18T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://zecoo.github.io/hugo/tags/rca/</loc>
-    <lastmod>2020-07-18T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/tags/</loc>
-    <lastmod>2020-07-18T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/</loc>
     <lastmod>2020-07-18T00:00:00+08:00</lastmod>
   </url>
   
@@ -75,11 +90,6 @@
   <url>
     <loc>https://zecoo.github.io/hugo/categories/server/</loc>
     <lastmod>2020-06-05T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/tags/istio/</loc>
-    <lastmod>2020-06-04T00:00:00+08:00</lastmod>
   </url>
   
   <url>
@@ -134,11 +144,6 @@
   
   <url>
     <loc>https://zecoo.github.io/hugo/tags/ing/</loc>
-    <lastmod>2020-05-27T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/categories/istio/</loc>
     <lastmod>2020-05-27T00:00:00+08:00</lastmod>
   </url>
   
@@ -253,12 +258,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
   </url>
   
@@ -288,12 +293,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/prom/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/prom/</loc>
     <lastmod>2020-05-08T00:17:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/prom/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/prom/</loc>
     <lastmod>2020-05-08T00:17:00+08:00</lastmod>
   </url>
   
@@ -408,12 +413,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/js/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/js/</loc>
     <lastmod>2020-04-23T11:37:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/js/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/js/</loc>
     <lastmod>2020-04-23T11:37:07+08:00</lastmod>
   </url>
   
@@ -485,11 +490,6 @@
   <url>
     <loc>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</loc>
     <lastmod>2020-03-01T17:39:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/posts/experiment/%E4%B8%AD%E6%9C%9F%E8%80%83%E6%A0%B8/</loc>
-    <priority>0</priority>
   </url>
   
   <url>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="description" content="好记性也要烂笔头">
+    <title>
+        Istio中reporter=source和destination的区别 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://zecoo.github.io/hugo/css/main.css">
+    <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+    
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+        	<article class="blog-post">
+			  <header>
+			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">Istio中reporter=source和destination的区别</h2></a>
+			    <p class="blog-post-meta"><time datetime="2020-12-22T00:00:00+08:00">Tue Dec 22, 2020</time></p>
+			  </header>
+			  
+
+<p>以下是istio官网给出的区别：</p>
+
+<blockquote>
+<p><strong>Reporter</strong>：这是请求报告者的标识符。报告从服务端 Istio 代理而来时设置为 <code>destination</code>，从客户端 Istio 代理而来时设置为 <code>source</code>。</p>
+</blockquote>
+
+<p>但是显然没有说人话。然后我又在Bing上面找了几个版本：</p>
+
+<ol>
+<li><code>reporter=&quot;source&quot;</code> ：metric 报告来源，源服务（source）是 <a href="https://www.colabug.com/goto/aHR0cHM6Ly9pc3Rpby5pby96aC9oZWxwL2dsb3NzYXJ5LyNlbnZveQ==">envoy</a> 代理的下游客户端。在 <a href="https://www.colabug.com/goto/aHR0cHM6Ly9pc3Rpby5pby96aC9oZWxwL2dsb3NzYXJ5LyMlRTYlOUMlOEQlRTUlOEElQTElRTclQkQlOTElRTYlQTAlQkM=">服务网格</a> 里，一个源服务通常是一个 <a href="https://www.colabug.com/goto/aHR0cHM6Ly9pc3Rpby5pby96aC9oZWxwL2dsb3NzYXJ5LyMlRTUlQjclQTUlRTQlQkQlOUMlRTglQjQlOUYlRTglQkQlQkQ=">工作负载</a> ，但是入口流量的源服务有可能包含其他客户端，例如浏览器，或者一个移动应用。</li>
+<li>reporter=source就是来自于源Envoy，reporter=destination就是目标Envoy</li>
+</ol>
+
+<p>甚至连例子都有了：</p>
+
+<pre><code class="language-shell">{destination_app=&quot;sauron-seo-app&quot;,reporter=&quot;destination&quot;,source_app=&quot;consumer-gateway&quot;} 58
+</code></pre>
+
+<p>这代表过去 24 小时里，从 <code>consumer-gateway</code> 到 <code>sauron-seo-app</code> 的请求中有 58 个出了问题，得到了 <code>503UC</code> 的结果，这一情况是由 <code>sauron-seo-app</code> 的 Envoy 汇报而来。</p>
+
+<p>直到最后我突然想到探究一下响应时间究竟是个什么玩意儿，然后我就找到了这个：</p>
+
+<blockquote>
+<p>响应时间=网络传输时间（请求）+服务器处理时间（一层或是多层）+网络传输时间（响应）+页面前段解析时间</p>
+</blockquote>
+
+<p><img src="https://images2015.cnblogs.com/blog/974318/201706/974318-20170614100706071-172222311.png" alt="img" /></p>
+
+<p>那我一直讨论的其实就是数据从server返回的时间/数据从client发送的时间。在图里就是下面箭头表示的时间/上面箭头表示的时间。这个比值比较大的话，反映的其实是server处理数据的时间比较长。这…感觉我这个工作就太简单了啊。</p>
+
+<p>结合istio官网给出的“从服务端 Istio 代理而来时设置为 <code>destination</code>，从客户端 Istio 代理而来时设置为 <code>source</code>。”似乎就能说得通了。</p>
+
+<p>附上收集数据的PromQL：</p>
+
+<pre><code class="language-shell">histogram_quantile(0.50, sum(irate(istio_request_duration_seconds_bucket{reporter=&quot;destination&quot;, destination_workload_namespace=&quot;sock-shop&quot;}[1m])) by (destination_workload, source_workload, le))'
+</code></pre>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="https://istio.io/latest/zh/docs/reference/config/policy-and-telemetry/metrics/">https://istio.io/latest/zh/docs/reference/config/policy-and-telemetry/metrics/</a> （官网）</p>
+
+<p><a href="https://blog.csdn.net/lyj0629/article/details/80207598">https://blog.csdn.net/lyj0629/article/details/80207598</a> （响应时间包括）</p>
+
+<p><a href="https://www.cnblogs.com/bell1991/p/7007463.html">https://www.cnblogs.com/bell1991/p/7007463.html</a> （响应时间组成）</p>
+
+<p><a href="https://cloud.tencent.com/developer/article/1471457">https://cloud.tencent.com/developer/article/1471457</a></p>
+
+<p><a href="https://jimmysong.io/blog/envoy-sidecar-injection-in-istio-service-mesh-deep-dive/">https://jimmysong.io/blog/envoy-sidecar-injection-in-istio-service-mesh-deep-dive/</a> （JimmySong永远滴神）</p>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="https://zecoo.github.io/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
