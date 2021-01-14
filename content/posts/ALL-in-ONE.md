@@ -10,11 +10,33 @@ draft: false
 
 
 
+https://www.instana.com/blog/no-root-cause-microservice-applications/
+
+“**Root cause** is used to describe the depth in the causal chain where an intervention could reasonably be implemented to improve performance or prevent an undesirable outcome.” [[Wikipedia](https://en.wikipedia.org/wiki/Root_cause)]
+
+Classical application performance management (APM) tools were build to find the single root cause of a problem. This worked well with static 3-tier and SOA architectures but as we have learned from complex system theory, this doesn’t work anymore in modern webscale and microservice based environments.
+
+
+
+https://azure.microsoft.com/en-in/solutions/architecture/anomaly-detection-in-real-time-data-streams/
+
+You could implement **robust PCA** from [this paper](https://arxiv.org/pdf/0912.3599.pdf), which aims to decompose a given matrix into a sparse and a low rank part. The low rank part can be considered as the “robust principal components” while the sparse part can give you a clue on anomalies. I have used it on economic data, where it gave reasonable results.
+
+
+
+我们先看看最简单的情况，也就是n=2，n'=1,也就是将数据从二维降维到一维。数据如下图。我们希望找到某一个维度方向，它可以代表这两个维度的数据。
+
+https://www.cnblogs.com/pinard/p/6239403.html
+
+我感觉PCA对我这个就没有太大帮助了啊…
+
+
+
+https://mathpretty.com/10998.html （可能对我论文有大影响的文章）
+
+
+
 这有一个[毕设](https://walkdeadtobe.github.io/2020/06/11/毕设/)跟我的挺像的。里面的benchmark可以参考。
-
-
-
-
 
 
 

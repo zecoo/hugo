@@ -74,28 +74,9 @@ Math formula deleted: Insufficient symbol fonts.  我查了一下，从这几个
       
       <guid>https://zecoo.github.io/hugo/posts/all-in-one/</guid>
       <description>这是一个类似于inbox的东西，乱七八糟的内容都会放进来
- 这有一个毕设跟我的挺像的。里面的benchmark可以参考。
-皮尔逊相关系数计算：
-https://blog.csdn.net/zh11403070219/article/details/82385057
-https://blog.csdn.net/afeionepiece/article/details/47624465
-公式： $$ score = \frac {\sum source_latency\ of\ Si / \sum(destination_latency\ of\ Si)} {N(Neighbors\ of\ Si)} $$
-trace型根因定位的缺点：丢失了时间轴上的因果信息
-pagerank的不同实现方法：https://blog.csdn.net/a_31415926/article/details/40510175
-https://www.cnblogs.com/charlieroro/p/12869477.html
-文件传输（复制到本地）
-scp root@www.abc.com:/usr/local/sin.sh /home/administrato  解压
-tar -xzvf file.tar.gz //解压tar.gz
-每篇暂时搁置的论文都总结一下值得借鉴的点吧
- CCS里的图1，需要人工确认anomaly的图 清华那个CPS实在是太难读懂了 清华CDC那篇神经网络图，想法牛逼，但是具体实施看不懂啊 MatchSim计算邻居的相似度  点的重要性 这篇论文笔记我觉得写得挺好：
-1、PageRank：忽略了点的重要性评分 2、Personalized PageRank：PPR考虑点重要性评分但忽略了边的类型。
-可能PPR也有可以改进的空间
-例如针对诈骗传播的场景，可以个性化修改PPR的权重：
-istio自动注入的方法：
-kubectl label namespace ns-xxx istio-injection=enabled  然后查看是否注入成功：
-kubectl get namespace -L istio-injection  参考：https://istio.io/latest/zh/docs/setup/additional-setup/sidecar-injection/
-xml的方式表示图
-一句话讲清楚PCA是做什么的：
-将一组N维向量降为R维，其目标是选择R个单位正交基，使得原始数据变换到这组基上后，各维度两两间的协方差为0，而每个维度的方差则尽可能大（在正交的约束下，取最大的R个方差）。</description>
+ https://www.instana.com/blog/no-root-cause-microservice-applications/
+“Root cause is used to describe the depth in the causal chain where an intervention could reasonably be implemented to improve performance or prevent an undesirable outcome.” [Wikipedia]
+Classical application performance management (APM) tools were build to find the single root cause of a problem. This worked well with static 3-tier and SOA architectures but as we have learned from complex system theory, this doesn’t work anymore in modern webscale and microservice based environments.</description>
     </item>
     
     <item>
