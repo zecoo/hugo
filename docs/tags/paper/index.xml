@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>paper on 暴躁老农</title>
+    <link>https://zecoo.github.io/hugo/tags/paper/</link>
+    <description>Recent content in paper on 暴躁老农</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 27 Jan 2021 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://zecoo.github.io/hugo/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>论文心路</title>
+      <link>https://zecoo.github.io/hugo/posts/paper/2021-01-27-%E8%AE%BA%E6%96%87%E5%BF%83%E8%B7%AF/</link>
+      <pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/paper/2021-01-27-%E8%AE%BA%E6%96%87%E5%BF%83%E8%B7%AF/</guid>
+      <description> Metric分类 根据AutoMAP这篇论文，Metrics有：
+Latency、Throughput、CPU、Memory、IO、Power、Avaliability
+测试分类     Latency Throughput CPU Memory IO Availability     主机 直接影响 ？ 都没影响 都有影响 fe到checkout有影响
+ppage到recom有影响 ？   容器 ？         </description>
+    </item>
+    
+  </channel>
+</rss>

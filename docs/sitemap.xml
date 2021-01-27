@@ -18,6 +18,16 @@
   </url>
   
   <url>
+    <loc>https://zecoo.github.io/hugo/tags/paper/</loc>
+    <lastmod>2021-01-27T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/categories/paper/</loc>
+    <lastmod>2021-01-27T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://zecoo.github.io/hugo/posts/</loc>
     <lastmod>2021-01-27T00:00:00+08:00</lastmod>
   </url>
@@ -29,6 +39,11 @@
   
   <url>
     <loc>https://zecoo.github.io/hugo/</loc>
+    <lastmod>2021-01-27T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/paper/2021-01-27-%E8%AE%BA%E6%96%87%E5%BF%83%E8%B7%AF/</loc>
     <lastmod>2021-01-27T00:00:00+08:00</lastmod>
   </url>
   
@@ -54,11 +69,6 @@
   
   <url>
     <loc>https://zecoo.github.io/hugo/posts/experiment/microrca-%E5%A4%8D%E7%8E%B0/</loc>
-    <lastmod>2020-07-18T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/categories/paper/</loc>
     <lastmod>2020-07-18T00:00:00+08:00</lastmod>
   </url>
   
@@ -298,12 +308,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/prom/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/prom/</loc>
     <lastmod>2020-05-08T00:17:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/prom/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/prom/</loc>
     <lastmod>2020-05-08T00:17:00+08:00</lastmod>
   </url>
   
@@ -418,12 +428,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/js/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/js/</loc>
     <lastmod>2020-04-23T11:37:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/js/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/js/</loc>
     <lastmod>2020-04-23T11:37:07+08:00</lastmod>
   </url>
   
