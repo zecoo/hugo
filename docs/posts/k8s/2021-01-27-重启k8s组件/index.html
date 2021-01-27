@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="description" content="好记性也要烂笔头">
+    <title>
+        重启k8s组件 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://zecoo.github.io/hugo/css/main.css">
+    <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+    
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+        	<article class="blog-post">
+			  <header>
+			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">重启k8s组件</h2></a>
+			    <p class="blog-post-meta"><time datetime="2021-01-27T00:00:00+08:00">Wed Jan 27, 2021</time></p>
+			  </header>
+			  <p>我的<code>kube-controller-manager</code>挂了，然后我一个<code>delete pod</code>把这个pod给删掉了。没想到这个pod管理pod的pod，懂我意思吗？<code>get pods</code>这个操作就等于挂了，我怎么把<code>kube-controller-manager</code>继续装回来呢？</p>
+
+<p>搜索了一圈都没有合适的答案，所以才想着记录一下。</p>
+
+<p>我不能reboot，因为1201这台机子上还有其他人在用。我想着能不能找到<code>kube-controller-manager</code>的那个yaml文件，apply一下说不定就好了。然后还真让我找到了。在安装kubeadm的时候需要输入三行估计是conf之类的东西：</p>
+
+<pre><code class="language-shell">mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+</code></pre>
+
+<p>这就暗示了k8s是安装在<code>/etc/kubernetes/</code>这个目录下的，然后还真让我在manifest这个文件夹里面找到了<code>kube-controller-manager</code>的yaml文件，apply之，<code>kube-controller-manager</code>就重启了。之后<code>get pods</code>这个操作也就正常了。问题解决。</p>
+
+<p>但是我现在在咖啡馆学习，每一分钟都很值钱，让我花钱在k8s的debug上，我觉得很不值。</p>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="https://zecoo.github.io/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
