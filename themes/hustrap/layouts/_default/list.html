@@ -20,6 +20,7 @@
 {{ if .IsHome }}
   {{ $Pages = where site.RegularPages "Type" "in" .Site.Params.mainSections }}
 {{ end }}
+{{ dateFormat "Monday, Jan 2, 2006" "2015-01-21" }}
     <div class="container">
       <div class="row">
         <div class="col-sm-8 blog-main">
@@ -27,7 +28,7 @@
 		    <ul class="archive">
 		      {{- range $Pages }}
 		      <li>
-		        {{ if .Date }}<time>{{ .Date.Format "2015-01-02" }}</time>{{ end }}
+		        {{ if .Date }}<time>{{ .Date.Format $dateFormat }}</time>{{ end }}
 		        <a href="{{ .Permalink }}">{{ .Title }}</a> <span class="category-tag">{{ .Params.categories }} </span>
 		      </li>
 		      {{- end }}
