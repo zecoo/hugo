@@ -12,10 +12,10 @@
     
     <item>
       <title>重启k8s组件</title>
-      <link>https://zecoo.github.io/hugo/posts/k8s/2021-01-27-%E9%87%8D%E5%90%AFk8s%E7%BB%84%E4%BB%B6/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/%E9%87%8D%E5%90%AFk8s%E7%BB%84%E4%BB%B6/</link>
       <pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/posts/k8s/2021-01-27-%E9%87%8D%E5%90%AFk8s%E7%BB%84%E4%BB%B6/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/%E9%87%8D%E5%90%AFk8s%E7%BB%84%E4%BB%B6/</guid>
       <description>我的kube-controller-manager挂了，然后我一个delete pod把这个pod给删掉了。没想到这个pod管理pod的pod，懂我意思吗？get pods这个操作就等于挂了，我怎么把kube-controller-manager继续装回来呢？
 搜索了一圈都没有合适的答案，所以才想着记录一下。
 我不能reboot，因为1201这台机子上还有其他人在用。我想着能不能找到kube-controller-manager的那个yaml文件，apply一下说不定就好了。然后还真让我找到了。在安装kubeadm的时候需要输入三行估计是conf之类的东西：

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="description" content="好记性也要烂笔头">
+    <title>
+        论文改改改 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://zecoo.github.io/hugo/css/main.css">
+    <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+    
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+        	<article class="blog-post">
+			  <header>
+			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">论文改改改</h2></a>
+			    <p class="blog-post-meta"><time datetime="2021-01-27T00:00:00+08:00">Wed Jan 27, 2021</time></p>
+			  </header>
+			  
+
+<h2 id="第二版论文思路">第二版论文思路</h2>
+
+<ol>
+<li>先用GJSPCA缩小异常微服务的范围得到候选异常微服务集合A（类似MicroRCA中的聚类）</li>
+<li>对于A中的每个微服务m，GJSPCA会得到一个score1</li>
+<li>拓展A中任意两个微服务之间的路径组成异常子图：集合A+（类似MicroHECL的剪枝、MicroRCA中的Subgraph）</li>
+<li>然后借用MicroHECL中的异常传播方向给集合A+中的每个微服务的打分进行累加</li>
+<li>对于cpu、throughput、error count等metric，计算Corr，更新score2为score2*max_Corr</li>
+<li>final_score = ∂*score1 + (1-∂)score2，作为PPR的输入</li>
+<li>PPR得到最终的微服务异常排序。并且可以参考Corr进行异常排查。</li>
+</ol>
+
+<p>问题：</p>
+
+<ul>
+<li>GJSPCA和普通的PCA的区别在哪里？JSPCA变稀疏，加入G即加入了拉普拉斯矩阵图信息</li>
+<li>score1表示的是什么？对于新基距离最大的那个source</li>
+<li>MicroHECL对异常传播方向是怎么研究的？通过异常传播链的分析，可以得到一系列的候选异常根因服务。</li>
+<li>GJSPCA和聚类还有相似度计算相比优势在哪里？</li>
+</ul>
+
+<h2 id="其他论文可借鉴部分">其他论文可借鉴部分</h2>
+
+<ul>
+<li>IWQoS 2020 MicroCause：architect好像放后面比较合适？</li>
+<li>HECL：arc不是我那样画的，最好把我之前的框框图和流程图结合到一起</li>
+<li>AutoMAP：图一定要用svg的，哪怕分辨率从72调成300，也给人一种低级的感觉。</li>
+</ul>
+
+<h2 id="异常情况分类">异常情况分类</h2>
+
+<ol>
+<li>硬件异常：cpu、mem、network、磁盘等异常</li>
+<li>内部异常：服务内部错误调用比较多（参数错误导致bug？），即错误异常比较多</li>
+<li>流量异常：throughput出现问题，负载均衡没做好也属于这一类</li>
+</ol>
+
+<p>反映在响应时间上都会出现RT增大或者服务不可用。其中Zipkin可以cover的仅有2。</p>
+
+<p>1硬件异常，可能会导致某些微服务的响应时间异常，如cpu敏感、磁盘敏感的微服务。但是不是微服务出现异常而是硬件出现异常，这部分Zipkin不能cover。3流量异常，在实验的过程中给一个服务增加流量负载，不是这个服务出现异常，而应该是流量出现异常。</p>
+
+<h2 id="metric分类">Metric分类</h2>
+
+<p>根据AutoMAP这篇论文，Metrics有：Latency、Throughput、CPU、Memory、IO、Power、Avaliability</p>
+
+<p>根据MicroHECL这篇论文，Metics有：EC(Error Count)、RT(Rsponse Time)、QPS(Querys Per Second)</p>
+
+<h2 id="测试分类">测试分类</h2>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">Throughput</th>
+<th align="center">CPU</th>
+<th align="center">Memory</th>
+<th align="center">IO</th>
+<th align="center">其他网络</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>主机</td>
+<td align="center">/</td>
+<td align="center">部分影响</td>
+<td align="center">都有影响</td>
+<td align="center">fe到checkout有影响<br />ppage到recom有影响</td>
+<td align="center">直接影响</td>
+</tr>
+
+<tr>
+<td>容器配置</td>
+<td align="center">直接影响</td>
+<td align="center">部分影响</td>
+<td align="center">直接影响</td>
+<td align="center">/</td>
+<td align="center">/</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="stree方法">Stree方法</h2>
+
+<p>增加主机内存负载：</p>
+
+<pre><code class="language-shell">$ stress --vm 6 --vm-bytes 1G --vm-hang 50 --timeout 60s
+</code></pre>
+
+<p>增加主机CPU负载：</p>
+
+<pre><code class="language-shell">$ stress -c 4 -t 60
+</code></pre>
+
+<p>查看容器CPU情况：</p>
+
+<pre><code class="language-mathematica">sum (rate (container_cpu_usage_seconds_total{}[1m])) / sum (machine_cpu_cores{}) * 100
+</code></pre>
+
+<p>然后可以发现如果增加主机CPU负载，容器的CPU也会受到影响，但是反应在响应时间上没有什么变化。</p>
+
+<p>然后我把currencyservice的cpu给限制了：（限制hipster的CPU需要到<code>release/kubernetes-menifest.yaml</code>文件里修改）</p>
+
+<pre><code class="language-yaml">resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 100m
+            memory: 64Mi
+</code></pre>
+
+<p>然后并没有什么影响……</p>
+
+<p>我遇到一个聚类不太好解决的地方，就是如果某一个微服务可能因为不清楚的原因响应时间出现波动，聚类很快就能看出来，但是没有任何异常发生，这就像一个误报。这种误报呈大起大落式的锥子。</p>
+
+<p><strong>latency变化最大的那个微服务不一定就是出现问题的微服务</strong>，这是我今天的实验里看到的最直观的反映。我把currency的delay设为0.3，然后fe、load、cart、checkout等微服务的响应时间远远超过currency。另外checkout这个服务总是不知道因为什么响应时间暴增。</p>
+
+<p>istio-telemetry这个服务一挂，整个istio的监控就失效了。</p>
+
+<p>还有P多少比较合适，不知道是不是我1201机子的问题，我的P90波动程度很大，就有点…</p>
+
+<h3 id="参考">参考</h3>
+
+<p><a href="https://blog.csdn.net/qq_31555951/article/details/108984036">https://blog.csdn.net/qq_31555951/article/details/108984036</a> （k8s监控PromQL）</p>
+
+<p><a href="https://www.cnblogs.com/gavin11/p/12612082.html">https://www.cnblogs.com/gavin11/p/12612082.html</a> （大部分的k8s监控指标都列出来了）</p>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="https://zecoo.github.io/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

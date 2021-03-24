@@ -3,7 +3,7 @@ title: "重启k8s组件"
 date: "2021-01-27T00:00:00+08:00"
 tags: k8s
 categories: k8s
-draft: false
+draft: true
 ---
 
 我的`kube-controller-manager`挂了，然后我一个`delete pod`把这个pod给删掉了。没想到这个pod管理pod的pod，懂我意思吗？`get pods`这个操作就等于挂了，我怎么把`kube-controller-manager`继续装回来呢？

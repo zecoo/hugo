@@ -5,29 +5,42 @@
     <link>https://zecoo.github.io/hugo/</link>
     <description>Recent content on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 27 Jan 2021 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Feb 2021 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>论文心路</title>
-      <link>https://zecoo.github.io/hugo/posts/paper/2021-01-27-%E8%AE%BA%E6%96%87%E5%BF%83%E8%B7%AF/</link>
+      <title>PromQL再理解</title>
+      <link>https://zecoo.github.io/hugo/posts/paper/promql%E5%86%8D%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Fri, 05 Feb 2021 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/paper/promql%E5%86%8D%E7%90%86%E8%A7%A3/</guid>
+      <description>Prometheus中rate和irate的区别是什么？
+参考 https://blog.csdn.net/u010961631/article/details/105658516 （rate和irate的区别）</description>
+    </item>
+    
+    <item>
+      <title>论文改改改</title>
+      <link>https://zecoo.github.io/hugo/posts/paper/%E8%AE%BA%E6%96%87%E6%94%B9%E6%94%B9%E6%94%B9/</link>
       <pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/posts/paper/2021-01-27-%E8%AE%BA%E6%96%87%E5%BF%83%E8%B7%AF/</guid>
-      <description> Metric分类 根据AutoMAP这篇论文，Metrics有：
-Latency、Throughput、CPU、Memory、IO、Power、Avaliability
-测试分类     Latency Throughput CPU Memory IO Availability     主机 直接影响 ？ 都没影响 都有影响 fe到checkout有影响
-ppage到recom有影响 ？   容器 ？         </description>
+      <guid>https://zecoo.github.io/hugo/posts/paper/%E8%AE%BA%E6%96%87%E6%94%B9%E6%94%B9%E6%94%B9/</guid>
+      <description>第二版论文思路  先用GJSPCA缩小异常微服务的范围得到候选异常微服务集合A（类似MicroRCA中的聚类） 对于A中的每个微服务m，GJSPCA会得到一个score1 拓展A中任意两个微服务之间的路径组成异常子图：集合A+（类似MicroHECL的剪枝、MicroRCA中的Subgraph） 然后借用MicroHECL中的异常传播方向给集合A+中的每个微服务的打分进行累加 对于cpu、throughput、error count等metric，计算Corr，更新score2为score2*max_Corr final_score = ∂*score1 + (1-∂)score2，作为PPR的输入 PPR得到最终的微服务异常排序。并且可以参考Corr进行异常排查。  问题：
+ GJSPCA和普通的PCA的区别在哪里？JSPCA变稀疏，加入G即加入了拉普拉斯矩阵图信息 score1表示的是什么？对于新基距离最大的那个source MicroHECL对异常传播方向是怎么研究的？通过异常传播链的分析，可以得到一系列的候选异常根因服务。 GJSPCA和聚类还有相似度计算相比优势在哪里？  其他论文可借鉴部分  IWQoS 2020 MicroCause：architect好像放后面比较合适？ HECL：arc不是我那样画的，最好把我之前的框框图和流程图结合到一起 AutoMAP：图一定要用svg的，哪怕分辨率从72调成300，也给人一种低级的感觉。  异常情况分类  硬件异常：cpu、mem、network、磁盘等异常 内部异常：服务内部错误调用比较多（参数错误导致bug？），即错误异常比较多 流量异常：throughput出现问题，负载均衡没做好也属于这一类  反映在响应时间上都会出现RT增大或者服务不可用。其中Zipkin可以cover的仅有2。
+1硬件异常，可能会导致某些微服务的响应时间异常，如cpu敏感、磁盘敏感的微服务。但是不是微服务出现异常而是硬件出现异常，这部分Zipkin不能cover。3流量异常，在实验的过程中给一个服务增加流量负载，不是这个服务出现异常，而应该是流量出现异常。
+Metric分类 根据AutoMAP这篇论文，Metrics有：Latency、Throughput、CPU、Memory、IO、Power、Avaliability
+根据MicroHECL这篇论文，Metics有：EC(Error Count)、RT(Rsponse Time)、QPS(Querys Per Second)
+测试分类     Throughput CPU Memory IO 其他网络     主机 / 部分影响 都有影响 fe到checkout有影响
+ppage到recom有影响 直接影响   容器配置 直接影响 部分影响 直接影响 / /    Stree方法 增加主机内存负载：</description>
     </item>
     
     <item>
       <title>重启k8s组件</title>
-      <link>https://zecoo.github.io/hugo/posts/k8s/2021-01-27-%E9%87%8D%E5%90%AFk8s%E7%BB%84%E4%BB%B6/</link>
+      <link>https://zecoo.github.io/hugo/posts/k8s/%E9%87%8D%E5%90%AFk8s%E7%BB%84%E4%BB%B6/</link>
       <pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/posts/k8s/2021-01-27-%E9%87%8D%E5%90%AFk8s%E7%BB%84%E4%BB%B6/</guid>
+      <guid>https://zecoo.github.io/hugo/posts/k8s/%E9%87%8D%E5%90%AFk8s%E7%BB%84%E4%BB%B6/</guid>
       <description>我的kube-controller-manager挂了，然后我一个delete pod把这个pod给删掉了。没想到这个pod管理pod的pod，懂我意思吗？get pods这个操作就等于挂了，我怎么把kube-controller-manager继续装回来呢？
 搜索了一圈都没有合适的答案，所以才想着记录一下。
 我不能reboot，因为1201这台机子上还有其他人在用。我想着能不能找到kube-controller-manager的那个yaml文件，apply一下说不定就好了。然后还真让我找到了。在安装kubeadm的时候需要输入三行估计是conf之类的东西：
@@ -788,10 +801,7 @@ https://www.jianshu.com/p/2dfb870e0b88 （本任务类型）</description>
       <description>目标 最小(大)化一个没有具体表达式的函数。
 举个例子 给定一个函数 $$ f(x,y) = -x^2 - (y-1)^2 +1 $$
 BO通过几次迭代找到能让 f(x,y) 最小的x和y的值。
-吐槽一下 中文的科普环境能不能再差一点？都尼玛是秀智商的。
-一个简单的东西讲得巨鸡儿复杂，还觉得自己抖机灵挺可爱的。说得就是这篇博客。
-幸好让我遇到了还算可以的另一篇博客。
-当然都不及老外的blog。
+吐槽一下 中文的科普环境好差啊，很多都都是来秀智商的。一个简单的东西讲得巨鸡儿复杂，还觉得自己抖机灵挺可爱的。说得就是这篇博客。幸好让我遇到了还算可以的另一篇博客。当然都不及老外的blog。
 我真的不是崇洋媚外。就是在讲一个事实。科学的范畴，中文优秀博客少得可怜。至少百度出来的是这样。</description>
     </item>
     
@@ -942,12 +952,12 @@ Index.html  banner有三个部分，一个是logo，一个是站内其他链接�
     </item>
     
     <item>
-      <title></title>
-      <link>https://zecoo.github.io/hugo/posts/metrics/%E5%8F%82%E8%80%83/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>df切片操作</title>
+      <link>https://zecoo.github.io/hugo/posts/math/df%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/posts/metrics/%E5%8F%82%E8%80%83/</guid>
-      <description>参考 https://www.cnblogs.com/lidawn/p/10230903.html （将span很详细）</description>
+      <guid>https://zecoo.github.io/hugo/posts/math/df%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/</guid>
+      <description>参考 https://blog.csdn.net/m0_37876745/article/details/88828928（取dataframe的一行或者一列）</description>
     </item>
     
   </channel>
