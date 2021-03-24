@@ -23,22 +23,22 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
-    <lastmod>2021-01-27T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
     <lastmod>2021-01-27T00:00:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/paper/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
     <lastmod>2021-01-27T00:00:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://zecoo.github.io/hugo/categories/paper/</loc>
+    <lastmod>2021-01-27T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/tags/paper/</loc>
     <lastmod>2021-01-27T00:00:00+08:00</lastmod>
   </url>
   
@@ -313,12 +313,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/prom/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/prom/</loc>
     <lastmod>2020-05-08T00:17:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/prom/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/prom/</loc>
     <lastmod>2020-05-08T00:17:00+08:00</lastmod>
   </url>
   
