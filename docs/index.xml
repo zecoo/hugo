@@ -126,21 +126,6 @@ Trace meta data 回到Jaeger UI，点进一个trace，查看JSON格式的数据�
     </item>
     
     <item>
-      <title>ABOUT ZIK</title>
-      <link>https://zecoo.github.io/hugo/about/</link>
-      <pubDate>Sun, 31 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/about/</guid>
-      <description> 写一个About是真的费脑细胞。
-难道没有什么能概括自己的东西吗？
-没有特别喜欢的东西，也就没有坚持下去的动力。好像大部分的事情都是三分钟热度。对人对事都是如此。
-从本科开始折腾博客，从Jekyll到hexo到hugo，哪怕作为一个科班生，也从没有认真了解过里面的原理。光是花在找模板上的时间，估计都够写一个符合自己审美的页面出来。我也知道对于写东西来说，重要的不是UI，而是内容。但是就是沉迷各种折腾UI。
-喜欢： 红楼梦 iPod Reeder 塞尔达传说 Typora 豆瓣 iPhone MacBook RSS Nike 皮具 精酿 番茄炒蛋 红烧肉 MUJI 蛋炒饭 麻婆豆腐 双拼 Anki
-不喜欢： 湿气 知乎 微博
-推荐：  《非暴力沟通》 《被讨厌的勇气》 《认知红利》  </description>
-    </item>
-    
-    <item>
       <title>网页中英文字体新手使用</title>
       <link>https://zecoo.github.io/hugo/posts/blog/%E7%BD%91%E9%A1%B5%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AD%97%E4%BD%93%E6%96%B0%E6%89%8B%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sun, 31 May 2020 00:00:00 +0800</pubDate>
@@ -153,6 +138,18 @@ font-family: Helvetica, &amp;quot;微软雅黑&amp;quot;, sans-serif;  Helvetica
 博客字体美观化 中文字体呢，我就选择微软雅黑，但是默认的微软雅黑字重是regular的400，看起来比较笨。我把字重改成了300，立马高级了一些。
 英文字体呢，我觉得Arial和Tahoma都还挺好看的，但是他们最细的字重也要400了，和300的中文字体放在一起实在不搭。于是最后选择了Helvetica，意外还挺香。
 参考 http://yanue.net/post-54.html （常见英文字体预览）</description>
+    </item>
+    
+    <item>
+      <title>非正式自我介绍</title>
+      <link>https://zecoo.github.io/hugo/about/</link>
+      <pubDate>Sun, 31 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/about/</guid>
+      <description> 没有特别喜欢的东西，也就没有坚持下去的动力。好像大部分的事情都是三分钟热度。对人对事都是如此。
+从本科开始折腾博客，从Jekyll到hexo到hugo，哪怕作为一个科班生，也从没有认真了解过里面的原理。光是花在找模板上的时间，估计都够写一个符合自己审美的页面出来。我也知道对于写东西来说，重要的不是UI，而是内容。但是就是沉迷各种折腾UI。
+喜欢： 红楼梦 iPod Reeder 塞尔达传说 Typora 豆瓣 iPhone MacBook RSS Nike 皮具 精酿 番茄炒蛋 红烧肉 MUJI 蛋炒饭 麻婆豆腐 双拼 Anki
+推荐：  《非暴力沟通》 《被讨厌的勇气》 《认知红利》  </description>
     </item>
     
     <item>
@@ -178,16 +175,6 @@ spec: containers: - image: gcr.io/google_containers/serve_hostname imagePullPoli
       
       <guid>https://zecoo.github.io/hugo/posts/blog/cool-sites/</guid>
       <description> 同学  小崔：本科一起混日协的编程大佬 曹真：本科毕业pdd做推荐系统…  个人站点  DIYgod：前端大神 shud.in：设计师 花生A：自制挺有意思的站点 matrix67：搞数学的人是真的帅 四火：真实的程序员hh 石鸟：从restful的todo找到的在读研究生 张怡：宝藏女孩 羡辙杂俎：像素风个人站点 nanshu：about页的喜欢和不喜欢太可爱了 敖小剑：ServiceMesh布道者 绿色：记忆生活编程记录 MY：这简历太好看了  公司  Splayer：射手是个超nice的公司  博客  编程小栈：喜欢记录的在读生 进阶女学霸：图相关的研究  </description>
-    </item>
-    
-    <item>
-      <title>Send file from one server to another</title>
-      <link>https://zecoo.github.io/hugo/posts/server/send-file-from-one-server-to-another/</link>
-      <pubDate>Mon, 25 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/server/send-file-from-one-server-to-another/</guid>
-      <description>我没有想到传文件这么方便。那这样我有一台国外的服务器，可以做很多事情了啊。
-参考 https://www.cnblogs.com/gudongcheng/p/8064808.html （scp）</description>
     </item>
     
     <item>

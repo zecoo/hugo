@@ -1,14 +1,10 @@
 ---
-title: "ABOUT ZIK"
+title: "非正式自我介绍"
 date: "2020-05-31T00:00:00+08:00"
 tags: [""]
 categories: [""]
 draft: false
 ---
-
-写一个About是真的费脑细胞。
-
-难道没有什么能概括自己的东西吗？
 
 没有特别喜欢的东西，也就没有坚持下去的动力。好像大部分的事情都是三分钟热度。对人对事都是如此。
 
@@ -17,10 +13,6 @@ draft: false
 ### 喜欢：
 
 红楼梦 iPod Reeder 塞尔达传说 Typora 豆瓣 iPhone MacBook RSS Nike 皮具 精酿 番茄炒蛋 红烧肉 MUJI 蛋炒饭 麻婆豆腐 双拼 Anki 
-
-### 不喜欢：
-
-湿气 知乎 微博 
 
 ### 推荐：
 

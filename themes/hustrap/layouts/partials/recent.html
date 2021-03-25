@@ -1,5 +1,5 @@
   <section class="sidebar-module">
-    <h4>Recent Posts</h4>
+    <h4>最近文章</h4>
     <ol class="list-unstyled">
 {{ $num_recent_posts := (index .Site.Params.sidebar "num_recent_posts" | default 5) }}
 {{ range first $num_recent_posts (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) }}

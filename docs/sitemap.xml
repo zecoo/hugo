@@ -93,17 +93,17 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/about/</loc>
-    <lastmod>2020-05-31T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://zecoo.github.io/hugo/categories/blog/</loc>
     <lastmod>2020-05-31T00:00:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://zecoo.github.io/hugo/posts/blog/%E7%BD%91%E9%A1%B5%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AD%97%E4%BD%93%E6%96%B0%E6%89%8B%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2020-05-31T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/about/</loc>
     <lastmod>2020-05-31T00:00:00+08:00</lastmod>
   </url>
   
@@ -120,11 +120,6 @@
   <url>
     <loc>https://zecoo.github.io/hugo/posts/blog/cool-sites/</loc>
     <lastmod>2020-05-27T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/posts/server/send-file-from-one-server-to-another/</loc>
-    <lastmod>2020-05-25T00:00:00+08:00</lastmod>
   </url>
   
   <url>
@@ -238,12 +233,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/prom/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/prom/</loc>
     <lastmod>2020-05-08T00:17:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/prom/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/prom/</loc>
     <lastmod>2020-05-08T00:17:00+08:00</lastmod>
   </url>
   
@@ -358,12 +353,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/js/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/js/</loc>
     <lastmod>2020-04-23T11:37:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/js/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/js/</loc>
     <lastmod>2020-04-23T11:37:07+08:00</lastmod>
   </url>
   
@@ -378,12 +373,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/math/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/math/</loc>
     <lastmod>2020-04-21T11:37:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/math/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/math/</loc>
     <lastmod>2020-04-21T11:37:07+08:00</lastmod>
   </url>
   

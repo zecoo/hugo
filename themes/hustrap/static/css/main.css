@@ -12,7 +12,8 @@ body {
     line-height: 1.4;
     color: #212529;
     text-align: left;
-    background-color: #fff
+    background-color: #fff;
+    line-height: 150%;
 }
 
 li {
@@ -40,6 +41,10 @@ h4 {
 time {
 	color: gray;
 	margin-right: 1rem;
+}
+
+header {
+  margin-bottom: 2rem;
 }
 
 /*
@@ -95,7 +100,6 @@ time {
   text-align: center;
 }
 .blog-title {
-  margin-bottom: 0;
   font-size: 2rem;
   font-weight: normal;
 }
@@ -111,7 +115,7 @@ time {
 }
 
 .container {
-	max-width: 60rem;
+	max-width: 55rem;
 }
 
 
@@ -155,15 +159,16 @@ time {
 	color: black;
 }
 .blog-main{
+  line-height: 180%;
   width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .blog-post {
-
-  margin: 1rem;
+  margin-bottom: 6rem;
 }
 .blog-post-title {
-  margin-top: 1.5rem;
-  margin-bottom: .25rem;
+  padding-top: 4rem;
   font-size: 2rem;
   text-align: center;
 }

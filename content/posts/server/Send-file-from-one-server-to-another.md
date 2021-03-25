@@ -3,7 +3,7 @@ title: "Send file from one server to another"
 date: "2020-05-25T00:00:00+08:00"
 tags: [""]
 categories: [""]
-draft: false
+draft: true
 ---
 
 我没有想到传文件这么方便。那这样我有一台国外的服务器，可以做很多事情了啊。
