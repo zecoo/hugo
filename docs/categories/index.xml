@@ -5,28 +5,10 @@
     <link>https://zecoo.github.io/hugo/categories/</link>
     <description>Recent content in Categories on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 27 Jan 2021 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/categories/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>k8s</title>
-      <link>https://zecoo.github.io/hugo/categories/k8s/</link>
-      <pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/categories/k8s/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>paper</title>
-      <link>https://zecoo.github.io/hugo/categories/paper/</link>
-      <pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/categories/paper/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>istio</title>
@@ -34,6 +16,15 @@
       <pubDate>Tue, 22 Dec 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/categories/istio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>paper</title>
+      <link>https://zecoo.github.io/hugo/categories/paper/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/categories/paper/</guid>
       <description></description>
     </item>
     
@@ -56,11 +47,11 @@
     </item>
     
     <item>
-      <title>math</title>
-      <link>https://zecoo.github.io/hugo/categories/math/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
+      <title>k8s</title>
+      <link>https://zecoo.github.io/hugo/categories/k8s/</link>
+      <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://zecoo.github.io/hugo/categories/math/</guid>
+      <guid>https://zecoo.github.io/hugo/categories/k8s/</guid>
       <description></description>
     </item>
     
@@ -88,6 +79,15 @@
       <pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/categories/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>math</title>
+      <link>https://zecoo.github.io/hugo/categories/math/</link>
+      <pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/categories/math/</guid>
       <description></description>
     </item>
     

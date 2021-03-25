@@ -1,5 +1,5 @@
 #!/bin/bash
-hugo -D
+hugo
 git add .
 git commit -m "update blog"
 git push origin master

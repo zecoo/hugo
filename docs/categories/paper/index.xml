@@ -5,25 +5,10 @@
     <link>https://zecoo.github.io/hugo/categories/paper/</link>
     <description>Recent content in paper on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 27 Jan 2021 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/categories/paper/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>论文改改改</title>
-      <link>https://zecoo.github.io/hugo/posts/paper/%E8%AE%BA%E6%96%87%E6%94%B9%E6%94%B9%E6%94%B9/</link>
-      <pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/paper/%E8%AE%BA%E6%96%87%E6%94%B9%E6%94%B9%E6%94%B9/</guid>
-      <description>第二版论文思路  先用GJSPCA缩小异常微服务的范围得到候选异常微服务集合A（类似MicroRCA中的聚类） 对于A中的每个微服务m，GJSPCA会得到一个score1 拓展A中任意两个微服务之间的路径组成异常子图：集合A+（类似MicroHECL的剪枝、MicroRCA中的Subgraph） 然后借用MicroHECL中的异常传播方向给集合A+中的每个微服务的打分进行累加 对于cpu、throughput、error count等metric，计算Corr，更新score2为score2*max_Corr final_score = ∂*score1 + (1-∂)score2，作为PPR的输入 PPR得到最终的微服务异常排序。并且可以参考Corr进行异常排查。  问题：
- GJSPCA和普通的PCA的区别在哪里？JSPCA变稀疏，加入G即加入了拉普拉斯矩阵图信息 score1表示的是什么？对于新基距离最大的那个source MicroHECL对异常传播方向是怎么研究的？通过异常传播链的分析，可以得到一系列的候选异常根因服务。 GJSPCA和聚类还有相似度计算相比优势在哪里？  其他论文可借鉴部分  IWQoS 2020 MicroCause：architect好像放后面比较合适？ HECL：arc不是我那样画的，最好把我之前的框框图和流程图结合到一起 AutoMAP：图一定要用svg的，哪怕分辨率从72调成300，也给人一种低级的感觉。  异常情况分类  硬件异常：cpu、mem、network、磁盘等异常 内部异常：服务内部错误调用比较多（参数错误导致bug？），即错误异常比较多 流量异常：throughput出现问题，负载均衡没做好也属于这一类  反映在响应时间上都会出现RT增大或者服务不可用。其中Zipkin可以cover的仅有2。
-1硬件异常，可能会导致某些微服务的响应时间异常，如cpu敏感、磁盘敏感的微服务。但是不是微服务出现异常而是硬件出现异常，这部分Zipkin不能cover。3流量异常，在实验的过程中给一个服务增加流量负载，不是这个服务出现异常，而应该是流量出现异常。
-Metric分类 根据AutoMAP这篇论文，Metrics有：Latency、Throughput、CPU、Memory、IO、Power、Avaliability
-根据MicroHECL这篇论文，Metics有：EC(Error Count)、RT(Rsponse Time)、QPS(Querys Per Second)
-测试分类     Throughput CPU Memory IO 其他网络     主机 / 部分影响 都有影响 fe到checkout有影响
-ppage到recom有影响 直接影响   容器配置 直接影响 部分影响 直接影响 / /    Stree方法 增加主机内存负载：</description>
-    </item>
     
     <item>
       <title>microRCA 复现</title>
@@ -62,29 +47,6 @@ Math formula deleted: Insufficient symbol fonts.  我查了一下，从这几个
     </item>
     
     <item>
-      <title>从PageRank谈几篇RCA论文</title>
-      <link>https://zecoo.github.io/hugo/posts/math/pagerank%E4%BD%BF%E7%94%A8/</link>
-      <pubDate>Tue, 09 Jun 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/math/pagerank%E4%BD%BF%E7%94%A8/</guid>
-      <description>从论文说起 先来看看几篇核心方法类似的论文：
- Root Cause Detection in a Service-Oriented Architecture （SIGMETRICS 2013） MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications （ICWS 2019） Root Cause Analysis of Latency Problems with End-to-End Tracing in Microservice Environments （ICWS 2020）  第一篇论文是早的，后面两篇论文都参考了这个论文。最诡异的是ICWS2020这篇，连算法和公式都没有改就敢直接投？这赤裸裸的抄袭好吧，就是把SOA的概念换成了ms的概念。
-吐槽还没完，聊聊具体的方法吧。
-找Anomaly的方法 其中都提到了PageRank，而且要注意不是不同的PageRank，而是Personalized PageRank（PPR）其实也就是Weighted PageRank（WPR）
-其中的问题 RCD SOA这篇论文里写得很清楚了，如果某一个区域的PR值保持很低，那么surfer会停留在此区域，陷入僵局。那么就需要往后传递surfer，于是就有了backward edge。
-而到了后面两篇论文这里就走了样，变成了forward transformation、backward transformation和self transformation。让人难以理解。
-PageRank 用一个东西，抓住输入和输出。
-输入 DAG的matrix，如果有n个节点，那么就是一个n*n的矩阵。nij表示节点i和节点j的连接关系。在PageRank中，如果一个节点i链接到节点j，那么nij=1。
-以上这个输入不对。
-基于随机游走的PageRank算法的输入应该是第一个节点。然后是节点和节点之间的相关度。
-输出 n个节点的PageRank排序PR，范围是0-10，值越高表示重要性越高。
-Weighted PageRank 传统的PR跳转到页面中提到的链接或者重新输入一个链接是通过设定一个固定概率。显然在已知关系度的网络里不太适用。所以把节点与节点之间的边作为权重的WPR就被提出来了。
-而RCD SOA这篇论文里的backward，其实就是增强反向传递surfer的概率。也就是加强了反向边的权重。
-至此，关于这几篇论文的方法是大致有一个了解了，实现起来emmm。感觉就凭我的代码水平，是块硬骨头，不知道现在该不该啃。
-参考 https://www.jianshu.com/p/6af90342c3ba （简单代码讲解）</description>
-    </item>
-    
-    <item>
       <title>Service Dependecy Graph Building</title>
       <link>https://zecoo.github.io/hugo/posts/paper/service-dependecy-graph-building/</link>
       <pubDate>Thu, 04 Jun 2020 00:00:00 +0800</pubDate>
@@ -104,17 +66,6 @@ Jaeger trace info Trace API 先提下Jaeger提供的接口，因为这个东西�
 回到官网提供的API，也就是说我知道了trace-id，那么trace的信息就能得到了呀。而trace-id在UI里已经提供了。
 Trace meta data 回到Jaeger UI，点进一个trace，查看JSON格式的数据，其实就是我需要的数据。详细来看看这个json数据里的span都有哪些内容：
 { &amp;quot;data&amp;quot;: [ { &amp;quot;traceID&amp;quot;: &amp;quot;aeb825de4ba82901d71fecb349727885&amp;quot;, &amp;quot;spans&amp;quot;: [ { &amp;quot;traceID&amp;quot;: &amp;quot;aeb825de4ba82901d71fecb349727885&amp;quot;, &amp;quot;spanID&amp;quot;: &amp;quot;22958c27bcc7f900&amp;quot;, &amp;quot;operationName&amp;quot;: &amp;quot;details.</description>
-    </item>
-    
-    <item>
-      <title>云计算雾计算和边缘计算</title>
-      <link>https://zecoo.github.io/hugo/posts/paper/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</link>
-      <pubDate>Mon, 01 Jun 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/paper/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</guid>
-      <description>参考 https://zhuanlan.zhihu.com/p/55937656 （雾计算的特点）
-https://zhuanlan.zhihu.com/p/42066947 （雾计算和边缘计算的区别）
-https://blog.csdn.net/robertsong2004/article/details/52203710 （吸尘器这个例子可以解释什么叫计算）</description>
     </item>
     
     <item>

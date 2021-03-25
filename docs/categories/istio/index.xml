@@ -32,17 +32,6 @@ https://www.cnblogs.com/bell1991/p/7007463.html （响应时间组成）</descri
     </item>
     
     <item>
-      <title>Istio sites</title>
-      <link>https://zecoo.github.io/hugo/posts/istio/istio-sites/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/istio/istio-sites/</guid>
-      <description>APP
- productpage sockshop hipser  Istio
- Prometheus Grafana Jaeger Kiali (admin,admin)  </description>
-    </item>
-    
-    <item>
       <title>Meta Metrics</title>
       <link>https://zecoo.github.io/hugo/posts/metrics/meta-metrics/</link>
       <pubDate>Thu, 07 May 2020 00:00:00 +0800</pubDate>

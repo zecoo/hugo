@@ -5,48 +5,10 @@
     <link>https://zecoo.github.io/hugo/</link>
     <description>Recent content on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 05 Feb 2021 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>PromQL再理解</title>
-      <link>https://zecoo.github.io/hugo/posts/paper/promql%E5%86%8D%E7%90%86%E8%A7%A3/</link>
-      <pubDate>Fri, 05 Feb 2021 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/paper/promql%E5%86%8D%E7%90%86%E8%A7%A3/</guid>
-      <description>Prometheus中rate和irate的区别是什么？
-参考 https://blog.csdn.net/u010961631/article/details/105658516 （rate和irate的区别）</description>
-    </item>
-    
-    <item>
-      <title>论文改改改</title>
-      <link>https://zecoo.github.io/hugo/posts/paper/%E8%AE%BA%E6%96%87%E6%94%B9%E6%94%B9%E6%94%B9/</link>
-      <pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/paper/%E8%AE%BA%E6%96%87%E6%94%B9%E6%94%B9%E6%94%B9/</guid>
-      <description>第二版论文思路  先用GJSPCA缩小异常微服务的范围得到候选异常微服务集合A（类似MicroRCA中的聚类） 对于A中的每个微服务m，GJSPCA会得到一个score1 拓展A中任意两个微服务之间的路径组成异常子图：集合A+（类似MicroHECL的剪枝、MicroRCA中的Subgraph） 然后借用MicroHECL中的异常传播方向给集合A+中的每个微服务的打分进行累加 对于cpu、throughput、error count等metric，计算Corr，更新score2为score2*max_Corr final_score = ∂*score1 + (1-∂)score2，作为PPR的输入 PPR得到最终的微服务异常排序。并且可以参考Corr进行异常排查。  问题：
- GJSPCA和普通的PCA的区别在哪里？JSPCA变稀疏，加入G即加入了拉普拉斯矩阵图信息 score1表示的是什么？对于新基距离最大的那个source MicroHECL对异常传播方向是怎么研究的？通过异常传播链的分析，可以得到一系列的候选异常根因服务。 GJSPCA和聚类还有相似度计算相比优势在哪里？  其他论文可借鉴部分  IWQoS 2020 MicroCause：architect好像放后面比较合适？ HECL：arc不是我那样画的，最好把我之前的框框图和流程图结合到一起 AutoMAP：图一定要用svg的，哪怕分辨率从72调成300，也给人一种低级的感觉。  异常情况分类  硬件异常：cpu、mem、network、磁盘等异常 内部异常：服务内部错误调用比较多（参数错误导致bug？），即错误异常比较多 流量异常：throughput出现问题，负载均衡没做好也属于这一类  反映在响应时间上都会出现RT增大或者服务不可用。其中Zipkin可以cover的仅有2。
-1硬件异常，可能会导致某些微服务的响应时间异常，如cpu敏感、磁盘敏感的微服务。但是不是微服务出现异常而是硬件出现异常，这部分Zipkin不能cover。3流量异常，在实验的过程中给一个服务增加流量负载，不是这个服务出现异常，而应该是流量出现异常。
-Metric分类 根据AutoMAP这篇论文，Metrics有：Latency、Throughput、CPU、Memory、IO、Power、Avaliability
-根据MicroHECL这篇论文，Metics有：EC(Error Count)、RT(Rsponse Time)、QPS(Querys Per Second)
-测试分类     Throughput CPU Memory IO 其他网络     主机 / 部分影响 都有影响 fe到checkout有影响
-ppage到recom有影响 直接影响   容器配置 直接影响 部分影响 直接影响 / /    Stree方法 增加主机内存负载：</description>
-    </item>
-    
-    <item>
-      <title>重启k8s组件</title>
-      <link>https://zecoo.github.io/hugo/posts/k8s/%E9%87%8D%E5%90%AFk8s%E7%BB%84%E4%BB%B6/</link>
-      <pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/k8s/%E9%87%8D%E5%90%AFk8s%E7%BB%84%E4%BB%B6/</guid>
-      <description>我的kube-controller-manager挂了，然后我一个delete pod把这个pod给删掉了。没想到这个pod管理pod的pod，懂我意思吗？get pods这个操作就等于挂了，我怎么把kube-controller-manager继续装回来呢？
-搜索了一圈都没有合适的答案，所以才想着记录一下。
-我不能reboot，因为1201这台机子上还有其他人在用。我想着能不能找到kube-controller-manager的那个yaml文件，apply一下说不定就好了。然后还真让我找到了。在安装kubeadm的时候需要输入三行估计是conf之类的东西：
-mkdir -p $HOME/.kube sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config sudo chown $(id -u):$(id -g) $HOME/.kube/config  这就暗示了k8s是安装在/etc/kubernetes/这个目录下的，然后还真让我在manifest这个文件夹里面找到了kube-controller-manager的yaml文件，apply之，kube-controller-manager就重启了。之后get pods这个操作也就正常了。问题解决。
-但是我现在在咖啡馆学习，每一分钟都很值钱，让我花钱在k8s的debug上，我觉得很不值。</description>
-    </item>
     
     <item>
       <title>Istio中reporter=source和destination的区别</title>
@@ -103,41 +65,6 @@ Math formula deleted: Insufficient symbol fonts.  我查了一下，从这几个
  可能是导包的时候\usepackage{xxx}不支持数学公式 是不是$$和\begin{equation}的区别  查了半天都没有结果，还是在控制变量的情况下发现，subsubsection后面是无法插入数学公式。section和subsection就是可以的。原因是LNCS里的subsubsection是一个整体，而不是类似于paragraph的那种。如果有换行，而且是以段落的形式来体现subsubsection就可以插入数学公式。
 那怎么调整LNCS里subsubsection的格式呢？参考这篇文章
 参考 http://blog.sina.com.cn/s/blog_7851bb8501017zbm.html （subsubsection格式）</description>
-    </item>
-    
-    <item>
-      <title>ALL in ONE</title>
-      <link>https://zecoo.github.io/hugo/posts/all-in-one/</link>
-      <pubDate>Fri, 03 Jul 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/all-in-one/</guid>
-      <description>这是一个类似于inbox的东西，乱七八糟的内容都会放进来
- https://www.instana.com/blog/no-root-cause-microservice-applications/
-“Root cause is used to describe the depth in the causal chain where an intervention could reasonably be implemented to improve performance or prevent an undesirable outcome.” [Wikipedia]
-Classical application performance management (APM) tools were build to find the single root cause of a problem. This worked well with static 3-tier and SOA architectures but as we have learned from complex system theory, this doesn’t work anymore in modern webscale and microservice based environments.</description>
-    </item>
-    
-    <item>
-      <title>从PageRank谈几篇RCA论文</title>
-      <link>https://zecoo.github.io/hugo/posts/math/pagerank%E4%BD%BF%E7%94%A8/</link>
-      <pubDate>Tue, 09 Jun 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/math/pagerank%E4%BD%BF%E7%94%A8/</guid>
-      <description>从论文说起 先来看看几篇核心方法类似的论文：
- Root Cause Detection in a Service-Oriented Architecture （SIGMETRICS 2013） MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications （ICWS 2019） Root Cause Analysis of Latency Problems with End-to-End Tracing in Microservice Environments （ICWS 2020）  第一篇论文是早的，后面两篇论文都参考了这个论文。最诡异的是ICWS2020这篇，连算法和公式都没有改就敢直接投？这赤裸裸的抄袭好吧，就是把SOA的概念换成了ms的概念。
-吐槽还没完，聊聊具体的方法吧。
-找Anomaly的方法 其中都提到了PageRank，而且要注意不是不同的PageRank，而是Personalized PageRank（PPR）其实也就是Weighted PageRank（WPR）
-其中的问题 RCD SOA这篇论文里写得很清楚了，如果某一个区域的PR值保持很低，那么surfer会停留在此区域，陷入僵局。那么就需要往后传递surfer，于是就有了backward edge。
-而到了后面两篇论文这里就走了样，变成了forward transformation、backward transformation和self transformation。让人难以理解。
-PageRank 用一个东西，抓住输入和输出。
-输入 DAG的matrix，如果有n个节点，那么就是一个n*n的矩阵。nij表示节点i和节点j的连接关系。在PageRank中，如果一个节点i链接到节点j，那么nij=1。
-以上这个输入不对。
-基于随机游走的PageRank算法的输入应该是第一个节点。然后是节点和节点之间的相关度。
-输出 n个节点的PageRank排序PR，范围是0-10，值越高表示重要性越高。
-Weighted PageRank 传统的PR跳转到页面中提到的链接或者重新输入一个链接是通过设定一个固定概率。显然在已知关系度的网络里不太适用。所以把节点与节点之间的边作为权重的WPR就被提出来了。
-而RCD SOA这篇论文里的backward，其实就是增强反向传递surfer的概率。也就是加强了反向边的权重。
-至此，关于这几篇论文的方法是大致有一个了解了，实现起来emmm。感觉就凭我的代码水平，是块硬骨头，不知道现在该不该啃。
-参考 https://www.jianshu.com/p/6af90342c3ba （简单代码讲解）</description>
     </item>
     
     <item>
@@ -199,17 +126,6 @@ Trace meta data 回到Jaeger UI，点进一个trace，查看JSON格式的数据�
     </item>
     
     <item>
-      <title>云计算雾计算和边缘计算</title>
-      <link>https://zecoo.github.io/hugo/posts/paper/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</link>
-      <pubDate>Mon, 01 Jun 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/paper/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</guid>
-      <description>参考 https://zhuanlan.zhihu.com/p/55937656 （雾计算的特点）
-https://zhuanlan.zhihu.com/p/42066947 （雾计算和边缘计算的区别）
-https://blog.csdn.net/robertsong2004/article/details/52203710 （吸尘器这个例子可以解释什么叫计算）</description>
-    </item>
-    
-    <item>
       <title>ABOUT ZIK</title>
       <link>https://zecoo.github.io/hugo/about/</link>
       <pubDate>Sun, 31 May 2020 00:00:00 +0800</pubDate>
@@ -265,29 +181,6 @@ spec: containers: - image: gcr.io/google_containers/serve_hostname imagePullPoli
     </item>
     
     <item>
-      <title>Istio sites</title>
-      <link>https://zecoo.github.io/hugo/posts/istio/istio-sites/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/istio/istio-sites/</guid>
-      <description>APP
- productpage sockshop hipser  Istio
- Prometheus Grafana Jaeger Kiali (admin,admin)  </description>
-    </item>
-    
-    <item>
-      <title>Start LeetCode</title>
-      <link>https://zecoo.github.io/hugo/posts/math/start-leetcode/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/math/start-leetcode/</guid>
-      <description>仅做个人记录，解题思路请看其他大佬的。
-参考 https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/suan-fa-xue-xi-zhi-lu （如何学算法）
-https://leetcode.com/explore/learn/card/fun-with-arrays/ （leetcode官网）
-https://github.com/MisterBooo/LeetCodeAnimation （动画演示）</description>
-    </item>
-    
-    <item>
       <title>Send file from one server to another</title>
       <link>https://zecoo.github.io/hugo/posts/server/send-file-from-one-server-to-another/</link>
       <pubDate>Mon, 25 May 2020 00:00:00 +0800</pubDate>
@@ -322,16 +215,6 @@ Sscenario = 操作表t的场景数量 / 总场景数量，trace、sql同理
 表依赖度 和关联度、共享度类似，表示表A对表B的依赖程度。那和关联度有什么区别呢…依赖度高，表A和表B更有可能有一种主从关系。见图6
 Dscenario = 同时操作表A和表B的场景 / 操作表A的场景之和（Tb对Ta的依赖）
 共享群组条件 Ta和Tb的相互依赖程度（Ta -&amp;gt; Tb + Tb -&amp;gt; Ta）大于某一个值</description>
-    </item>
-    
-    <item>
-      <title>vps搭建图床</title>
-      <link>https://zecoo.github.io/hugo/posts/blog/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
-      <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/blog/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
-      <description>展示一下我的图床已经搭起来了。放一张我在心动实习的时候想设计的一个todo app：
-参考 https://www.jianshu.com/p/7863fcb34aed</description>
     </item>
     
     <item>
@@ -878,16 +761,6 @@ NAMESPACE NAME READY STATUS RESTARTS AGE container-registry registry-7cf58dcdcc-
     </item>
     
     <item>
-      <title>SS on Ubuntu</title>
-      <link>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</link>
-      <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</guid>
-      <description>弄起来挺快的，其实就三点
- 安装ss。apt install就可以 配置ss。就一个json文件 启动ss。一行命令  参考： https://viencoding.com/article/90</description>
-    </item>
-    
-    <item>
       <title>初试Nginx部署静态网页</title>
       <link>https://zecoo.github.io/hugo/posts/static-web/%E5%88%9D%E8%AF%95nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</link>
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
@@ -949,15 +822,6 @@ Index.html  banner有三个部分，一个是logo，一个是站内其他链接�
 [ + ][ ][ ]
 [ ][ ][ ][ ]
 [ ][ ][ ][ ]</description>
-    </item>
-    
-    <item>
-      <title>df切片操作</title>
-      <link>https://zecoo.github.io/hugo/posts/math/df%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/</link>
-      <pubDate>Sun, 09 Feb 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/math/df%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/</guid>
-      <description>参考 https://blog.csdn.net/m0_37876745/article/details/88828928（取dataframe的一行或者一列）</description>
     </item>
     
   </channel>

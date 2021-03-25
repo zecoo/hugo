@@ -34,15 +34,5 @@ curl http://test.json | jq  只需要在后面加上jq，就可以看到漂亮�
 &amp;quot;metric&amp;quot;: { &amp;quot;__name__&amp;quot;: &amp;quot;istio_requests_total&amp;quot;, &amp;quot;connection_security_policy&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;destination_app&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_canonical_revision&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_canonical_service&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_principal&amp;quot;: &amp;quot;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&amp;quot;, &amp;quot;destination_service&amp;quot;: &amp;quot;productpage.default.svc.cluster.local&amp;quot;, &amp;quot;destination_service_name&amp;quot;: &amp;quot;productpage&amp;quot;, &amp;quot;destination_service_namespace&amp;quot;: &amp;quot;default&amp;quot;, &amp;quot;destination_version&amp;quot;: &amp;quot;v1&amp;quot;, &amp;quot;destination_workload&amp;quot;: &amp;quot;productpage-v1&amp;quot;, &amp;quot;destination_workload_namespace&amp;quot;: &amp;quot;default&amp;quot;, &amp;quot;instance&amp;quot;: &amp;quot;10.244.0.61:15090&amp;quot;, &amp;quot;job&amp;quot;: &amp;quot;envoy-stats&amp;quot;, &amp;quot;namespace&amp;quot;: &amp;quot;istio-system&amp;quot;, &amp;quot;pod_name&amp;quot;: &amp;quot;istio-ingressgateway-6489d9556d-ws6cg&amp;quot;, &amp;quot;reporter&amp;quot;: &amp;quot;source&amp;quot;, &amp;quot;request_protocol&amp;quot;: &amp;quot;http&amp;quot;, &amp;quot;response_code&amp;quot;: &amp;quot;200&amp;quot;, &amp;quot;response_flags&amp;quot;: &amp;quot;-&amp;quot;, &amp;quot;source_app&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_canonical_revision&amp;quot;: &amp;quot;1.5&amp;quot;, &amp;quot;source_canonical_service&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_principal&amp;quot;: &amp;quot;spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account&amp;quot;, &amp;quot;source_version&amp;quot;: &amp;quot;unknown&amp;quot;, &amp;quot;source_workload&amp;quot;: &amp;quot;istio-ingressgateway&amp;quot;, &amp;quot;source_workload_namespace&amp;quot;: &amp;quot;istio-system&amp;quot; }, &amp;quot;value&amp;quot;: [ 1588918429.</description>
     </item>
     
-    <item>
-      <title>SS on Ubuntu</title>
-      <link>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</link>
-      <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/k8s/ss-on-ubuntu/</guid>
-      <description>弄起来挺快的，其实就三点
- 安装ss。apt install就可以 配置ss。就一个json文件 启动ss。一行命令  参考： https://viencoding.com/article/90</description>
-    </item>
-    
   </channel>
 </rss>

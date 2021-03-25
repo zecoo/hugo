@@ -35,16 +35,6 @@ font-family: Helvetica, &amp;quot;微软雅黑&amp;quot;, sans-serif;  Helvetica
     </item>
     
     <item>
-      <title>vps搭建图床</title>
-      <link>https://zecoo.github.io/hugo/posts/blog/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</link>
-      <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/blog/vps%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</guid>
-      <description>展示一下我的图床已经搭起来了。放一张我在心动实习的时候想设计的一个todo app：
-参考 https://www.jianshu.com/p/7863fcb34aed</description>
-    </item>
-    
-    <item>
       <title>hugo上传博客脚本</title>
       <link>https://zecoo.github.io/hugo/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>

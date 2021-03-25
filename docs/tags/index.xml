@@ -5,28 +5,10 @@
     <link>https://zecoo.github.io/hugo/tags/</link>
     <description>Recent content in Tags on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 27 Jan 2021 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>k8s</title>
-      <link>https://zecoo.github.io/hugo/tags/k8s/</link>
-      <pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/tags/k8s/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>paper</title>
-      <link>https://zecoo.github.io/hugo/tags/paper/</link>
-      <pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/tags/paper/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>istio</title>
@@ -74,47 +56,11 @@
     </item>
     
     <item>
-      <title>cloud computing</title>
-      <link>https://zecoo.github.io/hugo/tags/cloud-computing/</link>
-      <pubDate>Mon, 01 Jun 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/tags/cloud-computing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>ASL</title>
       <link>https://zecoo.github.io/hugo/tags/asl/</link>
       <pubDate>Fri, 29 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/tags/asl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ing</title>
-      <link>https://zecoo.github.io/hugo/tags/ing/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/tags/ing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>useless</title>
-      <link>https://zecoo.github.io/hugo/tags/useless/</link>
-      <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/tags/useless/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blog</title>
-      <link>https://zecoo.github.io/hugo/tags/blog/</link>
-      <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/tags/blog/</guid>
       <description></description>
     </item>
     
@@ -160,6 +106,15 @@
       <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/tags/server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>k8s</title>
+      <link>https://zecoo.github.io/hugo/tags/k8s/</link>
+      <pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/tags/k8s/</guid>
       <description></description>
     </item>
     
@@ -286,15 +241,6 @@
       <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
       
       <guid>https://zecoo.github.io/hugo/tags/nginx/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ss</title>
-      <link>https://zecoo.github.io/hugo/tags/ss/</link>
-      <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/tags/ss/</guid>
       <description></description>
     </item>
     
