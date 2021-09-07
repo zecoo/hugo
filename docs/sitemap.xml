@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://zecoo.github.io/hugo/posts/</loc>
+    <lastmod>2021-09-07T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/posts/cs/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%BB%E7%BB%93%E5%BC%A0%E6%B3%BD%E9%94%9F/</loc>
+    <lastmod>2021-09-07T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zecoo.github.io/hugo/</loc>
+    <lastmod>2021-09-07T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://zecoo.github.io/hugo/categories/</loc>
     <lastmod>2020-12-22T00:00:00+08:00</lastmod>
   </url>
@@ -23,17 +38,7 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/posts/</loc>
-    <lastmod>2020-12-22T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://zecoo.github.io/hugo/tags/</loc>
-    <lastmod>2020-12-22T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zecoo.github.io/hugo/</loc>
     <lastmod>2020-12-22T00:00:00+08:00</lastmod>
   </url>
   
@@ -198,12 +203,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/k8s/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/k8s/</loc>
     <lastmod>2020-05-16T00:00:00+08:00</lastmod>
   </url>
   
@@ -273,12 +278,12 @@
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/categories/css/</loc>
+    <loc>https://zecoo.github.io/hugo/tags/css/</loc>
     <lastmod>2020-05-05T00:00:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zecoo.github.io/hugo/tags/css/</loc>
+    <loc>https://zecoo.github.io/hugo/categories/css/</loc>
     <lastmod>2020-05-05T00:00:00+08:00</lastmod>
   </url>
   

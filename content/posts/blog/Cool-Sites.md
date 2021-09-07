@@ -26,6 +26,8 @@ draft: false
 - [敖小剑](https://skyao.io/#about)：ServiceMesh布道者
 - [绿色](https://blog.gmem.cc)：记忆生活编程记录
 - [MY](https://mayi1996.top/resume.pdf)：这简历太好看了
+- [MainTao](https://maintao.com)：是我喜欢的排版
+- [Linmi](https://linmi.cc)：Notion宣传大使
 
 ## 公司
 
