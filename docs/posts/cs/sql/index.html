@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="description" content="好记性也要烂笔头">
+    <title>
+        Sql Test 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://zecoo.github.io/hugo/css/main.css">
+    <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+    
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+        	<article class="blog-post">
+			  <header>
+			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">Sql Test</h2></a>
+			    <p class="blog-post-meta"><time datetime="2021-09-09T10:12:08+08:00">Thu Sep 9, 2021</time></p>
+			  </header>
+			  
+
+<h1 id="sql练习">SQL练习</h1>
+
+<h2 id="单表查询练习">单表查询练习</h2>
+
+<p>题目见参考2</p>
+
+<pre><code class="language-sql">1. select * from emp where deptno='30';
+2. select enam, empno, deptno from emp where job='销售员';
+3. select enam from emp where COMM&gt;sal;
+4. select enam form emp where COMM&gt;(sal*0.6);
+5. select * from emp where deptno='10' and job='经理';
+   select * from emp where deptno='20' and job='销售员';
+6. 5错了6就肯定也不知道怎么写了
+7. select enam from emp where COMM=NULL or NULL&lt;1000;
+8. count不能用在where后面，那这个应该怎么写？
+9. select enam from emp where hiredate like '2000%';
+10.select * from emp order by empno asc;
+11.select * from emp order by sal desc, hiredate asc;
+</code></pre>
+
+<p>有几个不会写或者写错了哈：5，6，7，8</p>
+
+<pre><code class="language-sql">5. select * from emp where (deptno=10 and job='经理') or (deptno=20 and job='销售员')
+7. select enam from emp where COMM is NULL or COMM&lt;1000;
+8. select enam from emp where enam like '___';
+</code></pre>
+
+<h2 id="多表查询练习">多表查询练习</h2>
+
+<p>题目见参考4</p>
+
+<pre><code class="language-sql">1. select e.deptno, d.dname, d.loc and count(*)
+	 from emp e
+	 join dept d
+	 on e.deptno=d.deptno
+2. select e.ename
+	 from emp e
+	 join salgrade s
+	 on e.sal between  ？？？还有子查询？不讲武德
+3. select e1.ename, e2.ename
+	 from emp e1
+	 join emp e2
+	 on e1.mgr = e2.empno
+4. select e1.empno, e1.ename, d.dname
+   from emp e1
+   join emp e2
+   on e1.hiredate &lt; e2.hiredate and e1.mgr=e2.emptno
+   join dept d
+   join e1.deptno=d.deptno
+5. select d.dname, e.*
+   from dept d
+   left join empt e
+   on d.deptno=e.deptno
+6. select e.ename, d.dname, 
+   这种要取到统计数据的SQL我就不会写了
+7. 同6
+8. 不会
+9. 不会
+10.select e.* and d.dept
+   from emp e
+   join dept d
+   on e.deptno=d.deptno
+   where e.job=(select job from emp where ename='庞统')
+12.不会
+</code></pre>
+
+<p>看啊，一到多表查询直接抓瞎。好家伙这得一个一个重新做啊，就第5题做对了。</p>
+
+<p><strong>1. 查出至少有一个员工的部门。显示部门编号、部门名称、部门位置、部门人数。</strong></p>
+
+<p>至少有一个员工的部门显示所有信息如何表示？</p>
+
+<pre><code class="language-sql">select deptno, count(*) from emp group by deptno;
+</code></pre>
+
+<p>然后再联表查：</p>
+
+<pre><code class="language-sql">select d.deptno, d.dname, d.loc, temp.`count(*)`
+from dept d
+join (select deptno, count(*) from emp group by deptno) temp
+on temp.deptno = d.deptno
+</code></pre>
+
+<p><strong>2. 列出薪金比关羽高的所有员工。</strong></p>
+
+<p>这一题和join无关。</p>
+
+<pre><code class="language-sql">select * from emp
+where sal&gt;(select sal from emp where ename='关羽')
+</code></pre>
+
+<p><strong>3. 列出所有员工的姓名及其直接上级的姓名。</strong></p>
+
+<p>这个自连接需要注意e1是ename，e2还是ename，不是mgr哈</p>
+
+<p><strong>4. 列出受雇日期早于直接上级的所有员工的编号、姓名、部门名称。</strong></p>
+
+<pre><code class="language-sql">select e1.empno, e1.ename, d.dname
+from emp e1
+left join emp e2
+on e1.mgr = e2.ename
+left join dept d
+on d.deptno = e.deptno
+where e1.hiredate&lt;e2.hiredate
+</code></pre>
+
+<p><strong>6. 列出所有文员的姓名及其部门名称，部门的人数。</strong></p>
+
+<pre><code class="language-sql">select e.ename, d.dname, temp.`count(*)`
+from emp e
+join dept d
+on e.deptno = d.deptno
+join (select deptno, count(*) from emp group by deptno) temp
+on temp.deptno = e.deptno
+where e.jon='文员'
+</code></pre>
+
+<p><strong>7. 列出最低薪金大于15000的各种工作及从事此工作的员工人数。</strong></p>
+
+<pre><code class="language-sql">select job, count(*)
+from emp
+group by job
+where MIN(sal)&gt;15000
+</code></pre>
+
+<p>这个题还是稍微有点意思的，我一开始没有加MIN关键字。这又什么问题呢？当然是有问题的哈，有了group by的话，后面如果不加MIN是没有意义的，因为group by了之后是一组数据，而直接sal是一个数据。所以需要加上分组函数MIN，这就符合题意了。</p>
+
+<p><strong>8. 列出在销售部工作的员工的姓名，假定不知道销售部的部门编号。</strong></p>
+
+<pre><code class="language-sql">select e.ename
+from emp e 
+join dept d
+on e.deptno = d.deptno
+where d.dname='销售部'
+</code></pre>
+
+<p><strong>9. 列出薪金高于公司平均薪金的所有员工信息，所在部门名称，上级领导，工资等级。</strong></p>
+
+<pre><code class="language-sql">select e1.*, d.dname, e2.ename, g.grade
+from emp e1
+join emp e2 on e1.mgr = e2.name
+join dept d on e1.deptno = d.deptno
+join salgrade g on e1.sal between g.lowsale and g.highsale
+where e1.sal&gt;(select AVG(sal) from emp)
+</code></pre>
+
+<p>注意哈，AVG不能直接用，一定是放在select语句里面的。</p>
+
+<p><strong>10.列出与庞统从事相同工作的所有员工及部门名称。</strong></p>
+
+<pre><code class="language-sql">select e.*, d.dname
+from emp e
+join dept d on d.deptno = e.deptno
+where e.job = (select job from emp where ename='')
+</code></pre>
+
+<p><strong>11.列出薪金高于在部门30工作的所有员工的薪金的员工姓名和薪金、部门名称。</strong></p>
+
+<pre><code class="language-sql">select e.ename, e.sal, d.dname
+from emp e
+left join dept d on e.deptno = d.deptno
+where sal&gt;(select MAX(sal) from emp group by deptno where deptno=30)
+</code></pre>
+
+<p>这个where的写法，我这种跟标准答案有什么区别呀？我感觉标准答案的执行效率肯定是比我的要高</p>
+
+<p>标准答案：<code>where sal&gt;ALL(select sal from emp where deptno=30)</code></p>
+
+<p><strong>12.列出每个部门的员工数量、平均工资。</strong></p>
+
+<pre><code class="language-sql">select d.dname, temp.`count(*)`, temp.`AVG(sal)`
+from dept d
+join (select deptno, count(*), AVG(sal) from emp group by deptno) temp
+on d.deptno = temp.deptno
+</code></pre>
+
+<h1 id="参考">参考</h1>
+
+<ol>
+<li><p><a href="https://blog.csdn.net/m0_37857602/article/details/77749686">https://blog.csdn.net/m0_37857602/article/details/77749686</a> （分组函数与group by）</p></li>
+
+<li><p><a href="https://www.cnblogs.com/gdwkong/p/7487248.html">https://www.cnblogs.com/gdwkong/p/7487248.html</a> （SQL单表查询练习题）</p></li>
+
+<li><p><a href="https://www.bilibili.com/video/BV1fx411X7BD（SQL视频讲解）">https://www.bilibili.com/video/BV1fx411X7BD（SQL视频讲解）</a></p></li>
+
+<li><p><a href="https://blog.csdn.net/fy_java1995/article/details/80305172">https://blog.csdn.net/fy_java1995/article/details/80305172</a> （多表查询练习）</p></li>
+</ol>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="https://zecoo.github.io/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

@@ -5,10 +5,47 @@
     <link>https://zecoo.github.io/hugo/</link>
     <description>Recent content on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 07 Sep 2021 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 09 Sep 2021 15:14:31 +0800</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Network Review</title>
+      <link>https://zecoo.github.io/hugo/posts/cs/network-review/</link>
+      <pubDate>Thu, 09 Sep 2021 15:14:31 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/cs/network-review/</guid>
+      <description>[toc]
+OSI七层模型 已经背得烂熟，从下到上分别是：
+ 物理层（010，【集线器、中继器、调制调解器、双绞线】） 链路层（数据帧，【MAC、网桥、交换机】） 网络层（网络寻址，【IP、ARP、RARP、ICMP】） 传输层（数据安全传输，【TCP、UDP、网关】） 会话层（建立和管理会话，RPC） 表示层（数据格式和加密，SSL） 应用层（用户可见【HTTP、FTP、SMTP、Telnet】）  后面学习到的所有协议都跟上面这个模型有关系。后面按照从上到下的顺序进行总结。
+应用层 “会话层、表示层、应用层”在TCP/IP模型中统一成一个“应用层”，以下应用层概念均为TCP/IP五层模型中的应用层。
+1 协议 计算机网络里面所有的内容都离不开协议两个字。那么究竟什么是协议呢？新华字典对协议的定义是：经过双方共同商量或谈判后取得的一致意见。两个关键字：双方、一致。在计算机网络中的协议，也是遵从这两个关键字：双方、一致。在网络传输过程中，各种各样的数据包很多，那么A怎么知道这个包是我的呢？一方面有地址、有端口，那么A肯定能准确接收到来自B的数据包。那么一个数据包到了，A应该怎么对这个数据包进行解析？只要A和B提前商量好解析的方法，那么就可以拿到最终需要的有用的数据了这就是协议“一致”性的体现。
+2 HTTP 在应用层里面最重要的一个协议，也是面试中特别喜欢问到的一个协议是HTTP协议。什么是HTTP协议？为什么要有HTTP协议？
+HTTP（Hyper-Text Transfer Protocol）超文本传输协议，三个关键字：超文本、传输、协议。超文本是什么呢？“超文本”就是指页面内可以包含图片、链接，甚至音乐、程序等非文字元素。可以直接把超文本理解为传输的内容是HTML代码。至于为什么要有HTTP协议，那是因为一开始上网最重要的功能是冲浪，客户端和服务器协定好HTTP这种协议，客户端的浏览器上就可以渲染出网页了。
+2.1 HTTP请求过程 刚刚既然提到了客户端和服务端，那么肯定有一个数据请求和传输的过程。简单来说就是：
+域名解析、TCP三次握手、客户端发起Http请求，服务器响应Http请求，客户端浏览器渲染页面。
+面试的时候记得提一下tcpdump这个命令。
+2.2 HTTP请求体 2.1中提到了客户端发送Http请求、服务器响应Http请求，那么这个请求长什么样子呢？简单来说：
+请求行、请求头、空格、请求体。
+传输层 到TCP了。TCP，传输层面向连接的安全可靠的传输协议。也是面试被问到最多的。关于TCP的问题离不开这样几个：
+ TCP三次握手和四次挥手 TCP可靠性  1 TCP三次握手四次挥手 常见问题：
+过程 为什么是三次握手 为什么是四次挥手 为什么有一个2MSL的Time-Wait  2 TCP可靠性 常见问题：
+TCP如何保证可靠 讲一下流量控制 讲一下拥塞控制  网络层 1 IP寻址 1.1 IP报文格式 注意：上图是IP报文的首部，首部一行是32bit，即8byte。一共有5行，其中的字段比较重要的有：
+第一行：
+ 版本：IPv4或者IPv6 首部长度：相当于count(head) 区分服务：标示报文的优先级，和Qos相关 总长度：相当于count(*)  第二行：都是一些标示+偏移的内容，没必要记。
+第三行：</description>
+    </item>
+    
+    <item>
+      <title>Sql Test</title>
+      <link>https://zecoo.github.io/hugo/posts/cs/sql/</link>
+      <pubDate>Thu, 09 Sep 2021 10:12:08 +0800</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/cs/sql/</guid>
+      <description>SQL练习 单表查询练习 题目见参考2
+1. select * from emp where deptno=&#39;30&#39;; 2. select enam, empno, deptno from emp where job=&#39;销售员&#39;; 3. select enam from emp where COMM&amp;gt;sal; 4. select enam form emp where COMM&amp;gt;(sal*0.6); 5. select * from emp where deptno=&#39;10&#39; and job=&#39;经理&#39;; select * from emp where deptno=&#39;20&#39; and job=&#39;销售员&#39;; 6. 5错了6就肯定也不知道怎么写了 7. select enam from emp where COMM=NULL or NULL&amp;lt;1000; 8. count不能用在where后面，那这个应该怎么写？ 9. select enam from emp where hiredate like &#39;2000%&#39;; 10.</description>
+    </item>
     
     <item>
       <title>数据库总结</title>
