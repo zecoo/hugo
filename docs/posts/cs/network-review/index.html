@@ -70,7 +70,7 @@
 
 <p>域名解析、TCP三次握手、客户端发起Http请求，服务器响应Http请求，客户端浏览器渲染页面。</p>
 
-<p>面试的时候记得提一下tcpdump这个命令。</p>
+<p>面试的时候可以提一下tcpdump这个命令。</p>
 
 <h3 id="2-2-http请求体">2.2 HTTP请求体</h3>
 
@@ -87,18 +87,36 @@
 <li>TCP可靠性</li>
 </ol>
 
-<h2 id="1-tcp三次握手四次挥手">1 TCP三次握手四次挥手</h2>
+<h2 id="1-tcp">1 TCP</h2>
+
+<h3 id="1-1-tcp报文">1.1 TCP报文</h3>
+
+<p>在讨论这两个问题之前先看看TCP的报文格式</p>
+
+<p><img src="https://img-blog.csdn.net/20140609125220296?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTE5ODgxMDI5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="TCP" /></p>
+
+<p>第一行：16位源端口地址和16位目的端口地址</p>
+
+<p>第二行：32位序号（seq）</p>
+
+<p>第三行：32位确认序号（ack）</p>
+
+<p>第四行：4位首部信息，6位保留位，6个标志为（SYN，ACK，FIN等），16位窗口大小</p>
+
+<p>第五行：16位校验和，16位紧急指针</p>
+
+<h3 id="1-2-tcp三次握手四次挥手">1.2 TCP三次握手四次挥手</h3>
 
 <p>常见问题：</p>
 
 <ul class="task-list">
-<li><label><input type="checkbox" disabled class="task-list-item"> 过程</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> 为什么是三次握手</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> 为什么是四次挥手</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 过程</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 为什么是三次握手</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 为什么是四次挥手</label></li>
 <li><label><input type="checkbox" disabled class="task-list-item"> 为什么有一个2MSL的Time-Wait</label></li>
 </ul>
 
-<h2 id="2-tcp可靠性">2 TCP可靠性</h2>
+<h3 id="1-3-tcp可靠性">1.3 TCP可靠性</h3>
 
 <p>常见问题：</p>
 
@@ -123,7 +141,7 @@
 <ul>
 <li>版本：IPv4或者IPv6</li>
 <li>首部长度：相当于count(head)</li>
-<li>区分服务：标示报文的优先级，和Qos相关</li>
+<li>区分服务：标示报文的优先级，和QoS相关</li>
 <li>总长度：相当于count(*)</li>
 </ul>
 
@@ -155,6 +173,37 @@
 
 <p>那么我的主机的IP地址是多少？我自己随便写的嘛？当然也不是，这个东西是DHCP分配的。至于分配的过程，类似我向邮局要了一个地址，然后邮局说我这里有一个地址你现在可以用，我先租给你，然后我就一直用这个地址知道租约到期。</p>
 
+<h3 id="1-4-子网掩码">1.4 子网掩码</h3>
+
+<p>我用<code>ifconfig</code>命令查看自己的IP地址得到这样的结果：</p>
+
+<pre><code class="language-shell">inet 192.168.31.213 netmask 0xffffff00 broadcast 192.168.31.255
+</code></pre>
+
+<ul>
+<li>IP是：<strong>192.168.31.213</strong></li>
+<li>子网掩码是：<strong>255.255.255.0</strong>
+0xffffff00是一个16进制的数字，转为二进制是：11111111 11111111 11111111 00000000，最后上面是十进制</li>
+<li>广播地址：<strong>192.168.31.255</strong></li>
+</ul>
+
+<p>IP、子网掩码、广播地址这几个概念一一介绍：</p>
+
+<p>首先从IP的分类开始说起，IP地址分为A、B、C、D、E类地址。其中：</p>
+
+<ul>
+<li>A类地址：8位网络号，24位主机号</li>
+<li>B类地址：16位网络号，16位主机号</li>
+<li>C类地址：24位网络号，8位主机号</li>
+<li>D类地址：32位网络号</li>
+</ul>
+
+<p>所以我的IP：192.168.31.213是一个典型的C类地址。那么子网掩码是什么呢？为什么要有子网掩码？其实就是一个判断是不是同一网段的便捷方式，如果IP1和IP2要比较网段的话，如果直接比较，怎么比较呢？选择前几位来比较？是不是很麻烦，如果有子网掩码的话，比如我的子网掩码是255.255.255.0，做And运算之后，只有前3*8=24位是网段信息，进行比较即可。所以接下来就是子网掩码的概念</p>
+
+<p>子网掩码：前面都是1表示网段位，后面都是0表示主机位。用来判断IP和IP是不是在同一个网段。</p>
+
+<p>广播地址：把IP的主机号都换成1，于是我的广播地址就变成了192.168.31.255</p>
+
 <h2 id="2-icmp">2 ICMP</h2>
 
 <p>参考6对ICMP也讲得很好：</p>
@@ -179,6 +228,32 @@
 
 <p>RARP：那么如果前面加一个Reverse呢？就是通过MAC地址来问IP地址哈。</p>
 
+<h2 id="4-路由协议">4 路由协议</h2>
+
+<p>什么是路由协议？什么用？</p>
+
+<h3 id="4-1-rip-ospf-bgp">4.1 RIP OSPF BGP</h3>
+
+<p><strong>RIP</strong>：距离矢量路由协议。跳数决定路由，最大跳数为15，每隔30s向邻居广播自己的整个RIP路由表。</p>
+
+<p><strong>OSPF</strong>：开放式最短路径优先。每个路由器维护的信息不再是邻居，而是整个自治区域的所有链路信息。原理很简单，但是实现起来较难，基于最短路径算法。</p>
+
+<p><strong>BGP</strong>：RIP和OSPF都属于内部网关协议，也就是自治系统内部的路由协议。而BGP是外部网关协议，是自治系统之间的路由选择协议。</p>
+
+<h1 id="链路层">链路层</h1>
+
+<p>突然想问自己链路层存在的意义是什么，然后搜了一下一眼望去竟然网上也没有合理的解释。刚好结合这个问题缕清楚TCP/IP五层协议的意义是什么，为什么要这样分层？</p>
+
+<p>先考虑一台武汉的主机A和上海的主机B。现在我接了一条网线，直连A和B，这就是<strong>物理层</strong>。</p>
+
+<p>现在能通信吗？可以，然后A发了一大堆“00101010110100111001”给B，结果网线不干了，数据太多我处理不了哈。所以网络协议规定，要按照“帧”这样的格式来传数据，帧包含帧头、帧数据、帧尾。这样“00101010110100111001”的杂乱数据就有顺序了，A可以不用一下子把所有的数据一下子给B。这就是<strong>链路层</strong>。</p>
+
+<p>然后我发现从如果我一个人从武汉到上海牵一条网线的代价太大了，于是我和别人共用从武汉到上海的通信线路。现在我要和别人共用线路，共用线路是降低了成本，但是我还需要知道怎么通到上海，于是我就大声喊，谁哪里可以从“武汉大学”到“武昌区中转站”，继续大声喊谁哪里可以从“武昌中转站”到“虹桥中转站”？一路喊着把数据推给了B。这就是<strong>网络层</strong>IP寻址。</p>
+
+<p>好家伙，我发出去的数据我不知道B收到了没有。我和B约定，收到对方的消息给一个确认的回应，如果过长时间没有收到确认，这玩意儿肯定让共用线路的那帮傻逼玩意儿给我搞没了。于是我重新发了一遍。这就是<strong>传输层</strong>。</p>
+
+<p>好的，现在A的数据终于可以百分百确定交给B了。但是现在B拿到一堆数据帧，啥也看不懂，不知道我想表达的是什么意思。于是我在数据帧的某一部分告诉他，我用的是HTTP协议，你就用HTTP协议解析就行了。于是他用浏览器一解析，芜湖，最后我想告诉他的内容就显示出来了：“你个大傻逼”。这就是<strong>应用层</strong>。</p>
+
 <h1 id="参考">参考</h1>
 
 <p><a href="https://www.w3school.com.cn/tags/tag_term_hypertext.asp">https://www.w3school.com.cn/tags/tag_term_hypertext.asp</a> （什么是超文本）</p>
@@ -200,6 +275,14 @@
 <p><a href="https://www.cnblogs.com/hello-shf/p/13570587.html">https://www.cnblogs.com/hello-shf/p/13570587.html</a> （IP寻址过程）</p>
 
 <p><a href="https://blog.csdn.net/wangzhen_csdn/article/details/80855261">https://blog.csdn.net/wangzhen_csdn/article/details/80855261</a> （DHCP详解）</p>
+
+<p><a href="https://www.bilibili.com/video/BV1a64y1m7qn（ip地址讲解）">https://www.bilibili.com/video/BV1a64y1m7qn（ip地址讲解）</a></p>
+
+<p><a href="https://blog.csdn.net/a19881029/article/details/29557837">https://blog.csdn.net/a19881029/article/details/29557837</a> （TCP报文）</p>
+
+<p><a href="https://www.jianshu.com/p/42dbcd39c3e7">https://www.jianshu.com/p/42dbcd39c3e7</a> （TCP如何保证可靠）</p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/89443344">https://zhuanlan.zhihu.com/p/89443344</a> （链路层和网络层的区别）</p>
 
 			</article>
         </div> 
