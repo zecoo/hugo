@@ -112,6 +112,9 @@ header {
 	max-width: 40rem;
 }
 
+.wrapper {
+  max-width: 60rem;
+}
 
 /*
  * Main column and sidebar layout
