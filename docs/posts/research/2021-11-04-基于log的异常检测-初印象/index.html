@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="description" content="好记性也要烂笔头">
+    <title>
+        基于Log的异常检测-初印象 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://zecoo.github.io/hugo/css/main.css">
+    <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+    
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+        	<article class="blog-post">
+			  <header>
+			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">基于Log的异常检测-初印象</h2></a>
+			    <p class="blog-post-meta"><time datetime="2021-11-04T16:18:31Z">Thu Nov 4, 2021</time></p>
+			  </header>
+			  
+
+<p>快速了解：</p>
+
+<ol>
+<li>想要解决什么问题</li>
+<li>具体用什么方法</li>
+</ol>
+
+<p>DeepLog是李飞飞团队的文章，基于lSTM。</p>
+
+<h2 id="1-解决什么问题">1 解决什么问题</h2>
+
+<ol>
+<li>执行路径异常：一般的，日志会按照一定的顺序输出，分步记录了系统的状态，即文中的执行路径。</li>
+<li>参数和性能异常：有些系统异常发生时，它的日志不会偏离正常的执行路径，但是它日志内的参数会与正常情况下的参数有较大差异。</li>
+<li>工作流异常：</li>
+</ol>
+
+<p>Q：为什么要用深度学习？</p>
+
+<p>A：日志数据是非结构化的，并且它们的格式和语言在系统之间可能会显著不同。</p>
+
+<h3 id="1-1-执行路径异常检测">1.1 执行路径异常检测</h3>
+
+<p>每一行日志都是源代码的输出语句生成的。比如某个进程的源代码中的日志打
+印语句为<code>printf(&quot;Accepted password for %s from %s port %d ssh2 \n&quot;, user, host, port)</code>，那么在程序的运行过程中，就可能会产生<code>Feb 28 04:48:54 combo sshd(pam_unix)[6741]: Accepted password for root from 112.64.243.186 port 2371 ssh2</code>。一条源代码打印出的日志为同一类型，其代码称为日志键。</p>
+
+<p>系统产生的日志是有一定的逻辑性的，比如下面几条日志：</p>
+
+<pre><code class="language-shell">1 Jun 26 04:10:02 combo su(pam_unix)[1546] session opened for user news by (uid=0)
+2 Jun 26 04:10:04 combo su(pam_unix)[1546] session closed for user news
+3 Jun 27 04:02:47 combo su(pam_unix)[7031] session opened for user cyrus by (uid=0)
+4 Jun 27 04:02:48 combo su(pam_unix)[7031] session closed for user cyrus
+</code></pre>
+
+<p>相邻或者相近日志的关联度很高，一条日志往往取决于前一条或者前几条日志，当这种逻辑性被某条日志打破，则说明发生了日志执行路径异常。</p>
+
+<h3 id="1-2-参数和性能">1.2 参数和性能</h3>
+
+<p>日志可以分为日志键和日志参数，日志参数也可能会出现异常情况，比如温度监控太高、CPU占用过多等。在Deeplog中也是用序列预测的方式去做，但是我个人觉得不太具有理论上的意义。</p>
+
+<h2 id="2-具体实现方法">2 具体实现方法</h2>
+
+<h3 id="2-1-日志解析">2.1 日志解析</h3>
+
+<p>把日志格式化，即下图的过程：</p>
+
+<p><img src="https://saucer-man.com/usr/uploads/2020/06/2059687839.png" alt="log" /></p>
+
+<p>LogPAI的LogParser就是用来做日志解析的：<a href="https://github.com/logpai/logparser">https://github.com/logpai/logparser</a></p>
+
+<h3 id="2-2-特征提取">2.2 特征提取</h3>
+
+<p>解析出来的日志键、参数等元素是字符串格式的，要把它们转换为可量化的数字来构造特征向量。</p>
+
+<h3 id="2-3-异常检测">2.3 异常检测</h3>
+
+<p>我们可以将日志执行顺序看作成一个多分类问题，日志键的总数是一定的，我们看作为K，在训练阶段我们输入正常的日志执行序列，生成一个多分类器模型。在测试阶段，我们输入最近日志键的历史记录，输出是一个日志键的概率分布。给定小部分正常的日志键序列，然后输入LSTM模型进行训练。得到一个检测模型，在系统正常运行时，收集到系统产生的日志序列，经过日志解析和特征提取之后得到一个日志键序列，然后用LSTM模型去预测该序列后一条日志键的可能性，如下图所示:</p>
+
+<p><img src="https://saucer-man.com/usr/uploads/2020/06/206670244.png" alt="img" /></p>
+
+<p>例如，假设一个来白正在执行过程的小日志文件被解析为一个日志键序列：{k22, k5, k11, k9, k11，k26}。给定一个窗口大小h=3，则训练DeepLog的输入序列和输出序列是：{k22, k5, k11 -&gt;k9}, {k5, k11, k9 -&gt; k11}, {k11, k9, k11 -&gt; k26)。</p>
+
+<p>如果实际情况中的下一条日志在可能性分布中具有较大的概率，那么认为这条日志属于正常日志，否则当序列预测的结果和实际结果误差较大时，我们则可以认为该日志属于异常。也就是说，如果新来的一条日志对应的log key不是接下来出现概率较大的log key，则视为异常。</p>
+
+<p><strong>总结来说实现日志检测的原理其实就是利用深度学习进行序列预测。</strong></p>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="https://saucer-man.com/machine_learning/475.html">https://saucer-man.com/machine_learning/475.html</a> （这家伙写得太好了）</p>
+
+<p><a href="https://www.cnblogs.com/bonelee/p/10457057.html">https://www.cnblogs.com/bonelee/p/10457057.html</a> （DeepLog介绍补充）</p>
+
+<p><a href="https://blog.csdn.net/ARPOSPF/article/details/103236241">https://blog.csdn.net/ARPOSPF/article/details/103236241</a> （DeepLog中文翻译）</p>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="https://zecoo.github.io/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

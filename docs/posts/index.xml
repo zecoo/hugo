@@ -5,10 +5,38 @@
     <link>https://zecoo.github.io/hugo/posts/</link>
     <description>Recent content in Posts on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 09 Sep 2021 15:14:31 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Nov 2021 16:18:31 +0000</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>基于Log的异常检测-初印象</title>
+      <link>https://zecoo.github.io/hugo/posts/research/2021-11-04-%E5%9F%BA%E4%BA%8Elog%E7%9A%84%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B-%E5%88%9D%E5%8D%B0%E8%B1%A1/</link>
+      <pubDate>Thu, 04 Nov 2021 16:18:31 +0000</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/research/2021-11-04-%E5%9F%BA%E4%BA%8Elog%E7%9A%84%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B-%E5%88%9D%E5%8D%B0%E8%B1%A1/</guid>
+      <description>快速了解：
+ 想要解决什么问题 具体用什么方法  DeepLog是李飞飞团队的文章，基于lSTM。
+1 解决什么问题  执行路径异常：一般的，日志会按照一定的顺序输出，分步记录了系统的状态，即文中的执行路径。 参数和性能异常：有些系统异常发生时，它的日志不会偏离正常的执行路径，但是它日志内的参数会与正常情况下的参数有较大差异。 工作流异常：  Q：为什么要用深度学习？
+A：日志数据是非结构化的，并且它们的格式和语言在系统之间可能会显著不同。
+1.1 执行路径异常检测 每一行日志都是源代码的输出语句生成的。比如某个进程的源代码中的日志打 印语句为printf(&amp;quot;Accepted password for %s from %s port %d ssh2 \n&amp;quot;, user, host, port)，那么在程序的运行过程中，就可能会产生Feb 28 04:48:54 combo sshd(pam_unix)[6741]: Accepted password for root from 112.64.243.186 port 2371 ssh2。一条源代码打印出的日志为同一类型，其代码称为日志键。
+系统产生的日志是有一定的逻辑性的，比如下面几条日志：
+1 Jun 26 04:10:02 combo su(pam_unix)[1546] session opened for user news by (uid=0) 2 Jun 26 04:10:04 combo su(pam_unix)[1546] session closed for user news 3 Jun 27 04:02:47 combo su(pam_unix)[7031] session opened for user cyrus by (uid=0) 4 Jun 27 04:02:48 combo su(pam_unix)[7031] session closed for user cyrus  相邻或者相近日志的关联度很高，一条日志往往取决于前一条或者前几条日志，当这种逻辑性被某条日志打破，则说明发生了日志执行路径异常。</description>
+    </item>
+    
+    <item>
+      <title>启发式算法理解</title>
+      <link>https://zecoo.github.io/hugo/posts/research/2021-11-04-%E5%90%AF%E5%8F%91%E5%BC%8F%E7%AE%97%E6%B3%95%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Thu, 04 Nov 2021 15:31:35 +0000</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/research/2021-11-04-%E5%90%AF%E5%8F%91%E5%BC%8F%E7%AE%97%E6%B3%95%E7%90%86%E8%A7%A3/</guid>
+      <description>总是在论文里看到启发式算法，百度了几次启发式算法是什么也没有记住。
+Heuristic Algorithm，其中的Heuristic的中文翻译是启发式，但是英文翻译更能表达其本身的含义：
+ Heuristic: enabling someone to discover or learn something for themselves
+ 好了知道了启发式是什么，那启发式算法是什么？还是要看英文翻译啊…中文搜索出来的都看不懂
+ A heuristic algorithm is one that is designed to solve a problem in a faster and more efficient fashion than traditional methods by sacrificing optimality, accuracy, precision, or completeness for speed. Heuristic algorithms often times used to solve NP-complete problems, a class of decision problems. In these problems, there is no known efficient way to find a solution quickly and accurately although solutions can be verified when given.</description>
+    </item>
     
     <item>
       <title>Network Review</title>
