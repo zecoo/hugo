@@ -1,13 +1,13 @@
-@media (min-width: 48em) {
+@media (min-width: 36em) {
   html {
-    font-size: 18px;
+    font-size: 14px;
   }
 }
 
 body {
     margin: 0;
     font-family: Helvetica, "微软雅黑", sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
     line-height: 1.4;
     color: #212529;
@@ -22,20 +22,20 @@ li {
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 20px;
   margin: 1rem 0;
   color: #2e3d60;
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 16px;
   margin: 1rem 0;
   color: #314f96;
 }
 
 h4 {
-  font-size: 20px;
-  font-weight: 250;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 time {
@@ -115,7 +115,7 @@ header {
 }
 
 .container {
-	max-width: 55rem;
+	max-width: 40rem;
 }
 
 
