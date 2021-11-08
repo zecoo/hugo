@@ -43,27 +43,11 @@
 
 <p>Youtube 视频: <a href="https://www.youtube.com/watch?v=At19CBGpbMI">https://www.youtube.com/watch?v=At19CBGpbMI</a></p>
 
-<h2 id="1-解决什么问题">1 解决什么问题</h2>
+<h3 id="1-1-问题阐述">1.1 问题阐述</h3>
 
-<ol>
-<li>执行路径异常：一般的，日志会按照一定的顺序输出，分步记录了系统的状态，即文中的执行路径。</li>
-</ol>
+<p>每一行日志都是源代码的输出语句生成的。比如某个进程的源代码中的日志打印语句为<code>printf(&quot;Accepted password for %s from %s port %d ssh2 \n&quot;, user, host, port)</code>，那么在程序的运行过程中，就可能会产生<code>Feb 28 04:48:54 combo sshd(pam_unix)[6741]: Accepted password for root from 112.64.243.186 port 2371 ssh2</code>。一条源代码打印出的日志为同一类型，其代码称为日志键。</p>
 
-<p><img src="https://raw.githubusercontent.com/zecoo/imgs/master/uPic/image-20211108101113268.png" alt="image-20211108101113268" style="zoom: 33%;"/></p>
-
-<ol>
-<li><p>参数和性能异常：有些系统异常发生时，它的日志不会偏离正常的执行路径，但是它日志内的参数会与正常情况下的参数有较大差异。</p></li>
-
-<li><p>工作流异常：
-<img src="https://raw.githubusercontent.com/zecoo/imgs/master/uPic/image-20211108105807187.png" alt="image-20211108105807187" /></p></li>
-</ol>
-
-<h3 id="1-1-执行路径异常">1.1 执行路径异常</h3>
-
-<p>每一行日志都是源代码的输出语句生成的。比如某个进程的源代码中的日志打
-印语句为<code>printf(&quot;Accepted password for %s from %s port %d ssh2 \n&quot;, user, host, port)</code>，那么在程序的运行过程中，就可能会产生<code>Feb 28 04:48:54 combo sshd(pam_unix)[6741]: Accepted password for root from 112.64.243.186 port 2371 ssh2</code>。一条源代码打印出的日志为同一类型，其代码称为日志键。</p>
-
-<p>​   系统产生的日志是有一定的逻辑性的，比如下面几条日志：</p>
+<p>系统产生的日志是有一定的逻辑性的，比如下面几条日志：</p>
 
 <pre><code class="language-shell">1 Jun 26 04:10:02 combo su(pam_unix)[1546] session opened for user news by (uid=0)
 2 Jun 26 04:10:04 combo su(pam_unix)[1546] session closed for user news
@@ -71,11 +55,21 @@
 4 Jun 27 04:02:48 combo su(pam_unix)[7031] session closed for user cyrus
 </code></pre>
 
-<p>相邻或者相近日志的关联度很高，一条日志往往取决于前一条或者前几条日志，当这种逻辑性被某条日志打破，则说明发生了日志执行路径异常。</p>
+<h2 id="1-解决什么问题">1 解决什么问题</h2>
 
-<h3 id="1-2-参数和性能异常">1.2 参数和性能异常</h3>
+<h3 id="1-2-执行路径异常">1.2 执行路径异常</h3>
 
-<p>日志可以分为日志键和日志参数，日志参数也可能会出现异常情况，比如温度监控太高、CPU占用过多等。</p>
+<p>执行路径异常：一般的，日志会按照一定的顺序输出，分步记录了系统的状态，即文中的执行路径。相邻或者相近日志的关联度很高，一条日志往往取决于前一条或者前几条日志，当这种逻辑性被某条日志打破，则说明发生了日志执行路径异常。</p>
+
+<p><img src="https://raw.githubusercontent.com/zecoo/imgs/master/uPic/image-20211108101113268.png" alt="image-20211108101113268" style="zoom: 33%;"/></p>
+
+<h3 id="1-3-参数和性能异常">1.3 参数和性能异常</h3>
+
+<p>有些系统异常发生时，它的日志不会偏离正常的执行路径，但是它日志内的参数会与正常情况下的参数有较大差异。比如温度监控太高、CPU占用过多等。</p>
+
+<h3 id="1-4-工作流异常">1.4 工作流异常</h3>
+
+<p><img src="https://raw.githubusercontent.com/zecoo/imgs/master/uPic/image-20211108105807187.png" alt="image-20211108105807187" /></p>
 
 <h2 id="2-具体实现方法">2 具体实现方法</h2>
 
@@ -85,7 +79,7 @@
 
 <h3 id="2-2-特征提取">2.2 特征提取</h3>
 
-<p>​   解析出来的日志键、参数等元素是字符串格式的，要把它们转换为可量化的数字来构造特征向量。整体日志解析+特征提取的过程如下：</p>
+<p>解析出来的日志键、参数等元素是字符串格式的，要把它们转换为可量化的数字来构造特征向量。整体日志解析+特征提取的过程如下：</p>
 
 <p><img src="https://raw.githubusercontent.com/zecoo/imgs/master/uPic/image-20211108103142888.png" alt="image-20211108103142888" /></p>
 
