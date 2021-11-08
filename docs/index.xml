@@ -5,10 +5,21 @@
     <link>https://zecoo.github.io/hugo/</link>
     <description>Recent content on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 04 Nov 2021 16:18:31 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Nov 2021 16:52:50 +0000</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AIOps中的异常检测和趋势预测</title>
+      <link>https://zecoo.github.io/hugo/posts/research/2021-11-05-aiops%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E5%92%8C%E8%B6%8B%E5%8A%BF%E9%A2%84%E6%B5%8B/</link>
+      <pubDate>Fri, 05 Nov 2021 16:52:50 +0000</pubDate>
+      
+      <guid>https://zecoo.github.io/hugo/posts/research/2021-11-05-aiops%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E5%92%8C%E8%B6%8B%E5%8A%BF%E9%A2%84%E6%B5%8B/</guid>
+      <description>参考 https://betterbench.blog.csdn.net/article/details/121133148 （智能运维挑战赛了解题目）
+https://blog.csdn.net/weixin_43935696/article/details/121150066 （智能运维挑战赛代码实现）
+https://blog.csdn.net/qq_39899679/article/details/121011499 （方法2）</description>
+    </item>
     
     <item>
       <title>基于Log的异常检测-初印象</title>
@@ -18,11 +29,10 @@
       <guid>https://zecoo.github.io/hugo/posts/research/2021-11-04-%E5%9F%BA%E4%BA%8Elog%E7%9A%84%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B-%E5%88%9D%E5%8D%B0%E8%B1%A1/</guid>
       <description>快速了解：
  想要解决什么问题 具体用什么方法  DeepLog是李飞飞团队的文章，基于lSTM。
-1 解决什么问题  执行路径异常：一般的，日志会按照一定的顺序输出，分步记录了系统的状态，即文中的执行路径。 参数和性能异常：有些系统异常发生时，它的日志不会偏离正常的执行路径，但是它日志内的参数会与正常情况下的参数有较大差异。 工作流异常：  Q：为什么要用深度学习？
-A：日志数据是非结构化的，并且它们的格式和语言在系统之间可能会显著不同。
-1.1 执行路径异常检测 每一行日志都是源代码的输出语句生成的。比如某个进程的源代码中的日志打 印语句为printf(&amp;quot;Accepted password for %s from %s port %d ssh2 \n&amp;quot;, user, host, port)，那么在程序的运行过程中，就可能会产生Feb 28 04:48:54 combo sshd(pam_unix)[6741]: Accepted password for root from 112.64.243.186 port 2371 ssh2。一条源代码打印出的日志为同一类型，其代码称为日志键。
-系统产生的日志是有一定的逻辑性的，比如下面几条日志：
-1 Jun 26 04:10:02 combo su(pam_unix)[1546] session opened for user news by (uid=0) 2 Jun 26 04:10:04 combo su(pam_unix)[1546] session closed for user news 3 Jun 27 04:02:47 combo su(pam_unix)[7031] session opened for user cyrus by (uid=0) 4 Jun 27 04:02:48 combo su(pam_unix)[7031] session closed for user cyrus  相邻或者相近日志的关联度很高，一条日志往往取决于前一条或者前几条日志，当这种逻辑性被某条日志打破，则说明发生了日志执行路径异常。</description>
+Youtube 视频: https://www.youtube.com/watch?v=At19CBGpbMI
+1 解决什么问题  执行路径异常：一般的，日志会按照一定的顺序输出，分步记录了系统的状态，即文中的执行路径。  参数和性能异常：有些系统异常发生时，它的日志不会偏离正常的执行路径，但是它日志内的参数会与正常情况下的参数有较大差异。 工作流异常：   1.1 执行路径异常 ​ 每一行日志都是源代码的输出语句生成的。比如某个进程的源代码中的日志打 印语句为printf(&amp;quot;Accepted password for %s from %s port %d ssh2 \n&amp;quot;, user, host, port)，那么在程序的运行过程中，就可能会产生Feb 28 04:48:54 combo sshd(pam_unix)[6741]: Accepted password for root from 112.64.243.186 port 2371 ssh2。一条源代码打印出的日志为同一类型，其代码称为日志键。
+​ 系统产生的日志是有一定的逻辑性的，比如下面几条日志：
+1 Jun 26 04:10:02 combo su(pam_unix)[1546] session opened for user news by (uid=0) 2 Jun 26 04:10:04 combo su(pam_unix)[1546] session closed for user news 3 Jun 27 04:02:47 combo su(pam_unix)[7031] session opened for user cyrus by (uid=0) 4 Jun 27 04:02:48 combo su(pam_unix)[7031] session closed for user cyrus  ​ 相邻或者相近日志的关联度很高，一条日志往往取决于前一条或者前几条日志，当这种逻辑性被某条日志打破，则说明发生了日志执行路径异常。</description>
     </item>
     
     <item>
@@ -234,7 +244,7 @@ font-family: Helvetica, &amp;quot;微软雅黑&amp;quot;, sans-serif;  Helvetica
       <guid>https://zecoo.github.io/hugo/about/</guid>
       <description> 没有特别喜欢的东西，也就没有坚持下去的动力。好像大部分的事情都是三分钟热度。对人对事都是如此。
 从本科开始折腾博客，从Jekyll到hexo到hugo，哪怕作为一个科班生，也从没有认真了解过里面的原理。光是花在找模板上的时间，估计都够写一个符合自己审美的页面出来。我也知道对于写东西来说，重要的不是UI，而是内容。但是就是沉迷各种折腾UI。
-喜欢： 红楼梦 iPod Reeder 塞尔达传说 Typora 豆瓣 iPhone MacBook RSS Nike 皮具 精酿 番茄炒蛋 红烧肉 MUJI 蛋炒饭 麻婆豆腐 双拼 Anki
+喜欢： 红楼梦 iPod Reeder 塞尔达传说 Typora 豆瓣 iPhone MacBook RSS Nike 皮具 精酿 番茄炒蛋 红烧肉 MUJI 蛋炒饭 麻婆豆腐 双拼 Anki Dr.Martens
 推荐：  《非暴力沟通》 《被讨厌的勇气》 《认知红利》  </description>
     </item>
     
