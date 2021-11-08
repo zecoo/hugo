@@ -29,8 +29,8 @@ https://blog.csdn.net/qq_39899679/article/details/121011499 （方法2）</descr
       <guid>https://zecoo.github.io/hugo/posts/research/2021-11-04-%E5%9F%BA%E4%BA%8Elog%E7%9A%84%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B-%E5%88%9D%E5%8D%B0%E8%B1%A1/</guid>
       <description>快速了解：
  想要解决什么问题 具体用什么方法  DeepLog是李飞飞团队的文章，基于lSTM。
-Youtube 视频: https://www.youtube.com/watch?v=At19CBGpbMI
-1.1 问题阐述 每一行日志都是源代码的输出语句生成的。比如某个进程的源代码中的日志打印语句为printf(&amp;quot;Accepted password for %s from %s port %d ssh2 \n&amp;quot;, user, host, port)，那么在程序的运行过程中，就可能会产生Feb 28 04:48:54 combo sshd(pam_unix)[6741]: Accepted password for root from 112.64.243.186 port 2371 ssh2。一条源代码打印出的日志为同一类型，其代码称为日志键。
+Presentation on Youtube: https://www.youtube.com/watch?v=At19CBGpbMI
+问题阐述 每一行日志都是源代码的输出语句生成的。比如某个进程的源代码中的日志打印语句为printf(&amp;quot;Accepted password for %s from %s port %d ssh2 \n&amp;quot;, user, host, port)，那么在程序的运行过程中，就可能会产生Feb 28 04:48:54 combo sshd(pam_unix)[6741]: Accepted password for root from 112.64.243.186 port 2371 ssh2。一条源代码打印出的日志为同一类型，其代码称为日志键。
 系统产生的日志是有一定的逻辑性的，比如下面几条日志：
 1 Jun 26 04:10:02 combo su(pam_unix)[1546] session opened for user news by (uid=0) 2 Jun 26 04:10:04 combo su(pam_unix)[1546] session closed for user news 3 Jun 27 04:02:47 combo su(pam_unix)[7031] session opened for user cyrus by (uid=0) 4 Jun 27 04:02:48 combo su(pam_unix)[7031] session closed for user cyrus  1 解决什么问题 1.</description>
     </item>
