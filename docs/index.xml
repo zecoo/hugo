@@ -5,21 +5,10 @@
     <link>https://zecoo.github.io/hugo/</link>
     <description>Recent content on 暴躁老农</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 05 Nov 2021 16:52:50 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Nov 2021 16:18:31 +0000</lastBuildDate>
     
 	<atom:link href="https://zecoo.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>AIOps中的异常检测和趋势预测</title>
-      <link>https://zecoo.github.io/hugo/posts/research/2021-11-05-aiops%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E5%92%8C%E8%B6%8B%E5%8A%BF%E9%A2%84%E6%B5%8B/</link>
-      <pubDate>Fri, 05 Nov 2021 16:52:50 +0000</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/research/2021-11-05-aiops%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E5%92%8C%E8%B6%8B%E5%8A%BF%E9%A2%84%E6%B5%8B/</guid>
-      <description>参考 https://betterbench.blog.csdn.net/article/details/121133148 （智能运维挑战赛了解题目）
-https://blog.csdn.net/weixin_43935696/article/details/121150066 （智能运维挑战赛代码实现）
-https://blog.csdn.net/qq_39899679/article/details/121011499 （方法2）</description>
-    </item>
     
     <item>
       <title>基于Log的异常检测-初印象</title>
