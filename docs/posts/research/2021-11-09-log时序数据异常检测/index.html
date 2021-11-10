@@ -150,7 +150,7 @@
 
 <p><img src="https://raw.githubusercontent.com/zecoo/imgs/master/uPic/1537867687524-4d5e00c3-5a70-4b12-a6d8-dd386ae1287f.png" alt="数据窗口平滑.png" /></p>
 
-<p>阈值检测：为了避免单点抖动产生的误报，需要将求取累积的窗口均值进行阈值判别。具体的累积就是通过窗口进行操作：$(x<em>t+x</em>{t-1}+&hellip;+x_{t-w+1})/w$   。</p>
+<p>阈值检测：为了避免单点抖动产生的误报，需要将求取累积的窗口均值进行阈值判别。具体的累积就是通过窗口进行操作：$(x_t+x_{t-1}+&hellip;+x_{t-w+1})/w$    。</p>
 
 <p>k-Sigma异常检测：假设数据集由一个正太分布产生，该分布可以用 $N(\mu,\sigma)$ 表示，其中$\mu$是序列的均值，$\sigma$是序列的标准差，数据落在$(\mu-3\sigma, \mu+3\sigma)$之外的概率仅有0.27%，落在$(\mu-4\sigma, \mu+4\sigma)$之外的区域的概率仅有0.01%，可以根据对业务的理解和时序曲线，找到合适的K值用来作为不同级别的异常报警。</p>
 
@@ -162,7 +162,7 @@
 
 <h3 id="3-2-基于统计的异常检测">3.2 基于统计的异常检测</h3>
 
-<p>变点：给定时序数据，$z_1, z_2,&hellip;,z_n$，如果$\exists \tau$，使得$z_1, z<em>2, &hellip;, z</em>{\tau}$在某统计特性上区别于$z<em>{\tau+1}, z</em>{\tau+2}, &hellip;, z_n$，则$\tau$就是我们需要寻找的Change Ponit，数学看不懂看图：</p>
+<p>变点：给定时序数据，$z_1, z_2,&hellip;,z_n$，如果$\exists \tau$，使得$z_1, z_2, &hellip;, z_{\tau}$在某统计特性上区别于$z_{\tau+1}, z_{\tau+2}, &hellip;, z_n$，则$\tau$就是我们需要寻找的Change Ponit，数学看不懂看图：</p>
 
 <p><img src="https://raw.githubusercontent.com/zecoo/imgs/master/uPic/92b4bc46e1fee47dd05c7de3b195e0f9d58badee.png" alt="_" /></p>
 
@@ -181,7 +181,7 @@
 
 <p>给定检测窗口长度$w$，通过下式可以计算$t \in {2w, N}$之前每个点的均值漂移值。
 $$
-r(t)=\frac{x<em>t+x</em>{t−1}+&hellip;+x<em>{t−w+1}}{x</em>{t-w}+x<em>{t−w−1}+&hellip;+x</em>{t−2w+1}}
+r(t)=\frac{x_t+x_{t−1}+&hellip;+x_{t−w+1}}{x_{t-w}+x_{t−w−1}+&hellip;+x_{t−2w+1}}
 $$
 根据检测出来$r(t)$值，利用KSigma异常检测方法，可以较好的得到时序中的断层点信息。</p>
 
@@ -209,7 +209,7 @@ $$
 
 <p>上图中 $\frac{err}{err + succ}$ 的抖动较为异常，分析下日志，大部分是因为请求时产生了400或者401的错误（除去请求的参数不对、或者是权限异常、或是心跳部分异常）。</p>
 
-<p><img src="https://cdn.nlark.com/lark/0/2018/png/132358/1542182804838-fa3f3647-7a6d-4ee5-9b4b-f89bc5819e0a.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/zecoo/imgs/master/uPic/1542182804838-fa3f3647-7a6d-4ee5-9b4b-f89bc5819e0a.png" alt="image.png" /></p>
 
 <h2 id="参考">参考</h2>
 
@@ -229,5 +229,14 @@ $$
     <script src="https://zecoo.github.io/hugo/js/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript" src="https://zecoo.github.io/hugo/js/MathJax.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)']]
+           }
+    });
+</script>
   </body>
 </html>
