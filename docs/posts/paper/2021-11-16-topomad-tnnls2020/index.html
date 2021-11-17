@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="description" content="好记性也要烂笔头">
+    <title>
+        TopoMAD TNNLS2020 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://zecoo.github.io/hugo/css/main.css">
+    <link rel="stylesheet" href="https://zecoo.github.io/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+    
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+        	<article class="blog-post">
+			  <header>
+			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">TopoMAD TNNLS2020</h2></a>
+			    <p class="blog-post-meta"><time datetime="2021-11-16T11:37:56Z">Tue Nov 16, 2021</time></p>
+			  </header>
+			  
+
+<p>阅读过程中抓重点：</p>
+
+<ol>
+<li>要解决什么问题（领域+本文）</li>
+<li>创新点有哪些</li>
+<li>还有哪些待解决的问题（领域+本文）</li>
+</ol>
+
+<p>对于拓扑多变量时间序列的异常检测任务是：给定个历史滑动窗口的数据$S(X_t∣X_{t−w:t−1},E)$来判定观测点$X_t$的数据是否异常。</p>
+
+<p>Mutivariate time series体现在哪里？</p>
+
+<h2 id="spatiotemporal">Spatiotemporal</h2>
+
+<p>标题 “A Spatiotemporal Deep Learning Approach for Unsupervised Anomaly Detection in Cloud Systems”中的Spatiotemproal的解读：</p>
+
+<ul>
+<li>Temporal Model：时序模型（LSTM）</li>
+<li>Spatial Model：用metric构造出来的空间模型（Graph）</li>
+</ul>
+
+<p>Multiple-Metrics拓扑信息的+组件级的输入构成了系统级的信息，可以更全面地了解整个运行系统。利用Multiple-Metrics就可以用来构造空间模型。</p>
+
+<h2 id="graphlstm">GraphLSTM</h2>
+
+<p>那么Spatiotemporal是如何体现的？</p>
+
+<p>图神经网络的特征提取器共享于来自不同组件的同类指标之间，有助于在统一的特征学习下捕获相同指标类型之间的相似模式。</p>
+
+<p>GraphLSTM的主要思路是将LSTM中的全连接网络之前增加一个GNN，对拓扑信息和指标信息进行融合。</p>
+
+<p>数据分为两类（如Fig.3、Fig.4所示）：</p>
+
+<ol>
+<li>指标矩阵，横坐标是节点Node，纵坐标是指标Metric。</li>
+<li>连接矩阵，主要是edge的向量矩阵，每个edge为一个列向量。</li>
+</ol>
+
+<p><img src="https://raw.githubusercontent.com/zecoo/imgs/master/uPic/image-20211117182841217.png" alt="image-20211117182841217" /></p>
+
+<p>GraphLSTM的主要思路是将LSTM中的全连接网络之前增加一个GNN，对拓扑信息和指标信息进行融合。</p>
+
+<p><img src="../../../docs/imgs/image-20211117190631965.png" alt="image-20211117190631965" /></p>
+
+<p>对比一下LSTM的计算公式和融合后的公式，替换了外部输入。也就在之前添加了GNN作为拓扑信息和Metric信息的融合层，融合之后作为标准LSTM的输入。其中： “$∗g$” denotes the graph neural operator and “$∗$” denotes the Hadamard product。</p>
+
+<p>融合公式：</p>
+
+<p><img src="https://raw.githubusercontent.com/zecoo/imgs/master/uPic/image-20211117191108089.png" alt="image-20211117191108089" /></p>
+
+<p>LSTM原版公式：</p>
+
+<p><img src="../../../docs/imgs/image-20211117191727476.png" alt="image-20211117191727476" style="zoom: 50%;" /></p>
+
+<p>VAE在这里面起什么作用？</p>
+
+<p>RQ可以写7个？？！！没毛病。这7个RQ选取的角度其实很全面，非常值得参考。</p>
+
+<p>两个数据集MBD和MMS可以看看里面长什么样子。</p>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+<li><a href="https://blog.csdn.net/qq_33431368/article/details/114464716">https://blog.csdn.net/qq_33431368/article/details/114464716</a> （总结1）</li>
+<li><a href="https://dreamhomes.top/posts/202103111131/（总结2）">https://dreamhomes.top/posts/202103111131/（总结2）</a></li>
+<li><a href="https://ieeexplore.ieee.org/document/9228885/">https://ieeexplore.ieee.org/document/9228885/</a> （论文地址）</li>
+<li><a href="https://github.com/QAZASDEDC/TopoMAD">https://github.com/QAZASDEDC/TopoMAD</a> （数据集）</li>
+<li><a href="https://blog.csdn.net/Geek_of_CSDN/article/details/86559464">https://blog.csdn.net/Geek_of_CSDN/article/details/86559464</a> （LSTM计算公式）</li>
+</ul>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="https://zecoo.github.io/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript" src="https://zecoo.github.io/hugo/js/MathJax.js"></script>
+  </body>
+</html>
