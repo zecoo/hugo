@@ -87,13 +87,9 @@
 
 <p>对比一下LSTM的计算公式和融合后的公式，替换了外部输入。也就在之前添加了GNN作为拓扑信息和Metric信息的融合层，融合之后作为标准LSTM的输入。其中： “$∗g$” denotes the graph neural operator and “$∗$” denotes the Hadamard product。</p>
 
-<p>融合公式：</p>
+<p>融合公式和LSTM原公式相比就是多了后面的$E$：</p>
 
 <p><img src="https://raw.githubusercontent.com/zecoo/imgs/master/uPic/image-20211117191108089.png" alt="image-20211117191108089" style="zoom:50%;" /></p>
-
-<p>LSTM原版公式：</p>
-
-<p><img src="../../../docs/imgs/image-20211117191727476.png" alt="image-20211117191727476" style="zoom: 50%;" /></p>
 
 <h2 id="实验-数据集">实验&amp;数据集</h2>
 

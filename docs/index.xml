@@ -27,12 +27,11 @@ GraphLSTM的主要思路是将LSTM中的全连接网络之前增加一个GNN，�
 数据分为两类（如Fig.3、Fig.4所示）：
  指标矩阵，横坐标是节点Node，纵坐标是指标Metric。 连接矩阵，主要是edge的向量矩阵，每个edge为一个列向量。  GraphLSTM的主要思路是将LSTM中的全连接网络之前增加一个GNN，对拓扑信息和指标信息进行融合。
 对比一下LSTM的计算公式和融合后的公式，替换了外部输入。也就在之前添加了GNN作为拓扑信息和Metric信息的融合层，融合之后作为标准LSTM的输入。其中： “$∗g$” denotes the graph neural operator and “$∗$” denotes the Hadamard product。
-融合公式：
-LSTM原版公式：
+融合公式和LSTM原公式相比就是多了后面的$E$：
 实验&amp;amp;数据集 RQ可以写7个？？！！没毛病。这7个RQ选取的角度其实很全面，非常值得参考。
 两个数据集MBD和MMS可以看看里面长什么样子，取一行看一下也知道个大概，和Fig.4模型的input一起看比较清晰：
 MDB Metric类型（[……]处省略了近百个metric）：
----------labels----------- date,cpu.mean_usage_idle,cpu.mean_usage_iowait,cpu.mean_usage_softirq,cpu.mean_usage_system,cpu.mean_usage_user,disk.mean_used_percent,diskio.io_time,diskio.mean_iops_in_progress,diskio.read_speed,diskio.write_speed,kernel.mean_entropy_avail,mem.last_used_percent,mem.mean_active,mem.mean_available_percent,mem.mean_cached,[……] -----------data----------- 2020-03-25 00:00:00,94.</description>
+---------labels----------- date,cpu.mean_usage_idle,cpu.mean_usage_iowait,cpu.mean_usage_softirq,cpu.mean_usage_system,cpu.mean_usage_user,disk.mean_used_percent,diskio.io_time,diskio.mean_iops_in_progress,diskio.read_speed,diskio.write_speed,kernel.mean_entropy_avail,mem.last_used_percent,mem.mean_active,mem.mean_available_percent,mem.mean_cached,[……] -----------data----------- 2020-03-25 00:00:00,94.82029603732626,4.731826456427614,0.008321694948441248,0.141826957129186,0.2920010652943856,7.985156212333378,41.61666666666667,0.3958333333333333,0.0,12834.133333333333,824.6666666666665,16.23554618798877,2337374890.6666665,81.55455767777975,1008762197.3333334,163840.0,9480529237.333334,6116.766666666666,5539.033333333334,1.0,0.8333333333333334,0.0,141.0,[……] [……]  Array E即Edge关系如下：</description>
     </item>
     
     <item>
