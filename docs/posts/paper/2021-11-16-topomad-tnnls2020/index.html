@@ -83,7 +83,7 @@
 
 <p>GraphLSTM的主要思路是将LSTM中的全连接网络之前增加一个GNN，对拓扑信息和指标信息进行融合。</p>
 
-<p><img src="../../../docs/imgs/image-20211117190631965.png" alt="image-20211117190631965" /></p>
+<p><img src="https://raw.githubusercontent.com/zecoo/imgs/master/uPic/image-20211117190631965.png" alt="image-20211117190631965" /></p>
 
 <p>对比一下LSTM的计算公式和融合后的公式，替换了外部输入。也就在之前添加了GNN作为拓扑信息和Metric信息的融合层，融合之后作为标准LSTM的输入。其中： “$∗g$” denotes the graph neural operator and “$∗$” denotes the Hadamard product。</p>
 
@@ -165,5 +165,14 @@ TimeStamp,adservice-76469b5944-9tlwk,adservice-76469b5944-9tlwk,adservice-76469b
     <script src="https://zecoo.github.io/hugo/js/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript" src="https://zecoo.github.io/hugo/js/MathJax.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)']]
+           }
+    });
+</script>
   </body>
 </html>
