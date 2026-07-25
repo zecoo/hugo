@@ -2,8 +2,8 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
-    <meta name="description" content="好记性也要烂笔头">
+    <meta name="generator" content="Hugo 0.164.0">
+    <meta name="description" content="湖北·武汉">
     <title>
         Kubeadm 安装记录 
     </title>
@@ -15,7 +15,15 @@
 </head>
   <body>
     
-    
+    <div class="blog-masthead">
+      <div class="wrapper">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://zecoo.github.io/hugo/">主页</a>
+          <a class="nav-link active" href="https://zecoo.github.io/hugo/posts">归档</a>
+        </nav>
+      </div>
+    </div>
+
 
     
     
@@ -25,103 +33,63 @@
     <div class="container">
       <div class="row">
         <div class="blog-main">
+          <a class="back-link" href="https://zecoo.github.io/hugo/posts">← 返回归档</a>
         	<article class="blog-post">
 			  <header>
-			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">Kubeadm 安装记录</h2></a>
+			    <h2 class="blog-post-title" dir="auto">Kubeadm 安装记录</h2>
 			    <p class="blog-post-meta"><time datetime="2020-04-28T16:37:07+08:00">Tue Apr 28, 2020</time></p>
 			  </header>
-			  
-
-<p>装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。</p>
-
+			  <p>装好的那一瞬间，我感动得要哭了。我现在也算半个k8s运维小能手了吧。</p>
 <p>安装K8s有这几种方法</p>
-
 <ol>
 <li>minikube</li>
 <li>mircok8s</li>
 <li>kubeadm</li>
 </ol>
-
 <p>这三种方法我都用过。minikube在win上以虚拟机的形式运行，挺麻烦的讲道理。microk8s是最友好的方式，解决一个拉镜像的问题，也就不成问题了。kubeadm应该是最麻烦的了。</p>
-
 <p>回归正题，记录整个安装以及填坑的过程。</p>
-
 <p>首先docker要安装上。</p>
-
 <p>然后，kubelet、kubeadm、kubectl、kubernetes-cni一套安装下来。</p>
-
 <p>我现在才看到参考1中的一句话：</p>
-
-<pre><code class="language-shell"># 指定版本否则都会默认安装库中最新版本，会因为彼此依赖的版本不同安装失败
-$ yum install -y kubelet-1.13.1 kubeadm-1.13.1 kubectl-1.13.1   kubernetes-cni-0.6.0
-# 设置开机启动并启动kubelet
-$ systemctl enable kubelet &amp;&amp; systemctl start kubelet
-</code></pre>
-
-<p>看到第一句话了吗？给我大声读几遍！！我就是因为这个，吃了多少亏，搜索多少资料😭。请一定保证你的kubelet、kubeadm、kubectl的版本相同。</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 指定版本否则都会默认安装库中最新版本，会因为彼此依赖的版本不同安装失败</span>
+</span></span><span style="display:flex;"><span>$ yum install -y kubelet-1.13.1 kubeadm-1.13.1 kubectl-1.13.1   kubernetes-cni-0.6.0
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 设置开机启动并启动kubelet</span>
+</span></span><span style="display:flex;"><span>$ systemctl enable kubelet <span style="color:#f92672">&amp;&amp;</span> systemctl start kubelet
+</span></span></code></pre></div><p>看到第一句话了吗？给我大声读几遍！！我就是因为这个，吃了多少亏，搜索多少资料😭。请一定保证你的kubelet、kubeadm、kubectl的版本相同。</p>
 <p>第二步，<code>kubeadm config images list</code>列出所有需要的image，因为国内网络问题嘛，一样的。然后用以下bash脚本安装好，docke images检查一下。</p>
-
-<pre><code class="language-bash">for  i  in  `kubeadm config images list`;  do
-    imageName=${i#k8s.gcr.io/}
-    docker pull registry.aliyuncs.com/google_containers/$imageName
-    docker tag registry.aliyuncs.com/google_containers/$imageName k8s.gcr.io/$imageName
-    docker rmi registry.aliyuncs.com/google_containers/$imageName
-done;
-</code></pre>
-
-<p>第三步，<code>kubeadm init --pod-network-cidr=10.244.0.0/16</code>初始化kubeadm。这一步最重要的是<code>/etc/kubernetes/admin.conf</code>这个文件。还有后面那个参数，如果不加上，就会遇到新的坑哦～</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span>  i  in  <span style="color:#e6db74">`</span>kubeadm config images list<span style="color:#e6db74">`</span>;  <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    imageName<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>i#k8s.gcr.io/<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>    docker pull registry.aliyuncs.com/google_containers/$imageName
+</span></span><span style="display:flex;"><span>    docker tag registry.aliyuncs.com/google_containers/$imageName k8s.gcr.io/$imageName
+</span></span><span style="display:flex;"><span>    docker rmi registry.aliyuncs.com/google_containers/$imageName
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>;
+</span></span></code></pre></div><p>第三步，<code>kubeadm init --pod-network-cidr=10.244.0.0/16</code>初始化kubeadm。这一步最重要的是<code>/etc/kubernetes/admin.conf</code>这个文件。还有后面那个参数，如果不加上，就会遇到新的坑哦～</p>
 <p>init结束之后，不要忘了提示的三行命令，不然会报错：</p>
-
-<pre><code class="language-shell">Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of &quot;crypto/rsa: verification error&quot; while trying to verify candidate authority certificate &quot;kubernetes&quot;)
-</code></pre>
-
-<pre><code class="language-shell">mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-</code></pre>
-
-<p>第四步，到了这里，我们发现所有的pod都运行挺好的，除了coredns。但是镜像也都下载好了，为什么宁就比较特殊呢？然后我describe了一下，发现和flannel有关。</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Unable to connect to the server: x509: certificate signed by unknown authority <span style="color:#f92672">(</span>possibly because of <span style="color:#e6db74">&#34;crypto/rsa: verification error&#34;</span> <span style="color:#66d9ef">while</span> trying to verify candidate authority certificate <span style="color:#e6db74">&#34;kubernetes&#34;</span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir -p $HOME/.kube
+</span></span><span style="display:flex;"><span>sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+</span></span><span style="display:flex;"><span>sudo chown <span style="color:#66d9ef">$(</span>id -u<span style="color:#66d9ef">)</span>:<span style="color:#66d9ef">$(</span>id -g<span style="color:#66d9ef">)</span> $HOME/.kube/config
+</span></span></code></pre></div><p>第四步，到了这里，我们发现所有的pod都运行挺好的，除了coredns。但是镜像也都下载好了，为什么宁就比较特殊呢？然后我describe了一下，发现和flannel有关。</p>
 <p>coredns的报错呢：</p>
-
-<pre><code class="language-shell">0/1 nodes are available: 1 node(s) had taints that the pod didn't tolerate.
-</code></pre>
-
-<p>所以啦，就是要先把flannel给部署好。注意版本问题。</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>0/1 nodes are available: <span style="color:#ae81ff">1</span> node<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> had taints that the pod didn<span style="color:#960050;background-color:#1e0010">&#39;</span>t tolerate.
+</span></span></code></pre></div><p>所以啦，就是要先把flannel给部署好。注意版本问题。</p>
 <blockquote>
 <p>版本1.13.1使用的是Doc/github上flannel-old.yml文件。而1.17以上版本用的是flannel.yml文件。</p>
 </blockquote>
-
 <p>这里还有一个坑，flannel是quay.io库的镜像，国内也是访问不到的，describe flannel pod就能看到该下载哪个版本的flannel镜像。还有刚才提到的init后面的参数，如果没有添加这个参数的话，flannel部署也会出问题的😊。好的，flannel解决掉，coredns也就马上部署好了。</p>
-
 <p>最后一套检查一下</p>
-
-<pre><code class="language-shell">kubectl get node
-kubectl get sc
-kubectl get pod --all-namespaces
-</code></pre>
-
-<h2 id="参考">参考</h2>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl get node
+</span></span><span style="display:flex;"><span>kubectl get sc
+</span></span><span style="display:flex;"><span>kubectl get pod --all-namespaces
+</span></span></code></pre></div><h2 id="参考">参考</h2>
 <p><a href="https://blog.csdn.net/zjcjava/article/details/99317569">https://blog.csdn.net/zjcjava/article/details/99317569</a> （我按照这篇来装的！）</p>
-
 <p><a href="https://blog.csdn.net/woay2008/article/details/93250137">https://blog.csdn.net/woay2008/article/details/93250137</a> （三行命令没敲能把人愁死）</p>
-
 <p><a href="https://www.cnblogs.com/gscienty/p/10586118.html">https://www.cnblogs.com/gscienty/p/10586118.html</a> （简洁版安装过程）</p>
-
 <p><a href="https://www.kubernetes.org.cn/5462.html">https://www.kubernetes.org.cn/5462.html</a> （带dashboard的教程）</p>
-
 <p><a href="https://www.cnblogs.com/caibao666/p/11664726.html">https://www.cnblogs.com/caibao666/p/11664726.html</a> （flannel的那个坑）</p>
-
 <p><a href="https://blog.csdn.net/u012547633/article/details/103846564">https://blog.csdn.net/u012547633/article/details/103846564</a> （另一个也喜欢记录的小伙伴）</p>
-
 <p><a href="https://www.cnblogs.com/qq952693358/p/6537846.html">https://www.cnblogs.com/qq952693358/p/6537846.html</a> （E: Unable to lock directory /var/lib/apt/lists/ 错误）</p>
-
 <p><a href="https://learnku.com/articles/29209">https://learnku.com/articles/29209</a> （k8s-pull.sh）</p>
-
 <p><a href="https://blog.csdn.net/BigData_Mining/article/details/88683459">https://blog.csdn.net/BigData_Mining/article/details/88683459</a> (taint node)</p>
 
 			</article>

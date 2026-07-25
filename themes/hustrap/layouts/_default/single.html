@@ -1,13 +1,25 @@
 {{ define "main" }}
 
+{{ block "masthead" . }}
+    <div class="blog-masthead">
+      <div class="wrapper">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="{{ .Site.BaseURL | absLangURL }}">主页</a>
+          <a class="nav-link {{ if not .IsHome }}active{{ end }}" href="{{ .Site.BaseURL }}posts">归档</a>
+        </nav>
+      </div>
+    </div>
+{{ end }}
+
 {{ block "body" . }}
 {{ $dateFormat := default "Mon Jan 2, 2006" (index .Site.Params "date_format") }}
     <div class="container">
       <div class="row">
         <div class="blog-main">
+          <a class="back-link" href="{{ .Site.BaseURL }}posts">← 返回归档</a>
         	<article class="blog-post">
 			  <header>
-			    <a href="{{ .Site.BaseURL }}"><h2 class="blog-post-title" dir="auto">{{ .Title }}</h2></a>
+			    <h2 class="blog-post-title" dir="auto">{{ .Title }}</h2>
 			    <p class="blog-post-meta"><time {{ .Date.Format "2006-01-02T15:04:05Z07:00" | printf "datetime=%q" | safeHTMLAttr }}>{{ .Date.Format $dateFormat }}</time></p>
 			  </header>
 			  {{ .Content }}

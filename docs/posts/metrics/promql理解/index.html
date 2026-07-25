@@ -2,8 +2,8 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
-    <meta name="description" content="好记性也要烂笔头">
+    <meta name="generator" content="Hugo 0.164.0">
+    <meta name="description" content="湖北·武汉">
     <title>
         PromQL理解 
     </title>
@@ -15,7 +15,15 @@
 </head>
   <body>
     
-    
+    <div class="blog-masthead">
+      <div class="wrapper">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://zecoo.github.io/hugo/">主页</a>
+          <a class="nav-link active" href="https://zecoo.github.io/hugo/posts">归档</a>
+        </nav>
+      </div>
+    </div>
+
 
     
     
@@ -25,37 +33,22 @@
     <div class="container">
       <div class="row">
         <div class="blog-main">
+          <a class="back-link" href="https://zecoo.github.io/hugo/posts">← 返回归档</a>
         	<article class="blog-post">
 			  <header>
-			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">PromQL理解</h2></a>
+			    <h2 class="blog-post-title" dir="auto">PromQL理解</h2>
 			    <p class="blog-post-meta"><time datetime="2020-05-08T00:00:00+08:00">Fri May 8, 2020</time></p>
 			  </header>
-			  
-
-<h2 id="期待数据">期待数据</h2>
-
+			  <h2 id="期待数据">期待数据</h2>
 <p>10min内的请求数（sum）</p>
-
-<pre><code class="language-shell">istio_requests_total{destination_service_name=&quot;productpage&quot;}
-</code></pre>
-
-<p>10min内的请求数增长率（rate）</p>
-
-<pre><code class="language-shell">rate(istio_requests_total{destination_app=&quot;productpage&quot;}[10m])
-</code></pre>
-
-<p>10min内的响应时间P90（quantile）</p>
-
-<pre><code class="language-shell">histogram_quantile(0.90, sum(rate(istio_request_duration_milliseconds_bucket{destination_app=&quot;productpage&quot;}[10m])) by(le))
-</code></pre>
-
-<p>10min内的响应时间增长率（rate）</p>
-
-<pre><code class="language-shell">rate(istio_request_duration_milliseconds_bucket{destination_app=&quot;productpage&quot;}[10m])
-</code></pre>
-
-<h2 id="参考">参考</h2>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>istio_requests_total<span style="color:#f92672">{</span>destination_service_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;productpage&#34;</span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>10min内的请求数增长率（rate）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>rate<span style="color:#f92672">(</span>istio_requests_total<span style="color:#f92672">{</span>destination_app<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;productpage&#34;</span><span style="color:#f92672">}[</span>10m<span style="color:#f92672">])</span>
+</span></span></code></pre></div><p>10min内的响应时间P90（quantile）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>histogram_quantile<span style="color:#f92672">(</span>0.90, sum<span style="color:#f92672">(</span>rate<span style="color:#f92672">(</span>istio_request_duration_milliseconds_bucket<span style="color:#f92672">{</span>destination_app<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;productpage&#34;</span><span style="color:#f92672">}[</span>10m<span style="color:#f92672">]))</span> by<span style="color:#f92672">(</span>le<span style="color:#f92672">))</span>
+</span></span></code></pre></div><p>10min内的响应时间增长率（rate）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>rate<span style="color:#f92672">(</span>istio_request_duration_milliseconds_bucket<span style="color:#f92672">{</span>destination_app<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;productpage&#34;</span><span style="color:#f92672">}[</span>10m<span style="color:#f92672">])</span>
+</span></span></code></pre></div><h2 id="参考">参考</h2>
 <p><a href="https://www.zhihu.com/question/380615839">https://www.zhihu.com/question/380615839</a> （Prom时区UTC没法改）</p>
 
 			</article>

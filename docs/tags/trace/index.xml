@@ -1,36 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>trace on 暴躁老农</title>
-    <link>https://zecoo.github.io/hugo/tags/trace/</link>
-    <description>Recent content in trace on 暴躁老农</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 04 Jun 2020 00:00:00 +0800</lastBuildDate>
-    
-	<atom:link href="https://zecoo.github.io/hugo/tags/trace/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Service Dependecy Graph Building</title>
-      <link>https://zecoo.github.io/hugo/posts/paper/service-dependecy-graph-building/</link>
-      <pubDate>Thu, 04 Jun 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/paper/service-dependecy-graph-building/</guid>
-      <description>开始之前 正式开始之前我问自己这样几个问题
- kiali是trace的一个可视化工具，那么我怎么才能拿到trace的原始数据呢？ istio的数据也都是prom给的，prom的metric之前已经看过了。怎么从prom的metric构造一个trace处理呢？  终于在今天得到了想要的答案：
-首先，Prometheus和tracing没有关系。其次，trace的原始数据是jaeger提供的，具体是opentracing标准的链路追踪手段。
-OK，继续深入吧。
-Jaeger数据存储 关于agent怎么上报span，collector如何管理span我先不关心。我现在立刻马上想要拿到trace的原始数据，最起码是能让我能二次开发的那种数据。
-数据一般呢，是存在数据库里的，而我的pod里并没有数据库相关的，那数据存在哪里呢？然后我就搜到了这样一个信息：
- Istio中Jaeger的数据临时存在内存中
- 既然这样，Jaeger UI又是怎么抽取数据并graph展示的？会不会有Prometheus类似的api接口暴露出来？果然功夫不负有心人，让我找到了Jaeger的API：
-Jaeger trace info Trace API 先提下Jaeger提供的接口，因为这个东西我曾经上Jaeger官网，告诉我/traces这个接口是获取trace信息的API。看看原文怎么说的哈：
- Jaeger UI communicates with Jaeger Query Service via JSON API. For example, a trace can be retrieved via GET request to https://jaeger-query:16686/api/traces/{trace-id-hex-string}. This JSON API is intentionally undocumented and subject to change.
- 但是我只顾着一个劲撞南墙，基础概念都没有打好就老想着找捷径。恰好今天静下心来好好想了一下一个trace是什么，拿istio的productpage来说，一次访问网址http://istio-gateway:port/productpage的过程，其实就是一个完整的trace。
-回到官网提供的API，也就是说我知道了trace-id，那么trace的信息就能得到了呀。而trace-id在UI里已经提供了。
-Trace meta data 回到Jaeger UI，点进一个trace，查看JSON格式的数据，其实就是我需要的数据。详细来看看这个json数据里的span都有哪些内容：
-{ &amp;quot;data&amp;quot;: [ { &amp;quot;traceID&amp;quot;: &amp;quot;aeb825de4ba82901d71fecb349727885&amp;quot;, &amp;quot;spans&amp;quot;: [ { &amp;quot;traceID&amp;quot;: &amp;quot;aeb825de4ba82901d71fecb349727885&amp;quot;, &amp;quot;spanID&amp;quot;: &amp;quot;22958c27bcc7f900&amp;quot;, &amp;quot;operationName&amp;quot;: &amp;quot;details.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Trace on 张泽锟</title>
+		<link>https://zecoo.github.io/hugo/tags/trace/</link>
+		<description>Recent content in Trace on 张泽锟</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 04 Jun 2020 00:00:00 +0800</lastBuildDate>
+		
+			<atom:link href="https://zecoo.github.io/hugo/tags/trace/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Service Dependecy Graph Building</title>
+				<link>https://zecoo.github.io/hugo/posts/paper/service-dependecy-graph-building/</link>
+				<pubDate>Thu, 04 Jun 2020 00:00:00 +0800</pubDate>
+				<guid>https://zecoo.github.io/hugo/posts/paper/service-dependecy-graph-building/</guid>
+				<description>&lt;h2 id=&#34;开始之前&#34;&gt;开始之前&lt;/h2&gt;&#xA;&lt;p&gt;正式开始之前我问自己这样几个问题&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;em&gt;kiali是trace的一个可视化工具，那么我怎么才能拿到trace的原始数据呢？&lt;/em&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;istio的数据也都是prom给的，prom的metric之前已经看过了。怎么从prom的metric构造一个trace处理呢？&lt;/em&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;终于在今天得到了想要的答案：&lt;/p&gt;&#xA;&lt;p&gt;首先，Prometheus和tracing没有关系。其次，trace的原始数据是jaeger提供的，具体是opentracing标准的链路追踪手段。&lt;/p&gt;&#xA;&lt;p&gt;OK，继续深入吧。&lt;/p&gt;&#xA;&lt;h2 id=&#34;jaeger数据存储&#34;&gt;Jaeger数据存储&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://upload-images.jianshu.io/upload_images/6338598-43e67ff8256f3ec7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200&#34; alt=&#34;jaeger&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;关于agent怎么上报span，collector如何管理span我先不关心。我现在立刻马上想要拿到trace的原始数据，最起码是能让我能二次开发的那种数据。&lt;/p&gt;&#xA;&lt;p&gt;数据一般呢，是存在数据库里的，而我的pod里并没有数据库相关的，那数据存在哪里呢？然后我就搜到了这样一个信息：&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Istio中Jaeger的数据临时存在内存中&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;既然这样，Jaeger UI又是怎么抽取数据并graph展示的？会不会有Prometheus类似的api接口暴露出来？果然功夫不负有心人，让我找到了Jaeger的API：&lt;/p&gt;&#xA;&lt;h2 id=&#34;jaeger-trace-info&#34;&gt;Jaeger trace info&lt;/h2&gt;&#xA;&lt;h3 id=&#34;trace-api&#34;&gt;Trace API&lt;/h3&gt;&#xA;&lt;p&gt;先提下Jaeger提供的接口，因为这个东西我曾经上Jaeger官网，告诉我&lt;code&gt;/traces&lt;/code&gt;这个接口是获取trace信息的API。看看原文怎么说的哈：&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Jaeger UI communicates with Jaeger Query Service via JSON API. For example, a trace can be retrieved via GET request to &lt;code&gt;https://jaeger-query:16686/api/traces/{trace-id-hex-string}&lt;/code&gt;. This JSON API is intentionally undocumented and subject to change.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;但是我只顾着一个劲撞南墙，基础概念都没有打好就老想着找捷径。恰好今天静下心来好好想了一下一个trace是什么，拿istio的productpage来说，一次访问网址&lt;code&gt;http://istio-gateway:port/productpage&lt;/code&gt;的过程，其实就是一个完整的trace。&lt;/p&gt;&#xA;&lt;p&gt;回到官网提供的API，也就是说我知道了trace-id，那么trace的信息就能得到了呀。而trace-id在UI里已经提供了。&lt;/p&gt;&#xA;&lt;h3 id=&#34;trace-meta-data&#34;&gt;Trace meta data&lt;/h3&gt;&#xA;&lt;p&gt;回到Jaeger UI，点进一个trace，查看JSON格式的数据，其实就是我需要的数据。详细来看看这个json数据里的span都有哪些内容：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;data&amp;#34;&lt;/span&gt;: [&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;traceID&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;aeb825de4ba82901d71fecb349727885&amp;#34;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;spans&amp;#34;&lt;/span&gt;: [&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;traceID&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;aeb825de4ba82901d71fecb349727885&amp;#34;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;spanID&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;22958c27bcc7f900&amp;#34;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;operationName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;details.default.svc.cluster.local:9080/*&amp;#34;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;references&amp;#34;&lt;/span&gt;: [&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;refType&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;CHILD_OF&amp;#34;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;traceID&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;aeb825de4ba82901d71fecb349727885&amp;#34;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;spanID&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;3a4e71ebf338bd17&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          ],&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;startTime&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1591240276462724&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;duration&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;40881&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tags&amp;#34;&lt;/span&gt;: [],&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;logs&amp;#34;&lt;/span&gt;: [],&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;processID&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;p3&amp;#34;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;warnings&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ],&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;],&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中我最关系的是“references”里面的“refType”，CHILD_OF这种关系代表span和span之间的从属关系。举个例子：意味着我访问productpage，会连带访问detail和review两个微服务，也就是说后面两个是前者的child，那么微服务之间的调用关系图就可以构建出来了。&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

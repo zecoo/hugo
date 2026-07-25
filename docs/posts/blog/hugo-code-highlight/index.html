@@ -2,8 +2,8 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
-    <meta name="description" content="好记性也要烂笔头">
+    <meta name="generator" content="Hugo 0.164.0">
+    <meta name="description" content="湖北·武汉">
     <title>
         Hugo添加代码高亮 
     </title>
@@ -15,7 +15,15 @@
 </head>
   <body>
     
-    
+    <div class="blog-masthead">
+      <div class="wrapper">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://zecoo.github.io/hugo/">主页</a>
+          <a class="nav-link active" href="https://zecoo.github.io/hugo/posts">归档</a>
+        </nav>
+      </div>
+    </div>
+
 
     
     
@@ -25,35 +33,25 @@
     <div class="container">
       <div class="row">
         <div class="blog-main">
+          <a class="back-link" href="https://zecoo.github.io/hugo/posts">← 返回归档</a>
         	<article class="blog-post">
 			  <header>
-			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">Hugo添加代码高亮</h2></a>
+			    <h2 class="blog-post-title" dir="auto">Hugo添加代码高亮</h2>
 			    <p class="blog-post-meta"><time datetime="2020-05-09T00:00:00+08:00">Sat May 9, 2020</time></p>
 			  </header>
-			  
-
-<p>方法：用hightlight.js做高亮。</p>
-
+			  <p>方法：用hightlight.js做高亮。</p>
 <p>针对不同的Hugo主题，应该有不同的思路。但是基本思路还是：</p>
-
 <ol>
 <li>head里添加css</li>
 <li>body中添加两个“script“元素第一个是js文件，第二个是loadjs</li>
 </ol>
-
 <p>我用的是Hugo的contrast主题，打开文件夹theme - layout，找到博文的base.html，打开在里面添加基本思路中的文件。我仿照代码里本来有的目录，简单修改一下就可以了。（第二行是我添加的highlight css文件）</p>
-
-<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ .Site.BaseURL }}css/index.css&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ .Site.BaseURL }}css/github.css&quot;&gt;
-</code></pre>
-
-<p>css的选择可以到GitHub上hightlight.js的src/style下面找。</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Site.BaseURL }}css/index.css&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Site.BaseURL }}css/github.css&#34;</span>&gt;
+</span></span></code></pre></div><p>css的选择可以到GitHub上hightlight.js的src/style下面找。</p>
 <p>js文件，用官网上的cdn就可以。或者直接下载下来。</p>
-
 <h2 id="参考">参考</h2>
-
-<p><a href="https://orianna-zzo.github.io/sci-tech/2018-01/blog养成记3-hugo的语法高亮配置/#使用highlight-shortcode进行高亮">https://orianna-zzo.github.io/sci-tech/2018-01/blog养成记3-hugo的语法高亮配置/#使用highlight-shortcode进行高亮</a></p>
+<p><a href="https://orianna-zzo.github.io/sci-tech/2018-01/blog">https://orianna-zzo.github.io/sci-tech/2018-01/blog</a>养成记3-hugo的语法高亮配置/#使用highlight-shortcode进行高亮</p>
 
 			</article>
         </div> 

@@ -2,8 +2,8 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
-    <meta name="description" content="好记性也要烂笔头">
+    <meta name="generator" content="Hugo 0.164.0">
+    <meta name="description" content="湖北·武汉">
     <title>
         Meta Metrics 
     </title>
@@ -15,7 +15,15 @@
 </head>
   <body>
     
-    
+    <div class="blog-masthead">
+      <div class="wrapper">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://zecoo.github.io/hugo/">主页</a>
+          <a class="nav-link active" href="https://zecoo.github.io/hugo/posts">归档</a>
+        </nav>
+      </div>
+    </div>
+
 
     
     
@@ -25,84 +33,72 @@
     <div class="container">
       <div class="row">
         <div class="blog-main">
+          <a class="back-link" href="https://zecoo.github.io/hugo/posts">← 返回归档</a>
         	<article class="blog-post">
 			  <header>
-			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">Meta Metrics</h2></a>
+			    <h2 class="blog-post-title" dir="auto">Meta Metrics</h2>
 			    <p class="blog-post-meta"><time datetime="2020-05-07T00:00:00+08:00">Thu May 7, 2020</time></p>
 			  </header>
-			  
-
-<p>siege一分钟压测最后给出的统计数据：</p>
-
-<pre><code class="language-shell">Lifting the server siege...
-Transactions:		         439 hits
-Availability:		       51.83 %
-Elapsed time:		       59.33 secs
-Data transferred:	        8.47 MB
-Response time:		        9.88 secs
-Transaction rate:	        7.40 trans/sec
-Throughput:		        0.14 MB/sec
-Concurrency:		       73.10
-Successful transactions:         439
-Failed transactions:	         408
-Longest transaction:	       56.69
-Shortest transaction:	        0.13
-</code></pre>
-
-<p>istio Envoy的access log：</p>
-
-<pre><code class="language-shell">【START_TIME】[2020-05-06T09:32:24.488Z] 
-【METHOD】&quot;GET 
-【PATH】/flasgger_static/swagger-ui-bundle.js 
-【PROTOCOL】HTTP/1.1&quot; 
-【REPONSE CODE】200 - &quot;-&quot; &quot;-&quot; 0 1048149 261 225 
-【FORWARD_FOR】&quot;-&quot; 
-【AGENT】&quot;Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.5&quot; 
-【REQUEST_ID】&quot;51b45953-9ede-9390-b8b5-162247165a5b&quot; 
-【AUTHORITY】&quot;10.108.208.232:8000&quot; 
-【HOST】&quot;127.0.0.1:80&quot; 
-【SERVICE】inbound|8000|http|httpbin.default.svc.cluster.local
-【CLUSTER_IP】127.0.0.1:43000 10.244.0.67:80 10.244.0.1:10504 - 
-【APP】default
-</code></pre>
-
-<p>Prom关于duration的metric：</p>
-
-<pre><code class="language-shell">&quot;metric&quot;:{
-	&quot;__name__&quot;:&quot;istio_request_duration_milliseconds_bucket&quot;,
-	&quot;connection_security_policy&quot;:&quot;unknown&quot;,
-	&quot;destination_app&quot;:&quot;productpage&quot;,
-	&quot;destination_canonical_revision&quot;:&quot;v1&quot;,
-	&quot;destination_canonical_service&quot;:&quot;productpage&quot;,
-	&quot;destination_service&quot;:&quot;productpage.default.svc.cluster.local&quot;,
-	&quot;destination_service_name&quot;:&quot;productpage&quot;,
-	&quot;destination_service_namespace&quot;:&quot;default&quot;,
-	&quot;destination_version&quot;:&quot;v1&quot;,
-	&quot;destination_workload&quot;:&quot;productpage-v1&quot;,
-	&quot;destination_workload_namespace&quot;:&quot;default&quot;,
-	&quot;instance&quot;:&quot;10.244.0.14:15090&quot;,
-	&quot;job&quot;:&quot;envoy-stats&quot;,
-	&quot;le&quot;:&quot;6000&quot;,
-	&quot;namespace&quot;:&quot;default&quot;,
-	&quot;pod_name&quot;:&quot;ratings-v1-6f855c5fff-wsqpx&quot;,
-	&quot;reporter&quot;:&quot;source&quot;,
-	&quot;request_protocol&quot;:&quot;http&quot;,
-	&quot;response_code&quot;:&quot;200&quot;,
-	&quot;response_flags&quot;:&quot;-&quot;,a
-	&quot;source_app&quot;:&quot;ratings&quot;,
-	&quot;source_canonical_revision&quot;:&quot;v1&quot;,
-	&quot;source_canonical_service&quot;:&quot;ratings&quot;,
-	&quot;source_principal&quot;:&quot;spiffe://cluster.local/ns/default/sa/bookinfo-ratings&quot;,
-	&quot;source_version&quot;:&quot;v1&quot;,
-	&quot;source_workload&quot;:&quot;ratings-v1&quot;,
-	&quot;source_workload_namespace&quot;:&quot;default&quot;},
-	&quot;values&quot;:[[1588835634.769,&quot;2&quot;],[1588835649.769,&quot;2&quot;],[1588835664.769,&quot;2&quot;],[1588835679.769,&quot;2&quot;]]
-},
-
-</code></pre>
-
-<h2 id="参考">参考</h2>
-
+			  <p>siege一分钟压测最后给出的统计数据：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Lifting the server siege...
+</span></span><span style="display:flex;"><span>Transactions:		         <span style="color:#ae81ff">439</span> hits
+</span></span><span style="display:flex;"><span>Availability:		       51.83 %
+</span></span><span style="display:flex;"><span>Elapsed time:		       59.33 secs
+</span></span><span style="display:flex;"><span>Data transferred:	        8.47 MB
+</span></span><span style="display:flex;"><span>Response time:		        9.88 secs
+</span></span><span style="display:flex;"><span>Transaction rate:	        7.40 trans/sec
+</span></span><span style="display:flex;"><span>Throughput:		        0.14 MB/sec
+</span></span><span style="display:flex;"><span>Concurrency:		       73.10
+</span></span><span style="display:flex;"><span>Successful transactions:         <span style="color:#ae81ff">439</span>
+</span></span><span style="display:flex;"><span>Failed transactions:	         <span style="color:#ae81ff">408</span>
+</span></span><span style="display:flex;"><span>Longest transaction:	       56.69
+</span></span><span style="display:flex;"><span>Shortest transaction:	        0.13
+</span></span></code></pre></div><p>istio Envoy的access log：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>【START_TIME】<span style="color:#f92672">[</span>2020-05-06T09:32:24.488Z<span style="color:#f92672">]</span> 
+</span></span><span style="display:flex;"><span>【METHOD】<span style="color:#e6db74">&#34;GET 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">【PATH】/flasgger_static/swagger-ui-bundle.js 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">【PROTOCOL】HTTP/1.1&#34;</span> 
+</span></span><span style="display:flex;"><span>【REPONSE CODE】200 - <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1048149</span> <span style="color:#ae81ff">261</span> <span style="color:#ae81ff">225</span> 
+</span></span><span style="display:flex;"><span>【FORWARD_FOR】<span style="color:#e6db74">&#34;-&#34;</span> 
+</span></span><span style="display:flex;"><span>【AGENT】<span style="color:#e6db74">&#34;Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.5&#34;</span> 
+</span></span><span style="display:flex;"><span>【REQUEST_ID】<span style="color:#e6db74">&#34;51b45953-9ede-9390-b8b5-162247165a5b&#34;</span> 
+</span></span><span style="display:flex;"><span>【AUTHORITY】<span style="color:#e6db74">&#34;10.108.208.232:8000&#34;</span> 
+</span></span><span style="display:flex;"><span>【HOST】<span style="color:#e6db74">&#34;127.0.0.1:80&#34;</span> 
+</span></span><span style="display:flex;"><span>【SERVICE】inbound|8000|http|httpbin.default.svc.cluster.local
+</span></span><span style="display:flex;"><span>【CLUSTER_IP】127.0.0.1:43000 10.244.0.67:80 10.244.0.1:10504 - 
+</span></span><span style="display:flex;"><span>【APP】default
+</span></span></code></pre></div><p>Prom关于duration的metric：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#e6db74">&#34;metric&#34;</span>:<span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;__name__&#34;</span>:<span style="color:#e6db74">&#34;istio_request_duration_milliseconds_bucket&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;connection_security_policy&#34;</span>:<span style="color:#e6db74">&#34;unknown&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;destination_app&#34;</span>:<span style="color:#e6db74">&#34;productpage&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;destination_canonical_revision&#34;</span>:<span style="color:#e6db74">&#34;v1&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;destination_canonical_service&#34;</span>:<span style="color:#e6db74">&#34;productpage&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;destination_service&#34;</span>:<span style="color:#e6db74">&#34;productpage.default.svc.cluster.local&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;destination_service_name&#34;</span>:<span style="color:#e6db74">&#34;productpage&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;destination_service_namespace&#34;</span>:<span style="color:#e6db74">&#34;default&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;destination_version&#34;</span>:<span style="color:#e6db74">&#34;v1&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;destination_workload&#34;</span>:<span style="color:#e6db74">&#34;productpage-v1&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;destination_workload_namespace&#34;</span>:<span style="color:#e6db74">&#34;default&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;instance&#34;</span>:<span style="color:#e6db74">&#34;10.244.0.14:15090&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;job&#34;</span>:<span style="color:#e6db74">&#34;envoy-stats&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;le&#34;</span>:<span style="color:#e6db74">&#34;6000&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;namespace&#34;</span>:<span style="color:#e6db74">&#34;default&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;pod_name&#34;</span>:<span style="color:#e6db74">&#34;ratings-v1-6f855c5fff-wsqpx&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;reporter&#34;</span>:<span style="color:#e6db74">&#34;source&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;request_protocol&#34;</span>:<span style="color:#e6db74">&#34;http&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;response_code&#34;</span>:<span style="color:#e6db74">&#34;200&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;response_flags&#34;</span>:<span style="color:#e6db74">&#34;-&#34;</span>,a
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;source_app&#34;</span>:<span style="color:#e6db74">&#34;ratings&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;source_canonical_revision&#34;</span>:<span style="color:#e6db74">&#34;v1&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;source_canonical_service&#34;</span>:<span style="color:#e6db74">&#34;ratings&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;source_principal&#34;</span>:<span style="color:#e6db74">&#34;spiffe://cluster.local/ns/default/sa/bookinfo-ratings&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;source_version&#34;</span>:<span style="color:#e6db74">&#34;v1&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;source_workload&#34;</span>:<span style="color:#e6db74">&#34;ratings-v1&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;source_workload_namespace&#34;</span>:<span style="color:#e6db74">&#34;default&#34;</span><span style="color:#f92672">}</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;values&#34;</span>:<span style="color:#f92672">[[</span>1588835634.769,<span style="color:#e6db74">&#34;2&#34;</span><span style="color:#f92672">]</span>,<span style="color:#f92672">[</span>1588835649.769,<span style="color:#e6db74">&#34;2&#34;</span><span style="color:#f92672">]</span>,<span style="color:#f92672">[</span>1588835664.769,<span style="color:#e6db74">&#34;2&#34;</span><span style="color:#f92672">]</span>,<span style="color:#f92672">[</span>1588835679.769,<span style="color:#e6db74">&#34;2&#34;</span><span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>,
+</span></span></code></pre></div><h2 id="参考">参考</h2>
 <p><a href="https://prometheus.io/docs/prometheus/latest/querying/api/">https://prometheus.io/docs/prometheus/latest/querying/api/</a> （curl query获取metric）</p>
 
 			</article>

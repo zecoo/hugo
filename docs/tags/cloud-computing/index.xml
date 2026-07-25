@@ -1,25 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>cloud computing on 暴躁老农</title>
-    <link>https://zecoo.github.io/hugo/tags/cloud-computing/</link>
-    <description>Recent content in cloud computing on 暴躁老农</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0800</lastBuildDate>
-    
-	<atom:link href="https://zecoo.github.io/hugo/tags/cloud-computing/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>云计算雾计算和边缘计算</title>
-      <link>https://zecoo.github.io/hugo/posts/paper/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</link>
-      <pubDate>Mon, 01 Jun 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/paper/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</guid>
-      <description>参考 https://zhuanlan.zhihu.com/p/55937656 （雾计算的特点）
-https://zhuanlan.zhihu.com/p/42066947 （雾计算和边缘计算的区别）
-https://blog.csdn.net/robertsong2004/article/details/52203710 （吸尘器这个例子可以解释什么叫计算）</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Cloud Computing on 张泽锟</title>
+		<link>http://localhost:1313/hugo/tags/cloud-computing/</link>
+		<description>Recent content in Cloud Computing on 张泽锟</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0800</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/hugo/tags/cloud-computing/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>云计算雾计算和边缘计算</title>
+				<link>http://localhost:1313/hugo/posts/paper/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</link>
+				<pubDate>Mon, 01 Jun 2020 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/hugo/posts/paper/%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%BE%E8%AE%A1%E7%AE%97%E5%92%8C%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</guid>
+				<description>&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/55937656&#34;&gt;https://zhuanlan.zhihu.com/p/55937656&lt;/a&gt; （雾计算的特点）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/42066947&#34;&gt;https://zhuanlan.zhihu.com/p/42066947&lt;/a&gt; （雾计算和边缘计算的区别）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/robertsong2004/article/details/52203710&#34;&gt;https://blog.csdn.net/robertsong2004/article/details/52203710&lt;/a&gt; （吸尘器这个例子可以解释什么叫计算）&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

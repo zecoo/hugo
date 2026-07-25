@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>行业研究报告 on 张泽锟</title>
+		<link>https://zecoo.github.io/hugo/categories/%E8%A1%8C%E4%B8%9A%E7%A0%94%E7%A9%B6%E6%8A%A5%E5%91%8A/</link>
+		<description>Recent content in 行业研究报告 on 张泽锟</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 01 Jul 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://zecoo.github.io/hugo/categories/%E8%A1%8C%E4%B8%9A%E7%A0%94%E7%A9%B6%E6%8A%A5%E5%91%8A/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>示例：某行业研究报告</title>
+				<link>https://zecoo.github.io/hugo/hugo/files/%E4%BD%A0%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D.pdf</link>
+				<pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+				<guid>https://zecoo.github.io/hugo/hugo/files/%E4%BD%A0%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D.pdf</guid>
+				<description></description>
+			</item>
+	</channel>
+</rss>

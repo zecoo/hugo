@@ -2,13 +2,13 @@ baseURL: https://zecoo.github.io/hugo/
 theme: hustrap
 publishDir: "docs"
 # theme: contrast-hugo
-title: "暴躁老农"
+title: "张泽锟"
 
 
 params:
   sidebar:
     board: "不会照搬其他博客，感谢提供参考的文章<br><br>有疑问可以联系我：<br>whu22kon[at]foxmail.com"
-  description: "好记性也要烂笔头"
+  description: "湖北·武汉"
 
 menus:
   sidebar:

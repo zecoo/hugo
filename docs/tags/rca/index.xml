@@ -1,116 +1,52 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>RCA on 暴躁老农</title>
-    <link>https://zecoo.github.io/hugo/tags/rca/</link>
-    <description>Recent content in RCA on 暴躁老农</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 18 Jul 2020 00:00:00 +0800</lastBuildDate>
-    
-	<atom:link href="https://zecoo.github.io/hugo/tags/rca/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>microRCA 复现</title>
-      <link>https://zecoo.github.io/hugo/posts/experiment/microrca-%E5%A4%8D%E7%8E%B0/</link>
-      <pubDate>Sat, 18 Jul 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/experiment/microrca-%E5%A4%8D%E7%8E%B0/</guid>
-      <description>istio官网给出的sidecar注入的方法：
-kubectl label namespace sock-shop istio-injection=enabled  检测流量是否进入的promQL：
-histogram_quantile(0.50, sum(irate(istio_request_duration_seconds_bucket{reporter=&amp;quot;source&amp;quot;, destination_workload_namespace=&amp;quot;sock-shop&amp;quot;}[1m])) by (destination_workload, source_workload, le))  复现工作终于取得了第一阶段的胜利，.scv文件的来源都弄清楚了。这就花了我快一周的时间。记录一下踩的坑：
-Locust和Siege Locust的压测比较灵活，我用siege压测的话，单单压一个页面可能还可以满足，但是如果要压多个http接口，甚至还有带header的post，get请求之类的，siege就不能胜任了。
-前期填坑过程 坑一：版本问题 Sock-shop本来自带压测的代码，用的就是Locust。但是由于版本问题，第一，locust的版本是老版本；第二，base64的版本也是老版本，导致basic-auth的header直接不能生成。这就…很难受了。新版本自己看着啃吧。
-Locust也有很多坑，首先是版本的问题，我在网上搜到的资料大多都是1.0版本之前的，而1.0相对于对于之前的版本有很大的变化。我只能根据官网的document硬啃，特别是header的使用。这个坑着实让我填的心塞。
-既然版本有问题，那我换回老版本行不行呢？换了locust的0.14.6版本，依旧是401错误。这就是debug的痛苦吧。
-坑二：Basic-Auth的header login 在sock-shop的client.js里写了有一个xhr.setHttpRequest的东西，需要验证base64加密过的header。
-beforeSend: function (xhr) { xhr.setRequestHeader(&amp;quot;Authorization&amp;quot;, &amp;quot;Basic &amp;quot; + btoa(username + &amp;quot;:&amp;quot; + password)); }  使用排除法缩小debug的范围。我用python原生的request来模拟登录，继续搜索相关内容，然后找到了request.get(url, auth={&amp;quot;username&amp;quot;,&amp;quot;password&amp;quot;})的方法可以通过basic-auth，试了一下果然可以。
-事实证明可能是locust出了问题，我用python自带的request来模拟用户登录是可以成功的。代码如下：
-import requests url = &#39;http://39.100.0.61:30001/login&#39; response = requests.get(url, auth=(&#39;b&#39;,&#39;b&#39;)) print(response.text)  返回值200，内容是：Cookie is set。
-这说明什么问题，说明是我的base64加密出了问题。就出在basic-auth这个header上面，排除了sock-shop的bug。继续搜索之，于是就有了正解：
-Locust模拟带Basic-Auth的header base64旧版本的basic-auth是这样构造的：
-base64string = base64.encodestring(&#39;%s:%s&#39; % (&#39;user&#39;, &#39;password&#39;)).replace(&#39;\n&#39;, &#39;&#39;)  因为版本问题惨遭抛弃。</description>
-    </item>
-    
-    <item>
-      <title>Delta debug MS</title>
-      <link>https://zecoo.github.io/hugo/posts/paper/delta-debug-ms/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/paper/delta-debug-ms/</guid>
-      <description> a triangular tract of sediment deposited at the mouth of a river, typically where it diverges into several outlets.  the fourth letter of the Greek alphabet ( Δ , δ ), transliterated as ‘d.’.  variation of a variable or function.  一组影响系统执行dimensions，高效找出导致错误的deltas。这里delta包括（deployment、enviromental、configurations）  四个dimensions：node、instance、configuration、sequence  node：分布式的服务器，未知性较多  instance：微服务的instance一般都是有状态的，如果没有处理好，相同的instance如果不是同样的状态就会出错。  configuration：docker的配置，k8s的配置，是挺恶心的，万一内存不够，就爆了  sequence：异步的invocation导致错误  微服务settings作为circumstances，就可以用delta bebugging了，db是一种简化和隔离错误案例的方法  Istio是微服务service mesh的？Istio可以部署在k8s里的  delta debugging的作用是找到min的deltas导致错误  controller：delta debugging的位置，是文章核心嗷  scheduler：根据容器状态选择test case去执行。queue，有可用资源就去跑测试  executor：根据所给的circumstances在docker上跑测试用例，返回测试结果  circumstance：4个dimension的组合  delta：两个cir之间的差异  delta db目的：通过最简单cir抽取导致错误的最小delta set  min setting：一个node，一个instance，默认conf（full memory），正确的seq  general setting：一个可能引起错误的cir  表示方法：0表示min setting，1表示general setting  seq的表示方法稍微复杂一点，0表示顺序执行，1表示逆序执行  seq能全覆盖，node、instance numbers可以放低一点要求  If the given failing test case still fails with the simplest circumstance, the failure can be thought to be caused by internal faults of related microservices  我们的目标是找到应用在min cir上导致ftc产生ftr的同时ptc产生ptr的deltas  atomic delta是什么意思？？  we partition the set of deltas X into n equal-sized partitions  13vm each 8-core cpu 24gb memory  36-63 deltas -》 1-2deltas  就是能分出到底是哪种问题  但是有个很重要的点就是要开发再确认bug   </description>
-    </item>
-    
-    <item>
-      <title>Graph-based RCA in SOA and MS</title>
-      <link>https://zecoo.github.io/hugo/posts/paper/graph-based-rca-in-soa-and-ms/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/paper/graph-based-rca-in-soa-and-ms/</guid>
-      <description>Graph-based root cause analysis for service-oriented and microservice architectures
-JSS 2020
-2 RW RCA方法有以下大致分类
- model-based的RCA方法 Spectrum（也可以称之为Classification）方法。有人用ML来做 图的方法  2017年的Sieve，MS-Rank也提到了这篇论文。
-3 Graph-based RCA 举一个Wordpress的例子，如果不做loadbalance，HAProxy的运行缓慢可能是其中某一个服务器负载过大。
-Graph Modules Node：
-Edge：网络连接的对象，例如一次TCP连接的双方
-Attribute：收集到的信息，比如Anomaly、metric和log
-系统有以下几个modules：
-anomalous region module Extractor从system graph（系统的什么图？）中抽取一个子图，也就是anomalous region的子图。对于计算型的资源，选择异常节点周围2跳的所有节点作为子图，见图4。其他情况没提到233
-pattern module 已经被标记为异常的节点，会作为计算相似度的模板。目的是为了对经常出现的异常做一个初始的集合，来避免冷启动的问题。（这里的冷启动是指异常区域没有可以对比相似度的对象）
-similarity module 输入：1. 异常区域（anomaly region） 2. 异常模版（pattern）
-输出：1. 相似度得分 2. 节点对应图（见图5）
-4 Graph Similarity 都是自定义的相似度计算方法，包括两个图的相似度、两个节点的相似度、节点的属性相似度。
-5 Monitoring and Building Graphs Prom做监控，cadvisor和node expoter作为监控agent。
-构建图的过程其实是节点和节点连接的过程，TCP连接就可以构建一个边，由此创建调用图。
-6 Evaluation 场景 不同的场景有不同的异常注入方式
- 面向服务的场景 负载均衡场景 Kafka集群场景 Spark&amp;amp;HDFS场景  异常注入方式  stress做cpu、mem压力异常 连接异常（带宽限制） 负载均衡异常 高并发异常  Precision Training set的构建方式：异常注入的情况可以得到一些region啊，比如我用stress做异常测试，得到微服务m1出现异常，然后把m1周围2跳的节点抽取出来作为region。这就是一个新的pattern。</description>
-    </item>
-    
-    <item>
-      <title>Microscope</title>
-      <link>https://zecoo.github.io/hugo/posts/paper/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/paper/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</guid>
-      <description>Microscope: Pinpoint Performance Issues with Causal Graphs in Micro-service Environments
-ICSOC 2018
-Abstruct 错误定位的论文。通过服务调用关系构建DAG定位错误。
-Introduction 定位有88%的准确性，2020的icws有一篇错误定位论文跟该论文进行过比较。
-benchmark用的是sock shop
-System Overview 三个步骤
- data collection 收集的是两个服务之间的网络连接和SLO metric（应该和SLA差不多） casual graph building 用收集到的数据构建一个casual graph（服务调用关系图？） rank cause inference 根据graph，列出所有root cause候选并排序  System design data collection 需要从“127.0.0.1:port -&amp;gt; 172.80.12.98:port”的调用关系map到“Service A instance1 -&amp;gt; Service B instance 1”
-SLO可以从服务监控软件中获取到服务响应时间
-casual graph building 如果是Service A到Service B的错误定位，1中已经提到了。
-还有一种情况是Service内部instance和instance之间的关系，如果有一个instance占据了所有的cpu利用率，同一个service内的其他instance就不能和其他服务进行通信。本文采用PC-Algorithm构建DAG，一种用概率的方式来解决该问题。（细节需要去看PC-Algorithm的论文）
-rank cause inference 通过一个异常的节点（前端报出的异常节点），遍历该节点下的所有子节点，然后把所有的异常子节点都加入到候选集中。
-那么如何判断一个节点是否是异常节点？
-3sigma interval规则，即正态分布的3sigma，如果一个node的metric落在了99.7%的范围之外，就认为其是abnormal。3sigma interval是多少呢？（后面提了一嘴：“The sample interval in service request latency metrics is 1s.</description>
-    </item>
-    
-    <item>
-      <title>RCA in multitier service</title>
-      <link>https://zecoo.github.io/hugo/posts/paper/rca-in-multitier-service/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/paper/rca-in-multitier-service/</guid>
-      <description>Root Cause Analysis of Anomalies of Multitier Services in Public Clouds
-TON 2018
-读完感觉不像是A类的期刊，Chinglish的情况很严重，相似度的计算实在是不优美，最后baseline挑的也很奇怪。
-IBR 这篇文章里用了一个很贴切的词：tenant，RCA用另一种解释其实就是tenant，也就是之前网易的面试官跟我说的profiling，是因为一个节点Root出现故障，导致和该节点有关的所有节点都变慢了。
-这篇也是在前面会议论文的基础上加了一些内容投的期刊。
-System Arch Anomaly Type 内在因素：服务调用过程中出现的异常
-外在因素：在同一个物理机上的异常导致该物理机上不同的VM的异常
-System 两部分，第一部分构建异常传播图（也是一个DAG），第二部分计算相似度Rank异常节点。
-Graph VCG（VM Communication Graph）用工具PreciseTracer可以获得。
-APG（Anomaly Propagation Graph）
-Root Cause Location 这里面定义的相关度和其他不太一样，Sim(VMi, Rj)，是计算某个VM和某个请求之间的相关度。
-Data Collection  服务响应时间，这里的计算方式是将所有参与一次响应的相关组件的响应时间相加 Utilization，比如CPU、mem等  都是老生常谈了
-Similarity Calculation 依旧是皮尔逊相关系数，不过这个相关度也太复杂了吧？
-R(i, M, R&amp;reg;, ts, te) = cov(Mte(M,i),Tte (R&amp;reg;)􏲊 / σMte (M,i)σTte (R&amp;reg;)
-Random Walk 依旧是Forward、Backward和Self，就是随机游走哪一套
-Evaluation Baseline  RS：Random Select，普通人用排列组合的方式选择 SC：Sudden Change，比较当前metric和一个时间窗口之前的metric的变化，变化最大的那个视为Anomaly DBR：Distance Based Rank，选择最优传播路径，找传播过程花费距离最短的  Evaluation Metric</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>RCA on 张泽锟</title>
+		<link>https://zecoo.github.io/hugo/tags/rca/</link>
+		<description>Recent content in RCA on 张泽锟</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Sat, 18 Jul 2020 00:00:00 +0800</lastBuildDate>
+		
+			<atom:link href="https://zecoo.github.io/hugo/tags/rca/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>microRCA 复现</title>
+				<link>https://zecoo.github.io/hugo/posts/experiment/microrca-%E5%A4%8D%E7%8E%B0/</link>
+				<pubDate>Sat, 18 Jul 2020 00:00:00 +0800</pubDate>
+				<guid>https://zecoo.github.io/hugo/posts/experiment/microrca-%E5%A4%8D%E7%8E%B0/</guid>
+				<description>&lt;p&gt;istio官网给出的sidecar注入的方法：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl label namespace sock-shop istio-injection&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;enabled&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;检测流量是否进入的promQL：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;histogram_quantile&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.50, sum&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;irate&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;istio_request_duration_seconds_bucket&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;reporter&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;source&amp;#34;&lt;/span&gt;, destination_workload_namespace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;sock-shop&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}[&lt;/span&gt;1m&lt;span style=&#34;color:#f92672&#34;&gt;]))&lt;/span&gt; by &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;destination_workload, source_workload, le&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;复现工作终于取得了第一阶段的胜利，&lt;code&gt;.scv&lt;/code&gt;文件的来源都弄清楚了。这就花了我快一周的时间。记录一下踩的坑：&lt;/p&gt;&#xA;&lt;h2 id=&#34;locust和siege&#34;&gt;Locust和Siege&lt;/h2&gt;&#xA;&lt;p&gt;Locust的压测比较灵活，我用siege压测的话，单单压一个页面可能还可以满足，但是如果要压多个http接口，甚至还有带header的post，get请求之类的，siege就不能胜任了。&lt;/p&gt;&#xA;&lt;h2 id=&#34;前期填坑过程&#34;&gt;前期填坑过程&lt;/h2&gt;&#xA;&lt;h3 id=&#34;坑一版本问题&#34;&gt;坑一：版本问题&lt;/h3&gt;&#xA;&lt;p&gt;Sock-shop本来自带压测的代码，用的就是Locust。但是由于版本问题，第一，locust的版本是老版本；第二，base64的版本也是老版本，导致basic-auth的header直接不能生成。这就…很难受了。新版本自己看着啃吧。&lt;/p&gt;&#xA;&lt;p&gt;Locust也有很多坑，首先是版本的问题，我在网上搜到的资料大多都是1.0版本之前的，而1.0相对于对于之前的版本有很大的变化。我只能根据官网的document硬啃，特别是header的使用。这个坑着实让我填的心塞。&lt;/p&gt;&#xA;&lt;p&gt;既然版本有问题，那我换回老版本行不行呢？换了locust的0.14.6版本，依旧是401错误。这就是debug的痛苦吧。&lt;/p&gt;&#xA;&lt;h3 id=&#34;坑二basic-auth的header&#34;&gt;坑二：Basic-Auth的header&lt;/h3&gt;&#xA;&lt;p&gt;login 在sock-shop的client.js里写了有一个xhr.setHttpRequest的东西，需要验证base64加密过的header。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;beforeSend&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;xhr&lt;/span&gt;) {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;xhr&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;setRequestHeader&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Authorization&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Basic &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;btoa&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;username&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;password&lt;/span&gt;));&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用排除法缩小debug的范围。我用python原生的request来模拟登录，继续搜索相关内容，然后找到了&lt;code&gt;request.get(url, auth={&amp;quot;username&amp;quot;,&amp;quot;password&amp;quot;})&lt;/code&gt;的方法可以通过basic-auth，试了一下果然可以。&lt;/p&gt;&#xA;&lt;p&gt;事实证明可能是locust出了问题，我用python自带的request来模拟用户登录是可以成功的。代码如下：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; requests&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;url &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;http://39.100.0.61:30001/login&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;response &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; requests&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(url, auth&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(response&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;text)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;返回值200，内容是：Cookie is set。&lt;/p&gt;&#xA;&lt;p&gt;这说明什么问题，说明是我的base64加密出了问题。就出在basic-auth这个header上面，排除了sock-shop的bug。继续搜索之，于是就有了正解：&lt;/p&gt;&#xA;&lt;h3 id=&#34;locust模拟带basic-auth的header&#34;&gt;Locust模拟带Basic-Auth的header&lt;/h3&gt;&#xA;&lt;p&gt;base64旧版本的basic-auth是这样构造的：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;base64string &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; base64&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;encodestring(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;))&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;replace(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;因为版本问题惨遭抛弃。&lt;/p&gt;&#xA;&lt;p&gt;base64新版本靠我自己摸索，这里花费的时间是最多的，现在想想主要是因为自己没有查看两个内容：第一，basic-auth的格式要求，最好是能看个示例；第二，base64的新版本的用法也没有看官方介绍，故而格式一直是错误的。&lt;/p&gt;&#xA;&lt;p&gt;正确的base64新版本的auth方法是这样的：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;string &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; string&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;encode()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;base64string &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; base64&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;b64encode(string)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最重要的是最后还有一个decode的过程。那么没有encode和decode到底有多大差别？&lt;/p&gt;&#xA;&lt;h3 id=&#34;encode和decode&#34;&gt;Encode和Decode&lt;/h3&gt;&#xA;&lt;p&gt;encode呢，主要是base64的API只接受byte类型的输入，那么就必须encode成二进制的格式。base64的输出也是二进制的格式，代码里输出看一下是这样的：&lt;code&gt;b&#39;Yjpi&lt;/code&gt;（&amp;lsquo;b&amp;rsquo;,&amp;lsquo;b&amp;rsquo;的base64加密结果），而我一开始错就错在直接把这个输出的内容丢进了header里。然鹅header里需要的不是二进制的内容，而是一个string类型的加密结果。也就是说要decode一下。把&lt;code&gt;b&#39;Yjpi&lt;/code&gt;的结果decode之后是&lt;code&gt;Yjpi&lt;/code&gt;看起来好像没太大差别，但对于电脑来说就是天壤之别。&lt;/p&gt;&#xA;&lt;p&gt;到这里呢，debug取得了重大突破，我开心得甚至想跳起来。然而，又有新的坑着我&lt;/p&gt;&#xA;&lt;h3 id=&#34;坑三sock-shop登录出大问题&#34;&gt;坑三：Sock-Shop登录出大问题&lt;/h3&gt;&#xA;&lt;p&gt;下订单order的过程，需要先填写address和card信息。但是怪就怪在一旦我把card信息填写之后，订单是可以下了，但是登录就出现密码错误的情况。这找谁说理去？这个坑我没心思去细看了，可能是机子抽风，我把card全填写成数字，bug没有出现，我简直烧高香了。&lt;/p&gt;&#xA;&lt;p&gt;到这里，你以为坑结束了吗？哈哈哈，还没有。现在想想我真的太强了，debug能力一流。就是心态不太好。&lt;/p&gt;&#xA;&lt;h3 id=&#34;坑四promql的query和query_range&#34;&gt;坑四：PromQL的query和query_range&lt;/h3&gt;&#xA;&lt;p&gt;microRCA源代码里用的是query，我得到的&lt;code&gt;.scv&lt;/code&gt;文件只有最后一个时刻的数据。这不对呀，150s的时间，每隔5s取一次数据，应该有30个时刻的数据才对呀。故搜索之，发现需要用的是query_range这个API，用于获取一段时间间隔内的数据，而query这个API是获取某个时刻的数据。看看区别吧：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;prom_url &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;http://39.100.0.61:32685/api/v1/query_range&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;prom_url &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;http://39.100.0.61:32685/api/v1/query&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;用query得到的，就是value（下面的示例）；用query_range得到的，就是values&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[{&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;metric&amp;#39;:&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;{&amp;#39;destination_workload&amp;#39;:&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;orders-db&amp;#39;,&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;source_workload&amp;#39;:&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;orders&amp;#39;&lt;/span&gt;}, &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;value&amp;#39;:&lt;/span&gt; [&lt;span style=&#34;color:#ae81ff&#34;&gt;1594888889.714&lt;/span&gt;, &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0.03426666666666667&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;]&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;}&lt;/span&gt;, &#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;后期填坑过程&#34;&gt;后期填坑过程&lt;/h2&gt;&#xA;&lt;p&gt;坑还没填完呢宝贝儿&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Delta debug MS</title>
+				<link>https://zecoo.github.io/hugo/posts/paper/delta-debug-ms/</link>
+				<pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
+				<guid>https://zecoo.github.io/hugo/posts/paper/delta-debug-ms/</guid>
+				<description>&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;a triangular tract of sediment deposited at the mouth of a river, typically where it diverges into several outlets. &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;the fourth letter of the Greek alphabet ( Δ , δ ), transliterated as ‘d.’. &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;variation of a variable or function. &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;一组影响系统执行dimensions，高效找出导致错误的deltas。这里delta包括（deployment、enviromental、configurations） &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;四个dimensions：node、instance、configuration、sequence &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;node：分布式的服务器，未知性较多 &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;instance：微服务的instance一般都是有状态的，如果没有处理好，相同的instance如果不是同样的状态就会出错。 &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;configuration：docker的配置，k8s的配置，是挺恶心的，万一内存不够，就爆了 &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;sequence：异步的invocation导致错误 &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;微服务settings作为circumstances，就可以用delta bebugging了，db是一种简化和隔离错误案例的方法 &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Istio是微服务service mesh的？Istio可以部署在k8s里的 &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;delta debugging的作用是找到min的deltas导致错误 &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;controller：delta debugging的位置，是文章核心嗷 &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;scheduler：根据容器状态选择test case去执行。queue，有可用资源就去跑测试 &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;executor：根据所给的circumstances在docker上跑测试用例，返回测试结果 &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;circumstance：4个dimension的组合 &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;delta：两个cir之间的差异 &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;delta db目的：通过最简单cir抽取导致错误的最小delta set &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;min setting：一个node，一个instance，默认conf（full memory），正确的seq &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;general setting：一个可能引起错误的cir &lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;表示方法：0表示min setting，1表示general setting &lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Graph-based RCA in SOA and MS</title>
+				<link>https://zecoo.github.io/hugo/posts/paper/graph-based-rca-in-soa-and-ms/</link>
+				<pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
+				<guid>https://zecoo.github.io/hugo/posts/paper/graph-based-rca-in-soa-and-ms/</guid>
+				<description>&lt;p&gt;Graph-based root cause analysis for service-oriented and microservice architectures&lt;/p&gt;&#xA;&lt;p&gt;JSS 2020&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-rw&#34;&gt;2 RW&lt;/h2&gt;&#xA;&lt;p&gt;RCA方法有以下大致分类&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;model-based的RCA方法&lt;/li&gt;&#xA;&lt;li&gt;Spectrum（也可以称之为Classification）方法。有人用ML来做&lt;/li&gt;&#xA;&lt;li&gt;图的方法&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;2017年的Sieve，MS-Rank也提到了这篇论文。&lt;/p&gt;&#xA;&lt;h2 id=&#34;3-graph-based-rca&#34;&gt;3 Graph-based RCA&lt;/h2&gt;&#xA;&lt;p&gt;举一个Wordpress的例子，如果不做loadbalance，HAProxy的运行缓慢可能是其中某一个服务器负载过大。&lt;/p&gt;&#xA;&lt;h3 id=&#34;graph-modules&#34;&gt;Graph Modules&lt;/h3&gt;&#xA;&lt;p&gt;Node：&lt;/p&gt;&#xA;&lt;p&gt;Edge：网络连接的对象，例如一次TCP连接的双方&lt;/p&gt;&#xA;&lt;p&gt;Attribute：收集到的信息，比如Anomaly、metric和log&lt;/p&gt;&#xA;&lt;p&gt;系统有以下几个modules：&lt;/p&gt;&#xA;&lt;h4 id=&#34;anomalous-region-module&#34;&gt;anomalous region module&lt;/h4&gt;&#xA;&lt;p&gt;Extractor从system graph（系统的什么图？）中抽取一个子图，也就是anomalous region的子图。对于计算型的资源，选择异常节点周围2跳的所有节点作为子图，见图4。其他情况没提到233&lt;/p&gt;&#xA;&lt;h4 id=&#34;pattern-module&#34;&gt;pattern module&lt;/h4&gt;&#xA;&lt;p&gt;已经被标记为异常的节点，会作为计算相似度的模板。目的是为了对经常出现的异常做一个初始的集合，来避免冷启动的问题。（这里的冷启动是指异常区域没有可以对比相似度的对象）&lt;/p&gt;&#xA;&lt;h4 id=&#34;similarity-module&#34;&gt;similarity module&lt;/h4&gt;&#xA;&lt;p&gt;输入：1. 异常区域（anomaly region） 2. 异常模版（pattern）&lt;/p&gt;&#xA;&lt;p&gt;输出：1. 相似度得分 2. 节点对应图（见图5）&lt;/p&gt;&#xA;&lt;h2 id=&#34;4-graph-similarity&#34;&gt;4 Graph Similarity&lt;/h2&gt;&#xA;&lt;p&gt;都是自定义的相似度计算方法，包括两个图的相似度、两个节点的相似度、节点的属性相似度。&lt;/p&gt;&#xA;&lt;h2 id=&#34;5-monitoring-and-building-graphs&#34;&gt;5 Monitoring and Building Graphs&lt;/h2&gt;&#xA;&lt;p&gt;Prom做监控，cadvisor和node expoter作为监控agent。&lt;/p&gt;&#xA;&lt;p&gt;构建图的过程其实是节点和节点连接的过程，TCP连接就可以构建一个边，由此创建调用图。&lt;/p&gt;&#xA;&lt;h2 id=&#34;6-evaluation&#34;&gt;6 Evaluation&lt;/h2&gt;&#xA;&lt;h3 id=&#34;场景&#34;&gt;场景&lt;/h3&gt;&#xA;&lt;p&gt;不同的场景有不同的异常注入方式&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;面向服务的场景&lt;/li&gt;&#xA;&lt;li&gt;负载均衡场景&lt;/li&gt;&#xA;&lt;li&gt;Kafka集群场景&lt;/li&gt;&#xA;&lt;li&gt;Spark&amp;amp;HDFS场景&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;异常注入方式&#34;&gt;异常注入方式&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;stress做cpu、mem压力异常&lt;/li&gt;&#xA;&lt;li&gt;连接异常（带宽限制）&lt;/li&gt;&#xA;&lt;li&gt;负载均衡异常&lt;/li&gt;&#xA;&lt;li&gt;高并发异常&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;precision&#34;&gt;Precision&lt;/h3&gt;&#xA;&lt;p&gt;Training set的构建方式：异常注入的情况可以得到一些region啊，比如我用stress做异常测试，得到微服务m1出现异常，然后把m1周围2跳的节点抽取出来作为region。这就是一个新的pattern。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Microscope</title>
+				<link>https://zecoo.github.io/hugo/posts/paper/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</link>
+				<pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
+				<guid>https://zecoo.github.io/hugo/posts/paper/microscope-pinpoint-performance-issues-with-causal-graphs-in-micro-service-environments/</guid>
+				<description>&lt;p&gt;Microscope: Pinpoint Performance Issues with Causal Graphs in Micro-service Environments&lt;/p&gt;&#xA;&lt;p&gt;ICSOC 2018&lt;/p&gt;&#xA;&lt;h2 id=&#34;abstruct&#34;&gt;Abstruct&lt;/h2&gt;&#xA;&lt;p&gt;错误定位的论文。通过服务调用关系构建DAG定位错误。&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;定位有88%的准确性，2020的icws有一篇错误定位论文跟该论文进行过比较。&lt;/p&gt;&#xA;&lt;p&gt;benchmark用的是sock shop&lt;/p&gt;&#xA;&lt;h2 id=&#34;system-overview&#34;&gt;System Overview&lt;/h2&gt;&#xA;&lt;p&gt;三个步骤&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;data collection 收集的是两个服务之间的网络连接和SLO metric（应该和SLA差不多）&lt;/li&gt;&#xA;&lt;li&gt;casual graph building 用收集到的数据构建一个casual graph（服务调用关系图？）&lt;/li&gt;&#xA;&lt;li&gt;rank cause inference 根据graph，列出所有root cause候选并排序&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;system-design&#34;&gt;System design&lt;/h3&gt;&#xA;&lt;h4 id=&#34;data-collection&#34;&gt;data collection&lt;/h4&gt;&#xA;&lt;p&gt;需要从“127.0.0.1:port -&amp;gt; 172.80.12.98:port”的调用关系map到“Service A instance1 -&amp;gt; Service B instance 1”&lt;/p&gt;&#xA;&lt;p&gt;SLO可以从服务监控软件中获取到服务响应时间&lt;/p&gt;&#xA;&lt;h4 id=&#34;casual-graph-building&#34;&gt;casual graph building&lt;/h4&gt;&#xA;&lt;p&gt;如果是Service A到Service B的错误定位，1中已经提到了。&lt;/p&gt;&#xA;&lt;p&gt;还有一种情况是Service内部instance和instance之间的关系，如果有一个instance占据了所有的cpu利用率，同一个service内的其他instance就不能和其他服务进行通信。本文采用PC-Algorithm构建DAG，一种用概率的方式来解决该问题。（细节需要去看PC-Algorithm的论文）&lt;/p&gt;&#xA;&lt;h4 id=&#34;rank-cause-inference&#34;&gt;rank cause inference&lt;/h4&gt;&#xA;&lt;p&gt;通过一个异常的节点（前端报出的异常节点），遍历该节点下的所有子节点，然后把所有的异常子节点都加入到候选集中。&lt;/p&gt;&#xA;&lt;p&gt;那么如何判断一个节点是否是异常节点？&lt;/p&gt;&#xA;&lt;p&gt;3sigma interval规则，即正态分布的3sigma，如果一个node的metric落在了99.7%的范围之外，就认为其是abnormal。3sigma interval是多少呢？（后面提了一嘴：“The sample interval in service request latency metrics is 1s.”）不知道是否可以理解为一个node的响应时间超过1*99.7%秒就认定其为异常节点。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>RCA in multitier service</title>
+				<link>https://zecoo.github.io/hugo/posts/paper/rca-in-multitier-service/</link>
+				<pubDate>Wed, 20 May 2020 00:00:00 +0800</pubDate>
+				<guid>https://zecoo.github.io/hugo/posts/paper/rca-in-multitier-service/</guid>
+				<description>&lt;p&gt;Root Cause Analysis of Anomalies of Multitier Services in Public Clouds&lt;/p&gt;&#xA;&lt;p&gt;TON 2018&lt;/p&gt;&#xA;&lt;p&gt;读完感觉不像是A类的期刊，Chinglish的情况很严重，相似度的计算实在是不优美，最后baseline挑的也很奇怪。&lt;/p&gt;&#xA;&lt;h2 id=&#34;ibr&#34;&gt;IBR&lt;/h2&gt;&#xA;&lt;p&gt;这篇文章里用了一个很贴切的词：tenant，RCA用另一种解释其实就是tenant，也就是之前网易的面试官跟我说的profiling，是因为一个节点Root出现故障，导致和该节点有关的所有节点都变慢了。&lt;/p&gt;&#xA;&lt;p&gt;这篇也是在前面会议论文的基础上加了一些内容投的期刊。&lt;/p&gt;&#xA;&lt;h2 id=&#34;system-arch&#34;&gt;System Arch&lt;/h2&gt;&#xA;&lt;h3 id=&#34;anomaly-type&#34;&gt;Anomaly Type&lt;/h3&gt;&#xA;&lt;p&gt;内在因素：服务调用过程中出现的异常&lt;/p&gt;&#xA;&lt;p&gt;外在因素：在同一个物理机上的异常导致该物理机上不同的VM的异常&lt;/p&gt;&#xA;&lt;h3 id=&#34;system&#34;&gt;System&lt;/h3&gt;&#xA;&lt;p&gt;两部分，第一部分构建异常传播图（也是一个DAG），第二部分计算相似度Rank异常节点。&lt;/p&gt;&#xA;&lt;h2 id=&#34;graph&#34;&gt;Graph&lt;/h2&gt;&#xA;&lt;p&gt;VCG（VM Communication Graph）用工具PreciseTracer可以获得。&lt;/p&gt;&#xA;&lt;p&gt;APG（Anomaly Propagation Graph）&lt;/p&gt;&#xA;&lt;h2 id=&#34;root-cause-location&#34;&gt;Root Cause Location&lt;/h2&gt;&#xA;&lt;p&gt;这里面定义的相关度和其他不太一样，Sim(VMi, Rj)，是计算某个VM和某个请求之间的相关度。&lt;/p&gt;&#xA;&lt;h3 id=&#34;data-collection&#34;&gt;Data Collection&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;服务响应时间，这里的计算方式是将所有参与一次响应的相关组件的响应时间相加&lt;/li&gt;&#xA;&lt;li&gt;Utilization，比如CPU、mem等&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;都是老生常谈了&lt;/p&gt;&#xA;&lt;h3 id=&#34;similarity-calculation&#34;&gt;Similarity Calculation&lt;/h3&gt;&#xA;&lt;p&gt;依旧是皮尔逊相关系数，不过这个相关度也太复杂了吧？&lt;/p&gt;&#xA;&lt;p&gt;R(i, M, R(r), ts, te) = cov(Mte(M,i),Tte (R(r))􏲊 / σMte (M,i)σTte (R(r))&lt;/p&gt;&#xA;&lt;h3 id=&#34;random-walk&#34;&gt;Random Walk&lt;/h3&gt;&#xA;&lt;p&gt;依旧是Forward、Backward和Self，就是随机游走哪一套&lt;/p&gt;&#xA;&lt;h2 id=&#34;evaluation&#34;&gt;Evaluation&lt;/h2&gt;&#xA;&lt;h3 id=&#34;baseline&#34;&gt;Baseline&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;RS：Random Select，普通人用排列组合的方式选择&lt;/li&gt;&#xA;&lt;li&gt;SC：Sudden Change，比较当前metric和一个时间窗口之前的metric的变化，变化最大的那个视为Anomaly&lt;/li&gt;&#xA;&lt;li&gt;DBR：Distance Based Rank，选择最优传播路径，找传播过程花费距离最短的&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Evaluation Metric&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

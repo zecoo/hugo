@@ -4,8 +4,8 @@
     <div class="blog-masthead">
       <div class="wrapper">
         <nav class="nav blog-nav">
-          <a class="nav-link {{ if .IsHome }}active{{ end }}" href="{{ .Site.BaseURL | absLangURL }}">归档</a>
-          <a class="nav-link" href="{{ .Site.BaseURL }}/about">关于我</a>
+          <a class="nav-link {{ if .IsHome }}active{{ end }}" href="{{ .Site.BaseURL | absLangURL }}">主页</a>
+          <a class="nav-link {{ if not .IsHome }}active{{ end }}" href="{{ .Site.BaseURL }}posts">归档</a>
         </nav>
       </div>
     </div>
@@ -16,25 +16,37 @@
 {{ end }}
 
 {{ block "body" . }}
-{{ $Pages := .Pages }}
-{{ if .IsHome }}
-  {{ $Pages = where site.RegularPages "Type" "in" .Site.Params.mainSections }}
-{{ end }}
     <div class="wrapper">
       <div class="row">
-        <div class="col-sm-8 blog-main">
+        <div class="col-sm-12 blog-main">
           <article>
-		    <ul class="archive">
-		      {{- range $Pages }}
-		      <li>
-		        {{ if .Date }}<time>{{ .Date.Format "2006-01-02" }}</time>{{ end }}
-		        <a href="{{ .Permalink }}">{{ .Title }}</a> <span class="category-tag">{{ .Params.categories }} </span>
-		      </li>
-		      {{- end }}
-		    </ul>
-		  </article>
+            {{ $industry := index .Site.Taxonomies.categories "行业研究报告" }}
+            {{ if $industry }}
+            <h4>行业研究报告</h4>
+            <ul class="archive">
+              {{ range $industry.Pages }}
+              <li>
+                {{ if .Date }}<time>{{ .Date.Format "2006-01-02" }}</time>{{ end }}
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+              </li>
+              {{ end }}
+            </ul>
+            {{ end }}
+            {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+            {{ if ne $name "行业研究报告" }}
+            <h4>{{ $name | humanize | title }}</h4>
+            <ul class="archive">
+              {{ range $taxonomy.Pages }}
+              <li>
+                {{ if .Date }}<time>{{ .Date.Format "2006-01-02" }}</time>{{ end }}
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+              </li>
+              {{ end }}
+            </ul>
+            {{ end }}
+            {{ end }}
+          </article>
         </div> 
-        {{ partial "sidebar.html" . }}
       </div> 
     </div>
 {{ end }}

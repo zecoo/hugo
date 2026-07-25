@@ -2,8 +2,8 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
-    <meta name="description" content="好记性也要烂笔头">
+    <meta name="generator" content="Hugo 0.164.0">
+    <meta name="description" content="湖北·武汉">
     <title>
         hugo上传博客脚本 
     </title>
@@ -15,7 +15,15 @@
 </head>
   <body>
     
-    
+    <div class="blog-masthead">
+      <div class="wrapper">
+        <nav class="nav blog-nav">
+          <a class="nav-link" href="https://zecoo.github.io/hugo/">主页</a>
+          <a class="nav-link active" href="https://zecoo.github.io/hugo/posts">归档</a>
+        </nav>
+      </div>
+    </div>
+
 
     
     
@@ -25,41 +33,30 @@
     <div class="container">
       <div class="row">
         <div class="blog-main">
+          <a class="back-link" href="https://zecoo.github.io/hugo/posts">← 返回归档</a>
         	<article class="blog-post">
 			  <header>
-			    <a href="https://zecoo.github.io/hugo/"><h2 class="blog-post-title" dir="auto">hugo上传博客脚本</h2></a>
+			    <h2 class="blog-post-title" dir="auto">hugo上传博客脚本</h2>
 			    <p class="blog-post-meta"><time datetime="2020-05-18T00:00:00+08:00">Mon May 18, 2020</time></p>
 			  </header>
-			  
-
-<p>我很傻的，每次更新博客之后都要手动输入</p>
-
-<pre><code class="language-shell">hugo -D
-git add .
-git commit -m &quot;xxx&quot;
-git push origin master
-</code></pre>
-
-<p>又不想下载git客户端一键push，写个脚本咯</p>
-
-<pre><code class="language-bash">#!/bin/bash
-hugo -D
-git add .
-echo &quot;input commit info:&quot;
-read -t 5 commit_info
-commit_info=${commit_info:-&quot;update blog&quot;}
-git commit -m &quot;$commit_info&quot;
-git push origin master
-</code></pre>
-
-<p>read提供一个默认值“update blog”，这样既可以修改commit info，5s后忘记输入的话也不用担心。</p>
-
+			  <p>我很傻的，每次更新博客之后都要手动输入</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo -D
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;xxx&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin master
+</span></span></code></pre></div><p>又不想下载git客户端一键push，写个脚本咯</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span>hugo -D
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;input commit info:&#34;</span>
+</span></span><span style="display:flex;"><span>read -t <span style="color:#ae81ff">5</span> commit_info
+</span></span><span style="display:flex;"><span>commit_info<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>commit_info<span style="color:#66d9ef">:-</span><span style="color:#e6db74">&#34;update blog&#34;</span><span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;</span>$commit_info<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin master
+</span></span></code></pre></div><p>read提供一个默认值“update blog”，这样既可以修改commit info，5s后忘记输入的话也不用担心。</p>
 <p>记得最后把sh文件权限给足：<code>chmod 777 update.sh</code></p>
-
 <h2 id="参考">参考</h2>
-
 <p><a href="https://www.cnblogs.com/lottu/p/3962921.html">https://www.cnblogs.com/lottu/p/3962921.html</a> （shell接收键盘输入）</p>
-
 <p><a href="https://blog.csdn.net/u010339879/article/details/77938911">https://blog.csdn.net/u010339879/article/details/77938911</a> （read添加默认值）</p>
 
 			</article>

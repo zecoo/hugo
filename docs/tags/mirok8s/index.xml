@@ -1,32 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>mirok8s on 暴躁老农</title>
-    <link>https://zecoo.github.io/hugo/tags/mirok8s/</link>
-    <description>Recent content in mirok8s on 暴躁老农</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 09 Apr 2020 11:37:07 +0800</lastBuildDate>
-    
-	<atom:link href="https://zecoo.github.io/hugo/tags/mirok8s/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Microk8s 国内安装总结</title>
-      <link>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</link>
-      <pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
-      
-      <guid>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</guid>
-      <description>Ubuntu18本身自带snap，可以在microk8s的官网找到安装方法。
-注意k8s的运行条件只要满足以下
- Linux kernel在3.1以上，很多小的openZV的服务器，都是2.6的核儿 Memory要在2G或以上。  我在国外买的xs vps就emmm。再附自己检查kernel的过程
-$ uname -r (check linux kernel) $ dpkg --print-architecture (check linux architecture amd64/arm64)  按照官网的方法，安装成功的话输入sudo kubectl version应该能看到client和server信息。
-但是现在的microk8s还需要安装一些add-on，装这些add-on的时候就会有问题了。
-sudo mircok8s enable dns dashboard
-这里开启microk8s的dns和dashboard服务，但是尝试一下会发现dashboard并不能使用。如果server装了ss可以翻wall，应该不会有这个问题。如果没有ss，用这个命令检查一下namespace为kube-system的pod的情况。
-sudo microk8s.kubectl get pods --all-namespaces
-你会看到以下信息：
-NAMESPACE NAME READY STATUS RESTARTS AGE container-registry registry-7cf58dcdcc-rlfdq 1/1 Running 1 18h default hello-node 0/1 ImagePullBackOff 0 16h kube-system coredns-588fd544bf-nmnnl 1/1 Creating 1 19h kube-system dashboard-metrics-scraper-db65b9c6f-46lrb 1/1 Creating 1 19h kube-system heapster-v1.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Mirok8s on 张泽锟</title>
+		<link>https://zecoo.github.io/hugo/tags/mirok8s/</link>
+		<description>Recent content in Mirok8s on 张泽锟</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 09 Apr 2020 11:37:07 +0800</lastBuildDate>
+		
+			<atom:link href="https://zecoo.github.io/hugo/tags/mirok8s/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Microk8s 国内安装总结</title>
+				<link>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</link>
+				<pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
+				<guid>https://zecoo.github.io/hugo/posts/k8s/microk8s-installation-in-china/</guid>
+				<description>&lt;p&gt;Ubuntu18本身自带snap，可以在microk8s的&lt;a href=&#34;https://microk8s.io/docs/&#34;&gt;官网&lt;/a&gt;找到安装方法。&lt;/p&gt;&#xA;&lt;p&gt;注意k8s的运行条件只要满足以下&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Linux kernel在3.1以上，很多小的openZV的服务器，都是2.6的核儿&lt;/li&gt;&#xA;&lt;li&gt;Memory要在2G或以上。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;我在国外买的xs vps就emmm。再附自己检查kernel的过程&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ uname -r &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;check linux kernel&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ dpkg --print-architecture &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;check linux architecture amd64/arm64&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;按照官网的方法，安装成功的话输入&lt;code&gt;sudo kubectl version&lt;/code&gt;应该能看到client和server信息。&lt;/p&gt;&#xA;&lt;p&gt;但是现在的microk8s还需要安装一些add-on，装这些add-on的时候就会有问题了。&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;sudo mircok8s enable dns dashboard&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;这里开启microk8s的dns和dashboard服务，但是尝试一下会发现dashboard并不能使用。如果server装了ss可以翻wall，应该不会有这个问题。如果没有ss，用这个命令检查一下namespace为kube-system的pod的情况。&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt; sudo microk8s.kubectl get pods --all-namespaces&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;你会看到以下信息：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NAMESPACE            NAME                                              READY   STATUS             RESTARTS   AGE&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;container-registry   registry-7cf58dcdcc-rlfdq                         1/1     Running            &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;          18h&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;default              hello-node                                        0/1     ImagePullBackOff   &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;          16h&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kube-system          coredns-588fd544bf-nmnnl                          1/1     Creating            &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;          19h&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kube-system          dashboard-metrics-scraper-db65b9c6f-46lrb         1/1     Creating           &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;          19h&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kube-system          heapster-v1.5.2-58fdbb6f4d-pmgvc                  4/4     Creating            &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;          19h&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kube-system          hostpath-provisioner-75fdc8fccd-5vvfv             1/1     Creating            &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;          18h&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kube-system          kubernetes-dashboard-67765b55f5-lwrms             1/1     Creating            &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;          19h&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kube-system          monitoring-influxdb-grafana-v4-6dc675bf8c-lf8nr   2/2     Creating            &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;          19h&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;所有namespace为kube-system的pod都是creating的状态。这是一个不可用的状态。再使用这个命令：&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>
