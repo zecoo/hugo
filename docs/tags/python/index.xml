@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Python on 张泽锟</title>
-		<link>http://localhost:1313/hugo/tags/python/</link>
+		<link>https://zecoo.github.io/hugo/tags/python/</link>
 		<description>Recent content in Python on 张泽锟</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Fri, 05 Jun 2020 00:00:00 +0800</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/hugo/tags/python/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://zecoo.github.io/hugo/tags/python/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>python应用环境搭建</title>
-				<link>http://localhost:1313/hugo/posts/server/python%E5%BA%94%E7%94%A8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+				<link>https://zecoo.github.io/hugo/posts/server/python%E5%BA%94%E7%94%A8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
 				<pubDate>Fri, 05 Jun 2020 00:00:00 +0800</pubDate>
-				<guid>http://localhost:1313/hugo/posts/server/python%E5%BA%94%E7%94%A8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+				<guid>https://zecoo.github.io/hugo/posts/server/python%E5%BA%94%E7%94%A8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
 				<description>&lt;h2 id=&#34;安装python3&#34;&gt;安装python3&lt;/h2&gt;&#xA;&lt;p&gt;首先下载python3安装包，在csdn上下载可能更快一点。&lt;/p&gt;&#xA;&lt;p&gt;如果是在服务器上安python3，那可能需要修改镜像源。&lt;/p&gt;&#xA;&lt;h2 id=&#34;app依赖&#34;&gt;app依赖&lt;/h2&gt;&#xA;&lt;p&gt;由于代码里需要import很多依赖，如果直接跑&lt;code&gt;python app.py&lt;/code&gt;就会报各种依赖不存在的错误，所以需要先安装所有的依赖：&lt;code&gt;pip install -r requirements.txt&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/Simple-Small/p/12221135.html&#34;&gt;https://www.cnblogs.com/Simple-Small/p/12221135.html&lt;/a&gt; （安装python3）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/shiniao/mini_sms_classify&#34;&gt;https://github.com/shiniao/mini_sms_classify&lt;/a&gt; （python应用需要import的依赖）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/timtian008/article/details/81186356&#34;&gt;https://blog.csdn.net/timtian008/article/details/81186356&lt;/a&gt; （国内python下载太慢了）&lt;/p&gt;</description>
 			</item>
 	</channel>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Categories on 张泽锟</title>
-		<link>http://localhost:1313/hugo/categories/</link>
+		<link>https://zecoo.github.io/hugo/categories/</link>
 		<description>Recent content in Categories on 张泽锟</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,82 +12,82 @@
 		
 			<lastBuildDate>Wed, 01 Jul 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/hugo/categories/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://zecoo.github.io/hugo/categories/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>行业研究报告</title>
-				<link>http://localhost:1313/hugo/categories/%E8%A1%8C%E4%B8%9A%E7%A0%94%E7%A9%B6%E6%8A%A5%E5%91%8A/</link>
+				<link>https://zecoo.github.io/hugo/categories/%E8%A1%8C%E4%B8%9A%E7%A0%94%E7%A9%B6%E6%8A%A5%E5%91%8A/</link>
 				<pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/hugo/categories/%E8%A1%8C%E4%B8%9A%E7%A0%94%E7%A9%B6%E6%8A%A5%E5%91%8A/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>K8s</title>
-				<link>http://localhost:1313/hugo/categories/k8s/</link>
-				<pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
-				<guid>http://localhost:1313/hugo/categories/k8s/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Paper</title>
-				<link>http://localhost:1313/hugo/categories/paper/</link>
-				<pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
-				<guid>http://localhost:1313/hugo/categories/paper/</guid>
+				<guid>https://zecoo.github.io/hugo/categories/%E8%A1%8C%E4%B8%9A%E7%A0%94%E7%A9%B6%E6%8A%A5%E5%91%8A/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Istio</title>
-				<link>http://localhost:1313/hugo/categories/istio/</link>
+				<link>https://zecoo.github.io/hugo/categories/istio/</link>
 				<pubDate>Tue, 22 Dec 2020 00:00:00 +0800</pubDate>
-				<guid>http://localhost:1313/hugo/categories/istio/</guid>
+				<guid>https://zecoo.github.io/hugo/categories/istio/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Paper</title>
+				<link>https://zecoo.github.io/hugo/categories/paper/</link>
+				<pubDate>Sat, 18 Jul 2020 00:00:00 +0800</pubDate>
+				<guid>https://zecoo.github.io/hugo/categories/paper/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Server</title>
-				<link>http://localhost:1313/hugo/categories/server/</link>
+				<link>https://zecoo.github.io/hugo/categories/server/</link>
 				<pubDate>Fri, 05 Jun 2020 00:00:00 +0800</pubDate>
-				<guid>http://localhost:1313/hugo/categories/server/</guid>
+				<guid>https://zecoo.github.io/hugo/categories/server/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Blog</title>
-				<link>http://localhost:1313/hugo/categories/blog/</link>
+				<link>https://zecoo.github.io/hugo/categories/blog/</link>
 				<pubDate>Sun, 31 May 2020 00:00:00 +0800</pubDate>
-				<guid>http://localhost:1313/hugo/categories/blog/</guid>
+				<guid>https://zecoo.github.io/hugo/categories/blog/</guid>
 				<description></description>
 			</item>
 			<item>
-				<title>Math</title>
-				<link>http://localhost:1313/hugo/categories/math/</link>
-				<pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
-				<guid>http://localhost:1313/hugo/categories/math/</guid>
+				<title>K8s</title>
+				<link>https://zecoo.github.io/hugo/categories/k8s/</link>
+				<pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
+				<guid>https://zecoo.github.io/hugo/categories/k8s/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Prom</title>
-				<link>http://localhost:1313/hugo/categories/prom/</link>
+				<link>https://zecoo.github.io/hugo/categories/prom/</link>
 				<pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
-				<guid>http://localhost:1313/hugo/categories/prom/</guid>
+				<guid>https://zecoo.github.io/hugo/categories/prom/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Css</title>
-				<link>http://localhost:1313/hugo/categories/css/</link>
+				<link>https://zecoo.github.io/hugo/categories/css/</link>
 				<pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
-				<guid>http://localhost:1313/hugo/categories/css/</guid>
+				<guid>https://zecoo.github.io/hugo/categories/css/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Js</title>
-				<link>http://localhost:1313/hugo/categories/js/</link>
+				<link>https://zecoo.github.io/hugo/categories/js/</link>
 				<pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
-				<guid>http://localhost:1313/hugo/categories/js/</guid>
+				<guid>https://zecoo.github.io/hugo/categories/js/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Math</title>
+				<link>https://zecoo.github.io/hugo/categories/math/</link>
+				<pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
+				<guid>https://zecoo.github.io/hugo/categories/math/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Hello-World</title>
-				<link>http://localhost:1313/hugo/categories/hello-world/</link>
+				<link>https://zecoo.github.io/hugo/categories/hello-world/</link>
 				<pubDate>Fri, 17 Apr 2020 11:37:07 +0800</pubDate>
-				<guid>http://localhost:1313/hugo/categories/hello-world/</guid>
+				<guid>https://zecoo.github.io/hugo/categories/hello-world/</guid>
 				<description></description>
 			</item>
 	</channel>
