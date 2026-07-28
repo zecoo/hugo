@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Icws on 张泽锟</title>
-		<link>https://zecoo.github.io/hugo/tags/icws/</link>
+		<link>http://localhost:1313/hugo/tags/icws/</link>
 		<description>Recent content in Icws on 张泽锟</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Tue, 19 May 2020 00:00:00 +0800</lastBuildDate>
 		
-			<atom:link href="https://zecoo.github.io/hugo/tags/icws/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/hugo/tags/icws/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>MS-Rank</title>
-				<link>https://zecoo.github.io/hugo/posts/paper/ms-rank/</link>
+				<link>http://localhost:1313/hugo/posts/paper/ms-rank/</link>
 				<pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/posts/paper/ms-rank/</guid>
+				<guid>http://localhost:1313/hugo/posts/paper/ms-rank/</guid>
 				<description>&lt;p&gt;MS-Rank: Multi-Metric and Self-Adaptive Root Cause Diagnosis for Microservice Applications&lt;/p&gt;&#xA;&lt;p&gt;ICWS 2019&lt;/p&gt;&#xA;&lt;h2 id=&#34;主要贡献&#34;&gt;主要贡献：&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;根据一系列的metrics，构建一个调用图&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;基于随机游走算法提出了根因定位算法&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;为了提高定位的准确性，用一种自适应的方法调整metrics的权重&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;2-rw&#34;&gt;2 RW&lt;/h2&gt;&#xA;&lt;p&gt;提到了Microscope和Sieve&lt;/p&gt;&#xA;&lt;p&gt;论文里居然还提到了SRE…hh&lt;/p&gt;&#xA;&lt;h2 id=&#34;3-solution&#34;&gt;3 Solution&lt;/h2&gt;&#xA;&lt;h3 id=&#34;3a-framwork&#34;&gt;3A Framwork&lt;/h3&gt;&#xA;&lt;p&gt;针对不同的情景，选择的metric也不一样。UI相关的，一般更在意latency；计算相关的比如hadoop，更在意cpu负载。文章把微服务系统看成是一个黑盒，那么metric的权重这样的概念就出来了。&lt;/p&gt;&#xA;&lt;h3 id=&#34;3b-metric&#34;&gt;3B Metric&lt;/h3&gt;&#xA;&lt;p&gt;latency适合短连接服务，但不适合长连接服务。&lt;/p&gt;&#xA;&lt;p&gt;常见的metric：latency、throughput、CPU、MEM、disk、I/O，power。power = throughput / latency&lt;/p&gt;&#xA;&lt;p&gt;Gradient相关重要的metric：&lt;/p&gt;&#xA;&lt;p&gt;Gradient(t) = Mj,i(t) - Mji(t-1)&lt;/p&gt;&#xA;&lt;p&gt;Gradient ratio(t) = Gradient(t) / Mj,i(t)&lt;/p&gt;&#xA;&lt;p&gt;还有两个没列出来&lt;/p&gt;&#xA;&lt;h3 id=&#34;3c-graph-construction&#34;&gt;3C Graph Construction&lt;/h3&gt;&#xA;&lt;p&gt;基于PC算法，依旧是一个DAG。额，这部分看得我一头雾水&lt;/p&gt;&#xA;&lt;h3 id=&#34;3d-random-walk-diagnosis&#34;&gt;3D Random Walk Diagnosis&lt;/h3&gt;&#xA;&lt;p&gt;一个最直观也是最常用的根因定位方法是计算某个服务的metric和Anomaly服务的metric的相似度。我看的其他论文里也大致是这个思想&lt;/p&gt;&#xA;&lt;p&gt;同样这篇论文用皮尔逊相似度，不过添加了权重的部分。可以得到vi和vj的关系（相似度）&lt;/p&gt;&#xA;&lt;p&gt;Transition（游走）：向前（遇到高相似度）、向内（前后都是低相似度，则停留在自身）、向后（遇到低相似度）&lt;/p&gt;&#xA;&lt;h3 id=&#34;3e-weight-update&#34;&gt;3E Weight Update&lt;/h3&gt;&#xA;&lt;p&gt;P(M) Precision Function，计算定位结果的准确性。还有更新权重，都是一个公式带过。&lt;/p&gt;&#xA;&lt;h3 id=&#34;3f-example&#34;&gt;3F Example&lt;/h3&gt;&#xA;&lt;p&gt;收集了2小时（7200s）的数据，每5s一次收集，对于每个metric都有1440个记录。&lt;/p&gt;&#xA;&lt;p&gt;示例的这个图画得挺好的，体现出了不同的metric在trace中的表现。但是这图看不懂原理啊&lt;/p&gt;&#xA;&lt;h2 id=&#34;4-evaluation&#34;&gt;4 Evaluation&lt;/h2&gt;&#xA;&lt;h3 id=&#34;41-benchmark&#34;&gt;4.1 Benchmark&lt;/h3&gt;&#xA;&lt;p&gt;有两个小问题：1. 没有考虑数据库 2. 并不是真正意义上的ms，是把一个api视为一个ms。所以没有用到k8s等&lt;/p&gt;</description>
 			</item>
 	</channel>

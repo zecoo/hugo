@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Decomposition on 张泽锟</title>
-		<link>https://zecoo.github.io/hugo/tags/decomposition/</link>
+		<link>http://localhost:1313/hugo/tags/decomposition/</link>
 		<description>Recent content in Decomposition on 张泽锟</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Fri, 22 May 2020 00:00:00 +0800</lastBuildDate>
 		
-			<atom:link href="https://zecoo.github.io/hugo/tags/decomposition/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/hugo/tags/decomposition/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Scenario Driven MS Decomposition</title>
-				<link>https://zecoo.github.io/hugo/posts/paper/scenario-driven-ms-decomposition/</link>
+				<link>http://localhost:1313/hugo/posts/paper/scenario-driven-ms-decomposition/</link>
 				<pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/posts/paper/scenario-driven-ms-decomposition/</guid>
+				<guid>http://localhost:1313/hugo/posts/paper/scenario-driven-ms-decomposition/</guid>
 				<description>&lt;p&gt;场景驱动、自底向上的单体系统微服务拆分方法&lt;/p&gt;&#xA;&lt;h2 id=&#34;评价&#34;&gt;评价&lt;/h2&gt;&#xA;&lt;p&gt;核心思想：把数据表之间紧密联系的聚在一起，作为拆分微服务的准则。&lt;/p&gt;&#xA;&lt;p&gt;实际上是关于数据表的划分，微服务的其他方面比如class、method的划分没有提到。&lt;/p&gt;&#xA;&lt;h2 id=&#34;aibr&#34;&gt;AIBR&lt;/h2&gt;&#xA;&lt;p&gt;结合Scenario、Trace和Sql进行微服务拆分。&lt;/p&gt;&#xA;&lt;p&gt;单体系统的微服务化拆分也可以借鉴传统软件模块化的思路和方法,已有不少这方面的研究&lt;/p&gt;&#xA;&lt;p&gt;图1是整个流程图&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://89.33.194.100:8888/images/2020/05/22/imageacbe468437e449d2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;标记权重：对用例标记权重（对于一些使用频率较高的用例增加权重）用例权重增加，用例包含的trace中边的权重都增加&lt;/li&gt;&#xA;&lt;li&gt;监控工具：Kieker，收集trace的工具&lt;/li&gt;&#xA;&lt;li&gt;日志类型：被调用方法的签名、调用链 ID、调用时间、调用顺序&lt;/li&gt;&#xA;&lt;li&gt;轨迹图：见下图图3&lt;/li&gt;&#xA;&lt;li&gt;共享群组+关联度矩阵（后面会提）&lt;/li&gt;&#xA;&lt;li&gt;数据表权重图（关联矩阵添加权重的结果，用于聚类）&lt;/li&gt;&#xA;&lt;li&gt;数据图表聚类（GN社区聚类算法）&lt;/li&gt;&#xA;&lt;li&gt;计算拆分开销（later）&lt;/li&gt;&#xA;&lt;li&gt;拆分方案生产&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;拆分方法&#34;&gt;拆分方法&lt;/h2&gt;&#xA;&lt;p&gt;图3也很关键，一个scenario数据访问的trace。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://89.33.194.100:8888/images/2020/05/22/imagea65546611d68826d.md.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;同样还有图4，数据库的相关度graph（later）&lt;/p&gt;&#xA;&lt;h3 id=&#34;数据表关联度&#34;&gt;数据表关联度&lt;/h3&gt;&#xA;&lt;p&gt;表关联度高表示表A和表B在一个场景要同时使用的情况比较多。比如说注册要用到user表和profile表。登录也要用到这两个表。就说明user表和profile表的关联度较高。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;sql的权重&lt;/li&gt;&#xA;&lt;li&gt;两个数据表之间的关联度&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;表A和表B的关联度 = Cscenario + Ctrace + Csql&lt;/p&gt;&#xA;&lt;p&gt;Cscenario = 同时操作表A+表B的场景之和 / 操作表A或表B中任意一张表的场景之和，trace、sql同理&lt;/p&gt;&#xA;&lt;h3 id=&#34;共享群组&#34;&gt;共享群组&lt;/h3&gt;&#xA;&lt;p&gt;共享度高表示一张表被多个场景使用，更倾向于单独拆分成一个微服务。比如account表在注册场景、下单场景都用到了，说明account表的共享度较高。&lt;/p&gt;&#xA;&lt;p&gt;共享度 = Sscenario + Strace + Ssql&lt;/p&gt;&#xA;&lt;p&gt;Sscenario = 操作表t的场景数量 / 总场景数量，trace、sql同理&lt;/p&gt;&#xA;&lt;p&gt;共享表的数量  = 共享表占比 * 所有表的数量&lt;/p&gt;&#xA;&lt;p&gt;那么共享表占比是如何计算出来的呢？（没有提，可能是共享度达到某个值以上的就算是共享表吧）&lt;/p&gt;&#xA;&lt;h4 id=&#34;表依赖度&#34;&gt;表依赖度&lt;/h4&gt;&#xA;&lt;p&gt;和关联度、共享度类似，表示表A对表B的依赖程度。那和关联度有什么区别呢…依赖度高，表A和表B更有可能有一种主从关系。见图6&lt;/p&gt;&#xA;&lt;p&gt;Dscenario = 同时操作表A和表B的场景 / 操作表A的场景之和（Tb对Ta的依赖）&lt;/p&gt;&#xA;&lt;h4 id=&#34;共享群组条件&#34;&gt;共享群组条件&lt;/h4&gt;&#xA;&lt;p&gt;Ta和Tb的相互依赖程度（Ta -&amp;gt; Tb + Tb -&amp;gt; Ta）大于某一个值&lt;/p&gt;</description>
 			</item>
 	</channel>

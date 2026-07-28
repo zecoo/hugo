@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Highlight on 张泽锟</title>
-		<link>https://zecoo.github.io/hugo/tags/highlight/</link>
+		<link>http://localhost:1313/hugo/tags/highlight/</link>
 		<description>Recent content in Highlight on 张泽锟</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Sat, 09 May 2020 00:00:00 +0800</lastBuildDate>
 		
-			<atom:link href="https://zecoo.github.io/hugo/tags/highlight/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/hugo/tags/highlight/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Hugo添加代码高亮</title>
-				<link>https://zecoo.github.io/hugo/posts/blog/hugo-code-highlight/</link>
+				<link>http://localhost:1313/hugo/posts/blog/hugo-code-highlight/</link>
 				<pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/posts/blog/hugo-code-highlight/</guid>
+				<guid>http://localhost:1313/hugo/posts/blog/hugo-code-highlight/</guid>
 				<description>&lt;p&gt;方法：用hightlight.js做高亮。&lt;/p&gt;&#xA;&lt;p&gt;针对不同的Hugo主题，应该有不同的思路。但是基本思路还是：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;head里添加css&lt;/li&gt;&#xA;&lt;li&gt;body中添加两个“script“元素第一个是js文件，第二个是loadjs&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;我用的是Hugo的contrast主题，打开文件夹theme - layout，找到博文的base.html，打开在里面添加基本思路中的文件。我仿照代码里本来有的目录，简单修改一下就可以了。（第二行是我添加的highlight css文件）&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{{ .Site.BaseURL }}css/index.css&amp;#34;&lt;/span&gt;&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{{ .Site.BaseURL }}css/github.css&amp;#34;&lt;/span&gt;&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;css的选择可以到GitHub上hightlight.js的src/style下面找。&lt;/p&gt;&#xA;&lt;p&gt;js文件，用官网上的cdn就可以。或者直接下载下来。&lt;/p&gt;&#xA;&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://orianna-zzo.github.io/sci-tech/2018-01/blog&#34;&gt;https://orianna-zzo.github.io/sci-tech/2018-01/blog&lt;/a&gt;养成记3-hugo的语法高亮配置/#使用highlight-shortcode进行高亮&lt;/p&gt;</description>
 			</item>
 	</channel>

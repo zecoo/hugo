@@ -19,8 +19,7 @@
       <div class="wrapper">
         <nav class="nav blog-nav">
           <a class="nav-link" href="http://localhost:1313/hugo/">主页</a>
-          <a class="nav-link" href="http://localhost:1313/hugo/posts">归档</a>
-          <a class="nav-link" href="http://localhost:1313/hugo/about">关于我</a>
+          <a class="nav-link active" href="http://localhost:1313/hugo/posts">归档</a>
         </nav>
       </div>
     </div>
@@ -34,9 +33,10 @@
     <div class="container">
       <div class="row">
         <div class="blog-main">
+          <a class="back-link" href="http://localhost:1313/hugo/posts">← 返回归档</a>
         	<article class="blog-post">
 			  <header>
-			    <a href="http://localhost:1313/hugo/"><h2 class="blog-post-title" dir="auto">重启k8s组件</h2></a>
+			    <h2 class="blog-post-title" dir="auto">重启k8s组件</h2>
 			    <p class="blog-post-meta"><time datetime="2021-01-27T00:00:00+08:00">Wed Jan 27, 2021</time></p>
 			  </header>
 			  <p>我的<code>kube-controller-manager</code>挂了，然后我一个<code>delete pod</code>把这个pod给删掉了。没想到这个pod管理pod的pod，懂我意思吗？<code>get pods</code>这个操作就等于挂了，我怎么把<code>kube-controller-manager</code>继续装回来呢？</p>

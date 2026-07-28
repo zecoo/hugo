@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>HPA on 张泽锟</title>
-		<link>https://zecoo.github.io/hugo/tags/hpa/</link>
+		<link>http://localhost:1313/hugo/tags/hpa/</link>
 		<description>Recent content in HPA on 张泽锟</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Mon, 04 May 2020 00:00:00 +0800</lastBuildDate>
 		
-			<atom:link href="https://zecoo.github.io/hugo/tags/hpa/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/hugo/tags/hpa/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>k8s HPA尝试</title>
-				<link>https://zecoo.github.io/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
+				<link>http://localhost:1313/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</link>
 				<pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
+				<guid>http://localhost:1313/hugo/posts/k8s/k8s-hpa%E5%B0%9D%E8%AF%95/</guid>
 				<description>&lt;p&gt;先提一个题外话：如何销毁已经创建的部署？答：&lt;/p&gt;&#xA;&lt;p&gt;有&lt;code&gt;kubectl create -f ./metrics-server&lt;/code&gt;就有&lt;code&gt;kubectl delete -f ./metrics-server&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;按照主要参考，大部分都可以实现。但是有几个坑需要注意&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;autoscaling的版本分为v1beta1、v2beta1、v2beta2。用法不同&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;deployment: extension/v1beta1&lt;/code&gt;这样的用法我改为&lt;code&gt;apps/v1beta1&lt;/code&gt;创建HPA才能成功&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;HPA的重点是hpa.yaml里面的cpu和mem的指定。&lt;/p&gt;&#xA;&lt;p&gt;Prometheus + HPA的重点是如何将Prom的数据改为metrics server可以使用的数据。这里的方法应该是config-map中构建的一系列rule。先拿来用，暂时不去深究。&lt;/p&gt;&#xA;&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/yevvzi/article/details/79561150&#34;&gt;https://blog.csdn.net/yevvzi/article/details/79561150&lt;/a&gt; （本文主要参考）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/xktxoo/article/details/87909432&#34;&gt;https://blog.csdn.net/xktxoo/article/details/87909432&lt;/a&gt; （jq介绍）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cloud.tencent.com/developer/article/1394657&#34;&gt;https://cloud.tencent.com/developer/article/1394657&lt;/a&gt; （selector问题）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://q.cnblogs.com/q/125354/&#34;&gt;https://q.cnblogs.com/q/125354/&lt;/a&gt; （target问题）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.51cto.com/13740724/2368066&#34;&gt;https://blog.51cto.com/13740724/2368066&lt;/a&gt; （新版本该这么用）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/yunqishequ/p/10006896.html&#34;&gt;https://www.cnblogs.com/yunqishequ/p/10006896.html&lt;/a&gt; （不同版本autoscaling）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/43163625/when-i-use-deployment-in-kubernetes-whats-the-differences-between-apps-v1beta1&#34;&gt;https://stackoverflow.com/questions/43163625/when-i-use-deployment-in-kubernetes-whats-the-differences-between-apps-v1beta1&lt;/a&gt; （deployment version）&lt;/p&gt;</description>
 			</item>
 	</channel>
