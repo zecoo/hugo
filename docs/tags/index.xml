@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Tags on 张泽锟</title>
-		<link>https://zecoo.github.io/hugo/tags/</link>
+		<link>http://localhost:1313/tags/</link>
 		<description>Recent content in Tags on 张泽锟</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -10,189 +10,231 @@
 		
 		
 		
-			<lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0800</lastBuildDate>
+			<lastBuildDate>Wed, 27 Jan 2021 00:00:00 +0800</lastBuildDate>
 		
-			<atom:link href="https://zecoo.github.io/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>K8s</title>
+				<link>http://localhost:1313/tags/k8s/</link>
+				<pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/tags/k8s/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Paper</title>
+				<link>http://localhost:1313/tags/paper/</link>
+				<pubDate>Wed, 27 Jan 2021 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/tags/paper/</guid>
+				<description></description>
+			</item>
 			<item>
 				<title>Istio</title>
-				<link>https://zecoo.github.io/hugo/tags/istio/</link>
+				<link>http://localhost:1313/tags/istio/</link>
 				<pubDate>Tue, 22 Dec 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/istio/</guid>
+				<guid>http://localhost:1313/tags/istio/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>RCA</title>
-				<link>https://zecoo.github.io/hugo/tags/rca/</link>
+				<link>http://localhost:1313/tags/rca/</link>
 				<pubDate>Sat, 18 Jul 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/rca/</guid>
+				<guid>http://localhost:1313/tags/rca/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Latex</title>
-				<link>https://zecoo.github.io/hugo/tags/latex/</link>
+				<link>http://localhost:1313/tags/latex/</link>
 				<pubDate>Mon, 06 Jul 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/latex/</guid>
+				<guid>http://localhost:1313/tags/latex/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Python</title>
-				<link>https://zecoo.github.io/hugo/tags/python/</link>
+				<link>http://localhost:1313/tags/python/</link>
 				<pubDate>Fri, 05 Jun 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/python/</guid>
+				<guid>http://localhost:1313/tags/python/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Trace</title>
-				<link>https://zecoo.github.io/hugo/tags/trace/</link>
+				<link>http://localhost:1313/tags/trace/</link>
 				<pubDate>Thu, 04 Jun 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/trace/</guid>
+				<guid>http://localhost:1313/tags/trace/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Cloud Computing</title>
+				<link>http://localhost:1313/tags/cloud-computing/</link>
+				<pubDate>Mon, 01 Jun 2020 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/tags/cloud-computing/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>ASL</title>
-				<link>https://zecoo.github.io/hugo/tags/asl/</link>
+				<link>http://localhost:1313/tags/asl/</link>
 				<pubDate>Fri, 29 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/asl/</guid>
+				<guid>http://localhost:1313/tags/asl/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Ing</title>
+				<link>http://localhost:1313/tags/ing/</link>
+				<pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/tags/ing/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Useless</title>
+				<link>http://localhost:1313/tags/useless/</link>
+				<pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/tags/useless/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Blog</title>
+				<link>http://localhost:1313/tags/blog/</link>
+				<pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/tags/blog/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Decomposition</title>
-				<link>https://zecoo.github.io/hugo/tags/decomposition/</link>
+				<link>http://localhost:1313/tags/decomposition/</link>
 				<pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/decomposition/</guid>
+				<guid>http://localhost:1313/tags/decomposition/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Icws</title>
-				<link>https://zecoo.github.io/hugo/tags/icws/</link>
+				<link>http://localhost:1313/tags/icws/</link>
 				<pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/icws/</guid>
+				<guid>http://localhost:1313/tags/icws/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Bash</title>
-				<link>https://zecoo.github.io/hugo/tags/bash/</link>
+				<link>http://localhost:1313/tags/bash/</link>
 				<pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/bash/</guid>
+				<guid>http://localhost:1313/tags/bash/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Hugo</title>
-				<link>https://zecoo.github.io/hugo/tags/hugo/</link>
+				<link>http://localhost:1313/tags/hugo/</link>
 				<pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/hugo/</guid>
+				<guid>http://localhost:1313/tags/hugo/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Server</title>
-				<link>https://zecoo.github.io/hugo/tags/server/</link>
+				<link>http://localhost:1313/tags/server/</link>
 				<pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/server/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>K8s</title>
-				<link>https://zecoo.github.io/hugo/tags/k8s/</link>
-				<pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/k8s/</guid>
+				<guid>http://localhost:1313/tags/server/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Kubeadm</title>
-				<link>https://zecoo.github.io/hugo/tags/kubeadm/</link>
+				<link>http://localhost:1313/tags/kubeadm/</link>
 				<pubDate>Sat, 16 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/kubeadm/</guid>
+				<guid>http://localhost:1313/tags/kubeadm/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Highlight</title>
-				<link>https://zecoo.github.io/hugo/tags/highlight/</link>
+				<link>http://localhost:1313/tags/highlight/</link>
 				<pubDate>Sat, 09 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/highlight/</guid>
+				<guid>http://localhost:1313/tags/highlight/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Prom</title>
-				<link>https://zecoo.github.io/hugo/tags/prom/</link>
+				<link>http://localhost:1313/tags/prom/</link>
 				<pubDate>Fri, 08 May 2020 00:17:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/prom/</guid>
+				<guid>http://localhost:1313/tags/prom/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Jq</title>
-				<link>https://zecoo.github.io/hugo/tags/jq/</link>
+				<link>http://localhost:1313/tags/jq/</link>
 				<pubDate>Fri, 08 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/jq/</guid>
+				<guid>http://localhost:1313/tags/jq/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Css</title>
-				<link>https://zecoo.github.io/hugo/tags/css/</link>
+				<link>http://localhost:1313/tags/css/</link>
 				<pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/css/</guid>
+				<guid>http://localhost:1313/tags/css/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Scss</title>
-				<link>https://zecoo.github.io/hugo/tags/scss/</link>
+				<link>http://localhost:1313/tags/scss/</link>
 				<pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/scss/</guid>
+				<guid>http://localhost:1313/tags/scss/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>HPA</title>
-				<link>https://zecoo.github.io/hugo/tags/hpa/</link>
+				<link>http://localhost:1313/tags/hpa/</link>
 				<pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/hpa/</guid>
+				<guid>http://localhost:1313/tags/hpa/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Hello-World</title>
-				<link>https://zecoo.github.io/hugo/tags/hello-world/</link>
+				<link>http://localhost:1313/tags/hello-world/</link>
 				<pubDate>Wed, 29 Apr 2020 11:37:07 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/hello-world/</guid>
+				<guid>http://localhost:1313/tags/hello-world/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Kubectl</title>
-				<link>https://zecoo.github.io/hugo/tags/kubectl/</link>
+				<link>http://localhost:1313/tags/kubectl/</link>
 				<pubDate>Tue, 28 Apr 2020 11:37:07 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/kubectl/</guid>
+				<guid>http://localhost:1313/tags/kubectl/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Ife</title>
-				<link>https://zecoo.github.io/hugo/tags/ife/</link>
+				<link>http://localhost:1313/tags/ife/</link>
 				<pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/ife/</guid>
+				<guid>http://localhost:1313/tags/ife/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Js</title>
-				<link>https://zecoo.github.io/hugo/tags/js/</link>
+				<link>http://localhost:1313/tags/js/</link>
 				<pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/js/</guid>
+				<guid>http://localhost:1313/tags/js/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Math</title>
-				<link>https://zecoo.github.io/hugo/tags/math/</link>
+				<link>http://localhost:1313/tags/math/</link>
 				<pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/math/</guid>
+				<guid>http://localhost:1313/tags/math/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Mirok8s</title>
-				<link>https://zecoo.github.io/hugo/tags/mirok8s/</link>
+				<link>http://localhost:1313/tags/mirok8s/</link>
 				<pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/mirok8s/</guid>
+				<guid>http://localhost:1313/tags/mirok8s/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Nginx</title>
-				<link>https://zecoo.github.io/hugo/tags/nginx/</link>
+				<link>http://localhost:1313/tags/nginx/</link>
 				<pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/tags/nginx/</guid>
+				<guid>http://localhost:1313/tags/nginx/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Ss</title>
+				<link>http://localhost:1313/tags/ss/</link>
+				<pubDate>Thu, 09 Apr 2020 11:37:07 +0800</pubDate>
+				<guid>http://localhost:1313/tags/ss/</guid>
 				<description></description>
 			</item>
 	</channel>

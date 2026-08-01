@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Math on 张泽锟</title>
-		<link>https://zecoo.github.io/hugo/categories/math/</link>
+		<link>http://localhost:1313/categories/math/</link>
 		<description>Recent content in Math on 张泽锟</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -10,14 +10,21 @@
 		
 		
 		
-			<lastBuildDate>Tue, 21 Apr 2020 11:37:07 +0800</lastBuildDate>
+			<lastBuildDate>Wed, 27 May 2020 00:00:00 +0800</lastBuildDate>
 		
-			<atom:link href="https://zecoo.github.io/hugo/categories/math/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/categories/math/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Start LeetCode</title>
+				<link>http://localhost:1313/posts/math/start-leetcode/</link>
+				<pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/posts/math/start-leetcode/</guid>
+				<description>&lt;p&gt;仅做个人记录，解题思路请看其他大佬的。&lt;/p&gt;&#xA;&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/suan-fa-xue-xi-zhi-lu&#34;&gt;https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/suan-fa-xue-xi-zhi-lu&lt;/a&gt; （如何学算法）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://leetcode.com/explore/learn/card/fun-with-arrays/&#34;&gt;https://leetcode.com/explore/learn/card/fun-with-arrays/&lt;/a&gt; （leetcode官网）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/MisterBooo/LeetCodeAnimation&#34;&gt;https://github.com/MisterBooo/LeetCodeAnimation&lt;/a&gt; （动画演示）&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Bayesian Optimization 直观理解</title>
-				<link>https://zecoo.github.io/hugo/posts/math/bayesian-optimization/</link>
+				<link>http://localhost:1313/posts/math/bayesian-optimization/</link>
 				<pubDate>Tue, 21 Apr 2020 11:37:07 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/posts/math/bayesian-optimization/</guid>
+				<guid>http://localhost:1313/posts/math/bayesian-optimization/</guid>
 				<description>&lt;h2 id=&#34;目标&#34;&gt;目标&lt;/h2&gt;&#xA;&lt;p&gt;最小(大)化一个没有具体表达式的函数。&lt;/p&gt;&#xA;&lt;h2 id=&#34;举个例子&#34;&gt;举个例子&lt;/h2&gt;&#xA;&lt;p&gt;给定一个函数&#xA;$$&#xA;f(x,y) = -x^2 - (y-1)^2 +1&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;BO通过几次迭代找到能让 &lt;em&gt;f(x,y)&lt;/em&gt; 最小的x和y的值。&lt;/p&gt;&#xA;&lt;h2 id=&#34;吐槽一下&#34;&gt;吐槽一下&lt;/h2&gt;&#xA;&lt;p&gt;中文的科普环境好差啊，很多都都是来秀智商的。一个简单的东西讲得巨鸡儿复杂，还觉得自己抖机灵挺可爱的。说得就是这篇&lt;a href=&#34;https://zhuanlan.zhihu.com/p/76269142&#34;&gt;博客&lt;/a&gt;。幸好让我遇到了还算可以的&lt;a href=&#34;https://zhuanlan.zhihu.com/p/119442817&#34;&gt;另一篇博客&lt;/a&gt;。当然都不及老外的&lt;a href=&#34;https://mlconf.com/blog/lets-talk-bayesian-optimization/&#34;&gt;blog&lt;/a&gt;。&lt;/p&gt;&#xA;&lt;p&gt;我真的不是崇洋媚外。就是在讲一个事实。科学的范畴，中文优秀博客少得可怜。至少百度出来的是这样。&lt;/p&gt;</description>
 			</item>
 	</channel>

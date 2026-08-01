@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Ing on 张泽锟</title>
-		<link>http://localhost:1313/hugo/tags/ing/</link>
+		<link>http://localhost:1313/tags/ing/</link>
 		<description>Recent content in Ing on 张泽锟</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Wed, 27 May 2020 00:00:00 +0800</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/hugo/tags/ing/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/tags/ing/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Start LeetCode</title>
-				<link>http://localhost:1313/hugo/posts/math/start-leetcode/</link>
+				<link>http://localhost:1313/posts/math/start-leetcode/</link>
 				<pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
-				<guid>http://localhost:1313/hugo/posts/math/start-leetcode/</guid>
+				<guid>http://localhost:1313/posts/math/start-leetcode/</guid>
 				<description>&lt;p&gt;仅做个人记录，解题思路请看其他大佬的。&lt;/p&gt;&#xA;&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/suan-fa-xue-xi-zhi-lu&#34;&gt;https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/suan-fa-xue-xi-zhi-lu&lt;/a&gt; （如何学算法）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://leetcode.com/explore/learn/card/fun-with-arrays/&#34;&gt;https://leetcode.com/explore/learn/card/fun-with-arrays/&lt;/a&gt; （leetcode官网）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/MisterBooo/LeetCodeAnimation&#34;&gt;https://github.com/MisterBooo/LeetCodeAnimation&lt;/a&gt; （动画演示）&lt;/p&gt;</description>
 			</item>
 	</channel>

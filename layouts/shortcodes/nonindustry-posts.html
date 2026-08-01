@@ -1,0 +1,13 @@
+{{ $self := .Page }}
+{{ $pages := where site.RegularPages "Section" "posts" }}
+{{ $pages = sort $pages "Date" "desc" }}
+<ul class="archive">
+  {{ range $pages }}
+    {{ if and (not (in .Params.categories "行业研究报告")) (ne .File.Path $self.File.Path) }}
+      <li>
+        {{ if .Date }}<time>{{ .Date.Format "2006-01-02" }}</time>{{ end }}
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </li>
+    {{ end }}
+  {{ end }}
+</ul>
