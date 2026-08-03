@@ -27,7 +27,11 @@
               {{ range $industry.Pages }}
               <li>
                 {{ if .Date }}<time>{{ .Date.Format "2006-01-02" }}</time>{{ end }}
-                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                {{- $destination := .RelPermalink -}}
+                {{- with .Params.download_url -}}
+                  {{- $destination = . | relURL -}}
+                {{- end -}}
+                <a href="{{ $destination }}">{{ .Title }}</a>
               </li>
               {{ end }}
             </ul>

@@ -1,6 +1,8 @@
 baseURL: https://zecoo.github.io/hugo/
 theme: hustrap
 publishDir: "docs"
+ignoreFiles:
+  - '^content/files/.*\\.pdf$'
 # theme: contrast-hugo
 title: "张泽锟"
 
