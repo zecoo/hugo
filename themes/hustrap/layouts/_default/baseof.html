@@ -14,9 +14,9 @@
     {{ block "footer" . }}
     {{ end }}
 
-    <script src="{{ .Site.BaseURL }}js/highlight.min.js"></script>
+    <script src="{{ "js/highlight.min.js" | relURL }}"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script type="text/javascript" src="{{ .Site.BaseURL }}js/MathJax.js"></script>
+    <script type="text/javascript" src="{{ "js/MathJax.js" | relURL }}"></script>
     {{- if or .Params.math .Site.Params.math }}
     {{ partial "math.html" . }}
     {{- end }}

@@ -4,8 +4,8 @@
     <div class="blog-masthead">
       <div class="wrapper">
         <nav class="nav blog-nav">
-          <a class="nav-link {{ if .IsHome }}active{{ end }}" href="{{ .Site.BaseURL | absLangURL }}">主页</a>
-          <a class="nav-link {{ if not .IsHome }}active{{ end }}" href="{{ .Site.BaseURL }}posts">归档</a>
+          <a class="nav-link {{ if .IsHome }}active{{ end }}" href="{{ "/" | relURL }}">主页</a>
+          <a class="nav-link {{ if not .IsHome }}active{{ end }}" href="{{ "posts" | relURL }}">归档</a>
         </nav>
       </div>
     </div>
@@ -37,7 +37,7 @@
               {{ $all := where .Site.RegularPages "Title" "非行业研究报告文章汇总" }}
               <li>
                 {{ with index $all 0 }}{{ with .Params.time }}<time>{{ . }}</time>{{ end }}{{ end }}
-                <a href="{{ "/posts/all-in-one/" | relURL }}">非行业研究报告文章汇总</a>
+                <a href="{{ "posts/all-in-one/" | relURL }}">非行业研究报告文章汇总</a>
               </li>
             </ul>
           </article>

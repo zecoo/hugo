@@ -4,8 +4,8 @@
     <div class="blog-masthead">
       <div class="wrapper">
         <nav class="nav blog-nav">
-          <a class="nav-link" href="{{ .Site.BaseURL | absLangURL }}">主页</a>
-          <a class="nav-link {{ if not .IsHome }}active{{ end }}" href="{{ .Site.BaseURL }}posts">归档</a>
+          <a class="nav-link" href="{{ "/" | relURL }}">主页</a>
+          <a class="nav-link {{ if not .IsHome }}active{{ end }}" href="{{ "posts" | relURL }}">归档</a>
         </nav>
       </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="container">
       <div class="row">
         <div class="blog-main">
-          <a class="back-link" href="{{ .Site.BaseURL }}posts">← 返回归档</a>
+          <a class="back-link" href="{{ "posts" | relURL }}">← 返回归档</a>
         	<article class="blog-post">
 			  <header>
 			    <h2 class="blog-post-title" dir="auto">{{ .Title }}</h2>
