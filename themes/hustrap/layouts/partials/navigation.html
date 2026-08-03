@@ -1,0 +1,8 @@
+<div class="blog-masthead">
+  <div class="wrapper">
+    <nav class="nav blog-nav" aria-label="主导航">
+      <a class="nav-link {{ if .IsHome }}active{{ end }}" href="{{ .Site.Home.RelPermalink }}">首页</a>
+      <a class="nav-link {{ if and (not .IsHome) (eq .Section "posts") }}active{{ end }}" href="{{ "posts" | relURL }}">文章</a>
+    </nav>
+  </div>
+</div>

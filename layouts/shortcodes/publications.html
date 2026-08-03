@@ -1,0 +1,30 @@
+<section id="publications" class="publications-section">
+  <div class="section-heading publications-heading">
+    <div>
+      <p class="section-kicker">SELECTED PUBLICATIONS</p>
+      <h2>代表成果</h2>
+      <p>聚焦云原生系统可靠性、异常检测与根因定位。</p>
+    </div>
+    <p class="publication-count"><strong>{{ len hugo.Data.publications.all }}</strong><span>篇论文</span></p>
+  </div>
+  <div class="publication-grid">
+    {{ range hugo.Data.publications.selected }}
+    <article class="publication-card">
+      <p class="publication-meta">{{ .year }} · {{ .venue }}</p>
+      <h3>{{ .title }}</h3>
+      <p class="publication-summary">{{ .summary }}</p>
+      <div class="publication-tags">
+        {{ range .tags }}<span>{{ . }}</span>{{ end }}
+      </div>
+    </article>
+    {{ end }}
+  </div>
+  <details class="publication-all">
+    <summary>查看全部学术论文（{{ len hugo.Data.publications.all }} 篇）</summary>
+    <ol>
+      {{ range hugo.Data.publications.all }}
+      <li><span>{{ .citation }}</span><small>{{ .note }}</small></li>
+      {{ end }}
+    </ol>
+  </details>
+</section>

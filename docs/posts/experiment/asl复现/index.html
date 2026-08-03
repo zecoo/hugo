@@ -1,108 +1,40 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.164.0">
-    <meta name="description" content="湖北·武汉">
-    <title>
-        ASL复现 
-    </title>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/hugo/css/main.css">
-    <link rel="stylesheet" href="/hugo/css/github.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-</head>
-  <body>
-    
-    <div class="blog-masthead">
-      <div class="wrapper">
-        <nav class="nav blog-nav">
-          <a class="nav-link" href="/hugo/">主页</a>
-          <a class="nav-link active" href="/hugo/posts">归档</a>
-        </nav>
-      </div>
-    </div>
-
-
-    
-    
-
-    
-
-    <div class="container">
-      <div class="row">
-        <div class="blog-main">
-          <a class="back-link" href="/hugo/posts">← 返回归档</a>
-        	<article class="blog-post">
-			  <header>
-			    <h2 class="blog-post-title" dir="auto">ASL复现</h2>
-			    <p class="blog-post-meta"><time datetime="2020-05-29T00:00:00+08:00">Fri May 29, 2020</time></p>
-			  </header>
-			  <h2 id="贝叶斯优化扩容">贝叶斯优化扩容</h2>
-<p>记录下实验过程</p>
-<p>一开始发现无论我用多大的并发去压测productpage，都是在压测的瞬间P90和P50陡增，但是不用任何扩容的操作，P90和P50都能立马降下来。如下图</p>
-<p><img src="http://89.33.194.100:8888/images/2020/05/29/Screen-Shot-2020-05-29-at-4.45.08-PM.md.jpg" alt="first try"></p>
-<p>可以看到每一次峰值就是我增加一个压测后立马出现的情况。但是不做任何操作立马回落到正常。</p>
-<p>一开始考虑要么让物理机的CPU和Mem限制住，但是觉得这样开销太大了。要不试试把pod的CPU和Mem限制住？立即开干。查到了限制pod资源的方法：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">containers</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">gcr.io/google_containers/serve_hostname</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">imagePullPolicy</span>: <span style="color:#ae81ff">Always</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">kubernetes-serve-hostname</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">resources</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">limits</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;1&#34;</span>             <span style="color:#75715e">#限制pod申请最大的cpu数量为1个cpu</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">512Mi       </span> <span style="color:#75715e">#申请内存最大值</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">requests</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;0.5&#34;</span>           <span style="color:#75715e">#pod申请的cpu数量为0.5个cpu</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">400Mi       </span> <span style="color:#75715e">#申请内存的最小值</span>
-</span></span></code></pre></div><p>调整限制的大小，发现cpu给0.1，mem给100m是比较合适的。继续尝试实验，如下图</p>
-<p><img src="http://89.33.194.100:8888/images/2020/05/29/Screen-Shot-2020-05-29-at-5.54.46-PM.jpg" alt="2nd try"></p>
-<p>仔细解说一下哈：</p>
-<p>17:41分的时候，我开了两个并发为200的压测，指标立马上去了。BO这时候在后台跑着呢，记录一下几次迭代的结果：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>|   iter    |  target   |     x     |
-</span></span><span style="display:flex;"><span>time : 2020-05-29 17:41:44
-</span></span><span style="display:flex;"><span>|  <span style="color:#ae81ff">2</span>        | -55.71    |  1.441    |
-</span></span><span style="display:flex;"><span>Pod Count Set to: <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>|  <span style="color:#ae81ff">3</span>        |  8.421    |  0.000228 |
-</span></span><span style="display:flex;"><span>Pod Count Set to: <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>|  <span style="color:#ae81ff">4</span>        | -70.0     |  0.6047   |
-</span></span><span style="display:flex;"><span>Pod Count Set to: <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>|  <span style="color:#ae81ff">5</span>        | -99.0     |  0.2935   |
-</span></span><span style="display:flex;"><span>Pod Count Set to: <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span>|  <span style="color:#ae81ff">6</span>        | -38.55    |  1.112    |
-</span></span><span style="display:flex;"><span>Pod Count Set to: <span style="color:#ae81ff">3</span>
-</span></span><span style="display:flex;"><span>time : 2020-05-29 17:43:21
-</span></span><span style="display:flex;"><span>|  <span style="color:#ae81ff">7</span>        |  6.02     |  2.0      |
-</span></span><span style="display:flex;"><span>Pod Count Set to: <span style="color:#ae81ff">2</span>
-</span></span></code></pre></div><p>pod_count稳定在2，指标就恢复稳定了。一直到17:47分，BO迭代结束，关闭一个压测，仅保留一个。重新开启BO，BO初始值立马给我从2调整为1，可以看到这里指标又飙上去了，BO第二次迭代调整为2，但是几次迭代之后又稳定在1，一直延续到17:55分。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>集群大小： <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span>开始缩容，时间： 2020-05-29 17:46:56
-</span></span><span style="display:flex;"><span>|   iter    |  target   |     x     |
-</span></span><span style="display:flex;"><span>-------------------------------------
-</span></span><span style="display:flex;"><span>Pod Count Set to: <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>|  <span style="color:#ae81ff">1</span>        |  16.03    |  0.834    |
-</span></span><span style="display:flex;"><span>Pod Count Set to: <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span>|  <span style="color:#ae81ff">2</span>        | -42.68    |  1.441    |
-</span></span><span style="display:flex;"><span>Pod Count Set to: <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>|  <span style="color:#ae81ff">3</span>        |  4.267    |  0.000228 |
-</span></span><span style="display:flex;"><span>Pod Count Set to: <span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><p>可以看出有一个问题，BO每次迭代都能得到一个值，有时候一丢丢的不稳定就会造成扩容数量的增大或者减小，这就是几篇扩容相关论文里提到的震荡的问题。</p>
-<h2 id="参考">参考</h2>
-<p><a href="https://blog.csdn.net/ljx1528/article/details/82867115">https://blog.csdn.net/ljx1528/article/details/82867115</a> （限制pod资源讲解）</p>
-
-			</article>
-        </div> 
-      </div> 
-    </div>
-
-    
-    
-    
-
-    <script src="/hugo/js/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script type="text/javascript" src="/hugo/js/MathJax.js"></script>
-  </body>
-</html>
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=generator content="Hugo 0.164.0"><meta name=description content="湖北·武汉"><title>ASL复现</title><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css integrity=sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh crossorigin=anonymous><link rel=stylesheet type=text/css href=/hugo/css/main.css><link rel=stylesheet href=/hugo/css/github.css><meta name=viewport content="width=device-width,initial-scale=1"></head><body><div class=blog-masthead><div class=wrapper><nav class="nav blog-nav" aria-label=主导航><a class=nav-link href=/hugo/>首页</a>
+<a class="nav-link active" href=/hugo/posts>文章</a></nav></div></div><div class=container><div class=row><div class=blog-main><a class=back-link href=/hugo/posts>← 返回归档</a><article class=blog-post><header><h2 class=blog-post-title dir=auto>ASL复现</h2><p class=blog-post-meta><time datetime=2020-05-29T00:00:00+08:00>Fri May 29, 2020</time></p></header><h2 id=贝叶斯优化扩容>贝叶斯优化扩容</h2><p>记录下实验过程</p><p>一开始发现无论我用多大的并发去压测productpage，都是在压测的瞬间P90和P50陡增，但是不用任何扩容的操作，P90和P50都能立马降下来。如下图</p><p><img src=http://89.33.194.100:8888/images/2020/05/29/Screen-Shot-2020-05-29-at-4.45.08-PM.md.jpg alt="first try"></p><p>可以看到每一次峰值就是我增加一个压测后立马出现的情况。但是不做任何操作立马回落到正常。</p><p>一开始考虑要么让物理机的CPU和Mem限制住，但是觉得这样开销太大了。要不试试把pod的CPU和Mem限制住？立即开干。查到了限制pod资源的方法：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>containers</span>:
+</span></span><span style=display:flex><span>  - <span style=color:#f92672>image</span>: <span style=color:#ae81ff>gcr.io/google_containers/serve_hostname</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>imagePullPolicy</span>: <span style=color:#ae81ff>Always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>kubernetes-serve-hostname</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>resources</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>limits</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>cpu</span>: <span style=color:#e6db74>&#34;1&#34;</span>             <span style=color:#75715e>#限制pod申请最大的cpu数量为1个cpu</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>memory</span>: <span style=color:#ae81ff>512Mi       </span> <span style=color:#75715e>#申请内存最大值</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>requests</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>cpu</span>: <span style=color:#e6db74>&#34;0.5&#34;</span>           <span style=color:#75715e>#pod申请的cpu数量为0.5个cpu</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>memory</span>: <span style=color:#ae81ff>400Mi       </span> <span style=color:#75715e>#申请内存的最小值</span>
+</span></span></code></pre></div><p>调整限制的大小，发现cpu给0.1，mem给100m是比较合适的。继续尝试实验，如下图</p><p><img src=http://89.33.194.100:8888/images/2020/05/29/Screen-Shot-2020-05-29-at-5.54.46-PM.jpg alt="2nd try"></p><p>仔细解说一下哈：</p><p>17:41分的时候，我开了两个并发为200的压测，指标立马上去了。BO这时候在后台跑着呢，记录一下几次迭代的结果：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-shell data-lang=shell><span style=display:flex><span>|   iter    |  target   |     x     |
+</span></span><span style=display:flex><span>time : 2020-05-29 17:41:44
+</span></span><span style=display:flex><span>|  <span style=color:#ae81ff>2</span>        | -55.71    |  1.441    |
+</span></span><span style=display:flex><span>Pod Count Set to: <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>|  <span style=color:#ae81ff>3</span>        |  8.421    |  0.000228 |
+</span></span><span style=display:flex><span>Pod Count Set to: <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>|  <span style=color:#ae81ff>4</span>        | -70.0     |  0.6047   |
+</span></span><span style=display:flex><span>Pod Count Set to: <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>|  <span style=color:#ae81ff>5</span>        | -99.0     |  0.2935   |
+</span></span><span style=display:flex><span>Pod Count Set to: <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>|  <span style=color:#ae81ff>6</span>        | -38.55    |  1.112    |
+</span></span><span style=display:flex><span>Pod Count Set to: <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>time : 2020-05-29 17:43:21
+</span></span><span style=display:flex><span>|  <span style=color:#ae81ff>7</span>        |  6.02     |  2.0      |
+</span></span><span style=display:flex><span>Pod Count Set to: <span style=color:#ae81ff>2</span>
+</span></span></code></pre></div><p>pod_count稳定在2，指标就恢复稳定了。一直到17:47分，BO迭代结束，关闭一个压测，仅保留一个。重新开启BO，BO初始值立马给我从2调整为1，可以看到这里指标又飙上去了，BO第二次迭代调整为2，但是几次迭代之后又稳定在1，一直延续到17:55分。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-shell data-lang=shell><span style=display:flex><span>集群大小： <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>开始缩容，时间： 2020-05-29 17:46:56
+</span></span><span style=display:flex><span>|   iter    |  target   |     x     |
+</span></span><span style=display:flex><span>-------------------------------------
+</span></span><span style=display:flex><span>Pod Count Set to: <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>|  <span style=color:#ae81ff>1</span>        |  16.03    |  0.834    |
+</span></span><span style=display:flex><span>Pod Count Set to: <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>|  <span style=color:#ae81ff>2</span>        | -42.68    |  1.441    |
+</span></span><span style=display:flex><span>Pod Count Set to: <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>|  <span style=color:#ae81ff>3</span>        |  4.267    |  0.000228 |
+</span></span><span style=display:flex><span>Pod Count Set to: <span style=color:#ae81ff>1</span>
+</span></span></code></pre></div><p>可以看出有一个问题，BO每次迭代都能得到一个值，有时候一丢丢的不稳定就会造成扩容数量的增大或者减小，这就是几篇扩容相关论文里提到的震荡的问题。</p><h2 id=参考>参考</h2><p><a href=https://blog.csdn.net/ljx1528/article/details/82867115>https://blog.csdn.net/ljx1528/article/details/82867115</a> （限制pod资源讲解）</p></article></div></div></div><script src=/hugo/js/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script><script type=text/javascript src=/hugo/js/MathJax.js></script></body></html>

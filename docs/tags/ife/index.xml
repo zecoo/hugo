@@ -1,45 +1,147 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Ife on 张泽锟</title>
-		<link>https://zecoo.github.io/hugo/tags/ife/</link>
-		<description>Recent content in Ife on 张泽锟</description>
-		<generator>Hugo</generator>
-		<language>en</language>
-		
-		
-		
-		
-			<lastBuildDate>Thu, 23 Apr 2020 11:37:07 +0800</lastBuildDate>
-		
-			<atom:link href="https://zecoo.github.io/hugo/tags/ife/index.xml" rel="self" type="application/rss+xml" />
-			<item>
-				<title>IFE task0002_5 回顾</title>
-				<link>https://zecoo.github.io/hugo/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</link>
-				<pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid>
-				<description>&lt;p&gt;做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基础。&lt;/p&gt;&#xA;&lt;p&gt;我也百度了一下，发现写task0002_5的博客少之又少，说明ife的任务2到这里，基本上已经没有很多人在做了。&lt;/p&gt;&#xA;&lt;h2 id=&#34;瞎总结&#34;&gt;瞎总结&lt;/h2&gt;&#xA;&lt;p&gt;首先要了解事件是个什么东西。在这个任务里面，要监听的是&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;滑块被拖动时的位置 &lt;em&gt;dragStart(e)&lt;/em&gt;&lt;/li&gt;&#xA;&lt;li&gt;滑块处于拖动状态 &lt;em&gt;dragging(e)&lt;/em&gt;&lt;/li&gt;&#xA;&lt;li&gt;滑块最后放置的位置 drop(e)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;而在js里，有专门针对拖动的监听事件&lt;em&gt;dragStart&lt;/em&gt;和&lt;em&gt;drop&lt;/em&gt;方法。&lt;/p&gt;&#xA;&lt;h2 id=&#34;让滑块动起来&#34;&gt;让滑块动起来&lt;/h2&gt;&#xA;&lt;p&gt;首先要给滑块设置&lt;code&gt;draggable=true&lt;/code&gt;，然后就会神奇得发现滑块真的可以拖动了。留下一个残影在原来的位置。但是也会神奇得发现鼠标一松开还是要打回原形。&lt;/p&gt;&#xA;&lt;p&gt;先做第一个动画，拖动一个滑块A的时候，首先A要在wrap中消失。可以用css添加一个class dragging，设置&lt;code&gt;display=none&lt;/code&gt;。监听滑块处在拖动的状态时，就是不可见的。而一旦落了脚，要移除这个class。重新回到可见状态。&lt;/p&gt;&#xA;&lt;p&gt;第一个动画做完，可以发现，拖动A，A下面的滑块会自动补上A的位置。松开鼠标依旧打回原形。&lt;/p&gt;&#xA;&lt;h2 id=&#34;单个容器拖动效果&#34;&gt;单个容器拖动效果&lt;/h2&gt;&#xA;&lt;p&gt;然后尝试做单个容器内滑块的拖动效果。第二个动画该考虑把要移动的滑块A插到合适的地方。这里面有这样几步&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;获取当前滑块A的中心相对容器的坐标。得出插入第k格&lt;/li&gt;&#xA;&lt;li&gt;将A插入指定位置&lt;/li&gt;&#xA;&lt;li&gt;A下面的滑块均向下移动一格&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;我在这里偷了个懒，仅根据drop事件当前的鼠标位置来判断插入哪一格。具体细节先不追究，毕竟还要抓紧学vue的知识。2、3步也比较简单，让每个滑块&lt;code&gt;position=absolute&lt;/code&gt;，然后设置一个top值，就可以控制滑块的移动了。&lt;/p&gt;&#xA;&lt;h2 id=&#34;多容器拖动效果&#34;&gt;多容器拖动效果&lt;/h2&gt;&#xA;&lt;p&gt;最后将单容器拓展到双容器甚至多容器，其实仅比单容器多了一步，就是根据滑块drop的中心位置判断落在哪个容器。&lt;/p&gt;&#xA;&lt;h2 id=&#34;踩坑记&#34;&gt;踩坑记&lt;/h2&gt;&#xA;&lt;p&gt;我写回顾主要是想记一下自己踩的坑。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;$&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;on&lt;/span&gt;(document.&lt;span style=&#34;color:#a6e22e&#34;&gt;body&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;dragover&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;dragOver&lt;/span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;没错，全在这一行代码里了。&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$.on&lt;/code&gt;是util.js里&lt;code&gt;addEvent(element, event, listener)&lt;/code&gt;的封装。&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;element，就是监听对象。我在做drop效果的时候，打死都出不来。随便一拖动，滑块就没了。最后定位到是element的问题，我打开html检查器，发现自己没有定义container的高度，结果就是整个body只有一丢丢高，并没有把容器包括进去。所以我拖动的滑块，其实在监听对象body之外。那肯定是没得效果咯。&lt;/li&gt;&#xA;&lt;li&gt;event，这…我本来以为没啥实际意义的参数，又给我栽一大跟头，让我不好好看文档先学习用法。event要和listener方法名一致，并且&lt;em&gt;&lt;strong&gt;全部小写&lt;/strong&gt;&lt;/em&gt;。&lt;/li&gt;&#xA;&lt;li&gt;dragOver别看就一行代码，&lt;em&gt;e&lt;/em&gt;.preventDefault();，这是为了防止浏览器拖动结束没来得及drop就结束监听。不然又会遇到一拖动滑块就消失了的情况。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;以上。&lt;/p&gt;&#xA;&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.runoob.com/jsref/event-ondrag.html&#34;&gt;https://www.runoob.com/jsref/event-ondrag.html&lt;/a&gt; （菜鸟onDrag事件）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/2dfb870e0b88&#34;&gt;https://www.jianshu.com/p/2dfb870e0b88&lt;/a&gt; （本任务类型）&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>ife 轮播图回顾</title>
-				<link>https://zecoo.github.io/hugo/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</link>
-				<pubDate>Wed, 15 Apr 2020 11:37:07 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</guid>
-				<description>&lt;h2 id=&#34;写在前面&#34;&gt;写在前面&lt;/h2&gt;&#xA;&lt;p&gt;做到ife task002_3，轮播图花了我最长的时间来写，甚至让我开始反思自己是不是真的…不适合当一个程序员。我要成了程序员，有种侮辱了这个群体的感jio。最后看了一下，虽然也就125行的代码，断断续续我大概做了一周。😓&lt;/p&gt;&#xA;&lt;h3 id=&#34;htmlcss也遇到问题&#34;&gt;html&amp;amp;CSS也遇到问题：&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;怎么把6张图片都塞到frame里面去不漏出来。简单一个&lt;code&gt;overflow：hidden&lt;/code&gt;我就是想不到。&lt;/li&gt;&#xA;&lt;li&gt;6个按钮小圆点怎么放到frame里面。其实还是position的问题，我总是自以为了解position，然而到了真正实践的时候就出问题。小圆点div相对于frame的position要absolute。&lt;/li&gt;&#xA;&lt;li&gt;如何让图片有一个滑动的效果？我是看了DIYgod的代码之后，才知道要让图片float left，让图片div的宽度仅可能宽，让图片相对于左上角每次移动一部分距离，就能实现移动的效果了。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;最要命的是js部分&#34;&gt;最要命的是JS部分&lt;/h2&gt;&#xA;&lt;p&gt;一开始我百度了一个轮播图的代码，是通过调整其他图片&lt;code&gt;display：none&lt;/code&gt;，指定index的图片&lt;code&gt;display：block&lt;/code&gt;。这样就简单实现了图片的切换。这样做也没有什么问题，但就是没有滑动的动画效果，看起来很low。&lt;/p&gt;&#xA;&lt;p&gt;干脆继续参考DIYgod的代码。就有了上面提到的，让图片横向展开在页面中。每次切换让图片向左或向右移动一定的距离offset。也就是图片div的left增加或减少offset。如果移动一张图片距离，那么就是offset=img.width。&lt;/p&gt;&#xA;&lt;h3 id=&#34;next--prev-button&#34;&gt;Next &amp;amp; Prev button&lt;/h3&gt;&#xA;&lt;p&gt;于是我先把next、prev点击切换的功能做出来，还算简单，主要注意的是next移动到第六张图片的时候，要跳回到第一张图片，要用if做个判断。prev移动到第一张照片的时候同理。&lt;/p&gt;&#xA;&lt;h3 id=&#34;移动动画效果&#34;&gt;移动动画效果&lt;/h3&gt;&#xA;&lt;p&gt;到这里可以发现，到目前为止，功能做出来和display：none的那一版没有任何区别。因为移动在一瞬间就完成了，没有形成动画效果。&lt;/p&gt;&#xA;&lt;p&gt;如果想要动画效果，要在一定时间time内逐步完成移动。做法是设置每个时间间隔interval移动一小段距离，那么每个时间间隔移动的距离就是offset / (time / interval)。然后设置一个setTimeout函数执行移动过程。&lt;/p&gt;&#xA;&lt;p&gt;好，动手操作一下。然后就会惊奇的发现：操，我的轮播图怎么停不下来了？是因为setTimeout之后，每个时间间隔就会执行一次，不设置停止条件的话就会一直执行下去。那么停止条件是什么呢？图片移动了offset的距离，这个动画过程就应该结束。所以停止条件就是initialLeft + offset = newLeft的时候。&lt;/p&gt;&#xA;&lt;p&gt;再来看看轮播图效果怎么样？next和prev按钮都可以使用了，而且也有了动画效果。小阶段目标完成，先给自己小小鼓励一下。&lt;/p&gt;&#xA;&lt;h3 id=&#34;小圆点&#34;&gt;小圆点&lt;/h3&gt;&#xA;&lt;p&gt;接下来考虑实现小圆点和图片的index的同步。这中间也有一些trick，我随便想想发现悟不到就又看了Dg的代码。&lt;/p&gt;&#xA;&lt;p&gt;首先考虑怎么做到让某个index的小圆点（下面用O表示）亮起来呢？Dg给出的方法是，给index的O添加一个class比如light，CSS中设置该class light的bgc=white，就相当于让index的O亮起来了，挺巧妙的。同时要注意，亮起来了，还要让他灭掉，也很简单，把所有O的light class都给remove掉。&lt;/p&gt;&#xA;&lt;p&gt;好的，现在任意index的O都可以控制其亮或者不亮了。直接把这个方法封装成showBtn()。在next、prev的点击操作中，添加showBtn方法，就可以成功看到指定index的O亮起来了，和图片实现了同步。&lt;/p&gt;&#xA;&lt;p&gt;小圆点这里还没完。通常在轮播图中点击某个位置的O，应该能跳转到该index的图片。这里Dg在html中给每个O设置了一个index=0~6属性，通过this.getAttribute()方法获取当前index。有了当前的index，和要移动到的index，相减乘以图片的width，就是要移动的offset。那么到这里这个功能也就实现了。&lt;/p&gt;&#xA;&lt;p&gt;所以到最后的顺时针、逆时针播放就更简单了，setInterval()，每隔1000ms执行一次next或者prev，就OK了。但是要注意，如果先后点击playASC和playDESC，会发生鬼畜。解决方法是在这两个方法执行前先判断一下，如果setInterval的timer还在的话，就stop掉。这样鬼畜的问题也就解决了。&lt;/p&gt;&#xA;&lt;h2 id=&#34;最后&#34;&gt;最后&lt;/h2&gt;&#xA;&lt;p&gt;别看我回顾就写了1.3k字，写代码花费的时间真的比我想象中的多多了。感觉那些程序员坐一下午能搞出各种各样的功能，我这……真的菜啊。&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>IFE js.util</title>
-				<link>https://zecoo.github.io/hugo/posts/static-web/ife-js-util/</link>
-				<pubDate>Tue, 31 Mar 2020 11:37:07 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/posts/static-web/ife-js-util/</guid>
-				<description>&lt;p&gt;task1的时候我还能勉强用自己的想法写，html的展示效果达到了就好。&lt;br&gt;&#xA;但是到了task2的时候，js基础还是不牢啊，基本上每道题都要看下别人的博客。虽然有点low，但是还是秉着一股劲往前冲，后面再来捡技术细节的思路，不丢人的。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;一趟捣鼓下来，JS部分一共就5个板块：&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;js基础：数据结构、对象等&lt;/li&gt;&#xA;&lt;li&gt;dom（html树形结构操作）&lt;/li&gt;&#xA;&lt;li&gt;ajax（和服务器交互，部分刷新页面）&lt;/li&gt;&#xA;&lt;li&gt;jQuery（更方便操作dom和ajax）&lt;/li&gt;&#xA;&lt;li&gt;nodejs（暂时不学习）&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;接下来总结一下自己的捣鼓过程吧（不包含技术细节）&lt;/p&gt;&#xA;&lt;h2 id=&#34;任务2-js基础&#34;&gt;任务2 JS基础&lt;/h2&gt;&#xA;&lt;h4 id=&#34;判断数据类型&#34;&gt;判断数据类型。&lt;/h4&gt;&#xA;&lt;p&gt;用&lt;code&gt;Objexct.prototype&lt;/code&gt;来判断&lt;/p&gt;&#xA;&lt;h4 id=&#34;深克隆&#34;&gt;深克隆。&lt;/h4&gt;&#xA;&lt;p&gt;如果直接&lt;code&gt;var copy = src&lt;/code&gt;就是浅复制，所以要用递归的形式。&lt;/p&gt;&#xA;&lt;h4 id=&#34;数组相关操作&#34;&gt;数组相关操作&lt;/h4&gt;&#xA;&lt;p&gt;1 simpleTrim。这种问题以前从来没接触过，不会写正常2333。for循环判断分别从前和从后面判断时候有空字符&lt;/p&gt;&#xA;&lt;p&gt;2 trim。正则表达式直接把空字符给替换掉&lt;/p&gt;&#xA;&lt;h4 id=&#34;正则表达式&#34;&gt;正则表达式&lt;/h4&gt;&#xA;&lt;p&gt;这是我第几次学习正则表达式啦？？&lt;/p&gt;&#xA;&lt;h2 id=&#34;任务3-dom&#34;&gt;任务3 Dom&lt;/h2&gt;&#xA;&lt;p&gt;到这里最好还是结合html页面来学习，直接上来写老夫实在是无处下手。&lt;/p&gt;&#xA;&lt;h2 id=&#34;任务4-event&#34;&gt;任务4 Event&lt;/h2&gt;&#xA;&lt;p&gt;同dom&lt;/p&gt;&#xA;&lt;h2 id=&#34;任务5-bom&#34;&gt;任务5 Bom&lt;/h2&gt;&#xA;&lt;p&gt;cookie的设置和获取。&lt;/p&gt;&#xA;&lt;p&gt;以前只知道cookie是什么，现在知道cookie长什么样了怎么搞一个。&lt;/p&gt;&#xA;&lt;h2 id=&#34;任务6-ajax&#34;&gt;任务6 Ajax&lt;/h2&gt;&#xA;&lt;p&gt;emmm自己写一个简单的，讲道理，其实是xmlhttp的使用，和ajax没有什么关系。&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>IFE Task0001 Log</title>
-				<link>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</link>
-				<pubDate>Sun, 01 Mar 2020 17:39:45 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</guid>
-				<description>&lt;p&gt;我记录一下ife其他几个页面。一共这么几个页面&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../task0001/index.html&#34;&gt;index.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../task0001/post.html&#34;&gt;post.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../task0001/gallery.html&#34;&gt;archive.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../task0001/about.html&#34;&gt;about.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;如果自己写的话，除了index.html，其他几个页面都有或多多少的问题我写不出来。&#xA;一个一个说吧。&lt;/p&gt;&#xA;&lt;h2 id=&#34;indexhtml&#34;&gt;Index.html&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;banner有三个部分，一个是logo，一个是站内其他链接，最后一个是git的logo。这三个部分要显示在水平的一行，这里其实是运用到了float，只要把三个部分都设置为float，就可以变成一行了。感觉有点像把div改成了块内元素一样，也就是变成了span。&lt;/li&gt;&#xA;&lt;li&gt;一般banner的链接都是用list改成水平，改成水平的方法有两个，一个是float，另一个是display inline-block&lt;/li&gt;&#xA;&lt;li&gt;我想让这三部分，随着页面的改变，位置不要定死，原来margin-left之类的也可以用百分比来表示，就很舒服了。&lt;/li&gt;&#xA;&lt;li&gt;center是一个大的bg，bg上面有一个透明度的方形显示文字，放bg的时候遇到了以前就遇到的问题，比如默认是重复的，而且不能充满div。这两个问题代码很好解决。&lt;/li&gt;&#xA;&lt;li&gt;至于透明度的方形，彻底让我对position这个元素有了一定的理解。absolute、fixed、relative分别代表什么。&lt;/li&gt;&#xA;&lt;li&gt;box部分是三个卡片，卡片里有图片和文字。三个卡片并列其实也挺好写，好像用inline-block就可以实现，水平垂直居中什么的也都是现成的，不过写好了之后再看要求里面有一个是卡片的高度随文字内容自适应。&lt;/li&gt;&#xA;&lt;li&gt;遂百度之，发现用display table可以解决这个问题，但是table是占满整个div的，不过也好解决，用一大一小div就解决了。&lt;/li&gt;&#xA;&lt;li&gt;圆形的头像，这个做起来也好简单啊，图片的radius改一下就可以了。&lt;/li&gt;&#xA;&lt;li&gt;intro部分其实不用display来写，比较常规。如果需要居中之类的工作，用display明显是要方便很多的。&lt;/li&gt;&#xA;&lt;li&gt;最后一点，如果用flex来布局，flex里面的每个元素的宽度都是以最宽的那个为标准。这时候想要居中的话可以考虑用text-align center解决。这是最后那个小logo的居中问题。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;posthtml&#34;&gt;Post.html&lt;/h2&gt;&#xA;&lt;p&gt;在开始写post.html之前我在GitHub上down了几个其他人的ife作业，然后发现我这个代码真的是稀烂…最基本的有这么几个问题：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;文件的结构，ife里强调了，但是我没有遵守。&lt;/li&gt;&#xA;&lt;li&gt;div的命名方式。navbar，navbar-menu、profile之类的&lt;/li&gt;&#xA;&lt;li&gt;class和id的区别&lt;/li&gt;&#xA;&lt;li&gt;nav和footer是html的元素，可以不用div写&lt;/li&gt;&#xA;&lt;li&gt;html的基本框架应该是navbar、banner、content、footer&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;然后我找到了一个极佳的对比例子。就是DIYgod，当我看到他就是RSSHub的发起者的时候，我懵逼了。他也就大我三届而已，而且还是武理的，我简直太菜了。。酸归酸，看DIYgod大神的前端页面。能学到很多东西：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;html的其他默认元素：header、section、article、nav的使用&lt;/li&gt;&#xA;&lt;li&gt;日历写起来其实就是一个table view&lt;/li&gt;&#xA;&lt;li&gt;tag-graph就更简单了，字体设几个不同的大小就可以&lt;/li&gt;&#xA;&lt;li&gt;一个简单的单词，换一个字体就能变成logo一般的存在&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;然后记录一下写 blog.html的时候遇到的坑&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;blog应该是一个简单的双列布局。双列布局的形式有哪些来着？我是用百分比的形式来布局的。要求用980px，我不太喜欢&lt;/li&gt;&#xA;&lt;li&gt;table设置了宽高之后，cell变大，那么cell里面字的间距自然就大了&lt;/li&gt;&#xA;&lt;li&gt;有时候会遇到给div里面子元素加padding之后，div的宽度哪怕设好了，还是会超出来。这个时候要设置一下&lt;code&gt;box-sizing=border-content&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;a写在div外面，就把整个div变成了链接。&lt;/li&gt;&#xA;&lt;li&gt;我现在使用自适应的方法太简陋了，@media (maxwidth=980) {.div { display=none} }&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;archivehtml&#34;&gt;Archive.html&lt;/h2&gt;&#xA;&lt;p&gt;这个页面我被卡住了。本来一个瀑布流我可以百度，用flex或者用column来解决，但是ife的作业的瀑布流里偏偏有一个比较大的块，是一个这样的结构&lt;br&gt;&#xA;[ + ][ ][ ]&lt;br&gt;&#xA;[ ][ ][ ][ ]&lt;br&gt;&#xA;[ ][ ][ ][ ]&lt;br&gt;&#xA;就比较棘手。不能直接用简单的瀑布流，最后是划成3个部分，1⃣️是 [ + ] 2⃣️是其下面的部分，3⃣️是右边两排。然后让2⃣️和3⃣️变成瀑布流。然后细细碎碎的一些对齐问题啊、宽度计算的问题啊，浪费了我挺多时间。&lt;/p&gt;&#xA;&lt;p&gt;然后更吊诡的是，我连一个简单的3个div并排在一排都写不出来。好像用inline-block就能写出来。不过我还要再整理一下思路。&lt;/p&gt;&#xA;&lt;h2 id=&#34;abouthtml&#34;&gt;About.html&lt;/h2&gt;&#xA;&lt;p&gt;不得不说ife作业的设置真的很好，about.html暴露出来我的另一个问题，其实什么position的我根本没有搞清楚，稍微复杂一点的定位我就搞不定了。&lt;/p&gt;</description>
-			</item>
-	</channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ife on 张泽锟</title><link>https://zecoo.github.io/hugo/tags/ife/</link><description>Recent content in Ife on 张泽锟</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 23 Apr 2020 11:37:07 +0800</lastBuildDate><atom:link href="https://zecoo.github.io/hugo/tags/ife/index.xml" rel="self" type="application/rss+xml"/><item><title>IFE task0002_5 回顾</title><link>https://zecoo.github.io/hugo/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</link><pubDate>Thu, 23 Apr 2020 11:37:07 +0800</pubDate><guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0002_5-%E5%9B%9E%E9%A1%BE/</guid><description>&lt;p&gt;做这个任务的时候我一度想要放弃。因为基础不牢，觉得这东西对我来说有点难啊。结果磕磕绊绊借鉴DIYgod的网页做出来之后，发现这东西真tm是基础。&lt;/p&gt;
+&lt;p&gt;我也百度了一下，发现写task0002_5的博客少之又少，说明ife的任务2到这里，基本上已经没有很多人在做了。&lt;/p&gt;
+&lt;h2 id="瞎总结"&gt;瞎总结&lt;/h2&gt;
+&lt;p&gt;首先要了解事件是个什么东西。在这个任务里面，要监听的是&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;滑块被拖动时的位置 &lt;em&gt;dragStart(e)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;滑块处于拖动状态 &lt;em&gt;dragging(e)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;滑块最后放置的位置 drop(e)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;而在js里，有专门针对拖动的监听事件&lt;em&gt;dragStart&lt;/em&gt;和&lt;em&gt;drop&lt;/em&gt;方法。&lt;/p&gt;
+&lt;h2 id="让滑块动起来"&gt;让滑块动起来&lt;/h2&gt;
+&lt;p&gt;首先要给滑块设置&lt;code&gt;draggable=true&lt;/code&gt;，然后就会神奇得发现滑块真的可以拖动了。留下一个残影在原来的位置。但是也会神奇得发现鼠标一松开还是要打回原形。&lt;/p&gt;
+&lt;p&gt;先做第一个动画，拖动一个滑块A的时候，首先A要在wrap中消失。可以用css添加一个class dragging，设置&lt;code&gt;display=none&lt;/code&gt;。监听滑块处在拖动的状态时，就是不可见的。而一旦落了脚，要移除这个class。重新回到可见状态。&lt;/p&gt;
+&lt;p&gt;第一个动画做完，可以发现，拖动A，A下面的滑块会自动补上A的位置。松开鼠标依旧打回原形。&lt;/p&gt;
+&lt;h2 id="单个容器拖动效果"&gt;单个容器拖动效果&lt;/h2&gt;
+&lt;p&gt;然后尝试做单个容器内滑块的拖动效果。第二个动画该考虑把要移动的滑块A插到合适的地方。这里面有这样几步&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;获取当前滑块A的中心相对容器的坐标。得出插入第k格&lt;/li&gt;
+&lt;li&gt;将A插入指定位置&lt;/li&gt;
+&lt;li&gt;A下面的滑块均向下移动一格&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我在这里偷了个懒，仅根据drop事件当前的鼠标位置来判断插入哪一格。具体细节先不追究，毕竟还要抓紧学vue的知识。2、3步也比较简单，让每个滑块&lt;code&gt;position=absolute&lt;/code&gt;，然后设置一个top值，就可以控制滑块的移动了。&lt;/p&gt;
+&lt;h2 id="多容器拖动效果"&gt;多容器拖动效果&lt;/h2&gt;
+&lt;p&gt;最后将单容器拓展到双容器甚至多容器，其实仅比单容器多了一步，就是根据滑块drop的中心位置判断落在哪个容器。&lt;/p&gt;
+&lt;h2 id="踩坑记"&gt;踩坑记&lt;/h2&gt;
+&lt;p&gt;我写回顾主要是想记一下自己踩的坑。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;$&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;on&lt;/span&gt;(document.&lt;span style="color:#a6e22e"&gt;body&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#39;dragover&amp;#39;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;dragOver&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;没错，全在这一行代码里了。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$.on&lt;/code&gt;是util.js里&lt;code&gt;addEvent(element, event, listener)&lt;/code&gt;的封装。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;element，就是监听对象。我在做drop效果的时候，打死都出不来。随便一拖动，滑块就没了。最后定位到是element的问题，我打开html检查器，发现自己没有定义container的高度，结果就是整个body只有一丢丢高，并没有把容器包括进去。所以我拖动的滑块，其实在监听对象body之外。那肯定是没得效果咯。&lt;/li&gt;
+&lt;li&gt;event，这…我本来以为没啥实际意义的参数，又给我栽一大跟头，让我不好好看文档先学习用法。event要和listener方法名一致，并且&lt;em&gt;&lt;strong&gt;全部小写&lt;/strong&gt;&lt;/em&gt;。&lt;/li&gt;
+&lt;li&gt;dragOver别看就一行代码，&lt;em&gt;e&lt;/em&gt;.preventDefault();，这是为了防止浏览器拖动结束没来得及drop就结束监听。不然又会遇到一拖动滑块就消失了的情况。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以上。&lt;/p&gt;
+&lt;h2 id="参考"&gt;参考&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href="https://www.runoob.com/jsref/event-ondrag.html"&gt;https://www.runoob.com/jsref/event-ondrag.html&lt;/a&gt; （菜鸟onDrag事件）&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.jianshu.com/p/2dfb870e0b88"&gt;https://www.jianshu.com/p/2dfb870e0b88&lt;/a&gt; （本任务类型）&lt;/p&gt;</description></item><item><title>ife 轮播图回顾</title><link>https://zecoo.github.io/hugo/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</link><pubDate>Wed, 15 Apr 2020 11:37:07 +0800</pubDate><guid>https://zecoo.github.io/hugo/posts/static-web/ife-%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%9B%9E%E9%A1%BE/</guid><description>&lt;h2 id="写在前面"&gt;写在前面&lt;/h2&gt;
+&lt;p&gt;做到ife task002_3，轮播图花了我最长的时间来写，甚至让我开始反思自己是不是真的…不适合当一个程序员。我要成了程序员，有种侮辱了这个群体的感jio。最后看了一下，虽然也就125行的代码，断断续续我大概做了一周。😓&lt;/p&gt;
+&lt;h3 id="htmlcss也遇到问题"&gt;html&amp;amp;CSS也遇到问题：&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;怎么把6张图片都塞到frame里面去不漏出来。简单一个&lt;code&gt;overflow：hidden&lt;/code&gt;我就是想不到。&lt;/li&gt;
+&lt;li&gt;6个按钮小圆点怎么放到frame里面。其实还是position的问题，我总是自以为了解position，然而到了真正实践的时候就出问题。小圆点div相对于frame的position要absolute。&lt;/li&gt;
+&lt;li&gt;如何让图片有一个滑动的效果？我是看了DIYgod的代码之后，才知道要让图片float left，让图片div的宽度仅可能宽，让图片相对于左上角每次移动一部分距离，就能实现移动的效果了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="最要命的是js部分"&gt;最要命的是JS部分&lt;/h2&gt;
+&lt;p&gt;一开始我百度了一个轮播图的代码，是通过调整其他图片&lt;code&gt;display：none&lt;/code&gt;，指定index的图片&lt;code&gt;display：block&lt;/code&gt;。这样就简单实现了图片的切换。这样做也没有什么问题，但就是没有滑动的动画效果，看起来很low。&lt;/p&gt;
+&lt;p&gt;干脆继续参考DIYgod的代码。就有了上面提到的，让图片横向展开在页面中。每次切换让图片向左或向右移动一定的距离offset。也就是图片div的left增加或减少offset。如果移动一张图片距离，那么就是offset=img.width。&lt;/p&gt;
+&lt;h3 id="next--prev-button"&gt;Next &amp;amp; Prev button&lt;/h3&gt;
+&lt;p&gt;于是我先把next、prev点击切换的功能做出来，还算简单，主要注意的是next移动到第六张图片的时候，要跳回到第一张图片，要用if做个判断。prev移动到第一张照片的时候同理。&lt;/p&gt;
+&lt;h3 id="移动动画效果"&gt;移动动画效果&lt;/h3&gt;
+&lt;p&gt;到这里可以发现，到目前为止，功能做出来和display：none的那一版没有任何区别。因为移动在一瞬间就完成了，没有形成动画效果。&lt;/p&gt;
+&lt;p&gt;如果想要动画效果，要在一定时间time内逐步完成移动。做法是设置每个时间间隔interval移动一小段距离，那么每个时间间隔移动的距离就是offset / (time / interval)。然后设置一个setTimeout函数执行移动过程。&lt;/p&gt;
+&lt;p&gt;好，动手操作一下。然后就会惊奇的发现：操，我的轮播图怎么停不下来了？是因为setTimeout之后，每个时间间隔就会执行一次，不设置停止条件的话就会一直执行下去。那么停止条件是什么呢？图片移动了offset的距离，这个动画过程就应该结束。所以停止条件就是initialLeft + offset = newLeft的时候。&lt;/p&gt;
+&lt;p&gt;再来看看轮播图效果怎么样？next和prev按钮都可以使用了，而且也有了动画效果。小阶段目标完成，先给自己小小鼓励一下。&lt;/p&gt;
+&lt;h3 id="小圆点"&gt;小圆点&lt;/h3&gt;
+&lt;p&gt;接下来考虑实现小圆点和图片的index的同步。这中间也有一些trick，我随便想想发现悟不到就又看了Dg的代码。&lt;/p&gt;
+&lt;p&gt;首先考虑怎么做到让某个index的小圆点（下面用O表示）亮起来呢？Dg给出的方法是，给index的O添加一个class比如light，CSS中设置该class light的bgc=white，就相当于让index的O亮起来了，挺巧妙的。同时要注意，亮起来了，还要让他灭掉，也很简单，把所有O的light class都给remove掉。&lt;/p&gt;
+&lt;p&gt;好的，现在任意index的O都可以控制其亮或者不亮了。直接把这个方法封装成showBtn()。在next、prev的点击操作中，添加showBtn方法，就可以成功看到指定index的O亮起来了，和图片实现了同步。&lt;/p&gt;
+&lt;p&gt;小圆点这里还没完。通常在轮播图中点击某个位置的O，应该能跳转到该index的图片。这里Dg在html中给每个O设置了一个index=0~6属性，通过this.getAttribute()方法获取当前index。有了当前的index，和要移动到的index，相减乘以图片的width，就是要移动的offset。那么到这里这个功能也就实现了。&lt;/p&gt;
+&lt;p&gt;所以到最后的顺时针、逆时针播放就更简单了，setInterval()，每隔1000ms执行一次next或者prev，就OK了。但是要注意，如果先后点击playASC和playDESC，会发生鬼畜。解决方法是在这两个方法执行前先判断一下，如果setInterval的timer还在的话，就stop掉。这样鬼畜的问题也就解决了。&lt;/p&gt;
+&lt;h2 id="最后"&gt;最后&lt;/h2&gt;
+&lt;p&gt;别看我回顾就写了1.3k字，写代码花费的时间真的比我想象中的多多了。感觉那些程序员坐一下午能搞出各种各样的功能，我这……真的菜啊。&lt;/p&gt;</description></item><item><title>IFE js.util</title><link>https://zecoo.github.io/hugo/posts/static-web/ife-js-util/</link><pubDate>Tue, 31 Mar 2020 11:37:07 +0800</pubDate><guid>https://zecoo.github.io/hugo/posts/static-web/ife-js-util/</guid><description>&lt;p&gt;task1的时候我还能勉强用自己的想法写，html的展示效果达到了就好。&lt;br&gt;
+但是到了task2的时候，js基础还是不牢啊，基本上每道题都要看下别人的博客。虽然有点low，但是还是秉着一股劲往前冲，后面再来捡技术细节的思路，不丢人的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;一趟捣鼓下来，JS部分一共就5个板块：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;js基础：数据结构、对象等&lt;/li&gt;
+&lt;li&gt;dom（html树形结构操作）&lt;/li&gt;
+&lt;li&gt;ajax（和服务器交互，部分刷新页面）&lt;/li&gt;
+&lt;li&gt;jQuery（更方便操作dom和ajax）&lt;/li&gt;
+&lt;li&gt;nodejs（暂时不学习）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;接下来总结一下自己的捣鼓过程吧（不包含技术细节）&lt;/p&gt;
+&lt;h2 id="任务2-js基础"&gt;任务2 JS基础&lt;/h2&gt;
+&lt;h4 id="判断数据类型"&gt;判断数据类型。&lt;/h4&gt;
+&lt;p&gt;用&lt;code&gt;Objexct.prototype&lt;/code&gt;来判断&lt;/p&gt;
+&lt;h4 id="深克隆"&gt;深克隆。&lt;/h4&gt;
+&lt;p&gt;如果直接&lt;code&gt;var copy = src&lt;/code&gt;就是浅复制，所以要用递归的形式。&lt;/p&gt;
+&lt;h4 id="数组相关操作"&gt;数组相关操作&lt;/h4&gt;
+&lt;p&gt;1 simpleTrim。这种问题以前从来没接触过，不会写正常2333。for循环判断分别从前和从后面判断时候有空字符&lt;/p&gt;
+&lt;p&gt;2 trim。正则表达式直接把空字符给替换掉&lt;/p&gt;
+&lt;h4 id="正则表达式"&gt;正则表达式&lt;/h4&gt;
+&lt;p&gt;这是我第几次学习正则表达式啦？？&lt;/p&gt;
+&lt;h2 id="任务3-dom"&gt;任务3 Dom&lt;/h2&gt;
+&lt;p&gt;到这里最好还是结合html页面来学习，直接上来写老夫实在是无处下手。&lt;/p&gt;
+&lt;h2 id="任务4-event"&gt;任务4 Event&lt;/h2&gt;
+&lt;p&gt;同dom&lt;/p&gt;
+&lt;h2 id="任务5-bom"&gt;任务5 Bom&lt;/h2&gt;
+&lt;p&gt;cookie的设置和获取。&lt;/p&gt;
+&lt;p&gt;以前只知道cookie是什么，现在知道cookie长什么样了怎么搞一个。&lt;/p&gt;
+&lt;h2 id="任务6-ajax"&gt;任务6 Ajax&lt;/h2&gt;
+&lt;p&gt;emmm自己写一个简单的，讲道理，其实是xmlhttp的使用，和ajax没有什么关系。&lt;/p&gt;</description></item><item><title>IFE Task0001 Log</title><link>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</link><pubDate>Sun, 01 Mar 2020 17:39:45 +0800</pubDate><guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</guid><description>&lt;p&gt;我记录一下ife其他几个页面。一共这么几个页面&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../task0001/index.html"&gt;index.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../task0001/post.html"&gt;post.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../task0001/gallery.html"&gt;archive.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../task0001/about.html"&gt;about.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果自己写的话，除了index.html，其他几个页面都有或多多少的问题我写不出来。
+一个一个说吧。&lt;/p&gt;
+&lt;h2 id="indexhtml"&gt;Index.html&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;banner有三个部分，一个是logo，一个是站内其他链接，最后一个是git的logo。这三个部分要显示在水平的一行，这里其实是运用到了float，只要把三个部分都设置为float，就可以变成一行了。感觉有点像把div改成了块内元素一样，也就是变成了span。&lt;/li&gt;
+&lt;li&gt;一般banner的链接都是用list改成水平，改成水平的方法有两个，一个是float，另一个是display inline-block&lt;/li&gt;
+&lt;li&gt;我想让这三部分，随着页面的改变，位置不要定死，原来margin-left之类的也可以用百分比来表示，就很舒服了。&lt;/li&gt;
+&lt;li&gt;center是一个大的bg，bg上面有一个透明度的方形显示文字，放bg的时候遇到了以前就遇到的问题，比如默认是重复的，而且不能充满div。这两个问题代码很好解决。&lt;/li&gt;
+&lt;li&gt;至于透明度的方形，彻底让我对position这个元素有了一定的理解。absolute、fixed、relative分别代表什么。&lt;/li&gt;
+&lt;li&gt;box部分是三个卡片，卡片里有图片和文字。三个卡片并列其实也挺好写，好像用inline-block就可以实现，水平垂直居中什么的也都是现成的，不过写好了之后再看要求里面有一个是卡片的高度随文字内容自适应。&lt;/li&gt;
+&lt;li&gt;遂百度之，发现用display table可以解决这个问题，但是table是占满整个div的，不过也好解决，用一大一小div就解决了。&lt;/li&gt;
+&lt;li&gt;圆形的头像，这个做起来也好简单啊，图片的radius改一下就可以了。&lt;/li&gt;
+&lt;li&gt;intro部分其实不用display来写，比较常规。如果需要居中之类的工作，用display明显是要方便很多的。&lt;/li&gt;
+&lt;li&gt;最后一点，如果用flex来布局，flex里面的每个元素的宽度都是以最宽的那个为标准。这时候想要居中的话可以考虑用text-align center解决。这是最后那个小logo的居中问题。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="posthtml"&gt;Post.html&lt;/h2&gt;
+&lt;p&gt;在开始写post.html之前我在GitHub上down了几个其他人的ife作业，然后发现我这个代码真的是稀烂…最基本的有这么几个问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;文件的结构，ife里强调了，但是我没有遵守。&lt;/li&gt;
+&lt;li&gt;div的命名方式。navbar，navbar-menu、profile之类的&lt;/li&gt;
+&lt;li&gt;class和id的区别&lt;/li&gt;
+&lt;li&gt;nav和footer是html的元素，可以不用div写&lt;/li&gt;
+&lt;li&gt;html的基本框架应该是navbar、banner、content、footer&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;然后我找到了一个极佳的对比例子。就是DIYgod，当我看到他就是RSSHub的发起者的时候，我懵逼了。他也就大我三届而已，而且还是武理的，我简直太菜了。。酸归酸，看DIYgod大神的前端页面。能学到很多东西：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;html的其他默认元素：header、section、article、nav的使用&lt;/li&gt;
+&lt;li&gt;日历写起来其实就是一个table view&lt;/li&gt;
+&lt;li&gt;tag-graph就更简单了，字体设几个不同的大小就可以&lt;/li&gt;
+&lt;li&gt;一个简单的单词，换一个字体就能变成logo一般的存在&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;然后记录一下写 blog.html的时候遇到的坑&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;blog应该是一个简单的双列布局。双列布局的形式有哪些来着？我是用百分比的形式来布局的。要求用980px，我不太喜欢&lt;/li&gt;
+&lt;li&gt;table设置了宽高之后，cell变大，那么cell里面字的间距自然就大了&lt;/li&gt;
+&lt;li&gt;有时候会遇到给div里面子元素加padding之后，div的宽度哪怕设好了，还是会超出来。这个时候要设置一下&lt;code&gt;box-sizing=border-content&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;a写在div外面，就把整个div变成了链接。&lt;/li&gt;
+&lt;li&gt;我现在使用自适应的方法太简陋了，@media (maxwidth=980) {.div { display=none} }&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="archivehtml"&gt;Archive.html&lt;/h2&gt;
+&lt;p&gt;这个页面我被卡住了。本来一个瀑布流我可以百度，用flex或者用column来解决，但是ife的作业的瀑布流里偏偏有一个比较大的块，是一个这样的结构&lt;br&gt;
+[ + ][ ][ ]&lt;br&gt;
+[ ][ ][ ][ ]&lt;br&gt;
+[ ][ ][ ][ ]&lt;br&gt;
+就比较棘手。不能直接用简单的瀑布流，最后是划成3个部分，1⃣️是 [ + ] 2⃣️是其下面的部分，3⃣️是右边两排。然后让2⃣️和3⃣️变成瀑布流。然后细细碎碎的一些对齐问题啊、宽度计算的问题啊，浪费了我挺多时间。&lt;/p&gt;
+&lt;p&gt;然后更吊诡的是，我连一个简单的3个div并排在一排都写不出来。好像用inline-block就能写出来。不过我还要再整理一下思路。&lt;/p&gt;
+&lt;h2 id="abouthtml"&gt;About.html&lt;/h2&gt;
+&lt;p&gt;不得不说ife作业的设置真的很好，about.html暴露出来我的另一个问题，其实什么position的我根本没有搞清楚，稍微复杂一点的定位我就搞不定了。&lt;/p&gt;</description></item></channel></rss>

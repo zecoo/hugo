@@ -1,6 +1,23 @@
 {{ if (ne .Site.Params.header_visible false) }}
+{{ if .IsHome }}
+<header class="profile-hero">
+  <div class="profile-avatar" aria-hidden="true">ZK</div>
+  <div class="profile-content">
+    <p class="profile-kicker">个人主页</p>
+    <h1 class="profile-name" dir="auto">{{ .Site.Title }}</h1>
+    <p class="profile-role">{{ .Site.Params.profile.role }}</p>
+    <p class="profile-intro">{{ .Site.Params.profile.intro }}</p>
+    <div class="profile-actions">
+      <a class="profile-button profile-button-primary" href="mailto:{{ .Site.Params.profile.email }}">联系我</a>
+      <a class="profile-button" href="{{ .Site.Params.profile.github }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <p class="profile-meta">{{ .Site.Params.profile.location }} · {{ .Site.Params.profile.email }}</p>
+  </div>
+</header>
+{{ else }}
 <header class="blog-header">
   <h1 class="blog-title" dir="auto">{{ .Site.Title }}</h1>
     {{ if .Site.Params.description }}<p class="lead blog-description" dir="auto">{{ .Site.Params.description | markdownify }}</p>{{ end }}
 </header>
+{{ end }}
 {{ end }}

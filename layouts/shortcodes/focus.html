@@ -1,0 +1,16 @@
+<section id="focus" class="focus-section">
+  <div class="section-heading">
+    <p class="section-kicker">INVESTMENT FOCUS</p>
+    <h2>投资关注方向</h2>
+    <p>以技术理解为基础，关注 AI 与数字科技的产业化和长期价值。</p>
+  </div>
+  <div class="focus-grid">
+    {{ range hugo.Data.focus.items }}
+    <article class="focus-card">
+      <h3>{{ .title }}</h3>
+      <p>{{ .description }}</p>
+      <span>{{ .lens }}</span>
+    </article>
+    {{ end }}
+  </div>
+</section>

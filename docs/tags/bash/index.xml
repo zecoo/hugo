@@ -1,24 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Bash on 张泽锟</title>
-		<link>https://zecoo.github.io/hugo/tags/bash/</link>
-		<description>Recent content in Bash on 张泽锟</description>
-		<generator>Hugo</generator>
-		<language>en</language>
-		
-		
-		
-		
-			<lastBuildDate>Mon, 18 May 2020 00:00:00 +0800</lastBuildDate>
-		
-			<atom:link href="https://zecoo.github.io/hugo/tags/bash/index.xml" rel="self" type="application/rss+xml" />
-			<item>
-				<title>hugo上传博客脚本</title>
-				<link>https://zecoo.github.io/hugo/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</link>
-				<pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</guid>
-				<description>&lt;p&gt;我很傻的，每次更新博客之后都要手动输入&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo -D&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git add .&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xxx&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push origin master&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;又不想下载git客户端一键push，写个脚本咯&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/bash&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo -D&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git add .&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;input commit info:&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;read -t &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; commit_info&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;commit_info&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;commit_info&lt;span style=&#34;color:#66d9ef&#34;&gt;:-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;update blog&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$commit_info&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push origin master&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;read提供一个默认值“update blog”，这样既可以修改commit info，5s后忘记输入的话也不用担心。&lt;/p&gt;&#xA;&lt;p&gt;记得最后把sh文件权限给足：&lt;code&gt;chmod 777 update.sh&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/lottu/p/3962921.html&#34;&gt;https://www.cnblogs.com/lottu/p/3962921.html&lt;/a&gt; （shell接收键盘输入）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/u010339879/article/details/77938911&#34;&gt;https://blog.csdn.net/u010339879/article/details/77938911&lt;/a&gt; （read添加默认值）&lt;/p&gt;</description>
-			</item>
-	</channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bash on 张泽锟</title><link>https://zecoo.github.io/hugo/tags/bash/</link><description>Recent content in Bash on 张泽锟</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 18 May 2020 00:00:00 +0800</lastBuildDate><atom:link href="https://zecoo.github.io/hugo/tags/bash/index.xml" rel="self" type="application/rss+xml"/><item><title>hugo上传博客脚本</title><link>https://zecoo.github.io/hugo/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</link><pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate><guid>https://zecoo.github.io/hugo/posts/blog/hugo%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/</guid><description>&lt;p&gt;我很傻的，每次更新博客之后都要手动输入&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo -D
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git commit -m &lt;span style="color:#e6db74"&gt;&amp;#34;xxx&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git push origin master
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;又不想下载git客户端一键push，写个脚本咯&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo -D
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#34;input commit info:&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;read -t &lt;span style="color:#ae81ff"&gt;5&lt;/span&gt; commit_info
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;commit_info&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;commit_info&lt;span style="color:#66d9ef"&gt;:-&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;update blog&amp;#34;&lt;/span&gt;&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git commit -m &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$commit_info&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git push origin master
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;read提供一个默认值“update blog”，这样既可以修改commit info，5s后忘记输入的话也不用担心。&lt;/p&gt;
+&lt;p&gt;记得最后把sh文件权限给足：&lt;code&gt;chmod 777 update.sh&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id="参考"&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.cnblogs.com/lottu/p/3962921.html"&gt;https://www.cnblogs.com/lottu/p/3962921.html&lt;/a&gt; （shell接收键盘输入）&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://blog.csdn.net/u010339879/article/details/77938911"&gt;https://blog.csdn.net/u010339879/article/details/77938911&lt;/a&gt; （read添加默认值）&lt;/p&gt;</description></item></channel></rss>

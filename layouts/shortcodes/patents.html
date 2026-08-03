@@ -1,0 +1,25 @@
+<section id="patents" class="patents-section">
+  <div class="section-heading patents-heading">
+    <div>
+      <p class="section-kicker">INTELLECTUAL PROPERTY</p>
+      <h2>发明专利</h2>
+      <p>覆盖大语言模型、云原生系统与智能运维等技术方向。</p>
+    </div>
+    <p class="patent-count"><strong>{{ len hugo.Data.patents.all }}</strong><span>项专利</span></p>
+  </div>
+  <div class="patent-grid">
+    {{ range hugo.Data.patents.selected }}
+    <article class="patent-card">
+      <p>{{ .area }}</p>
+      <h3>{{ .title }}</h3>
+      <span>{{ .number }}</span>
+    </article>
+    {{ end }}
+  </div>
+  <details class="patent-all">
+    <summary>查看全部专利（{{ len hugo.Data.patents.all }} 项）</summary>
+    <ol>
+      {{ range hugo.Data.patents.all }}<li>{{ . }}</li>{{ end }}
+    </ol>
+  </details>
+</section>

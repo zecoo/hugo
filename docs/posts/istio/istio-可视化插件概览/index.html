@@ -1,89 +1,17 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.164.0">
-    <meta name="description" content="湖北·武汉">
-    <title>
-        Istio 可视化插件概览 
-    </title>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/hugo/css/main.css">
-    <link rel="stylesheet" href="/hugo/css/github.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-</head>
-  <body>
-    
-    <div class="blog-masthead">
-      <div class="wrapper">
-        <nav class="nav blog-nav">
-          <a class="nav-link" href="/hugo/">主页</a>
-          <a class="nav-link active" href="/hugo/posts">归档</a>
-        </nav>
-      </div>
-    </div>
-
-
-    
-    
-
-    
-
-    <div class="container">
-      <div class="row">
-        <div class="blog-main">
-          <a class="back-link" href="/hugo/posts">← 返回归档</a>
-        	<article class="blog-post">
-			  <header>
-			    <h2 class="blog-post-title" dir="auto">Istio 可视化插件概览</h2>
-			    <p class="blog-post-meta"><time datetime="2020-04-30T10:35:07+08:00">Thu Apr 30, 2020</time></p>
-			  </header>
-			  <h2 id="prometheus">Prometheus</h2>
-<p>基本的metrics监测插件。</p>
-<p>通过query查询不同的信息，例如以下信息就是<code>istio_requests_total</code>这条query查询到的n条数据中的一条。（不全，删除了部分我不关注的信息）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>istio_requests_total<span style="color:#f92672">{</span>destination_app<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;productpage&#34;</span>,destination_principal<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&#34;</span>,destination_service<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;productpage.default.svc.cluster.local&#34;</span>,destination_service_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;productpage&#34;</span>,destination_service_namespace<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>,destination_version<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;v1&#34;</span>,destination_workload<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;productpage-v1&#34;</span>,instance<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10.244.0.24:15090&#34;</span>,job<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;envoy-stats&#34;</span>,namespace<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;istio-system&#34;</span>,pod_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;istio-ingressgateway-6489d9556d-bc48z&#34;</span>,response_code<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;503&#34;</span>,source_workload<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;istio-ingressgateway&#34;</span>,source_workload_namespace<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;istio-system&#34;</span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><h2 id="grafana">Grafana</h2>
-<p>Metrics可视化插件。</p>
-<p>Request Volume代表什么？</p>
-<p>Request Duration中的P50、P90分别代表什么？</p>
-<h2 id="jaegar">Jaegar</h2>
-<p>主要显示调用了哪些微服务，调用顺序是什么样的，响应时间是多少。</p>
-<h2 id="kiali">Kiali</h2>
-<p>链路追踪可视化插件。可以看出有几个微服务，调用关系是什么样的。</p>
-<p>里面也有P50、P90。说明这个很关键啊。</p>
-<p>P90=100ms，就是说90%的请求其响应时间在100ms以内，剩余10%的响应时间大于100ms。</p>
-<h2 id="siege">Siege</h2>
-<p>压测工具。来看看压测结果</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ siege -d <span style="color:#ae81ff">10</span> -c <span style="color:#ae81ff">200</span> -t <span style="color:#ae81ff">2</span> http://121.37.159.247:32753/productpage
-</span></span><span style="display:flex;"><span>Lifting the server siege...
-</span></span><span style="display:flex;"><span>Transactions:		         <span style="color:#ae81ff">519</span> hits
-</span></span><span style="display:flex;"><span>Availability:		       99.24 %
-</span></span><span style="display:flex;"><span>Elapsed time:		      119.34 secs
-</span></span><span style="display:flex;"><span>Data transferred:	       20.14 MB
-</span></span><span style="display:flex;"><span>Response time:		        9.01 secs
-</span></span><span style="display:flex;"><span>Transaction rate:	        4.35 trans/sec
-</span></span><span style="display:flex;"><span>Throughput:		        0.17 MB/sec
-</span></span><span style="display:flex;"><span>Concurrency:		       39.17
-</span></span><span style="display:flex;"><span>Successful transactions:         <span style="color:#ae81ff">519</span>
-</span></span><span style="display:flex;"><span>Failed transactions:	           <span style="color:#ae81ff">4</span>
-</span></span><span style="display:flex;"><span>Longest transaction:	      110.01
-</span></span><span style="display:flex;"><span>Shortest transaction:	        0.08
-</span></span></code></pre></div><p>模拟200个用户，每间隔10ms发送一次请求，持续2分钟。</p>
-<h2 id="参考">参考</h2>
-<p><a href="https://blog.dianduidian.com/post/percentile-">https://blog.dianduidian.com/post/percentile-</a>百分位数/（p50、p90讲解）</p>
-
-			</article>
-        </div> 
-      </div> 
-    </div>
-
-    
-    
-    
-
-    <script src="/hugo/js/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script type="text/javascript" src="/hugo/js/MathJax.js"></script>
-  </body>
-</html>
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=generator content="Hugo 0.164.0"><meta name=description content="湖北·武汉"><title>Istio 可视化插件概览</title><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css integrity=sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh crossorigin=anonymous><link rel=stylesheet type=text/css href=/hugo/css/main.css><link rel=stylesheet href=/hugo/css/github.css><meta name=viewport content="width=device-width,initial-scale=1"></head><body><div class=blog-masthead><div class=wrapper><nav class="nav blog-nav" aria-label=主导航><a class=nav-link href=/hugo/>首页</a>
+<a class="nav-link active" href=/hugo/posts>文章</a></nav></div></div><div class=container><div class=row><div class=blog-main><a class=back-link href=/hugo/posts>← 返回归档</a><article class=blog-post><header><h2 class=blog-post-title dir=auto>Istio 可视化插件概览</h2><p class=blog-post-meta><time datetime=2020-04-30T10:35:07+08:00>Thu Apr 30, 2020</time></p></header><h2 id=prometheus>Prometheus</h2><p>基本的metrics监测插件。</p><p>通过query查询不同的信息，例如以下信息就是<code>istio_requests_total</code>这条query查询到的n条数据中的一条。（不全，删除了部分我不关注的信息）</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-shell data-lang=shell><span style=display:flex><span>istio_requests_total<span style=color:#f92672>{</span>destination_app<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;productpage&#34;</span>,destination_principal<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;spiffe://cluster.local/ns/default/sa/bookinfo-productpage&#34;</span>,destination_service<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;productpage.default.svc.cluster.local&#34;</span>,destination_service_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;productpage&#34;</span>,destination_service_namespace<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;default&#34;</span>,destination_version<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;v1&#34;</span>,destination_workload<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;productpage-v1&#34;</span>,instance<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;10.244.0.24:15090&#34;</span>,job<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;envoy-stats&#34;</span>,namespace<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;istio-system&#34;</span>,pod_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;istio-ingressgateway-6489d9556d-bc48z&#34;</span>,response_code<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;503&#34;</span>,source_workload<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;istio-ingressgateway&#34;</span>,source_workload_namespace<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;istio-system&#34;</span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><h2 id=grafana>Grafana</h2><p>Metrics可视化插件。</p><p>Request Volume代表什么？</p><p>Request Duration中的P50、P90分别代表什么？</p><h2 id=jaegar>Jaegar</h2><p>主要显示调用了哪些微服务，调用顺序是什么样的，响应时间是多少。</p><h2 id=kiali>Kiali</h2><p>链路追踪可视化插件。可以看出有几个微服务，调用关系是什么样的。</p><p>里面也有P50、P90。说明这个很关键啊。</p><p>P90=100ms，就是说90%的请求其响应时间在100ms以内，剩余10%的响应时间大于100ms。</p><h2 id=siege>Siege</h2><p>压测工具。来看看压测结果</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-shell data-lang=shell><span style=display:flex><span>$ siege -d <span style=color:#ae81ff>10</span> -c <span style=color:#ae81ff>200</span> -t <span style=color:#ae81ff>2</span> http://121.37.159.247:32753/productpage
+</span></span><span style=display:flex><span>Lifting the server siege...
+</span></span><span style=display:flex><span>Transactions:		         <span style=color:#ae81ff>519</span> hits
+</span></span><span style=display:flex><span>Availability:		       99.24 %
+</span></span><span style=display:flex><span>Elapsed time:		      119.34 secs
+</span></span><span style=display:flex><span>Data transferred:	       20.14 MB
+</span></span><span style=display:flex><span>Response time:		        9.01 secs
+</span></span><span style=display:flex><span>Transaction rate:	        4.35 trans/sec
+</span></span><span style=display:flex><span>Throughput:		        0.17 MB/sec
+</span></span><span style=display:flex><span>Concurrency:		       39.17
+</span></span><span style=display:flex><span>Successful transactions:         <span style=color:#ae81ff>519</span>
+</span></span><span style=display:flex><span>Failed transactions:	           <span style=color:#ae81ff>4</span>
+</span></span><span style=display:flex><span>Longest transaction:	      110.01
+</span></span><span style=display:flex><span>Shortest transaction:	        0.08
+</span></span></code></pre></div><p>模拟200个用户，每间隔10ms发送一次请求，持续2分钟。</p><h2 id=参考>参考</h2><p><a href=https://blog.dianduidian.com/post/percentile->https://blog.dianduidian.com/post/percentile-</a>百分位数/（p50、p90讲解）</p></article></div></div></div><script src=/hugo/js/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script><script type=text/javascript src=/hugo/js/MathJax.js></script></body></html>

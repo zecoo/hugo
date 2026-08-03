@@ -1,14 +1,7 @@
 {{ define "main" }}
 
 {{ block "masthead" . }}
-    <div class="blog-masthead">
-      <div class="wrapper">
-        <nav class="nav blog-nav">
-          <a class="nav-link {{ if .IsHome }}active{{ end }}" href="{{ .Site.Home.RelPermalink }}">主页</a>
-          <a class="nav-link" href="{{ "posts" | relURL }}">归档</a>
-        </nav>
-      </div>
-    </div>
+{{ partial "navigation.html" . }}
 {{ end }}
 
 {{ block "header" . }}

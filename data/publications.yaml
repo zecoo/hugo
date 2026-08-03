@@ -1,0 +1,32 @@
+selected:
+  - title: "ADmM: An Anomaly Detection Framework for Microservice Systems with Incomplete Metrics"
+    venue: "ACM Transactions on the Web"
+    year: "2026"
+    tags: ["TWEB · CCF-B", "第一作者"]
+    summary: "面向指标不完整场景的微服务异常检测框架，提升云原生系统运行状态识别的鲁棒性。"
+  - title: "MHP-RCA: Multivariate Hawkes Process-based Root Cause Analysis in Microservice Systems"
+    venue: "Information and Software Technology"
+    year: "2025"
+    tags: ["IST · CCF-B", "第一作者"]
+    summary: "以多元 Hawkes 过程建模服务间影响关系，实现微服务故障根因的自动定位。"
+  - title: "ReconRCA: Root Cause Analysis in Microservices with Incomplete Metrics"
+    venue: "IEEE International Conference on Web Services"
+    year: "2025"
+    tags: ["ICWS · CCF-B", "第一作者", "芬兰线下汇报"]
+    summary: "针对观测指标缺失问题，探索可恢复、可解释的微服务根因定位方法。"
+
+all:
+  - citation: "Zhang Z, Wang J, Li B, et al. ADmM: An Anomaly Detection Framework for Microservice Systems with Incomplete Metrics. ACM Transactions on the Web, 2026."
+    note: "TWEB，CCF-B 推荐期刊；第一作者"
+  - citation: "Zhang Z, Wang J, Li B, et al. MHP-RCA: Multivariate Hawkes Process-based Root Cause Analysis in Microservice Systems. Information and Software Technology, 2025: 107938."
+    note: "IST，CCF-B 推荐期刊；第一作者"
+  - citation: "Zhang Z, Wang J, Li B, et al. ReconRCA: Root Cause Analysis in Microservices with Incomplete Metrics. IEEE International Conference on Web Services, 2025: 116-126."
+    note: "ICWS，CCF-B 推荐会议；第一作者；芬兰线下汇报"
+  - citation: "Zhang Z, Wang J, Li B, et al. AAMR: Automated Anomalous Microservice Ranking in Cloud-Native Environments. International Conference on Software Engineering and Knowledge Engineering, 2021: 86-91."
+    note: "SEKE，CCF-C 推荐会议；第一作者；Best Paper Award: First Place"
+  - citation: "Zhang Z, Li B, Wang J, et al. An Approach of Automated Anomalous Microservice Ranking in Cloud-Native Environments. International Journal of Software Engineering and Knowledge Engineering, 2021, 31(11–12): 1661–1681."
+    note: "IJSEKE，CCF-C 推荐期刊；第一作者"
+  - citation: "Xie S, Wang J, Li B, Zhang Z, et al. PBScaler: A Bottleneck-aware Autoscaling Framework for Microservice-based Applications. IEEE Transactions on Services Computing, 2024, 17(2): 604–616."
+    note: "TSC，CCF-A 推荐期刊；共同作者"
+  - citation: "Zhu Y, Li B, Wang J, Zhao Y, Zhang Z, et al. MicroIRC: A Fine-granularity Microservice Root Cause Localization Method. Journal of Systems and Software, 2024, 216: 112145."
+    note: "JSS，CCF-B 推荐期刊；共同作者"

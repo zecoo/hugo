@@ -1,50 +1,56 @@
 {{ define "main" }}
 
 {{ block "masthead" . }}
-    <div class="blog-masthead">
-      <div class="wrapper">
-        <nav class="nav blog-nav">
-          <a class="nav-link {{ if .IsHome }}active{{ end }}" href="{{ .Site.Home.RelPermalink }}">主页</a>
-          <a class="nav-link {{ if not .IsHome }}active{{ end }}" href="{{ "posts" | relURL }}">归档</a>
-        </nav>
-      </div>
-    </div>
+{{ partial "navigation.html" . }}
 {{ end }}
 
 {{ block "header" . }}
-{{ partial "header.html" . }}
 {{ end }}
 
 {{ block "body" . }}
     <div class="wrapper">
       <div class="row">
         <div class="col-sm-12 blog-main">
-          <article>
+          <main class="archive-page">
+            <header class="archive-hero">
+              <p class="section-kicker">WRITING & RESEARCH</p>
+              <h1>文章与研究</h1>
+              <p>记录对 AI、数字科技与工程实践的长期观察。</p>
+            </header>
             {{ $industry := index .Site.Taxonomies.categories "行业研究报告" }}
             {{ if $industry }}
-            <h4>行业研究报告</h4>
-            <ul class="archive">
-              {{ range $industry.Pages }}
-              <li>
-                {{ if .Date }}<time>{{ .Date.Format "2006-01-02" }}</time>{{ end }}
+            <section class="archive-section">
+              <div class="archive-section-heading">
+                <h2>行业研究报告</h2>
+                <span>{{ len $industry.Pages }} 篇</span>
+              </div>
+              <div class="archive-grid">
+                {{ range $industry.Pages.ByDate.Reverse }}
                 {{- $destination := .RelPermalink -}}
-                {{- with .Params.download_url -}}
-                  {{- $destination = . | relURL -}}
-                {{- end -}}
-                <a href="{{ $destination }}">{{ .Title }}</a>
-              </li>
-              {{ end }}
-            </ul>
+                {{- with .Params.download_url -}}{{- $destination = . | relURL -}}{{- end -}}
+                <a class="archive-card archive-card-report" href="{{ $destination }}">
+                  <p>{{ .Date.Format "2006.01.02" }} · 行业研究报告</p>
+                  <h3>{{ .Title }}</h3>
+                  <span>阅读报告 →</span>
+                </a>
+                {{ end }}
+              </div>
+            </section>
             {{ end }}
-            <h4>其他文章</h4>
-            <ul class="archive">
+            <section class="archive-section">
+              <div class="archive-section-heading">
+                <h2>技术文章与笔记</h2>
+              </div>
+              <div class="archive-grid">
               {{ $all := where .Site.RegularPages "Title" "非行业研究报告文章汇总" }}
-              <li>
-                {{ with index $all 0 }}{{ with .Params.time }}<time>{{ . }}</time>{{ end }}{{ end }}
-                <a href="{{ "posts/all-in-one/" | relURL }}">非行业研究报告文章汇总</a>
-              </li>
-            </ul>
-          </article>
+                <a class="archive-card archive-card-notes" href="{{ "posts/all-in-one/" | relURL }}">
+                  <p>{{ with index $all 0 }}{{ with .Params.time }}{{ . }} · {{ end }}{{ end }}文章归档</p>
+                  <h3>技术文章与历史笔记</h3>
+                  <span>查看全部文章 →</span>
+                </a>
+              </div>
+            </section>
+          </main>
         </div> 
       </div> 
     </div>

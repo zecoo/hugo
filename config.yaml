@@ -8,6 +8,12 @@ title: "张泽锟"
 
 
 params:
+  profile:
+    role: "AI 产业投资 · 科技投资"
+    intro: "聚焦人工智能与数字科技领域的产业研究和直接投资；具备AI、AI Infra等技术研究背景。"
+    email: "whu22kon@foxmail.com"
+    github: "https://github.com/zecoo"
+    location: "湖北·武汉"
   sidebar:
     board: "不会照搬其他博客，感谢提供参考的文章<br><br>有疑问可以联系我：<br>whu22kon[at]foxmail.com"
   description: "湖北·武汉"

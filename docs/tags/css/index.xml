@@ -1,31 +1,76 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Css on 张泽锟</title>
-		<link>https://zecoo.github.io/hugo/tags/css/</link>
-		<description>Recent content in Css on 张泽锟</description>
-		<generator>Hugo</generator>
-		<language>en</language>
-		
-		
-		
-		
-			<lastBuildDate>Tue, 05 May 2020 00:00:00 +0800</lastBuildDate>
-		
-			<atom:link href="https://zecoo.github.io/hugo/tags/css/index.xml" rel="self" type="application/rss+xml" />
-			<item>
-				<title>scss tutorial</title>
-				<link>https://zecoo.github.io/hugo/posts/static-web/scss-tutorial/</link>
-				<pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/posts/static-web/scss-tutorial/</guid>
-				<description>&lt;p&gt;SCSS：Sassy CSS&lt;/p&gt;&#xA;&lt;p&gt;SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。&lt;/p&gt;&#xA;&lt;p&gt;我咋还在scss的环境上踩到坑了呢？&lt;/p&gt;&#xA;&lt;p&gt;先是给我报错&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bad interpreter: /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby: no such file or directory&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;一查是sass环境没装上……我以为mac自带ruby不用管呢&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo gem install -n /usr/local/bin sass --pre   &#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装之。然后发现ruby的源用不了，原来是 &lt;a href=&#34;https://gems.ruby-china.org&#34;&gt;https://gems.ruby-china.org&lt;/a&gt; 改成了 &lt;a href=&#34;https://gems.ruby-china.com&#34;&gt;https://gems.ruby-china.com&lt;/a&gt; ，害。&lt;/p&gt;&#xA;&lt;p&gt;编译css的项目目录也需要更改，默认是编译到scss相同的目录。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;cmd&amp;#34;&lt;/span&gt;: [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;sass&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--update&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$file:${file_path}/../css/${file_base_name}.css&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--stop-on-error&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--no-cache&amp;#34;&lt;/span&gt;],&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;osx&amp;#34;&lt;/span&gt;: &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;{&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local/bin:$PATH&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最后sublime再装一个插件&amp;quot;sublimeBuildOnSave&amp;quot;自动编译sass，不要每次都cmd+B一下。&lt;/p&gt;&#xA;&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/f8cbe91498dc&#34;&gt;https://www.jianshu.com/p/f8cbe91498dc&lt;/a&gt; （ruby china换源了）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.sass.hk/install/&#34;&gt;https://www.sass.hk/install/&lt;/a&gt; （ruby 安装sass）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://blog.logrocket.com/getting-started-with-bootstrapvue-2d8bf907ef11/&#34;&gt;https://blog.logrocket.com/getting-started-with-bootstrapvue-2d8bf907ef11/&lt;/a&gt; （bootVue blog）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://bootstrap-vue.org/docs&#34;&gt;https://bootstrap-vue.org/docs&lt;/a&gt; （bootVue官网）&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>IFE Task0001 Log</title>
-				<link>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</link>
-				<pubDate>Sun, 01 Mar 2020 17:39:45 +0800</pubDate>
-				<guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</guid>
-				<description>&lt;p&gt;我记录一下ife其他几个页面。一共这么几个页面&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../task0001/index.html&#34;&gt;index.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../task0001/post.html&#34;&gt;post.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../task0001/gallery.html&#34;&gt;archive.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;../task0001/about.html&#34;&gt;about.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;如果自己写的话，除了index.html，其他几个页面都有或多多少的问题我写不出来。&#xA;一个一个说吧。&lt;/p&gt;&#xA;&lt;h2 id=&#34;indexhtml&#34;&gt;Index.html&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;banner有三个部分，一个是logo，一个是站内其他链接，最后一个是git的logo。这三个部分要显示在水平的一行，这里其实是运用到了float，只要把三个部分都设置为float，就可以变成一行了。感觉有点像把div改成了块内元素一样，也就是变成了span。&lt;/li&gt;&#xA;&lt;li&gt;一般banner的链接都是用list改成水平，改成水平的方法有两个，一个是float，另一个是display inline-block&lt;/li&gt;&#xA;&lt;li&gt;我想让这三部分，随着页面的改变，位置不要定死，原来margin-left之类的也可以用百分比来表示，就很舒服了。&lt;/li&gt;&#xA;&lt;li&gt;center是一个大的bg，bg上面有一个透明度的方形显示文字，放bg的时候遇到了以前就遇到的问题，比如默认是重复的，而且不能充满div。这两个问题代码很好解决。&lt;/li&gt;&#xA;&lt;li&gt;至于透明度的方形，彻底让我对position这个元素有了一定的理解。absolute、fixed、relative分别代表什么。&lt;/li&gt;&#xA;&lt;li&gt;box部分是三个卡片，卡片里有图片和文字。三个卡片并列其实也挺好写，好像用inline-block就可以实现，水平垂直居中什么的也都是现成的，不过写好了之后再看要求里面有一个是卡片的高度随文字内容自适应。&lt;/li&gt;&#xA;&lt;li&gt;遂百度之，发现用display table可以解决这个问题，但是table是占满整个div的，不过也好解决，用一大一小div就解决了。&lt;/li&gt;&#xA;&lt;li&gt;圆形的头像，这个做起来也好简单啊，图片的radius改一下就可以了。&lt;/li&gt;&#xA;&lt;li&gt;intro部分其实不用display来写，比较常规。如果需要居中之类的工作，用display明显是要方便很多的。&lt;/li&gt;&#xA;&lt;li&gt;最后一点，如果用flex来布局，flex里面的每个元素的宽度都是以最宽的那个为标准。这时候想要居中的话可以考虑用text-align center解决。这是最后那个小logo的居中问题。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;posthtml&#34;&gt;Post.html&lt;/h2&gt;&#xA;&lt;p&gt;在开始写post.html之前我在GitHub上down了几个其他人的ife作业，然后发现我这个代码真的是稀烂…最基本的有这么几个问题：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;文件的结构，ife里强调了，但是我没有遵守。&lt;/li&gt;&#xA;&lt;li&gt;div的命名方式。navbar，navbar-menu、profile之类的&lt;/li&gt;&#xA;&lt;li&gt;class和id的区别&lt;/li&gt;&#xA;&lt;li&gt;nav和footer是html的元素，可以不用div写&lt;/li&gt;&#xA;&lt;li&gt;html的基本框架应该是navbar、banner、content、footer&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;然后我找到了一个极佳的对比例子。就是DIYgod，当我看到他就是RSSHub的发起者的时候，我懵逼了。他也就大我三届而已，而且还是武理的，我简直太菜了。。酸归酸，看DIYgod大神的前端页面。能学到很多东西：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;html的其他默认元素：header、section、article、nav的使用&lt;/li&gt;&#xA;&lt;li&gt;日历写起来其实就是一个table view&lt;/li&gt;&#xA;&lt;li&gt;tag-graph就更简单了，字体设几个不同的大小就可以&lt;/li&gt;&#xA;&lt;li&gt;一个简单的单词，换一个字体就能变成logo一般的存在&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;然后记录一下写 blog.html的时候遇到的坑&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;blog应该是一个简单的双列布局。双列布局的形式有哪些来着？我是用百分比的形式来布局的。要求用980px，我不太喜欢&lt;/li&gt;&#xA;&lt;li&gt;table设置了宽高之后，cell变大，那么cell里面字的间距自然就大了&lt;/li&gt;&#xA;&lt;li&gt;有时候会遇到给div里面子元素加padding之后，div的宽度哪怕设好了，还是会超出来。这个时候要设置一下&lt;code&gt;box-sizing=border-content&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;a写在div外面，就把整个div变成了链接。&lt;/li&gt;&#xA;&lt;li&gt;我现在使用自适应的方法太简陋了，@media (maxwidth=980) {.div { display=none} }&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;archivehtml&#34;&gt;Archive.html&lt;/h2&gt;&#xA;&lt;p&gt;这个页面我被卡住了。本来一个瀑布流我可以百度，用flex或者用column来解决，但是ife的作业的瀑布流里偏偏有一个比较大的块，是一个这样的结构&lt;br&gt;&#xA;[ + ][ ][ ]&lt;br&gt;&#xA;[ ][ ][ ][ ]&lt;br&gt;&#xA;[ ][ ][ ][ ]&lt;br&gt;&#xA;就比较棘手。不能直接用简单的瀑布流，最后是划成3个部分，1⃣️是 [ + ] 2⃣️是其下面的部分，3⃣️是右边两排。然后让2⃣️和3⃣️变成瀑布流。然后细细碎碎的一些对齐问题啊、宽度计算的问题啊，浪费了我挺多时间。&lt;/p&gt;&#xA;&lt;p&gt;然后更吊诡的是，我连一个简单的3个div并排在一排都写不出来。好像用inline-block就能写出来。不过我还要再整理一下思路。&lt;/p&gt;&#xA;&lt;h2 id=&#34;abouthtml&#34;&gt;About.html&lt;/h2&gt;&#xA;&lt;p&gt;不得不说ife作业的设置真的很好，about.html暴露出来我的另一个问题，其实什么position的我根本没有搞清楚，稍微复杂一点的定位我就搞不定了。&lt;/p&gt;</description>
-			</item>
-	</channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Css on 张泽锟</title><link>https://zecoo.github.io/hugo/tags/css/</link><description>Recent content in Css on 张泽锟</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 05 May 2020 00:00:00 +0800</lastBuildDate><atom:link href="https://zecoo.github.io/hugo/tags/css/index.xml" rel="self" type="application/rss+xml"/><item><title>scss tutorial</title><link>https://zecoo.github.io/hugo/posts/static-web/scss-tutorial/</link><pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate><guid>https://zecoo.github.io/hugo/posts/static-web/scss-tutorial/</guid><description>&lt;p&gt;SCSS：Sassy CSS&lt;/p&gt;
+&lt;p&gt;SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。&lt;/p&gt;
+&lt;p&gt;我咋还在scss的环境上踩到坑了呢？&lt;/p&gt;
+&lt;p&gt;先是给我报错&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bad interpreter: /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby: no such file or directory
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;一查是sass环境没装上……我以为mac自带ruby不用管呢&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo gem install -n /usr/local/bin sass --pre 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装之。然后发现ruby的源用不了，原来是 &lt;a href="https://gems.ruby-china.org"&gt;https://gems.ruby-china.org&lt;/a&gt; 改成了 &lt;a href="https://gems.ruby-china.com"&gt;https://gems.ruby-china.com&lt;/a&gt; ，害。&lt;/p&gt;
+&lt;p&gt;编译css的项目目录也需要更改，默认是编译到scss相同的目录。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#f92672"&gt;&amp;#34;cmd&amp;#34;&lt;/span&gt;: [ &lt;span style="color:#e6db74"&gt;&amp;#34;sass&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--update&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;$file:${file_path}/../css/${file_base_name}.css&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--stop-on-error&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--no-cache&amp;#34;&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#f92672"&gt;&amp;#34;osx&amp;#34;&lt;/span&gt;: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	{
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#f92672"&gt;&amp;#34;path&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;/usr/local/bin:$PATH&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最后sublime再装一个插件&amp;quot;sublimeBuildOnSave&amp;quot;自动编译sass，不要每次都cmd+B一下。&lt;/p&gt;
+&lt;h2 id="参考"&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.jianshu.com/p/f8cbe91498dc"&gt;https://www.jianshu.com/p/f8cbe91498dc&lt;/a&gt; （ruby china换源了）&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.sass.hk/install/"&gt;https://www.sass.hk/install/&lt;/a&gt; （ruby 安装sass）&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://blog.logrocket.com/getting-started-with-bootstrapvue-2d8bf907ef11/"&gt;https://blog.logrocket.com/getting-started-with-bootstrapvue-2d8bf907ef11/&lt;/a&gt; （bootVue blog）&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://bootstrap-vue.org/docs"&gt;https://bootstrap-vue.org/docs&lt;/a&gt; （bootVue官网）&lt;/p&gt;</description></item><item><title>IFE Task0001 Log</title><link>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</link><pubDate>Sun, 01 Mar 2020 17:39:45 +0800</pubDate><guid>https://zecoo.github.io/hugo/posts/static-web/ife-task0001-log/</guid><description>&lt;p&gt;我记录一下ife其他几个页面。一共这么几个页面&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../task0001/index.html"&gt;index.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../task0001/post.html"&gt;post.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../task0001/gallery.html"&gt;archive.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../task0001/about.html"&gt;about.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果自己写的话，除了index.html，其他几个页面都有或多多少的问题我写不出来。
+一个一个说吧。&lt;/p&gt;
+&lt;h2 id="indexhtml"&gt;Index.html&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;banner有三个部分，一个是logo，一个是站内其他链接，最后一个是git的logo。这三个部分要显示在水平的一行，这里其实是运用到了float，只要把三个部分都设置为float，就可以变成一行了。感觉有点像把div改成了块内元素一样，也就是变成了span。&lt;/li&gt;
+&lt;li&gt;一般banner的链接都是用list改成水平，改成水平的方法有两个，一个是float，另一个是display inline-block&lt;/li&gt;
+&lt;li&gt;我想让这三部分，随着页面的改变，位置不要定死，原来margin-left之类的也可以用百分比来表示，就很舒服了。&lt;/li&gt;
+&lt;li&gt;center是一个大的bg，bg上面有一个透明度的方形显示文字，放bg的时候遇到了以前就遇到的问题，比如默认是重复的，而且不能充满div。这两个问题代码很好解决。&lt;/li&gt;
+&lt;li&gt;至于透明度的方形，彻底让我对position这个元素有了一定的理解。absolute、fixed、relative分别代表什么。&lt;/li&gt;
+&lt;li&gt;box部分是三个卡片，卡片里有图片和文字。三个卡片并列其实也挺好写，好像用inline-block就可以实现，水平垂直居中什么的也都是现成的，不过写好了之后再看要求里面有一个是卡片的高度随文字内容自适应。&lt;/li&gt;
+&lt;li&gt;遂百度之，发现用display table可以解决这个问题，但是table是占满整个div的，不过也好解决，用一大一小div就解决了。&lt;/li&gt;
+&lt;li&gt;圆形的头像，这个做起来也好简单啊，图片的radius改一下就可以了。&lt;/li&gt;
+&lt;li&gt;intro部分其实不用display来写，比较常规。如果需要居中之类的工作，用display明显是要方便很多的。&lt;/li&gt;
+&lt;li&gt;最后一点，如果用flex来布局，flex里面的每个元素的宽度都是以最宽的那个为标准。这时候想要居中的话可以考虑用text-align center解决。这是最后那个小logo的居中问题。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="posthtml"&gt;Post.html&lt;/h2&gt;
+&lt;p&gt;在开始写post.html之前我在GitHub上down了几个其他人的ife作业，然后发现我这个代码真的是稀烂…最基本的有这么几个问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;文件的结构，ife里强调了，但是我没有遵守。&lt;/li&gt;
+&lt;li&gt;div的命名方式。navbar，navbar-menu、profile之类的&lt;/li&gt;
+&lt;li&gt;class和id的区别&lt;/li&gt;
+&lt;li&gt;nav和footer是html的元素，可以不用div写&lt;/li&gt;
+&lt;li&gt;html的基本框架应该是navbar、banner、content、footer&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;然后我找到了一个极佳的对比例子。就是DIYgod，当我看到他就是RSSHub的发起者的时候，我懵逼了。他也就大我三届而已，而且还是武理的，我简直太菜了。。酸归酸，看DIYgod大神的前端页面。能学到很多东西：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;html的其他默认元素：header、section、article、nav的使用&lt;/li&gt;
+&lt;li&gt;日历写起来其实就是一个table view&lt;/li&gt;
+&lt;li&gt;tag-graph就更简单了，字体设几个不同的大小就可以&lt;/li&gt;
+&lt;li&gt;一个简单的单词，换一个字体就能变成logo一般的存在&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;然后记录一下写 blog.html的时候遇到的坑&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;blog应该是一个简单的双列布局。双列布局的形式有哪些来着？我是用百分比的形式来布局的。要求用980px，我不太喜欢&lt;/li&gt;
+&lt;li&gt;table设置了宽高之后，cell变大，那么cell里面字的间距自然就大了&lt;/li&gt;
+&lt;li&gt;有时候会遇到给div里面子元素加padding之后，div的宽度哪怕设好了，还是会超出来。这个时候要设置一下&lt;code&gt;box-sizing=border-content&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;a写在div外面，就把整个div变成了链接。&lt;/li&gt;
+&lt;li&gt;我现在使用自适应的方法太简陋了，@media (maxwidth=980) {.div { display=none} }&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="archivehtml"&gt;Archive.html&lt;/h2&gt;
+&lt;p&gt;这个页面我被卡住了。本来一个瀑布流我可以百度，用flex或者用column来解决，但是ife的作业的瀑布流里偏偏有一个比较大的块，是一个这样的结构&lt;br&gt;
+[ + ][ ][ ]&lt;br&gt;
+[ ][ ][ ][ ]&lt;br&gt;
+[ ][ ][ ][ ]&lt;br&gt;
+就比较棘手。不能直接用简单的瀑布流，最后是划成3个部分，1⃣️是 [ + ] 2⃣️是其下面的部分，3⃣️是右边两排。然后让2⃣️和3⃣️变成瀑布流。然后细细碎碎的一些对齐问题啊、宽度计算的问题啊，浪费了我挺多时间。&lt;/p&gt;
+&lt;p&gt;然后更吊诡的是，我连一个简单的3个div并排在一排都写不出来。好像用inline-block就能写出来。不过我还要再整理一下思路。&lt;/p&gt;
+&lt;h2 id="abouthtml"&gt;About.html&lt;/h2&gt;
+&lt;p&gt;不得不说ife作业的设置真的很好，about.html暴露出来我的另一个问题，其实什么position的我根本没有搞清楚，稍微复杂一点的定位我就搞不定了。&lt;/p&gt;</description></item></channel></rss>

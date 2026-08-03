@@ -1,0 +1,23 @@
+{{ with index .Site.Taxonomies.categories "行业研究报告" }}
+<section id="research" class="research-section">
+  <div class="section-heading research-heading">
+    <div>
+      <p class="section-kicker">RESEARCH & INSIGHTS</p>
+      <h2>行业研究与投资观点</h2>
+      <p>围绕 AI 与数字科技，持续开展产业研究和投资观察。</p>
+    </div>
+    <a class="section-link" href="{{ "posts" | relURL }}">查看全部研究 →</a>
+  </div>
+  <div class="research-grid">
+    {{ range first 3 .Pages.ByDate.Reverse }}
+      {{ $destination := .RelPermalink }}
+      {{ with .Params.download_url }}{{ $destination = . | relURL }}{{ end }}
+      <a class="research-card" href="{{ $destination }}">
+        <p>{{ .Date.Format "2006.01" }} · 行业研究报告</p>
+        <h3>{{ .Title }}</h3>
+        <span>阅读报告 →</span>
+      </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

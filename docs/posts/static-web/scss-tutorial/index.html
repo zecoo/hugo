@@ -1,78 +1,11 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.164.0">
-    <meta name="description" content="湖北·武汉">
-    <title>
-        scss tutorial 
-    </title>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/hugo/css/main.css">
-    <link rel="stylesheet" href="/hugo/css/github.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-</head>
-  <body>
-    
-    <div class="blog-masthead">
-      <div class="wrapper">
-        <nav class="nav blog-nav">
-          <a class="nav-link" href="/hugo/">主页</a>
-          <a class="nav-link active" href="/hugo/posts">归档</a>
-        </nav>
-      </div>
-    </div>
-
-
-    
-    
-
-    
-
-    <div class="container">
-      <div class="row">
-        <div class="blog-main">
-          <a class="back-link" href="/hugo/posts">← 返回归档</a>
-        	<article class="blog-post">
-			  <header>
-			    <h2 class="blog-post-title" dir="auto">scss tutorial</h2>
-			    <p class="blog-post-meta"><time datetime="2020-05-05T00:00:00+08:00">Tue May 5, 2020</time></p>
-			  </header>
-			  <p>SCSS：Sassy CSS</p>
-<p>SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。</p>
-<p>我咋还在scss的环境上踩到坑了呢？</p>
-<p>先是给我报错</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>bad interpreter: /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby: no such file or directory
-</span></span></code></pre></div><p>一查是sass环境没装上……我以为mac自带ruby不用管呢</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo gem install -n /usr/local/bin sass --pre   
-</span></span></code></pre></div><p>安装之。然后发现ruby的源用不了，原来是 <a href="https://gems.ruby-china.org">https://gems.ruby-china.org</a> 改成了 <a href="https://gems.ruby-china.com">https://gems.ruby-china.com</a> ，害。</p>
-<p>编译css的项目目录也需要更改，默认是编译到scss相同的目录。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;cmd&#34;</span>: [ <span style="color:#e6db74">&#34;sass&#34;</span>, <span style="color:#e6db74">&#34;--update&#34;</span>, <span style="color:#e6db74">&#34;$file:${file_path}/../css/${file_base_name}.css&#34;</span>, <span style="color:#e6db74">&#34;--stop-on-error&#34;</span>, <span style="color:#e6db74">&#34;--no-cache&#34;</span>],
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;osx&#34;</span>: 
-</span></span><span style="display:flex;"><span>	{
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;/usr/local/bin:$PATH&#34;</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>最后sublime再装一个插件&quot;sublimeBuildOnSave&quot;自动编译sass，不要每次都cmd+B一下。</p>
-<h2 id="参考">参考</h2>
-<p><a href="https://www.jianshu.com/p/f8cbe91498dc">https://www.jianshu.com/p/f8cbe91498dc</a> （ruby china换源了）</p>
-<p><a href="https://www.sass.hk/install/">https://www.sass.hk/install/</a> （ruby 安装sass）</p>
-<p><a href="https://blog.logrocket.com/getting-started-with-bootstrapvue-2d8bf907ef11/">https://blog.logrocket.com/getting-started-with-bootstrapvue-2d8bf907ef11/</a> （bootVue blog）</p>
-<p><a href="https://bootstrap-vue.org/docs">https://bootstrap-vue.org/docs</a> （bootVue官网）</p>
-
-			</article>
-        </div> 
-      </div> 
-    </div>
-
-    
-    
-    
-
-    <script src="/hugo/js/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script type="text/javascript" src="/hugo/js/MathJax.js"></script>
-  </body>
-</html>
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=generator content="Hugo 0.164.0"><meta name=description content="湖北·武汉"><title>scss tutorial</title><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css integrity=sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh crossorigin=anonymous><link rel=stylesheet type=text/css href=/hugo/css/main.css><link rel=stylesheet href=/hugo/css/github.css><meta name=viewport content="width=device-width,initial-scale=1"></head><body><div class=blog-masthead><div class=wrapper><nav class="nav blog-nav" aria-label=主导航><a class=nav-link href=/hugo/>首页</a>
+<a class="nav-link active" href=/hugo/posts>文章</a></nav></div></div><div class=container><div class=row><div class=blog-main><a class=back-link href=/hugo/posts>← 返回归档</a><article class=blog-post><header><h2 class=blog-post-title dir=auto>scss tutorial</h2><p class=blog-post-meta><time datetime=2020-05-05T00:00:00+08:00>Tue May 5, 2020</time></p></header><p>SCSS：Sassy CSS</p><p>SASS比SCSS更简洁啊，感觉更像现代编程语言，跟yaml一样。</p><p>我咋还在scss的环境上踩到坑了呢？</p><p>先是给我报错</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-shell data-lang=shell><span style=display:flex><span>bad interpreter: /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby: no such file or directory
+</span></span></code></pre></div><p>一查是sass环境没装上……我以为mac自带ruby不用管呢</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-shell data-lang=shell><span style=display:flex><span>sudo gem install -n /usr/local/bin sass --pre   
+</span></span></code></pre></div><p>安装之。然后发现ruby的源用不了，原来是 <a href=https://gems.ruby-china.org>https://gems.ruby-china.org</a> 改成了 <a href=https://gems.ruby-china.com>https://gems.ruby-china.com</a> ，害。</p><p>编译css的项目目录也需要更改，默认是编译到scss相同的目录。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	<span style=color:#f92672>&#34;cmd&#34;</span>: [ <span style=color:#e6db74>&#34;sass&#34;</span>, <span style=color:#e6db74>&#34;--update&#34;</span>, <span style=color:#e6db74>&#34;$file:${file_path}/../css/${file_base_name}.css&#34;</span>, <span style=color:#e6db74>&#34;--stop-on-error&#34;</span>, <span style=color:#e6db74>&#34;--no-cache&#34;</span>],
+</span></span><span style=display:flex><span>	<span style=color:#f92672>&#34;osx&#34;</span>: 
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#f92672>&#34;path&#34;</span>: <span style=color:#e6db74>&#34;/usr/local/bin:$PATH&#34;</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>最后sublime再装一个插件"sublimeBuildOnSave"自动编译sass，不要每次都cmd+B一下。</p><h2 id=参考>参考</h2><p><a href=https://www.jianshu.com/p/f8cbe91498dc>https://www.jianshu.com/p/f8cbe91498dc</a> （ruby china换源了）</p><p><a href=https://www.sass.hk/install/>https://www.sass.hk/install/</a> （ruby 安装sass）</p><p><a href=https://blog.logrocket.com/getting-started-with-bootstrapvue-2d8bf907ef11/>https://blog.logrocket.com/getting-started-with-bootstrapvue-2d8bf907ef11/</a> （bootVue blog）</p><p><a href=https://bootstrap-vue.org/docs>https://bootstrap-vue.org/docs</a> （bootVue官网）</p></article></div></div></div><script src=/hugo/js/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script><script type=text/javascript src=/hugo/js/MathJax.js></script></body></html>

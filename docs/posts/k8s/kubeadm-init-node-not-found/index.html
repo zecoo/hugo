@@ -1,83 +1,12 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.164.0">
-    <meta name="description" content="湖北·武汉">
-    <title>
-        Kubeadm init node not found 
-    </title>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/hugo/css/main.css">
-    <link rel="stylesheet" href="/hugo/css/github.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-</head>
-  <body>
-    
-    <div class="blog-masthead">
-      <div class="wrapper">
-        <nav class="nav blog-nav">
-          <a class="nav-link" href="/hugo/">主页</a>
-          <a class="nav-link active" href="/hugo/posts">归档</a>
-        </nav>
-      </div>
-    </div>
-
-
-    
-    
-
-    
-
-    <div class="container">
-      <div class="row">
-        <div class="blog-main">
-          <a class="back-link" href="/hugo/posts">← 返回归档</a>
-        	<article class="blog-post">
-			  <header>
-			    <h2 class="blog-post-title" dir="auto">Kubeadm init node not found</h2>
-			    <p class="blog-post-meta"><time datetime="2020-05-16T00:00:00+08:00">Sat May 16, 2020</time></p>
-			  </header>
-			  <p>新坑哦～</p>
-<p>5天都没有解决的新坑哦～</p>
-<h2 id="环境">环境：</h2>
-<ul>
-<li>华为云学生机2c4g</li>
-<li>鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB</li>
-</ul>
-<h2 id="错误">错误</h2>
-<p>kubeadm init 后卡在：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>wait-control-plane<span style="color:#f92672">]</span> Waiting <span style="color:#66d9ef">for</span> the kubelet to boot up the control plane as static Pods from directory <span style="color:#e6db74">&#34;/etc/kubernetes/manifests&#34;</span>. This can take up to 4m0s
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>kubelet-check<span style="color:#f92672">]</span> Initial timeout of 40s passed.
-</span></span></code></pre></div><p>然后按照提示查看kubelet的日志，显示“node xxx not found”</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>node <span style="color:#e6db74">&#34;ecs-kc1-large-2-linux-20200511105949&#34;</span> not found
-</span></span><span style="display:flex;"><span>Container <span style="color:#e6db74">&#34;408a5e9f9958dd3919cecf4a944a25ce30582bc638d657fc065fec8c56579f2a&#34;</span> not found in pod<span style="color:#960050;background-color:#1e0010">&#39;</span>s containers
-</span></span><span style="display:flex;"><span>k8s.io/kubernetes/pkg/kubelet/kubelet.go:453: Failed to list *v1.Node: Get https://192.168.0.214:6443/api/v1/nodes?fieldSelector<span style="color:#f92672">=</span>metadata.name%3Decs-kc1-large-2-linux-20200511105949&amp;limit<span style="color:#f92672">=</span>500&amp;resourceVersion<span style="color:#f92672">=</span>0: dial tcp 192.168.0.214:6443: connect: connection refused
-</span></span></code></pre></div><p>看到最关键的了吗？<code>dial tcp 192.168.0.214:6443: connect: connection refused</code>，这个问题很关键，但是网上没有合适的解答。connection refused，其实就是“node not found”</p>
-<p>再看看docker容器的运行情况，发现k8s所有组件的容器都创建失败，处于Exited状态。kubelet就这样创建失败继续创建，陷入循环当中。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>k8s_POD_etcd	Exited <span style="color:#f92672">(</span>1<span style="color:#f92672">)</span> Less than a second ago
-</span></span><span style="display:flex;"><span>k8s_POD_kube-controller-manager	Exited <span style="color:#f92672">(</span>1<span style="color:#f92672">)</span> Less than a second ago
-</span></span><span style="display:flex;"><span>k8s_POD_kube-scheduler	Exited <span style="color:#f92672">(</span>1<span style="color:#f92672">)</span> Less than a second ago
-</span></span><span style="display:flex;"><span>k8s_POD_etcd	Exited <span style="color:#f92672">(</span>1<span style="color:#f92672">)</span> Less than a second ago
-</span></span><span style="display:flex;"><span>k8s_POD_kube-controller-manager	Exited <span style="color:#f92672">(</span>1<span style="color:#f92672">)</span> <span style="color:#ae81ff">1</span> second ago
-</span></span></code></pre></div><h2 id="售后">售后</h2>
-<p>给华为售后也提了工单，最后得到的结果是华为鲲鹏服务器是arm架构，并且华为在上面做了自研，底层架构和amd差别还是挺大的。所以对于一些大型应用可能还没有适配。暗示k8s适配还要很久。</p>
-<p>这坑就不填了。俺换台服务器就是了。</p>
-<p>不过整体的体验还是挺好的，从提售后工单到售后邮件回复、电话回访都做得挺好的。打客服电话退订也很热心告诉我到哪里退订。</p>
-<p>我用了10天左右吧，手续费20，费用是5块。最后能退给我175块。还算OK，损失不大。</p>
-
-			</article>
-        </div> 
-      </div> 
-    </div>
-
-    
-    
-    
-
-    <script src="/hugo/js/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script type="text/javascript" src="/hugo/js/MathJax.js"></script>
-  </body>
-</html>
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=generator content="Hugo 0.164.0"><meta name=description content="湖北·武汉"><title>Kubeadm init node not found</title><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css integrity=sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh crossorigin=anonymous><link rel=stylesheet type=text/css href=/hugo/css/main.css><link rel=stylesheet href=/hugo/css/github.css><meta name=viewport content="width=device-width,initial-scale=1"></head><body><div class=blog-masthead><div class=wrapper><nav class="nav blog-nav" aria-label=主导航><a class=nav-link href=/hugo/>首页</a>
+<a class="nav-link active" href=/hugo/posts>文章</a></nav></div></div><div class=container><div class=row><div class=blog-main><a class=back-link href=/hugo/posts>← 返回归档</a><article class=blog-post><header><h2 class=blog-post-title dir=auto>Kubeadm init node not found</h2><p class=blog-post-meta><time datetime=2020-05-16T00:00:00+08:00>Sat May 16, 2020</time></p></header><p>新坑哦～</p><p>5天都没有解决的新坑哦～</p><h2 id=环境>环境：</h2><ul><li>华为云学生机2c4g</li><li>鲲鹏通用计算增强型 | kc1.large.2 | 2vCPUs | 4GB</li></ul><h2 id=错误>错误</h2><p>kubeadm init 后卡在：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#f92672>[</span>wait-control-plane<span style=color:#f92672>]</span> Waiting <span style=color:#66d9ef>for</span> the kubelet to boot up the control plane as static Pods from directory <span style=color:#e6db74>&#34;/etc/kubernetes/manifests&#34;</span>. This can take up to 4m0s
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>kubelet-check<span style=color:#f92672>]</span> Initial timeout of 40s passed.
+</span></span></code></pre></div><p>然后按照提示查看kubelet的日志，显示“node xxx not found”</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-shell data-lang=shell><span style=display:flex><span>node <span style=color:#e6db74>&#34;ecs-kc1-large-2-linux-20200511105949&#34;</span> not found
+</span></span><span style=display:flex><span>Container <span style=color:#e6db74>&#34;408a5e9f9958dd3919cecf4a944a25ce30582bc638d657fc065fec8c56579f2a&#34;</span> not found in pod<span style=color:#960050;background-color:#1e0010>&#39;</span>s containers
+</span></span><span style=display:flex><span>k8s.io/kubernetes/pkg/kubelet/kubelet.go:453: Failed to list *v1.Node: Get https://192.168.0.214:6443/api/v1/nodes?fieldSelector<span style=color:#f92672>=</span>metadata.name%3Decs-kc1-large-2-linux-20200511105949&amp;limit<span style=color:#f92672>=</span>500&amp;resourceVersion<span style=color:#f92672>=</span>0: dial tcp 192.168.0.214:6443: connect: connection refused
+</span></span></code></pre></div><p>看到最关键的了吗？<code>dial tcp 192.168.0.214:6443: connect: connection refused</code>，这个问题很关键，但是网上没有合适的解答。connection refused，其实就是“node not found”</p><p>再看看docker容器的运行情况，发现k8s所有组件的容器都创建失败，处于Exited状态。kubelet就这样创建失败继续创建，陷入循环当中。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-shell data-lang=shell><span style=display:flex><span>k8s_POD_etcd	Exited <span style=color:#f92672>(</span>1<span style=color:#f92672>)</span> Less than a second ago
+</span></span><span style=display:flex><span>k8s_POD_kube-controller-manager	Exited <span style=color:#f92672>(</span>1<span style=color:#f92672>)</span> Less than a second ago
+</span></span><span style=display:flex><span>k8s_POD_kube-scheduler	Exited <span style=color:#f92672>(</span>1<span style=color:#f92672>)</span> Less than a second ago
+</span></span><span style=display:flex><span>k8s_POD_etcd	Exited <span style=color:#f92672>(</span>1<span style=color:#f92672>)</span> Less than a second ago
+</span></span><span style=display:flex><span>k8s_POD_kube-controller-manager	Exited <span style=color:#f92672>(</span>1<span style=color:#f92672>)</span> <span style=color:#ae81ff>1</span> second ago
+</span></span></code></pre></div><h2 id=售后>售后</h2><p>给华为售后也提了工单，最后得到的结果是华为鲲鹏服务器是arm架构，并且华为在上面做了自研，底层架构和amd差别还是挺大的。所以对于一些大型应用可能还没有适配。暗示k8s适配还要很久。</p><p>这坑就不填了。俺换台服务器就是了。</p><p>不过整体的体验还是挺好的，从提售后工单到售后邮件回复、电话回访都做得挺好的。打客服电话退订也很热心告诉我到哪里退订。</p><p>我用了10天左右吧，手续费20，费用是5块。最后能退给我175块。还算OK，损失不大。</p></article></div></div></div><script src=/hugo/js/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script><script type=text/javascript src=/hugo/js/MathJax.js></script></body></html>
