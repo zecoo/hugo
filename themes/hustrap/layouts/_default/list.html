@@ -17,15 +17,15 @@
               <h1>文章与研究</h1>
               <p>记录对 AI、数字科技与工程实践的长期观察。</p>
             </header>
-            {{ $industry := index .Site.Taxonomies.categories "行业研究报告" }}
+            {{ $industry := where .Site.RegularPages "Params.categories" "intersect" (slice "行业研究报告") }}
             {{ if $industry }}
             <section class="archive-section">
               <div class="archive-section-heading">
                 <h2>行业研究报告</h2>
-                <span>{{ len $industry.Pages }} 篇</span>
+                <span>{{ len $industry }} 篇</span>
               </div>
               <div class="archive-grid">
-                {{ range $industry.Pages.ByDate.Reverse }}
+                {{ range $industry.ByDate.Reverse }}
                 {{- $destination := .RelPermalink -}}
                 {{- with .Params.download_url -}}{{- $destination = . | relURL -}}{{- end -}}
                 <a class="archive-card archive-card-report" href="{{ $destination }}">
@@ -43,7 +43,7 @@
               </div>
               <div class="archive-grid">
               {{ $all := where .Site.RegularPages "Title" "非行业研究报告文章汇总" }}
-                <a class="archive-card archive-card-notes" href="{{ "posts/all-in-one/" | relURL }}">
+                <a class="archive-card archive-card-notes" href="{{ "posts/others/all-in-one/" | relURL }}">
                   <p>{{ with index $all 0 }}{{ with .Params.time }}{{ . }} · {{ end }}{{ end }}文章归档</p>
                   <h3>技术文章与历史笔记</h3>
                   <span>查看全部文章 →</span>

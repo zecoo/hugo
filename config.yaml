@@ -1,6 +1,9 @@
 baseURL: https://zecoo.github.io/hugo/
 theme: hustrap
 publishDir: "docs"
+disableKinds:
+  - taxonomy
+  - term
 ignoreFiles:
   - '^content/files/.*\\.pdf$'
 # theme: contrast-hugo

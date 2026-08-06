@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.164.0">
+    <meta name="description" content="湖北·武汉">
+    <title>
+        istio envoy log type 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/hugo/css/main.css">
+    <link rel="stylesheet" href="/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+<div class="blog-masthead">
+  <div class="wrapper">
+    <nav class="nav blog-nav" aria-label="主导航">
+      <a class="nav-link " href="/hugo/">首页</a>
+      <a class="nav-link active" href="/hugo/posts">文章</a>
+    </nav>
+  </div>
+</div>
+
+
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+          <a class="back-link" href="/hugo/posts">← 返回归档</a>
+        	<article class="blog-post">
+			  <header>
+			    <h2 class="blog-post-title" dir="auto">istio envoy log type</h2>
+			    <p class="blog-post-meta"><time datetime="2020-05-06T00:00:00+08:00">Wed May 6, 2020</time></p>
+			  </header>
+			  <h2 id="envoy-log-type">Envoy log type</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>【START_TIME】<span style="color:#f92672">[</span>2020-05-06T09:32:24.488Z<span style="color:#f92672">]</span> 
+</span></span><span style="display:flex;"><span>【METHOD】<span style="color:#e6db74">&#34;GET 【PATH】/flasgger_static/swagger-ui-bundle.js 【PROTOCOL】HTTP/1.1&#34;</span> 
+</span></span><span style="display:flex;"><span>【REPONSE CODE】200 - <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1048149</span> <span style="color:#ae81ff">261</span> <span style="color:#ae81ff">225</span> 
+</span></span><span style="display:flex;"><span>【FORWARD_FOR】<span style="color:#e6db74">&#34;-&#34;</span> 
+</span></span><span style="display:flex;"><span>【AGENT】<span style="color:#e6db74">&#34;Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.0.5&#34;</span>
+</span></span><span style="display:flex;"><span>【REQUEST_ID】<span style="color:#e6db74">&#34;51b45953-9ede-9390-b8b5-162247165a5b&#34;</span>
+</span></span><span style="display:flex;"><span>【AUTHORITY】<span style="color:#e6db74">&#34;10.108.208.232:8000&#34;</span> 
+</span></span><span style="display:flex;"><span>【HOST】<span style="color:#e6db74">&#34;127.0.0.1:80&#34;</span> 
+</span></span><span style="display:flex;"><span>inbound|8000|http|httpbin.default.svc.cluster.local 127.0.0.1:43000 10.244.0.67:80 10.244.0.1:10504 - default
+</span></span></code></pre></div><h3 id="获取相应时间数据">获取相应时间数据</h3>
+<p>特别得，我想知道响应时间，但是好像没有具体列出来。不过每个envoy log都有4个数字特别可疑：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-basic" data-lang="basic"><span style="display:flex;"><span>0 <span style="color:#ae81ff">135</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span>            (<span style="color:#f92672">/</span>status<span style="color:#f92672">/</span><span style="color:#ae81ff">418</span>)
+</span></span><span style="display:flex;"><span>0 <span style="color:#ae81ff">9593</span> <span style="color:#ae81ff">73</span> <span style="color:#ae81ff">73</span>         (http<span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>)
+</span></span><span style="display:flex;"><span>0 <span style="color:#ae81ff">1428809</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span>        (swagger<span style="color:#f92672">-</span>ui<span style="color:#f92672">.</span>bundle<span style="color:#f92672">.</span>js)
+</span></span><span style="display:flex;"><span>0 <span style="color:#ae81ff">85578</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">0</span>          (jquery<span style="color:#f92672">.</span>min<span style="color:#f92672">.</span>js)
+</span></span><span style="display:flex;"><span>0 <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">118</span> <span style="color:#f92672">-</span>            (DC ResponseCode:<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>0 <span style="color:#ae81ff">1048149</span> <span style="color:#ae81ff">261</span> <span style="color:#ae81ff">225</span>    (swagger<span style="color:#f92672">-</span>ui<span style="color:#f92672">.</span>bundle<span style="color:#f92672">.</span>js)
+</span></span></code></pre></div><p>那么这4串数字分别代表什么呢？根据Envoy官方给出的对应关系，由于HTTP_FLAGS一般都是比较特别的，而我得到的都是&quot;-&quot;，可以得到对应关系：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>1<span style="color:#f92672">]</span>BYTES_RECEIVED <span style="color:#f92672">[</span>2<span style="color:#f92672">]</span>BYTES_SENT <span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>DURATION <span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>ENVOY-UPSTREAM-SERVICE-TIME
+</span></span></code></pre></div><p>于是响应时间duration其实就可以拿到了。</p>
+<h3 id="具体例子">具体例子</h3>
+<p>Envoy对productpage的日志也可以收集到：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@1201:istio-1.4.3 $ kubectl logs -l app<span style="color:#f92672">=</span>productpage -c istio-proxy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>2020-05-28T09:17:49.996Z<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1&#34;</span> <span style="color:#ae81ff">200</span> - <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">37045</span> <span style="color:#ae81ff">241</span> <span style="color:#ae81ff">240</span> <span style="color:#e6db74">&#34;10.244.0.1&#34;</span> <span style="color:#e6db74">&#34;Mozilla/5.0 (apple-x86_64-darwin19.0.0) Siege/4.0.4&#34;</span> <span style="color:#e6db74">&#34;11bc5f08-0c8e-4a16-b0a5-b2c3f8900a4f&#34;</span> <span style="color:#e6db74">&#34;39.100.0.61:30681&#34;</span> <span style="color:#e6db74">&#34;127.0.0.1:9080&#34;</span> inbound|9080|http|productpage.default.svc.cluster.local - 10.244.0.160:9080 10.244.0.1:0 - default
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>2020-05-28T09:17:48.036Z<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /productpage HTTP/1.1&#34;</span> <span style="color:#ae81ff">200</span> - <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">5179</span> <span style="color:#ae81ff">2201</span> <span style="color:#ae81ff">2201</span> <span style="color:#e6db74">&#34;10.244.0.1&#34;</span> <span style="color:#e6db74">&#34;Mozilla/5.0 (apple-x86_64-darwin19.0.0) Siege/4.0.4&#34;</span> <span style="color:#e6db74">&#34;55cf1e7f-c6f7-41b0-9295-e3f72ecf5282&#34;</span> <span style="color:#e6db74">&#34;39.100.0.61:30681&#34;</span> <span style="color:#e6db74">&#34;127.0.0.1:9080&#34;</span> inbound|9080|http|productpage.default.svc.cluster.local - 10.244.0.160:9080 10.244.0.1:0 - default
+</span></span></code></pre></div><h2 id="关于mixer">关于Mixer</h2>
+<p>istio bookinfo示例中给出的log是这样，latency是直接给出来的，也太好了吧。（官方给出的，我现在不想折腾Mixer，得不到这个数据）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#34;level&#34;</span>:<span style="color:#e6db74">&#34;warn&#34;</span>,<span style="color:#e6db74">&#34;time&#34;</span>:<span style="color:#e6db74">&#34;2018-09-15T20:46:35.982761Z&#34;</span>,<span style="color:#e6db74">&#34;instance&#34;</span>:<span style="color:#e6db74">&#34;newlog.xxxxx.istio-system&#34;</span>,<span style="color:#e6db74">&#34;destination&#34;</span>:<span style="color:#e6db74">&#34;productpage&#34;</span>,<span style="color:#e6db74">&#34;latency&#34;</span>:<span style="color:#e6db74">&#34;968.030256ms&#34;</span>,<span style="color:#e6db74">&#34;responseCode&#34;</span>:200,<span style="color:#e6db74">&#34;responseSize&#34;</span>:4415,<span style="color:#e6db74">&#34;source&#34;</span>:<span style="color:#e6db74">&#34;istio-ingressgateway&#34;</span>,<span style="color:#e6db74">&#34;user&#34;</span>:<span style="color:#e6db74">&#34;unknown&#34;</span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>区别的重点在于 samples/bookinfo/telemetry/log-entry.yaml 这个文件。</p>
+<p>但是如果要log的话，要用到Mixer这个组件，然而Mixer已经被官方弃用了，怎么官方文档还是要这玩意儿？</p>
+<p>中文文档更新得好慢啊，Mixer获取log已经不在英文的文档里了…</p>
+<h2 id="参考">参考</h2>
+<p><a href="https://github.com/istio/istio/tree/master/mixer">https://github.com/istio/istio/tree/master/mixer</a> （Mixer被弃用）</p>
+<p><a href="https://istio-releases.github.io/v0.1/docs/tasks/installing-istio.html">https://istio-releases.github.io/v0.1/docs/tasks/installing-istio.html</a> （安装Mixer）</p>
+<p><a href="https://www.envoyproxy.cn/configurationreference/accesslogging">https://www.envoyproxy.cn/configurationreference/accesslogging</a> （envoy access log format 中文文档）</p>
+<p><a href="https://blog.csdn.net/luo15242208310/article/details/98745143">https://blog.csdn.net/luo15242208310/article/details/98745143</a> （用彩色区分了不同的log部分）</p>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript" src="/hugo/js/MathJax.js"></script>
+  </body>
+</html>

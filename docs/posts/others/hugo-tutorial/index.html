@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.164.0">
+    <meta name="description" content="湖北·武汉">
+    <title>
+        hugo tutorial 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/hugo/css/main.css">
+    <link rel="stylesheet" href="/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+<div class="blog-masthead">
+  <div class="wrapper">
+    <nav class="nav blog-nav" aria-label="主导航">
+      <a class="nav-link " href="/hugo/">首页</a>
+      <a class="nav-link active" href="/hugo/posts">文章</a>
+    </nav>
+  </div>
+</div>
+
+
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+          <a class="back-link" href="/hugo/posts">← 返回归档</a>
+        	<article class="blog-post">
+			  <header>
+			    <h2 class="blog-post-title" dir="auto">hugo tutorial</h2>
+			    <p class="blog-post-meta"><time datetime="2020-05-17T00:00:00+08:00">Sun May 17, 2020</time></p>
+			  </header>
+			  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo new theme zik-theme
+</span></span></code></pre></div><p>可以创建一个新的主题。自己的主题就是从这里开始。</p>
+<p>然后看看hugo官网对这些baseof.html、index.html里面语法的介绍吧</p>
+<p>Variable和Function都是用两个大括号括起来<code>{{ }}</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ partial &#34;header.html&#34; . }}
+</span></span></code></pre></div><p>这会添加<code>layouts/partials/header.html</code> 这个文件到目标文件。</p>
+<p>访问预定义的变量（感觉就是config.yaml文件里定义的变量）用dot，访问和定义普通变量用$</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">title</span>&gt;{{ .Title }}&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>{{ $address := &#34;123 Main St.&#34; }}
+</span></span><span style="display:flex;"><span>{{ $address }}
+</span></span></code></pre></div><p>if-else，记住最后要有一个end</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ if (isset .Params &#34;description&#34;) }}
+</span></span><span style="display:flex;"><span>    {{ index .Params &#34;description&#34; }}
+</span></span><span style="display:flex;"><span>{{ else }}
+</span></span><span style="display:flex;"><span>    {{ .Summary }}
+</span></span><span style="display:flex;"><span>{{ end }}
+</span></span></code></pre></div><p>布局上需要注意的：<code>&lt;div&gt;   {{ .Title }} &lt;/div&gt;</code>会输出：</p>
+<pre tabindex="0"><code>&lt;div&gt;
+  Hello, World!
+&lt;/div&gt;
+</code></pre><p>而<code>&lt;div&gt;   {{- .Title -}} &lt;/div&gt;</code>会输出：</p>
+<pre tabindex="0"><code>&lt;div&gt;Hello, World!&lt;/div&gt;
+</code></pre><p>HTML 注释</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ printf &#34;<span style="color:#75715e">&lt;!-- Our website is named: %s --&gt;</span>&#34; .Site.Title | safeHTML }}
+</span></span></code></pre></div><p>文件目录都是做什么的？</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>├── _default
+</span></span><span style="display:flex;"><span>│   ├── baseof.html
+</span></span><span style="display:flex;"><span>│   ├── list.html
+</span></span><span style="display:flex;"><span>│   └── single.html
+</span></span><span style="display:flex;"><span>└── index.html
+</span></span></code></pre></div><ul>
+<li>baseof.html是在single.html和index.html都没有的时候发挥作用。作为post和首页的模板。</li>
+<li>list.html是post中的所有md的list</li>
+<li>single.html是post里面的单一页面。也就是我在post里面的md都会根据baseof.html改成html页面</li>
+</ul>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript" src="/hugo/js/MathJax.js"></script>
+  </body>
+</html>

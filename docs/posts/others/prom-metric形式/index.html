@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.164.0">
+    <meta name="description" content="湖北·武汉">
+    <title>
+        Prometheus Metric形式 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/hugo/css/main.css">
+    <link rel="stylesheet" href="/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+<div class="blog-masthead">
+  <div class="wrapper">
+    <nav class="nav blog-nav" aria-label="主导航">
+      <a class="nav-link " href="/hugo/">首页</a>
+      <a class="nav-link active" href="/hugo/posts">文章</a>
+    </nav>
+  </div>
+</div>
+
+
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+          <a class="back-link" href="/hugo/posts">← 返回归档</a>
+        	<article class="blog-post">
+			  <header>
+			    <h2 class="blog-post-title" dir="auto">Prometheus Metric形式</h2>
+			    <p class="blog-post-meta"><time datetime="2020-05-03T00:00:00+08:00">Sun May 3, 2020</time></p>
+			  </header>
+			  <h2 id="prom的四种基本metric类型">Prom的四种基本metric类型</h2>
+<ol>
+<li>counter：从0开始计数的，比如http_req_total</li>
+<li>gauge：有浮动的指标，比如cpu、mem</li>
+<li>histogram：统计数据，比如P90</li>
+<li>summary：和histogram类似</li>
+</ol>
+<h2 id="几个示例">几个示例</h2>
+<h3 id="p90">P90</h3>
+<blockquote>
+<p>The φ-quantile is the observation value that ranks at number φ*N among the N observations. Examples for φ-quantiles: The 0.5-quantile is known as the median. The 0.95-quantile is the 95th percentile.</p>
+</blockquote>
+<p>分位点的概念。官方示例：10分钟内请求持续时间的90%，以PromQL的形式给出：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>histogram_quantile<span style="color:#f92672">(</span>0.9, rate<span style="color:#f92672">(</span>http_request_duration_seconds_bucket<span style="color:#f92672">[</span>10m<span style="color:#f92672">]))</span>
+</span></span></code></pre></div><p>以下数据是通过 curl http://121.37.159.247:30040/metrics 获取的，截取部分。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># HELP prometheus_tsdb_wal_fsync_duration_seconds Duration of WAL fsync.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># TYPE prometheus_tsdb_wal_fsync_duration_seconds summary</span>
+</span></span><span style="display:flex;"><span>prometheus_tsdb_wal_fsync_duration_seconds<span style="color:#f92672">{</span>quantile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.5&#34;</span><span style="color:#f92672">}</span> 0.012352463
+</span></span><span style="display:flex;"><span>prometheus_tsdb_wal_fsync_duration_seconds<span style="color:#f92672">{</span>quantile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.9&#34;</span><span style="color:#f92672">}</span> 0.014458005
+</span></span><span style="display:flex;"><span>prometheus_tsdb_wal_fsync_duration_seconds<span style="color:#f92672">{</span>quantile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.99&#34;</span><span style="color:#f92672">}</span> 0.017316173
+</span></span><span style="display:flex;"><span>prometheus_tsdb_wal_fsync_duration_seconds_sum 2.888716127000002
+</span></span><span style="display:flex;"><span>prometheus_tsdb_wal_fsync_duration_seconds_count <span style="color:#ae81ff">216</span>
+</span></span></code></pre></div><p>“从上面的样本中可以得知当前Prometheus Server进行wal_fsync操作的总次数为216次，耗时2.888716127000002s。其中中位数（quantile=0.5）的耗时为0.012352463，9分位数（quantile=0.9）的耗时为0.014458005s，90%的数据都小于等于0.014458005s。”</p>
+<h3 id="le03">le=&ldquo;0.3&rdquo;</h3>
+<p>le即level，我现在只有在官网看到对le的简单解释，而且理解起来就是duration&lt;level。</p>
+<p>5分钟内响应时间在300ms以下的请求（le=&ldquo;0.3&rdquo; means requests within 300ms）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sum<span style="color:#f92672">(</span>rate<span style="color:#f92672">(</span>http_request_duration_seconds_bucket<span style="color:#f92672">{</span>le<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.3&#34;</span><span style="color:#f92672">}[</span>5m<span style="color:#f92672">]))</span> by <span style="color:#f92672">(</span>job<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>请详细介绍<code>request_duration_seconds_bucket</code>所代表的含义：</p>
+<p>request durations in seconds（请求响应时间用单位秒表示），bucket表示所有采样点的数量。结合<code>le=&quot;0.3&quot;</code>表示&quot;响应时间小于300ms的采样点的数量。</p>
+<p>更直观理解桶？可以看参考中的博客。</p>
+<h3 id="rate">rate</h3>
+<p>增长率。1分钟内的cpu使用率：</p>
+<pre tabindex="0"><code>rate(process_cpu_seconds_total[1m])* 100
+</code></pre><h2 id="keyvalue的metrics形式">key/value的metrics形式</h2>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>process_max_fds <span style="color:#ae81ff">65535</span>
+</span></span></code></pre></div><p>表示当前采集的最大文件句柄数是65535。</p>
+<h2 id="埋点prom">埋点Prom</h2>
+<p>看着真的很简单啊，参考python的埋点方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> prometheus_client <span style="color:#f92672">import</span> start_http_server, Summary
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a metric to track time spent and requests made.</span>
+</span></span><span style="display:flex;"><span>REQUEST_TIME <span style="color:#f92672">=</span> Summary(<span style="color:#e6db74">&#39;request_processing_seconds&#39;</span>, <span style="color:#e6db74">&#39;Time spent processing request&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Decorate function with metric.</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@REQUEST_TIME.time</span>()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">process_request</span>(t):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;A dummy function that takes some time.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(t)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Start up the server to expose the metrics.</span>
+</span></span><span style="display:flex;"><span>    start_http_server(<span style="color:#ae81ff">8000</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Generate some requests.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>        process_request(random<span style="color:#f92672">.</span>random())
+</span></span></code></pre></div><p>然后就可以在localhost:8000看到prom metrics了。</p>
+<p>自定义的metric，别人能做成这样：</p>
+<p><img src="http://dockone.io/uploads/article/20190904/70439c252c34c63ae504f17c852863e6.png" alt="img"></p>
+<p>最后的灵魂一问：如何知道Prom有哪些可用的metrics呢？</p>
+<h2 id="参考">参考</h2>
+<p><a href="https://www.v2ex.com/t/606786">https://www.v2ex.com/t/606786</a> （中文讲Prom metrics最详细的文章了吧）</p>
+<p><a href="https://www.jianshu.com/p/15f929160f38">https://www.jianshu.com/p/15f929160f38</a> （四种metric类型介绍得很棒）</p>
+<p><a href="https://prometheus.io/docs/concepts/metric_types/">https://prometheus.io/docs/concepts/metric_types/</a> （官方解释metrics type）</p>
+<p><a href="https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_quantile">https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_quantile</a> （P90官方说明）</p>
+<p><a href="https://github.com/prometheus/client_python#histogram">https://github.com/prometheus/client_python#histogram</a> （python埋点方法）</p>
+<p><a href="https://www.cnblogs.com/YaoDD/p/11391316.html">https://www.cnblogs.com/YaoDD/p/11391316.html</a> （go埋点获取metrics详解）</p>
+<p><a href="https://prometheus.io/docs/practices/histograms/">https://prometheus.io/docs/practices/histograms/</a> （histogram官方介绍）</p>
+<p><a href="https://www.cnblogs.com/arloblog/p/12162858.html">https://www.cnblogs.com/arloblog/p/12162858.html</a> （这才是介绍Prom metric最详细的文章，其实是官网翻译哈哈，但是翻译的好～）</p>
+<p><a href="http://blog.itpub.net/28218939/viewspace-2658770/">http://blog.itpub.net/28218939/viewspace-2658770/</a> （埋点自定义metric并grafana化）</p>
+<p><a href="https://www.jianshu.com/p/8a6d3eff31e7">https://www.jianshu.com/p/8a6d3eff31e7</a> （直观理解bucket 唯一一个讲解清楚的博客）</p>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript" src="/hugo/js/MathJax.js"></script>
+  </body>
+</html>

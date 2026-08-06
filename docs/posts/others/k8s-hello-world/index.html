@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.164.0">
+    <meta name="description" content="湖北·武汉">
+    <title>
+        K8S hello-world 回顾 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/hugo/css/main.css">
+    <link rel="stylesheet" href="/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+<div class="blog-masthead">
+  <div class="wrapper">
+    <nav class="nav blog-nav" aria-label="主导航">
+      <a class="nav-link " href="/hugo/">首页</a>
+      <a class="nav-link active" href="/hugo/posts">文章</a>
+    </nav>
+  </div>
+</div>
+
+
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+          <a class="back-link" href="/hugo/posts">← 返回归档</a>
+        	<article class="blog-post">
+			  <header>
+			    <h2 class="blog-post-title" dir="auto">K8S hello-world 回顾</h2>
+			    <p class="blog-post-meta"><time datetime="2020-04-17T11:37:07+08:00">Fri Apr 17, 2020</time></p>
+			  </header>
+			  <p>没错这部分也花了我很长时间，而且把我心态还搞崩了。</p>
+<p>k8s安装主要是镜像是国外私有库，pull下来比较麻烦。</p>
+<p>而k8s第一个hello-world难在理解pod、deployment、service之间的关系，以及各种奇奇怪怪的端口映射。我想这是计算机网络基础没有打好埋的坑吧。</p>
+<h3 id="镜像pod">镜像&amp;Pod</h3>
+<p>首先是创建pod，这里也需要把本地docker创建的image给注射到microk8s.ctr里面。我根据参考1给出的方法构建了hello-node:v1镜像。然后注入到k8s里面。</p>
+<p>image创建成功之后，就可以构建pod了。用以下命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl run hello-node --image<span style="color:#f92672">=</span>hello-node:v1 --port<span style="color:#f92672">=</span><span style="color:#ae81ff">8080</span> --image-pull-policy<span style="color:#f92672">=</span>Never
+</span></span></code></pre></div><p>创建了一个pod，可以用命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl get pods
+</span></span></code></pre></div><p>查看pod的创建。如果创建不成功，可以具体查看pod的详细情况。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl describe pod hello-node
+</span></span></code></pre></div><h3 id="创建deployment">创建Deployment</h3>
+<p>pod创建成功了，考虑构建deployment，dep是pod的无状态体现。deployment可以控制pod的replica数量。创建方法我没有找到命令行的方式，k8s官网给出的也是推荐使用yaml构建。以下是deployment.yaml文件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span> <span style="color:#75715e"># for versions before 1.9.0 use apps/v1beta2</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">hello-node</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">matchLabels</span>:
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">hello-node</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span> <span style="color:#75715e"># tells deployment to run 2 pods matching the template</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>                                <span style="color:#f92672">name</span>: <span style="color:#ae81ff">hello-node</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>                        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">hello-node</span>
+</span></span><span style="display:flex;"><span>                          <span style="color:#f92672">image</span>: <span style="color:#ae81ff">hello-node:v1</span>
+</span></span><span style="display:flex;"><span>                          <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>                          - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">8080</span>
+</span></span></code></pre></div><p>有了yaml文件，然后用以下命令可以创建deployment</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl apply -f deployment.yaml
+</span></span></code></pre></div><p>deployment创建成功之后，类似pod，可以用get、describe命令查看指定deployment的情况。</p>
+<h3 id="暴露服务">暴露服务</h3>
+<p>到目前为止还是不能访问app。因为现在只能在k8s集群内部访问app。我们需要将app变成service才能访问。可以用命令行的方法，也可以用yaml文件的方式。参考中使用的是命令行的方式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl expose deployment hello-node --port<span style="color:#f92672">=</span><span style="color:#ae81ff">8080</span> --target-port<span style="color:#f92672">=</span><span style="color:#ae81ff">8080</span>
+</span></span></code></pre></div><p>然后查看service：<code>kubectl get svc hello-node</code>就可以看到service的情况：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ubuntu@VM-0-12-ubuntu:~$ sudo kubectl get svc
+</span></span><span style="display:flex;"><span>NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>          AGE
+</span></span><span style="display:flex;"><span>hello-node   NodePort    10.152.183.14   &lt;none&gt;        8080:31908/TCP   33m
+</span></span><span style="display:flex;"><span>kubernetes   ClusterIP   10.152.183.1    &lt;none&gt;        443/TCP          8d
+</span></span></code></pre></div><p>到这里，app就可以在vps中访问了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ubuntu@VM-0-12-ubuntu:~$ curl 10.152.183.14:8080
+</span></span><span style="display:flex;"><span>Hello World!
+</span></span></code></pre></div><p>但是，仅仅是能在vps中访问。我如果用自己的macbook访问，还需要做其他的代理工作，可能又是一个新的坑等我去补。</p>
+<h3 id="网络端口请补补">网络端口请补补</h3>
+<p>最后还有个天坑，等我慢慢补</p>
+<p>本来参考教程可以轻轻松松完成一个k8s的hello-world，但是我自作聪明地把8080端口改成了8081端口。一方面是我怕力会用到这个端口，另一方面是我想8080不是tomcat默认端口嘛，可能会被占用掉。结果就是8081端口让我鼓捣了一整天，pod、deployment、service都是ready状态但就是通过<code>curl 10.152.183.14:8081</code>访问不到。气得我半死。</p>
+<p>也就是说，端口方面的知识还要好好补补。</p>
+<p>还有一个命令，查看端口信息：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>buntu@VM-0-12-ubuntu:~$ sudo netstat -tlpn
+</span></span><span style="display:flex;"><span>Active Internet connections <span style="color:#f92672">(</span>only servers<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+</span></span><span style="display:flex;"><span>tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 127.0.0.1:44047         0.0.0.0:*               LISTEN      17662/containerd    
+</span></span><span style="display:flex;"><span>tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 127.0.0.1:10256         0.0.0.0:*               LISTEN      17538/kube-proxy        
+</span></span><span style="display:flex;"><span>tcp6       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> :::80                   :::*                    LISTEN      1276/nginx: master   
+</span></span><span style="display:flex;"><span>tcp6       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> :::7000                 :::*                    LISTEN      1237/frps           
+</span></span></code></pre></div><p>虽然这和k8s的demo没有太大关系，还是po出来看看吧。可以看到80端口是力在用的nginx，7000端口是力在用的frps。</p>
+<p>然后我还有想说的：国内Blog质量真的差劲！！！！！我已经不是第一次有这样的感觉了。百度出来的基本上都是垃圾，能解决问题的极少，只会让自己心态崩上加崩。老老实实看官方文档，是效率最高的方式！！！！！</p>
+<h3 id="参考">参考</h3>
+<p><a href="https://www.cnblogs.com/bforever/p/10601169.html">https://www.cnblogs.com/bforever/p/10601169.html</a> （k8s hello-world）</p>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript" src="/hugo/js/MathJax.js"></script>
+  </body>
+</html>

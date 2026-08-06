@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.164.0">
+    <meta name="description" content="湖北·武汉">
+    <title>
+        Kubectl client 和 server version 差距错误 
+    </title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/hugo/css/main.css">
+    <link rel="stylesheet" href="/hugo/css/github.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+  <body>
+    
+<div class="blog-masthead">
+  <div class="wrapper">
+    <nav class="nav blog-nav" aria-label="主导航">
+      <a class="nav-link " href="/hugo/">首页</a>
+      <a class="nav-link active" href="/hugo/posts">文章</a>
+    </nav>
+  </div>
+</div>
+
+
+
+    
+    
+
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="blog-main">
+          <a class="back-link" href="/hugo/posts">← 返回归档</a>
+        	<article class="blog-post">
+			  <header>
+			    <h2 class="blog-post-title" dir="auto">Kubectl client 和 server version 差距错误</h2>
+			    <p class="blog-post-meta"><time datetime="2020-04-28T11:37:07+08:00">Tue Apr 28, 2020</time></p>
+			  </header>
+			  <p>每天捣鼓k8s就是各种填坑。不过在查问题解决办法的时候有个人说</p>
+<blockquote>
+<p>遇到坑不要怕，百度谷歌就是了。填完了坑，再踩两脚，以后走起来就平了。</p>
+</blockquote>
+<p>说得真好。爆炸的心态慢慢也就平复了。</p>
+<p>回归正题，坑长这个样子：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl -f apply any.yaml
+</span></span></code></pre></div><p>都会报错：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Error from server <span style="color:#f92672">(</span>NotFound<span style="color:#f92672">)</span>: the server could not find the requested resource
+</span></span></code></pre></div><p>一开始我以为是apiserver的问题，但是apiserver是正常运行的。搜索了很长时间，还是在yandex上搜索到可能是Kubectl cli和server的版本差距过大造成的问题。</p>
+<p>看一下我的两个版本：kubectl version</p>
+<pre tabindex="0"><code>Client Version: version.Info{Major:&#34;1&#34;, Minor:&#34;9&#34;, GitVersion:&#34;v1.9.3&#34;, GitCommit:&#34;5fa2db2bd46ac79e5e00a4e6ed24191080aa463b&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-01-18T21:12:46Z&#34;, GoVersion:&#34;go1.9.2&#34;, Compiler:&#34;gc&#34;, Platform:&#34;darwin/amd64&#34;}
+Server Version: version.Info{Major:&#34;1&#34;, Minor:&#34;16&#34;, GitVersion:&#34;v1.17.5&#34;, GitCommit:&#34;72c30166b2105cd7d3350f2c28a219e6abcd79eb&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2020-01-18T23:23:21Z&#34;, GoVersion:&#34;go1.13.5&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;}
+</code></pre><p>可以看到cli的版本是v1.9.3，而server的版本是1.17.5。差的太多了。</p>
+<p>继续搜索如何升级kubectl cli之，百度就别想能找到答案了。在k8s官网找到了安装kubectl的方法，重新安装了一下，kubectl cli的版本就升级到最新v1.18.5了。</p>
+<p>这下再试一下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl apply -f anyfile.yaml
+</span></span></code></pre></div><p>终于可以运行yaml文件了。</p>
+<h2 id="参考">参考</h2>
+<p><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/#before-you-begin">https://kubernetes.io/docs/tasks/tools/install-kubectl/#before-you-begin</a> （升级kubectl cli）</p>
+<p><a href="https://devops.stackexchange.com/questions/2956/how-do-i-get-kubernetes-to-work-when-i-get-an-error-the-server-could-not-find-t">https://devops.stackexchange.com/questions/2956/how-do-i-get-kubernetes-to-work-when-i-get-an-error-the-server-could-not-find-t</a> （坑出现的原因1）</p>
+<p><a href="https://www.digitalocean.com/community/questions/kubectl-apply-f-deployment-yml-the-server-could-not-find-the-requested-resource">https://www.digitalocean.com/community/questions/kubectl-apply-f-deployment-yml-the-server-could-not-find-the-requested-resource</a> （坑出现的原因2）</p>
+
+			</article>
+        </div> 
+      </div> 
+    </div>
+
+    
+    
+    
+
+    <script src="/hugo/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript" src="/hugo/js/MathJax.js"></script>
+  </body>
+</html>
