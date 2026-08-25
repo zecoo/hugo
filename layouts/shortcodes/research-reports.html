@@ -7,7 +7,10 @@
       <h2>行业研究与投资观点</h2>
       <p>围绕 AI 与数字科技，持续开展产业研究和投资观察。</p>
     </div>
-    <a class="section-link" href="{{ "posts" | relURL }}">查看全部研究 →</a>
+    <div class="research-heading-actions">
+      <p class="research-count"><strong>{{ len $reports }}</strong><span>篇报告</span></p>
+      <a class="section-link" href="{{ "posts" | relURL }}">查看全部研究 →</a>
+    </div>
   </div>
   <div class="research-grid">
     {{ range first 3 .ByDate.Reverse }}
