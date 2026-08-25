@@ -9,7 +9,6 @@
     </div>
     <div class="research-heading-actions">
       <p class="research-count"><strong>{{ len $reports }}</strong><span>篇报告</span></p>
-      <a class="section-link" href="{{ "posts" | relURL }}">查看全部研究 →</a>
     </div>
   </div>
   <div class="research-grid">
@@ -22,6 +21,9 @@
         <span>阅读报告 →</span>
       </a>
     {{ end }}
+  </div>
+  <div class="research-more">
+    <a class="section-link" href="{{ "posts" | relURL }}">查看全部研究 →</a>
   </div>
 </section>
 {{ end }}
