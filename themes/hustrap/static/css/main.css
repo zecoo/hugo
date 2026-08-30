@@ -339,6 +339,10 @@ header {
   .blog-main li > a > strong:first-child {
     width: auto;
     display: block;
+    margin-bottom: .15rem;
+  }
+  .blog-main li > a {
+    display: block;
   }
 }
 
