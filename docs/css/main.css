@@ -215,7 +215,8 @@ header {
 .patent-count { display: flex; flex-direction: column; align-items: flex-end; margin: 0; color: #667085; font-size: .8rem; white-space: nowrap; }
 .patent-count strong { color: #2e3d60; font-size: 2rem; font-weight: 600; line-height: 1; }
 .patent-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
-.patent-card { padding: 1rem 1.1rem; border-left: 3px solid #6f819d; background: #f7f9fc; }
+.patent-card { padding: 1rem 1.1rem; border-left: 3px solid #6f819d; background: #f7f9fc; color: inherit; text-decoration: none; }
+.patent-card:hover { border-left-color: #2e3d60; color: inherit; text-decoration: none; background: #f2f6fa; }
 .patent-card p { margin: 0; color: #667085; font-size: .78rem; font-weight: 500; }
 .patent-card h3 { margin: .35rem 0 .5rem; color: #30415d; font-size: .95rem; line-height: 1.55; }
 .patent-card span { color: #738197; font-family: Consolas, monospace; font-size: .76rem; }
@@ -334,8 +335,9 @@ header {
   .archive-hero { margin-bottom: 2.25rem; }
   .archive-hero h1 { font-size: 1.8rem; }
   .archive-grid { grid-template-columns: 1fr; }
-  .blog-main li > strong:first-child {
-    min-width: auto;
+  .blog-main li > strong:first-child,
+  .blog-main li > a > strong:first-child {
+    width: auto;
     display: block;
   }
 }
@@ -508,9 +510,10 @@ article div.highlight {
 }
 
 /* 列表日期对齐 */
-.blog-main li > strong:first-child {
+.blog-main li > strong:first-child,
+.blog-main li > a > strong:first-child {
   display: inline-block;
-  min-width: 9em;
+  width: 9em;
 }
 
 .back-link {

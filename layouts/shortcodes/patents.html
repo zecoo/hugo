@@ -9,11 +9,11 @@
   </div>
   <div class="patent-grid">
     {{ range hugo.Data.patents.selected }}
-    <article class="patent-card">
+    <a class="patent-card" href="{{ .url | relURL }}">
       <p>{{ .area }}</p>
       <h3>{{ .title }}</h3>
       <span>{{ .number }}</span>
-    </article>
+    </a>
     {{ end }}
   </div>
   <details class="patent-all">
