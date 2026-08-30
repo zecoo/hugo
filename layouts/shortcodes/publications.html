@@ -9,14 +9,14 @@
   </div>
   <div class="publication-grid">
     {{ range hugo.Data.publications.selected }}
-    <article class="publication-card">
+    <a class="publication-card" href="{{ .url | relURL }}">
       <p class="publication-meta">{{ .year }} · {{ .venue }}</p>
       <h3>{{ .title }}</h3>
       <p class="publication-summary">{{ .summary }}</p>
       <div class="publication-tags">
         {{ range .tags }}<span>{{ . }}</span>{{ end }}
       </div>
-    </article>
+    </a>
     {{ end }}
   </div>
   <details class="publication-all">

@@ -2,16 +2,19 @@ selected:
   - title: "ADmM: An Anomaly Detection Framework for Microservice Systems with Incomplete Metrics"
     venue: "ACM Transactions on the Web"
     year: "2026"
+    url: "files/ADmM An Anomaly Detection Framework for Microservice Systems with Incomplete Metrics.pdf"
     tags: ["TWEB · CCF-B", "第一作者"]
     summary: "面向指标不完整场景的微服务异常检测框架，提升云原生系统运行状态识别的鲁棒性。"
   - title: "MHP-RCA: Multivariate Hawkes Process-based Root Cause Analysis in Microservice Systems"
     venue: "Information and Software Technology"
     year: "2025"
+    url: "files/MHP-RCA Multivariate Hawkes Process-based Root Cause Analysis in Microservice Systems.pdf"
     tags: ["IST · CCF-B", "第一作者"]
     summary: "以多元 Hawkes 过程建模服务间影响关系，实现微服务故障根因的自动定位。"
   - title: "ReconRCA: Root Cause Analysis in Microservices with Incomplete Metrics"
     venue: "IEEE International Conference on Web Services"
     year: "2025"
+    url: "files/ReconRCA_Root_Cause_Analysis_in_Microservices_with_Incomplete_Metrics.pdf"
     tags: ["ICWS · CCF-B", "第一作者", "芬兰线下汇报"]
     summary: "针对观测指标缺失问题，探索可恢复、可解释的微服务根因定位方法。"
 

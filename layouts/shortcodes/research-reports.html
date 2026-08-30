@@ -1,4 +1,7 @@
 {{ $reports := where .Site.RegularPages "Params.categories" "intersect" (slice "行业研究报告") }}
+{{ $pinnedReports := where $reports "Params.pinned" true }}
+{{ $regularReports := where $reports "Params.pinned" false }}
+{{ $orderedReports := $pinnedReports.ByDate.Reverse | append $regularReports.ByDate.Reverse }}
 {{ with $reports }}
 <section id="research" class="research-section">
   <div class="section-heading research-heading">
@@ -12,13 +15,14 @@
     </div>
   </div>
   <div class="research-grid">
-    {{ range first 3 .ByDate.Reverse }}
+    {{ range first 3 $orderedReports }}
       {{ $destination := .RelPermalink }}
       {{ with .Params.download_url }}{{ $destination = . | relURL }}{{ end }}
-      <a class="research-card" href="{{ $destination }}">
-        <p>{{ .Date.Format "2006.01" }} · 行业研究报告</p>
+      <a class="research-card{{ if .Params.pinned }} research-card-pinned{{ end }}" href="{{ $destination }}">
+        <p>{{ if .Params.pinned }}<span class="pin-badge">置顶</span>{{ end }}{{ .Date.Format "2006.01" }} · 行业研究报告</p>
         <h3>{{ .Title }}</h3>
         <span>阅读报告 →</span>
+        {{ with .Params.thumbnail }}<img class="report-thumbnail" src="{{ . | relURL }}" alt="" aria-hidden="true">{{ end }}
       </a>
     {{ end }}
   </div>

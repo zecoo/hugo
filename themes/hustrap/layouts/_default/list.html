@@ -18,6 +18,9 @@
               <p>记录对 AI、数字科技与工程实践的长期观察。</p>
             </header>
             {{ $industry := where .Site.RegularPages "Params.categories" "intersect" (slice "行业研究报告") }}
+            {{ $pinnedIndustry := where $industry "Params.pinned" true }}
+            {{ $regularIndustry := where $industry "Params.pinned" false }}
+            {{ $orderedIndustry := $pinnedIndustry.ByDate.Reverse | append $regularIndustry.ByDate.Reverse }}
             {{ if $industry }}
             <section class="archive-section">
               <div class="archive-section-heading">
@@ -25,13 +28,14 @@
                 <span>{{ len $industry }} 篇</span>
               </div>
               <div class="archive-grid">
-                {{ range $industry.ByDate.Reverse }}
+                {{ range $orderedIndustry }}
                 {{- $destination := .RelPermalink -}}
                 {{- with .Params.download_url -}}{{- $destination = . | relURL -}}{{- end -}}
-                <a class="archive-card archive-card-report" href="{{ $destination }}">
-                  <p>{{ .Date.Format "2006.01.02" }} · 行业研究报告</p>
+                <a class="archive-card archive-card-report{{ if .Params.pinned }} archive-card-pinned{{ end }}" href="{{ $destination }}">
+                  <p>{{ if .Params.pinned }}<span class="pin-badge">置顶</span>{{ end }}{{ .Date.Format "2006.01.02" }} · 行业研究报告</p>
                   <h3>{{ .Title }}</h3>
                   <span>阅读报告 →</span>
+                  {{ with .Params.thumbnail }}<img class="report-thumbnail" src="{{ . | relURL }}" alt="" aria-hidden="true">{{ end }}
                 </a>
                 {{ end }}
               </div>

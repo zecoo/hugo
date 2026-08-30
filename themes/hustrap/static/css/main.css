@@ -193,8 +193,8 @@ header {
 .section-heading > p:last-child { margin: 0; color: #667085; }
 .section-kicker { margin: 0; color: #60708c; font-size: .75rem; font-weight: 600; letter-spacing: .1em; }
 .publication-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-.publication-card { display: flex; flex-direction: column; min-height: 15.5rem; padding: 1.25rem; border: 1px solid #dfe5ed; border-radius: .4rem; background: #fff; box-shadow: 0 2px 6px rgba(30, 41, 59, .04); }
-.publication-card:hover { border-color: #aebaca; box-shadow: 0 5px 14px rgba(30, 41, 59, .08); }
+.publication-card { display: flex; flex-direction: column; min-height: 15.5rem; padding: 1.25rem; border: 1px solid #dfe5ed; border-radius: .4rem; background: #fff; color: inherit; text-decoration: none; box-shadow: 0 2px 6px rgba(30, 41, 59, .04); }
+.publication-card:hover { border-color: #aebaca; color: inherit; text-decoration: none; box-shadow: 0 5px 14px rgba(30, 41, 59, .08); }
 .publication-card h3 { margin: .35rem 0 .65rem; color: #243550; font-size: 1rem; line-height: 1.55; }
 .publication-meta { margin: 0; color: #667085; font-size: .8rem; line-height: 1.45; }
 .publication-summary { margin: 0 0 1rem; color: #566273; font-size: .9rem; line-height: 1.7; }
@@ -240,11 +240,13 @@ header {
 .section-link { margin-bottom: .2rem; color: #2f527b; font-size: .9rem; font-weight: 500; text-decoration: none; white-space: nowrap; }
 .research-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .research-more { margin-top: 1rem; text-align: right; }
-.research-card { display: flex; flex-direction: column; min-height: 10rem; padding: 1.25rem; border: 1px solid #dce4ee; border-radius: .4rem; background: #fff; color: inherit; text-decoration: none; }
+.research-card { position: relative; display: flex; flex-direction: column; min-height: 10rem; padding: 1.25rem; border: 1px solid #dce4ee; border-radius: .4rem; background: #fff; color: inherit; text-decoration: none; }
 .research-card:hover { border-color: #93a5bd; box-shadow: 0 5px 14px rgba(30, 41, 59, .08); color: inherit; text-decoration: none; }
 .research-card p { margin: 0; color: #66778e; font-size: .78rem; }
 .research-card h3 { margin: .55rem 0 1rem; color: #2d405e; font-size: 1.05rem; line-height: 1.55; }
-.research-card span { margin-top: auto; color: #2f527b; font-size: .86rem; font-weight: 500; }
+.research-card > span { margin-top: auto; padding-right: 4.8rem; color: #2f527b; font-size: .86rem; font-weight: 500; }
+.research-card-pinned { border-top: 3px solid #2e3d60; }
+.pin-badge { display: inline-block; margin-right: .4rem; padding: .08rem .38rem; border-radius: 1rem; background: #e8eef6; color: #2e3d60; font-size: .68rem; font-weight: 600; letter-spacing: .04em; line-height: 1.4; vertical-align: .08em; }
 
 /* Writing archive */
 .archive-page { max-width: 60rem; margin: 0 auto; padding: 3.5rem 0 4.5rem; }
@@ -256,12 +258,15 @@ header {
 .archive-section-heading h2 { margin: 0; padding: 0; border: 0; }
 .archive-section-heading span { color: #728095; font-size: .85rem; }
 .archive-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.archive-card { display: flex; flex-direction: column; min-height: 11.5rem; padding: 1.35rem; border: 1px solid #dce4ee; border-radius: .45rem; background: #fff; color: inherit; text-decoration: none; }
+.archive-card { position: relative; display: flex; flex-direction: column; min-height: 11.5rem; padding: 1.35rem; border: 1px solid #dce4ee; border-radius: .45rem; background: #fff; color: inherit; text-decoration: none; }
 .archive-card:hover { border-color: #91a5c0; box-shadow: 0 5px 14px rgba(30, 41, 59, .08); color: inherit; text-decoration: none; }
 .archive-card p { margin: 0; color: #69798f; font-size: .8rem; }
 .archive-card h3 { margin: .65rem 0 1rem; color: #2d405e; font-size: 1.1rem; line-height: 1.55; }
-.archive-card span { margin-top: auto; color: #2f527b; font-size: .88rem; font-weight: 500; }
+.archive-card > span { margin-top: auto; color: #2f527b; font-size: .88rem; font-weight: 500; }
 .archive-card-notes { background: #f4f7fb; }
+.archive-card-pinned { border-top: 3px solid #2e3d60; }
+.archive-card-report > span { padding-right: 5.3rem; }
+.report-thumbnail { position: absolute; right: 1.15rem; bottom: .95rem; width: 4rem; height: 3.1rem; opacity: .92; pointer-events: none; }
 
 @media (min-width: 40em) {
   .blog-title {
