@@ -457,6 +457,17 @@ article img {
 .sharing-icons .nav-item+.nav-item {
   margin-left: 1rem;
 }
+
+@media (max-width: 576px) {
+  .blog-main li > a {
+    display: block;
+  }
+  .blog-main li > a > strong:first-child {
+    display: block;
+    width: auto;
+    margin-bottom: .15rem;
+  }
+}
 /* add a margin above the disqus comments only if the preceeding sharing section
 is present (because sharing can be hidden, and the margin isn't always needed */
 section + #disqus_thread {
