@@ -540,3 +540,15 @@ article div.highlight {
 .back-link:hover {
   color: #333;
 }
+
+/* Mobile resume entries: keep dates and details on separate lines. */
+@media (max-width: 576px) {
+  .blog-main li > a {
+    display: block;
+  }
+  .blog-main li > a > strong:first-child {
+    display: block;
+    width: auto;
+    margin-bottom: .15rem;
+  }
+}
